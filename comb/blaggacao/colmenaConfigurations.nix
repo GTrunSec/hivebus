@@ -7,6 +7,6 @@
 
   inherit (cell.nixosProfiles) iog-patched-nix;
 in
-  builtins.mapAttrs (_QUEEN.library.lay nixos.legacyPackages.x86_64-linux) {
+  builtins.mapAttrs (_QUEEN.lib.lay nixos.legacyPackages.x86_64-linux) {
     ws = {};
   }

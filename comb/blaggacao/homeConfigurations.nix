@@ -14,7 +14,7 @@
   email = "david.arnold@iohk.io";
   gitSigningKey = "0318D822BAC965CC";
 in
-  builtins.mapAttrs (_QUEEN.library.bearHomeConfiguration home) {
+  builtins.mapAttrs (_QUEEN.lib.bearHomeConfiguration home) {
     blaggacao = {
       imports = shell;
       programs.browserpass.enable = true;

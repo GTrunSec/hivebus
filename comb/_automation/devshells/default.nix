@@ -6,7 +6,7 @@
   inherit (inputs) nixpkgs std;
   withCategory = category: attrset: attrset // {inherit category;};
 in
-  l.mapAttrs (_: std.std.lib.mkShell) {
+  l.mapAttrs (_: std.lib.dev.mkShell) {
     default = {
       extraModulesPath,
       pkgs,
@@ -16,14 +16,15 @@ in
       std.docs.enable = false;
       git.hooks = {
         enable = true;
-        pre-commit.text = builtins.readFile ./pre-flight-check.sh;
       };
       imports = [
         std.std.devshellProfiles.default
         "${extraModulesPath}/git/hooks.nix"
       ];
+
+      nixago = [cell.nixago.treefmt cell.nixago.mdbook];
+
       commands = [
-        (withCategory "hexagon" {package = nixpkgs.treefmt;})
         # (withCategory "hexagon" {package = nixpkgs.colmena;})
         (withCategory "hexagon" {
           name = "build-larva";
@@ -34,17 +35,6 @@ in
         })
       ];
       packages = [
-        # formatters
-        nixpkgs.alejandra
-        nixpkgs.nodePackages.prettier
-        nixpkgs.nodePackages.prettier-plugin-toml
-        nixpkgs.shfmt
-        nixpkgs.editorconfig-checker
       ];
-      devshell.startup.nodejs-setuphook =
-        l.stringsWithDeps.noDepEntry
-        ''
-          export NODE_PATH=${nixpkgs.nodePackages.prettier-plugin-toml}/lib/node_modules:$NODE_PATH
-        '';
     };
   }

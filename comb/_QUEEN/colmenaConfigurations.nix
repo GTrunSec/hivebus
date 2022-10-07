@@ -3,9 +3,9 @@
   cell,
 }: let
   inherit (inputs) nixos-generators nixos;
-  inherit (cell) nixosProfiles library;
+  inherit (cell) nixosProfiles lib;
 in
-  builtins.mapAttrs (library.lay nixos.legacyPackages.x86_64-linux) {
+  builtins.mapAttrs (lib.lay nixos.legacyPackages.x86_64-linux) {
     larva = {
       deployment = {
         targetHost = "fe80::47";

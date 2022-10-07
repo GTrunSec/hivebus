@@ -12,7 +12,7 @@
   email = "omega.meseret@iohk.io";
   gitSigningKey = "FFFFFFFFFFFFFFFF";
 in
-  builtins.mapAttrs (_QUEEN.library.bearHomeConfiguration home) {
+  builtins.mapAttrs (_QUEEN.lib.bearHomeConfiguration home) {
     omega = {
       imports = shell;
       programs.git = {

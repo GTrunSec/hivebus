@@ -6,3 +6,8 @@
 
 # nixos/nix
 result*
+
+# nixago: ignore-linked-files
+treefmt.toml
+# nixago-auto-created: mdbook-build-folder
+docs/book/**

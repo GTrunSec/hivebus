@@ -1,14 +1,15 @@
 {
   description = "The Hive - The secretly open NixOS-Society";
-  inputs.std.url = "github:divnix/std";
-  inputs.std.inputs.nixpkgs.follows = "nixpkgs";
-  inputs.yants.follows = "std/yants";
-  inputs.nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-  inputs.data-merge.url = "github:divnix/data-merge";
+
+  inputs = {
+    std.url = "github:divnix/std";
+    std.inputs.nixpkgs.follows = "nixpkgs";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    cells-lab.url = "github:gtrunsec/cells-lab";
+  };
 
   # tools
   inputs = {
-    n2c.url = "github:nlewo/nix2container";
     nixos-generators.url = "github:nix-community/nixos-generators";
   };
 
@@ -26,88 +27,66 @@
     iog-patched-nix.url = "github:kreisys/nix/goodnix-maybe-dont-functor";
   };
 
-  outputs = inputs: let
+  outputs = {
+    std,
+    nixpkgs,
+    ...
+  } @ inputs: let
     # exports have no system, pick one
     exports = inputs.self.x86_64-linux;
+    colmena = import ./lib/colmena.nix {inherit inputs exports;};
   in
-    inputs.std.growOn {
+    std.growOn {
       inherit inputs;
+
       cellsFrom = ./comb;
-      # debug = ["cells" "x86_64-linux"];
-      organelles = [
+
+      cellBlocks = [
         # modules implement
-        (inputs.std.functions "nixosModules")
-        (inputs.std.functions "homeModules")
-        (inputs.std.functions "devshellModules")
+        (std.blockTypes.functions "nixosModules")
+        (std.blockTypes.functions "homeModules")
+        (std.blockTypes.functions "devshellModules")
 
         # profiles activate
-        (inputs.std.functions "nixosProfiles")
-        (inputs.std.functions "homeProfiles")
-        (inputs.std.functions "devshellProfiles")
+        (std.blockTypes.functions "nixosProfiles")
+        (std.blockTypes.functions "homeProfiles")
+        (std.blockTypes.functions "devshellProfiles")
 
         # suites aggregate profiles
-        (inputs.std.functions "nixosSuites")
-        (inputs.std.functions "homeSuites")
+        (std.blockTypes.functions "nixosSuites")
+        (std.blockTypes.functions "homeSuites")
 
         # configurations can be deployed
-        (inputs.std.data "colmenaConfigurations")
-        (inputs.std.data "homeConfigurations")
+        (std.blockTypes.data "colmenaConfigurations")
+        (std.blockTypes.data "homeConfigurations")
 
         # devshells can be entered
-        (inputs.std.devshells "devshells")
+        (std.blockTypes.devshells "devshells")
 
         # jobs can be run
-        (inputs.std.runnables "jobs")
+        (std.blockTypes.runnables "jobs")
 
-        # library holds shared knowledge made code
-        (inputs.std.functions "library")
+        # lib holds shared knowledge made code
+        (std.blockTypes.functions "lib")
+
+        (std.blockTypes.nixago "nixago")
       ];
+    }
+    {
+      devShells = inputs.std.harvest inputs.self ["main" "devshells"];
     }
     # soil - the first (and only) layer implements adapters for tooling
     {
       # tool: colmena
-      colmena = let
-        inherit (inputs.nixpkgs.lib.attrsets) foldAttrs recursiveUpdate mapAttrsToList mapAttrs';
-        inherit (inputs.nixpkgs.lib.lists) optionals flatten map;
-        inherit (builtins) attrValues;
-        collect = x:
-          foldAttrs recursiveUpdate {} (flatten (mapAttrsToList (
-              cell: organelles:
-                optionals (organelles ? colmenaConfigurations)
-                (map (mapAttrs' (name: value: {
-                  name =
-                    if name != "meta"
-                    then "${cell}-o-${name}"
-                    else name;
-                  value =
-                    if name == "meta" && (value ? nodeNixpkgs)
-                    then
-                      (
-                        value
-                        // {
-                          nodeNixpkgs =
-                            mapAttrs' (
-                              name: value: {
-                                name = "${cell}-o-${name}";
-                                inherit value;
-                              }
-                            )
-                            value.nodeNixpkgs;
-                        }
-                      )
-                    else value;
-                })) (attrValues organelles.colmenaConfigurations))
-            )
-            x));
-      in
-        collect exports;
+      inherit colmena;
+    }
+    {
+      # --- Flake Local Nix Configuration ----------------------------
+      # TODO: adopt spongix
+      nixConfig = {
+        extra-substituters = [];
+        extra-trusted-public-keys = [];
+      };
     };
-
-  # --- Flake Local Nix Configuration ----------------------------
-  # TODO: adopt spongix
-  nixConfig = {
-    extra-substituters = [];
-    extra-trusted-public-keys = [];
-  };
   # --------------------------------------------------------------
 }
