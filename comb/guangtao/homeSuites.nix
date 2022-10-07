@@ -2,12 +2,12 @@
   inputs,
   cell,
 }: let
-  inherit (inputs.cells) blaggacao;
+  inherit (inputs.cells) guangtao;
 
   inherit (cell) homeProfiles;
 in {
   shell = with homeProfiles; [
-    blaggacao.homeModules.alacritty
+    guangtao.homeModules.alacritty
     alacritty
     bat
     broot

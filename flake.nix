@@ -56,6 +56,7 @@
         (std.blockTypes.functions "nixosProfiles")
         (std.blockTypes.functions "homeProfiles")
         (std.blockTypes.functions "devshellProfiles")
+        (std.blockTypes.functions "userProfiles")
 
         # suites aggregate profiles
         (std.blockTypes.functions "nixosSuites")

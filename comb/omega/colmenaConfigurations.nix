@@ -8,7 +8,7 @@
   inherit (cell.nixosProfiles) iog-patched-nix;
 in
   builtins.mapAttrs (_QUEEN.lib.lay nixos.legacyPackages.x86_64-linux) {
-    blacklion = {
-      imports = [iog-patched-nix ./colmenaConfigurations/blacklion];
-    };
+    # blacklion = {
+    #   imports = [iog-patched-nix ./colmenaConfigurations/blacklion];
+    # };
   }
