@@ -4,11 +4,12 @@
 }: let
   inherit (inputs) nixos;
   inherit (inputs.cells) _QUEEN;
-
-  inherit (cell.nixosProfiles) iog-patched-nix;
 in
   builtins.mapAttrs (_QUEEN.lib.lay nixos.legacyPackages.x86_64-linux) {
     blacklion = {
-      imports = [iog-patched-nix ./colmenaConfigurations/blacklion];
+      imports = [
+        cell.nixosProfiles.default
+        ./colmenaConfigurations/blacklion
+      ];
     };
   }

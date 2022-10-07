@@ -21,9 +21,7 @@
   };
 
   # individual inputs
-  inputs = {
-    iog-patched-nix.url = "github:kreisys/nix/goodnix-maybe-dont-functor";
-  };
+  inputs = {};
 
   outputs = {
     std,
