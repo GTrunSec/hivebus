@@ -2,7 +2,7 @@
 language = "en"
 multilingual = false
 src = "docs"
-title = "Vast2nix Doc"
+title = "NixOS Hive"
 
 [build]
 build-dir = "docs/book"

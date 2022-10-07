@@ -17,7 +17,7 @@ in {
   };
   mdbook = std.presets.nixago.mdbook {
     configData = {
-      book.title = "Vast2nix Doc";
+      book.title = "NixOS Hive";
     };
   };
 }
