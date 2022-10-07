@@ -15,11 +15,8 @@
 
   # nixpkgs & home-manager
   inputs = {
-    nixos.follows = "nixos-22-05";
-    home.follows = "home-22-05";
-
-    nixos-22-05.url = "github:nixos/nixpkgs/release-22.05";
-    home-22-05.url = "github:blaggacao/home-manager/release-21.11-with-nix-profile";
+    nixos.url = "github:nixos/nixpkgs/release-22.05";
+    home.url = "github:nix-community/home-manager/release-22.05";
   };
 
   # individual inputs
