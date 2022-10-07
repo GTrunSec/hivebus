@@ -9,6 +9,6 @@
 in
   builtins.mapAttrs (_QUEEN.lib.lay nixos.legacyPackages.x86_64-linux) {
     blacklion = {
-      imports = [iog-patched-nix ./nixosConfigurations/blacklion];
+      imports = [iog-patched-nix ./colmenaConfigurations/blacklion];
     };
   }

@@ -35,7 +35,15 @@
     colmena = import ./lib/colmena.nix {inherit inputs exports;};
   in
     std.growOn {
+
       inherit inputs;
+
+      systems = [
+        "aarch64-darwin"
+        "aarch64-linux"
+        "x86_64-darwin"
+        "x86_64-linux"
+      ];
 
       cellsFrom = ./comb;
 
@@ -73,7 +81,7 @@
       ];
     }
     {
-      devShells = inputs.std.harvest inputs.self ["main" "devshells"];
+      devShells = inputs.std.harvest inputs.self ["_automation" "devshells"];
     }
     # soil - the first (and only) layer implements adapters for tooling
     {

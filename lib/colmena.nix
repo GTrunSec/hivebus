@@ -8,7 +8,8 @@
     inherit (l.lists) optionals flatten map;
 
     collect = x:
-      foldAttrs recursiveUpdate {} (flatten (mapAttrsToList (
+      foldAttrs recursiveUpdate {
+      } (flatten (mapAttrsToList (
           cell: organelles:
             optionals (organelles ? colmenaConfigurations)
             (map (mapAttrs' (name: value: {
@@ -22,6 +23,9 @@
                   (
                     value
                     // {
+                      nixpkgs = import inputs.nixpkgs {
+                        system = "x86_64-linux";
+                      };
                       nodeNixpkgs =
                         mapAttrs' (
                           name: value: {
