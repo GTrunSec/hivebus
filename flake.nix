@@ -15,6 +15,7 @@
 
   # nixpkgs & home-manager
   inputs = {
+    nixpkgs-lock.follows = "nixpkgs";
     nixos.url = "github:nixos/nixpkgs/release-22.05";
     home.url = "github:nix-community/home-manager/release-22.05";
   };
@@ -65,6 +66,8 @@
 
         # lib holds shared knowledge made code
         (std.blockTypes.functions "lib")
+
+        (std.blockTypes.functions "packages")
 
         (std.blockTypes.nixago "nixago")
       ];

@@ -25,7 +25,8 @@ in
       nixago = [cell.nixago.treefmt cell.nixago.mdbook];
 
       commands = [
-        # (withCategory "hexagon" {package = nixpkgs.colmena;})
+        {package = cell.packages.colmena;}
+        # { # (withCategory "hexagon" {package = nixpkgs.colmena;})
         (withCategory "hexagon" {
           name = "build-larva";
           help = "the hive x86_64-linux iso-bootstrapper";

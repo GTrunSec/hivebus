@@ -674,6 +674,9 @@
         "nixos": "nixos_2",
         "nixos-generators": "nixos-generators",
         "nixpkgs": "nixpkgs_6",
+        "nixpkgs-lock": [
+          "nixpkgs"
+        ],
         "std": "std_2"
       }
     },
