@@ -35,7 +35,6 @@
     colmena = import ./lib/colmena.nix {inherit inputs exports;};
   in
     std.growOn {
-
       inherit inputs;
 
       systems = [
