@@ -28,9 +28,7 @@
     nixpkgs,
     ...
   } @ inputs: let
-    # exports have no system, pick one
-    exports = inputs.self.x86_64-linux;
-    colmena = import ./lib/colmena.nix {inherit inputs exports;};
+    colmena = import ./lib/colmena.nix {inherit inputs;};
   in
     std.growOn {
       inherit inputs;

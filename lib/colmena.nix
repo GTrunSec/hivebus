@@ -1,6 +1,6 @@
 {
   inputs,
-  exports,
+  system ? "x86_64-linux",
 }: let
   l = inputs.nixpkgs.lib // builtins;
   colmena = let
@@ -24,7 +24,7 @@
                     value
                     // {
                       nixpkgs = import inputs.nixpkgs {
-                        system = "x86_64-linux";
+                        inherit system;
                       };
                       nodeNixpkgs =
                         mapAttrs' (
@@ -41,6 +41,7 @@
         )
         x));
   in
-    collect exports;
+    # exports have no system, pick one
+    collect inputs.self.${system};
 in
   colmena
