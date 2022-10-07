@@ -34,7 +34,7 @@ in {
         ({pkgs, ...}: {
           # _module.args.pkgsPath = pkgs.path;
           home = {inherit homeDirectory username;};
-          home.stateVersion = lib.mkDefault "21.11";
+          home.stateVersion = lib.mkDefault "22.05";
         })
       ];
     };
