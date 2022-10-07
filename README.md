@@ -7,3 +7,7 @@
 ---
 
 <sub>It is forbidden to modify this readme &rarr; read the code!</sub>
+
+# Attribution
+
+This project was forked from [hive](https://github.com/divnix/hive)
