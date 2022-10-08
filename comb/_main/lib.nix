@@ -21,6 +21,23 @@
     sops-nix.inputs.nixpkgs = "nixos";
     ragenix.inputs.nixpkgs.follows = "nixos";
   };
+
+  __misc__ = callFlake "${(std.incl self [(self + /lock/misc)])}/lock/misc" {
+    nixpkgs.locked = inputs.nixpkgs-lock.sourceInfo;
+    nixos.locked =
+      inputs.nixos.sourceInfo
+      // {
+        type = "github";
+        owner = "NixOS";
+        repo = "nixpkgs";
+      };
+
+    styx.inputs.nixpkgs = "nixpkgs";
+  };
 in {
-  inherit l __default__;
+  inherit
+    l
+    __default__
+    __misc__
+    ;
 }

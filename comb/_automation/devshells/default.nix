@@ -26,6 +26,7 @@ in
 
       commands = [
         {package = cell.packages.colmena;}
+        {package = inputs.cells._docs.packages.styx;}
         # { # (withCategory "hexagon" {package = nixpkgs.colmena;})
         (withCategory "hexagon" {
           name = "build-larva";
@@ -35,7 +36,6 @@ in
           '';
         })
       ];
-      packages = [
-      ];
+      packages = [];
     };
   }

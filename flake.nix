@@ -72,6 +72,8 @@
         # lib holds shared knowledge made code
         (std.blockTypes.functions "lib")
 
+        (std.blockTypes.functions "config")
+
         (std.blockTypes.functions "packages")
 
         (std.blockTypes.nixago "nixago")
