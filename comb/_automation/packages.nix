@@ -3,5 +3,5 @@
   cell,
 }: let
 in {
-  inherit (cell.lib.__default__.colmena.packages) colmena;
+  inherit (inputs.cells.main.lib.__default__.colmena.packages) colmena;
 }
