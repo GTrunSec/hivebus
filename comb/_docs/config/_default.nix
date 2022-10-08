@@ -2,26 +2,15 @@
   inputs,
   cell,
 }: let
+  inherit (inputs) std self;
   inherit (cell.packages) styx;
   styx-themes = import styx.themes;
+  path = "${(std.incl self [(self + /docs/hive)])}//docs/hive";
+  nixpkgs = inputs.nixpkgs.appendOverlays [
+    (final: prev: {
+      inherit styx;
+    })
+  ];
 in {
-  styx = import styx {
-    # Used packages
-    pkgs = inputs.nixpkgs;
-
-    # Used configuration
-    config = [
-      ./conf.nix
-      {}
-    ];
-
-    # Loaded themes
-    themes = [
-      styx-themes.generic-templates
-      ./themes/styx-site
-    ];
-
-    # Environment propagated to templates
-    env = {inherit data pages;};
-  };
+  hive = import "${path}/site.nix" { pkgs = nixpkgs; };
 }

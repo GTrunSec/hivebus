@@ -16,7 +16,6 @@
      This section setup required variables
   -----------------------------------------------------------------------------
   */
-
   styx = import pkgs.styx {
     # Used packages
     inherit pkgs;

@@ -5,4 +5,5 @@ let
 in
 {
   inherit (styx.packages) styx;
+  inherit (cell.config.default.hive) site;
 }
