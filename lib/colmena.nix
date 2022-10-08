@@ -10,8 +10,8 @@
     collect = x:
       foldAttrs recursiveUpdate {
       } (flatten (mapAttrsToList (
-          cell: organelles:
-            optionals (organelles ? colmenaConfigurations)
+          cell: cells:
+            optionals (cells ? colmenaConfigurations)
             (map (mapAttrs' (name: value: {
               name =
                 if name != "meta"
@@ -37,7 +37,7 @@
                     }
                   )
                 else value;
-            })) (l.attrValues organelles.colmenaConfigurations))
+            })) (l.attrValues cells.colmenaConfigurations))
         )
         x));
   in

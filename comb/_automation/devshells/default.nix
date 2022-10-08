@@ -22,7 +22,7 @@ in
         "${extraModulesPath}/git/hooks.nix"
       ];
 
-      nixago = [cell.nixago.treefmt cell.nixago.mdbook];
+      nixago = [] ++ l.attrValues cell.nixago;
 
       commands = [
         {package = cell.packages.colmena;}

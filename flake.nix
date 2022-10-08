@@ -53,6 +53,7 @@
         (std.blockTypes.functions "homeProfiles")
         (std.blockTypes.functions "devshellProfiles")
         (std.blockTypes.functions "userProfiles")
+        (std.blockTypes.functions "secretProfiles")
 
         # suites aggregate profiles
         (std.blockTypes.functions "nixosSuites")
@@ -66,7 +67,7 @@
         (std.blockTypes.devshells "devshells")
 
         # jobs can be run
-        (std.blockTypes.runnables "jobs")
+        (std.blockTypes.runnables "entrypoints")
 
         # lib holds shared knowledge made code
         (std.blockTypes.functions "lib")

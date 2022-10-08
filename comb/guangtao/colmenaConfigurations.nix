@@ -8,7 +8,7 @@
   l = inputs.nixpkgs.lib // builtins;
 in
   builtins.mapAttrs (_QUEEN.lib.lay nixos.legacyPackages.x86_64-linux) {
-    ws = {
+    home = {
       imports = [
         ../omega/colmenaConfigurations/blacklion
         inputs.home.nixosModules.home-manager

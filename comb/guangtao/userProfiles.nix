@@ -3,13 +3,12 @@
   cell,
 }: let
   l = inputs.nixpkgs.lib // builtins;
-
-  default = l.baseNameOf ./.;
 in {
-  default.users.users."${default}" = {
+  default.users.users."${l.baseNameOf ./.}" = {
     password = "nixos";
     description = "default";
     isNormalUser = true;
     extraGroups = ["wheel"];
+    inherit (cell.secretProfiles.guangtao) openssh;
   };
 }
