@@ -7,7 +7,7 @@
 
   l = nixpkgs.lib // builtins;
 
-  __default__ = callFlake "${(std.incl self [(self + /lock/default)])}/lock/default" {
+  __default__ = callFlake "${(std.incl self ["lock"])}/lock/default" {
     nixpkgs.locked = inputs.nixpkgs-lock.sourceInfo;
     nixos.locked =
       inputs.nixos.sourceInfo
@@ -19,10 +19,10 @@
 
     colmena.inputs.nixpkgs = "nixpkgs";
     sops-nix.inputs.nixpkgs = "nixos";
-    ragenix.inputs.nixpkgs.follows = "nixos";
+    ragenix.inputs.nixpkgs = "nixos";
   };
 
-  __misc__ = callFlake "${(std.incl self [(self + /lock/misc)])}/lock/misc" {
+  __misc__ = callFlake "${(std.incl self ["lock"])}/lock/misc" {
     nixpkgs.locked = inputs.nixpkgs-lock.sourceInfo;
     nixos.locked =
       inputs.nixos.sourceInfo

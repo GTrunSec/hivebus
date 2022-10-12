@@ -1,0 +1,105 @@
+:PROPERTIES:
+:ID:       94135d47-652e-476c-9c28-5e38c6e070de
+:END:
+#+title: Lib.nix
+
+* colmena
+
+- https://github.com/zhaofengli/colmena
+
+#+begin_src nix :exports both :results output :tangle "../../lib/colmena.nix"
+{
+  inputs,
+  system ? "x86_64-linux",
+}: let
+  l = inputs.nixpkgs.lib // builtins;
+  colmena = let
+    inherit (l.attrsets) foldAttrs recursiveUpdate mapAttrsToList mapAttrs';
+    inherit (l.lists) optionals flatten map;
+
+    collect = x:
+      foldAttrs recursiveUpdate {
+      } (flatten (mapAttrsToList (
+          cell: cells:
+            optionals (cells ? colmenaConfigurations)
+            (map (mapAttrs' (name: value: {
+              name =
+                if name != "meta"
+                then "${cell}-o-${name}"
+                else name;
+              value =
+                if name == "meta" && (value ? nodeNixpkgs)
+                then
+                  (
+                    value
+                    // {
+                      nixpkgs = import inputs.nixpkgs {
+                        inherit system;
+                      };
+                      nodeNixpkgs =
+                        mapAttrs' (
+                          name: value: {
+                            name = "${cell}-o-${name}";
+                            inherit value;
+                          }
+                        )
+                        value.nodeNixpkgs;
+                    }
+                  )
+                else value;
+            })) (l.attrValues cells.colmenaConfigurations))
+        )
+        x));
+  in
+    # exports have no system, pick one
+    collect inputs.self.${system};
+in
+  colmena
+#+end_src
+
+** update lock
+
+#+begin_src sh :async :exports both :results output
+nix flake lock --update-input colmena ../../lock/default | date '+%F-%T'
+#+end_src
+
+#+RESULTS:
+: 2022-10-11-00:52:42
+
+
+* Deploy Build
+
+#+begin_src sh :async :exports both :results output
+just home
+#+end_src
+
+
+* Search Code
+
+#+begin_src sh :async :exports both :results output
+just test1
+#+end_src
+
+#+RESULTS:
+#+begin_example
+./comb/_docs/config/_default.nix:8:37:string.special.path:/docs/styx
+./comb/_docs/config.nix:7:20:string.special.path:./config/_default.nix
+./comb/_common/nixosProfiles.nix:7:22:string.special.path:./nixosProfiles/bootstrap.nix
+./comb/_common/nixosProfiles.nix:9:16:string.special.path:./nixosProfiles/nix.nix
+./comb/_main/lib.nix:10:54:string.special.path:/lock/default
+./comb/_main/lib.nix:25:51:string.special.path:/lock/misc
+./flake.nix:31:22:string.special.path:./lib/colmena.nix
+./flake.nix:42:19:string.special.path:./comb
+./comb/_automation/nixago/default.nix:25:22:string.special.path:./tasks.nix
+./comb/guangtao/userProfiles.nix:7:39:string.special.path:./.
+./comb/guangtao/colmenaConfigurations.nix:13:9:string.special.path:../omega/colmenaConfigurations/blacklion
+./comb/guangtao/colmenaConfigurations.nix:18:46:string.special.path:./.
+./comb/guangtao/homeModules/programs/alacritty/default.nix:9:59:string.special.path:./key-bindings.toml
+./comb/omega/colmenaConfigurations.nix:12:9:string.special.path:./colmenaConfigurations/blacklion
+./comb/guangtao/homeModules/default.nix:5:22:string.special.path:./programs/alacritty
+./comb/omega/colmenaConfigurations/blacklion/default.nix:12:5:string.special.path:./hardware-configuration.nix
+./comb/omega/colmenaConfigurations/blacklion/default.nix:13:5:string.special.path:./zfs.nix
+./comb/_QUEEN/nixosProfiles.nix:7:22:string.special.path:./nixosProfiles/bootstrap.nix
+./docs/styx/site.nix:9:17:string.special.path:<nixpkgs>
+./docs/styx/site.nix:25:7:string.special.path:./conf.nix
+#+end_example

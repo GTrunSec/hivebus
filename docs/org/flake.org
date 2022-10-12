@@ -1,0 +1,131 @@
+:PROPERTIES:
+:ID:       6b4337ef-4a38-43e2-97d6-2a371dc3ee02
+:END:
+#+title: Flake.nix
+
+* Index
+- [[id:94135d47-652e-476c-9c28-5e38c6e070de][Lib.nix]]
+
+* Init
+
+#+begin_src nix :exports both :results output :tangle "../../flake.nix"
+{
+  description = "The Hive - The secretly open NixOS-Society";
+
+  inputs = {
+    std.url = "github:divnix/std";
+    std.inputs.nixpkgs.follows = "nixpkgs";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    cells-lab.url = "github:gtrunsec/cells-lab";
+  };
+
+  # tools
+  inputs = {
+    nixos-generators.url = "github:nix-community/nixos-generators";
+  };
+
+  # nixpkgs & home-manager
+  inputs = {
+    nixpkgs-lock.follows = "nixpkgs";
+    nixos.url = "github:nixos/nixpkgs/release-22.05";
+    home.url = "github:nix-community/home-manager/release-22.05";
+  };
+
+  # individual inputs
+  inputs = {};
+
+  outputs = {
+    std,
+    nixpkgs,
+    ...
+  } @ inputs: let
+    colmena = import ./lib/colmena.nix {inherit inputs;};
+  in
+    std.growOn {
+      inherit inputs;
+      systems = [
+        "aarch64-darwin"
+        "aarch64-linux"
+        "x86_64-darwin"
+        "x86_64-linux"
+      ];
+
+      cellsFrom = ./comb;
+
+      cellBlocks = [
+        # modules implement
+        (std.blockTypes.functions "nixosModules")
+        (std.blockTypes.functions "homeModules")
+        (std.blockTypes.functions "devshellModules")
+
+        # profiles activate
+        (std.blockTypes.functions "nixosProfiles")
+        (std.blockTypes.functions "homeProfiles")
+        (std.blockTypes.functions "devshellProfiles")
+        (std.blockTypes.functions "userProfiles")
+        (std.blockTypes.functions "secretProfiles")
+
+        # suites aggregate profiles
+        (std.blockTypes.functions "nixosSuites")
+        (std.blockTypes.functions "homeSuites")
+
+        # configurations can be deployed
+        (std.blockTypes.data "colmenaConfigurations")
+        (std.blockTypes.data "homeConfigurations")
+
+        # devshells can be entered
+        (std.blockTypes.devshells "devshells")
+
+        # jobs can be run
+        (std.blockTypes.runnables "entrypoints")
+
+        # lib holds shared knowledge made code
+        (std.blockTypes.functions "lib")
+
+        (std.blockTypes.functions "config")
+
+        (std.blockTypes.functions "packages")
+
+        (std.blockTypes.nixago "nixago")
+      ];
+    }
+    {
+      devShells = inputs.std.harvest inputs.self ["_automation" "devshells"];
+    }
+    # soil - the first (and only) layer implements adapters for tooling
+    {
+      # tool: colmena
+      inherit colmena;
+    }
+    {
+      # --- Flake Local Nix Configuration ----------------------------
+      # TODO: adopt spongix
+      nixConfig = {
+        extra-substituters = [];
+        extra-trusted-public-keys = [];
+      };
+    };
+}
+
+#+end_src
+
+* Eval
+
+#+begin_src nix :exports both :results output
+let
+  a = 1 + 1;
+in {
+  inherit a;
+}
+#+end_src
+
+#+RESULTS:
+: { a = 2; }
+
+
+#+begin_src sh :async :exports both :results output
+nix eval --json --option warn-dirty false ../../#__std.actions.x86_64-linux
+#+end_src
+
+#+RESULTS:
+: {"_QUEEN":{"colmenaConfigurations":{"larva":{"explore":"/nix/store/mnfxxk7i8dfslg5ggn07698zlw6pgvfd-explore","write":"/nix/store/lxnj59wx786fba8faa4kpr3b8xq0kc3d-write"}},"lib":{"bearHomeConfiguration":{},"lay":{}},"nixosProfiles":{"bootstrap":{}}},"_automation":{"devshells":{"default":{"enter":"/nix/store/59rvkkb6lcw05c6g48rd3c70wggq11bl-enter"}},"nixago":{"just":{"explore":"/nix/store/3w7wa38d92dn52xfy5wwxnwz09y9h3fb-explore","populate":"/nix/store/7c7rdfhyl0dpgknh15hd04iwy1jfghxx-populate"},"mdbook":{"explore":"/nix/store/13gybn0ad4c2sbslwvm8nkwpwxg6ali9-explore","populate":"/nix/store/fl01liylknp3z3y2nfsfg9a6s27ci133-populate"},"treefmt":{"explore":"/nix/store/axbhy6xs75xzyjjqi8sxx63gb3ffdp0p-explore","populate":"/nix/store/i66rypamdxap0462821zj84s3jjll5ax-populate"}},"packages":{"colmena":{}}},"_common":{"nixosProfiles":{"bootstrap":{},"nix":{}}},"_docs":{"config":{"default":{}},"entrypoints":{"styx":{"run":"/nix/store/c9gvd9cjy6l09d3hniy13ay9gmv2lcml-run"}},"lib":{},"packages":{"site":{},"styx":{}}},"_main":{"lib":{"__default__":{},"__misc__":{},"l":{}}},"guangtao":{"colmenaConfigurations":{"home":{"explore":"/nix/store/lpnn337vak6m9cbx4217jrb1rlmyg9ak-explore","write":"/nix/store/figqr0mlq4bnqdlbj2kzzz1nplfmdv2l-write"}},"homeConfigurations":{"blaggacao":{"explore":"/nix/store/q83v4bhrshffl3xv45hm3py37q26lvah-explore","write":"/nix/store/k7dhqfwzjp03419qfdgr00axnqd84zz5-write"}},"homeModules":{"alacritty":{}},"homeProfiles":{"alacritty":{},"bat":{},"broot":{},"direnv":{},"fzf":{},"gh":{},"git":{},"gpg":{},"jq":{},"mcfly":{},"packages":{},"starship":{},"zoxide":{},"zsh":{}},"homeSuites":{"shell":{}},"secretProfiles":{"guangtao":{}},"userProfiles":{"default":{}}},"omega":{"colmenaConfigurations":{"blacklion":{"explore":"/nix/store/596c8z4bryd1kafbyhpy1mzsgcppkq08-explore","write":"/nix/store/br464j4w09p55zwczqqan0ajcgclf6m2-write"}},"homeConfigurations":{"omega":{"explore":"/nix/store/q67l2xyzky474a8l79lis1b16i6yp0sn-explore","write":"/nix/store/nak21fhp1q27jd9410qpasgynnynkgzn-write"}},"homeProfiles":{"alacritty":{},"bat":{},"broot":{},"direnv":{},"fzf":{},"gh":{},"git":{},"gpg":{},"jq":{},"mcfly":{},"packages":{},"starship":{},"zoxide":{},"zsh":{}},"homeSuites":{"shell":{}},"nixosProfiles":{"default":{}}}}

@@ -4,13 +4,12 @@
 }: let
   inherit (inputs) std self;
   inherit (cell.packages) styx;
-  styx-themes = import styx.themes;
-  path = "${(std.incl self [(self + /docs/hive)])}//docs/hive";
+  path = "${(std.incl self ["docs"])}/docs/styx";
   nixpkgs = inputs.nixpkgs.appendOverlays [
     (final: prev: {
       inherit styx;
     })
   ];
 in {
-  hive = import "${path}/site.nix" { pkgs = nixpkgs; };
+  hive = import "${path}/site.nix" {pkgs = nixpkgs;};
 }

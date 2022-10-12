@@ -32,7 +32,6 @@
   in
     std.growOn {
       inherit inputs;
-
       systems = [
         "aarch64-darwin"
         "aarch64-linux"
@@ -95,5 +94,4 @@
         extra-trusted-public-keys = [];
       };
     };
-  # --------------------------------------------------------------
 }
