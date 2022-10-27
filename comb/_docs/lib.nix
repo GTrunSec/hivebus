@@ -2,6 +2,6 @@
   inputs,
   cell,
 }: let
-  inherit (inputs.cells._main.lib.__misc__) styx;
+  inherit (inputs.cells._common.lib.__misc__) styx;
 in {
 }

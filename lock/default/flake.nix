@@ -2,7 +2,6 @@
   description = "A very basic flake";
 
   inputs = {
-    colmena.url = "github:zhaofengli/colmena";
   };
 
   inputs = {
@@ -15,9 +14,5 @@
     ragenix.url = "github:yaxitech/ragenix";
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    ...
-  }: {};
+  outputs = {self, ...}: {};
 }

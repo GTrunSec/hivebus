@@ -6,20 +6,31 @@
   inherit (inputs.cells) _QUEEN;
 
   l = inputs.nixpkgs.lib // builtins;
-in
-  builtins.mapAttrs (_QUEEN.lib.lay nixos.legacyPackages.x86_64-linux) {
-    home = {
-      imports = [
-        ../omega/colmenaConfigurations/blacklion
-        inputs.home.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users."${l.baseNameOf ./.}" = {
-            imports = cell.homeSuites.shell;
-          };
-        }
-        cell.userProfiles.default
-      ];
+in {
+  home = {
+    bee = {
+      pkgs = inputs.nixos.legacyPackages;
+      system = "x86_64-linux";
+      config = {
+        nixpkgs.allowUnfree = true;
+      };
     };
-  }
+
+    imports = [
+      # {
+      #   nixpkgs.config.allowUnfree = true;
+      #   nixpkgs.config.allowBroken = true;
+      # }
+      ./colmenaConfigurations/blacklion
+      inputs.home.nixosModules.home-manager
+      {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        home-manager.users."${l.baseNameOf ./.}" = {
+          imports = cell.homeSuites.shell;
+        };
+      }
+      cell.userProfiles.default
+    ];
+  };
+}

@@ -6,6 +6,12 @@
     std.inputs.nixpkgs.follows = "nixpkgs";
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     cells-lab.url = "github:gtrunsec/cells-lab";
+
+    hivelib.url = "github:divnix/hive";
+    hivelib.flake = false;
+
+    colmena.url = "github:zhaofengli/colmena";
+    colmena.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   # tools
@@ -24,11 +30,26 @@
   inputs = {};
 
   outputs = {
+    self,
     std,
     nixpkgs,
     ...
   } @ inputs: let
-    colmena = import ./lib/colmena.nix {inherit inputs;};
+    colmenaHive = let
+      makeHoneyFrom = import "${inputs.hivelib}/make-honey.nix" {
+        inherit (inputs) colmena nixpkgs;
+        cellBlock = "colmenaConfigurations";
+      };
+    in
+      makeHoneyFrom self;
+
+    nixosConfigurations = let
+      makeMeadFrom = import "${inputs.hivelib}/make-mead.nix" {
+        inherit (inputs) nixpkgs;
+        cellBlock = "nixosConfigurations";
+      };
+    in
+      makeMeadFrom self;
   in
     std.growOn {
       inherit inputs;
@@ -41,41 +62,41 @@
 
       cellsFrom = ./comb;
 
-      cellBlocks = [
+      cellBlocks = with std.blockTypes; [
         # modules implement
-        (std.blockTypes.functions "nixosModules")
-        (std.blockTypes.functions "homeModules")
-        (std.blockTypes.functions "devshellModules")
+        (functions "nixosModules")
+        (functions "homeModules")
+        (functions "devshellModules")
 
         # profiles activate
-        (std.blockTypes.functions "nixosProfiles")
-        (std.blockTypes.functions "homeProfiles")
-        (std.blockTypes.functions "devshellProfiles")
-        (std.blockTypes.functions "userProfiles")
-        (std.blockTypes.functions "secretProfiles")
+        (functions "nixosProfiles")
+        (functions "homeProfiles")
+        (functions "devshellProfiles")
+        (functions "userProfiles")
+        (functions "secretProfiles")
 
         # suites aggregate profiles
-        (std.blockTypes.functions "nixosSuites")
-        (std.blockTypes.functions "homeSuites")
+        (functions "nixosSuites")
+        (functions "homeSuites")
 
         # configurations can be deployed
-        (std.blockTypes.data "colmenaConfigurations")
-        (std.blockTypes.data "homeConfigurations")
+        (data "colmenaConfigurations")
+        (data "homeConfigurations")
 
         # devshells can be entered
-        (std.blockTypes.devshells "devshells")
+        (devshells "devshells")
 
         # jobs can be run
-        (std.blockTypes.runnables "entrypoints")
+        (runnables "entrypoints")
 
         # lib holds shared knowledge made code
-        (std.blockTypes.functions "lib")
+        (functions "lib")
 
-        (std.blockTypes.functions "config")
+        (functions "config")
 
-        (std.blockTypes.functions "packages")
+        (functions "packages")
 
-        (std.blockTypes.nixago "nixago")
+        (nixago "nixago")
       ];
     }
     {
@@ -84,7 +105,7 @@
     # soil - the first (and only) layer implements adapters for tooling
     {
       # tool: colmena
-      inherit colmena;
+      inherit colmenaHive nixosConfigurations;
     }
     {
       # --- Flake Local Nix Configuration ----------------------------

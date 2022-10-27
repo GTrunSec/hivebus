@@ -6,9 +6,5 @@
     styx.url = "github:styx-static/styx/?ref=refs/pull/78/head";
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    ...
-  }: {};
+  outputs = {self, ...}: {};
 }
