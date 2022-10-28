@@ -80,11 +80,11 @@
         "std": "std"
       },
       "locked": {
-        "lastModified": 1666684664,
-        "narHash": "sha256-qamrxh7oNUPrhWpsIOxa6cgWP6KmfpljlFPCcI2LHcM=",
+        "lastModified": 1666934429,
+        "narHash": "sha256-6PmKlI+SuQ8OfbBz7ByV2BP3vPkJ4UeTzLUb/0m8P+w=",
         "owner": "gtrunsec",
         "repo": "cells-lab",
-        "rev": "89c6fb20e159e464bf5152c22e652147377cf163",
+        "rev": "206f9c2c6f7573d1cc18451c52105e72bb53672f",
         "type": "github"
       },
       "original": {
@@ -955,11 +955,11 @@
         "yants": "yants"
       },
       "locked": {
-        "lastModified": 1666375192,
-        "narHash": "sha256-YX6h6Ifs8LE8p1DOdij/oNWGxI5W9V7sAt0DEuJtqUM=",
+        "lastModified": 1666722572,
+        "narHash": "sha256-p5hVXgBXnCnXfr06zj5LNJrg7K8a0ng/Pjvpz5rVVG4=",
         "owner": "divnix",
         "repo": "std",
-        "rev": "6f4ef53901f07815bce4c54f5890ae2fef7cc21c",
+        "rev": "c8197a5990dae3d5aca005b274f1ac62ab0bee91",
         "type": "github"
       },
       "original": {

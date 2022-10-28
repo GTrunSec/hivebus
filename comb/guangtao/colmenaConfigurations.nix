@@ -17,11 +17,7 @@ in {
     };
 
     imports = [
-      # {
-      #   nixpkgs.config.allowUnfree = true;
-      #   nixpkgs.config.allowBroken = true;
-      # }
-      ./colmenaConfigurations/blacklion
+      ./nixosConfigurations/blacklion
       inputs.home.nixosModules.home-manager
       {
         home-manager.useGlobalPkgs = true;

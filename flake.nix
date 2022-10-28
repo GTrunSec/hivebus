@@ -70,6 +70,7 @@
         # configurations can be deployed
         (data "colmenaConfigurations")
         (data "homeConfigurations")
+        (data "nixosConfigurations")
         (hivelib.blockTypes.arions "arionComposes")
         (data "arionProfiles")
 

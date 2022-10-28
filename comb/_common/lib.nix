@@ -3,7 +3,7 @@
   cell,
 }: let
   inherit (inputs) nixpkgs std self;
-  inherit (inputs.cells-lab.main.lib) callFlake;
+  inherit (inputs.cells-lab.common.lib) callFlake;
 
   l = nixpkgs.lib // builtins;
 

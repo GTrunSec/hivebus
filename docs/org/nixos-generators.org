@@ -1,0 +1,7 @@
+:PROPERTIES:
+:ID:       d5b96977-9848-4f24-80a4-bd839c96b663
+:END:
+#+title: Nixos Generators
+
+
+* https://github.com/nix-community/nixos-generators
