@@ -90,7 +90,7 @@
     # soil - the first (and only) layer implements adapters for tooling
     {
       # tools
-      colmenaHive = inputs.hivelib.lib.colmena "colmenaConfigurations" self;
+      colmenaHive = inputs.hivelib.lib.colmenaHive "colmenaConfigurations" self;
       nixosConfigurations = inputs.hivelib.lib.nixosConfigurations "nixosConfigurations" self;
       arion = inputs.hivelib.lib.nixosConfigurations "arionComposes" self;
     }

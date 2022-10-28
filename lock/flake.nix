@@ -14,5 +14,8 @@
     ragenix.url = "github:yaxitech/ragenix";
   };
 
+  inputs = {
+    styx.url = "github:styx-static/styx";
+  };
   outputs = {self, ...}: {};
 }
