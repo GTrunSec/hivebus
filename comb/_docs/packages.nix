@@ -2,8 +2,8 @@
   inputs,
   cell,
 }: let
-  inherit (inputs.cells._common.lib.__misc__) styx;
+  inherit (inputs) nixpkgs;
+  inherit (inputs.cells._common.lib.__inputs__) styx;
 in {
-  inherit (styx.packages) styx;
-  inherit (cell.config.default.hive) site;
+  inherit (styx.packages.${nixpkgs.system}) styx;
 }

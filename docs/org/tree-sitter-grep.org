@@ -254,7 +254,7 @@
 ./comb/_main/lib.nix:20:5:property:colmena.inputs.nixpkgs
 ./comb/_main/lib.nix:21:5:property:sops-nix.inputs.nixpkgs
 ./comb/_main/lib.nix:22:5:property:ragenix.inputs.nixpkgs
-./comb/_main/lib.nix:25:3:property:__misc__
+./comb/_main/lib.nix:25:3:property:__inputs__
 ./comb/_main/lib.nix:26:5:property:nixpkgs.locked
 ./comb/_main/lib.nix:27:5:property:nixos.locked
 ./comb/_main/lib.nix:30:9:property:type

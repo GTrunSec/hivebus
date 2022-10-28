@@ -3,6 +3,26 @@
     "arion": {
       "inputs": {
         "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1664986582,
+        "narHash": "sha256-syBM0apq0w/xDLvdTeLgW+NJ+JCZKVFbIrH+NwVL1EI=",
+        "owner": "hercules-ci",
+        "repo": "arion",
+        "rev": "8159c4faa3502a571cf8b9347f4d4b49f35c4c9f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "arion",
+        "type": "github"
+      }
+    },
+    "arion_2": {
+      "inputs": {
+        "nixpkgs": [
           "hivelib",
           "nixpkgs"
         ]
@@ -345,7 +365,7 @@
     },
     "hivelib": {
       "inputs": {
-        "arion": "arion",
+        "arion": "arion_2",
         "colmena": [
           "colmena"
         ],
@@ -368,11 +388,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1666916712,
-        "narHash": "sha256-j6XHnPZ50veZph+IjeaiaxiI0pAoKBcUllSyGRJ4QOM=",
+        "lastModified": 1666921666,
+        "narHash": "sha256-WXpDxMfQPoIhGdhIqveoLddHA7RGsbjfUKpqL3/H/Vo=",
         "owner": "divnix",
         "repo": "hive",
-        "rev": "838ee02b23d997950190a9838add5e65fbe35b91",
+        "rev": "3b4a93e439e53de9c31d48b53bd336fd1c1ff03f",
         "type": "github"
       },
       "original": {
@@ -879,6 +899,7 @@
     },
     "root": {
       "inputs": {
+        "arion": "arion",
         "cells-lab": "cells-lab",
         "colmena": "colmena",
         "hivelib": "hivelib",

@@ -18,6 +18,9 @@
     nixos-generators.follows = "hivelib/nixos-generators";
     colmena.url = "github:zhaofengli/colmena";
     colmena.inputs.nixpkgs.follows = "nixpkgs";
+
+    arion.url = "github:hercules-ci/arion";
+    arion.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   # nixpkgs & home-manager
@@ -33,6 +36,7 @@
     self,
     std,
     nixpkgs,
+    hivelib,
     ...
   } @ inputs:
     std.growOn {
@@ -66,7 +70,7 @@
         # configurations can be deployed
         (data "colmenaConfigurations")
         (data "homeConfigurations")
-        (data "arionComposes")
+        (hivelib.blockTypes.arions "arionComposes")
 
         # devshells can be entered
         (devshells "devshells")
@@ -92,7 +96,7 @@
       # tools
       colmenaHive = inputs.hivelib.lib.colmenaHive "colmenaConfigurations" self;
       nixosConfigurations = inputs.hivelib.lib.nixosConfigurations "nixosConfigurations" self;
-      arion = inputs.hivelib.lib.nixosConfigurations "arionComposes" self;
+      arion = inputs.hivelib.lib.arion "arionComposes" self;
     }
     {
       # --- Flake Local Nix Configuration ----------------------------
