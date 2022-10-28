@@ -7,21 +7,21 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     cells-lab.url = "github:gtrunsec/cells-lab";
 
-    hivelib.url = "github:divnix/hive";
-    hivelib.flake = false;
-
-    colmena.url = "github:zhaofengli/colmena";
-    colmena.inputs.nixpkgs.follows = "nixpkgs";
+    hivelib.url = "github:divnix/hive?ref=refs/pull/1/head";
+    hivelib.inputs.std.follows = "std";
+    hivelib.inputs.colmena.follows = "colmena";
   };
 
   # tools
   inputs = {
-    nixos-generators.url = "github:nix-community/nixos-generators";
+    # nixos-generators.url = "github:nix-community/nixos-generators";
+    nixos-generators.follows = "hivelib/nixos-generators";
+    colmena.url = "github:zhaofengli/colmena";
+    colmena.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   # nixpkgs & home-manager
   inputs = {
-    nixpkgs-lock.follows = "nixpkgs";
     nixos.url = "github:nixos/nixpkgs/release-22.05";
     home.url = "github:nix-community/home-manager/release-22.05";
   };
@@ -34,23 +34,7 @@
     std,
     nixpkgs,
     ...
-  } @ inputs: let
-    colmenaHive = let
-      makeHoneyFrom = import "${inputs.hivelib}/make-honey.nix" {
-        inherit (inputs) colmena nixpkgs;
-        cellBlock = "colmenaConfigurations";
-      };
-    in
-      makeHoneyFrom self;
-
-    nixosConfigurations = let
-      makeMeadFrom = import "${inputs.hivelib}/make-mead.nix" {
-        inherit (inputs) nixpkgs;
-        cellBlock = "nixosConfigurations";
-      };
-    in
-      makeMeadFrom self;
-  in
+  } @ inputs:
     std.growOn {
       inherit inputs;
       systems = [
@@ -82,6 +66,7 @@
         # configurations can be deployed
         (data "colmenaConfigurations")
         (data "homeConfigurations")
+        (data "arionComposes")
 
         # devshells can be entered
         (devshells "devshells")
@@ -104,8 +89,10 @@
     }
     # soil - the first (and only) layer implements adapters for tooling
     {
-      # tool: colmena
-      inherit colmenaHive nixosConfigurations;
+      # tools
+      colmenaHive = inputs.hivelib.lib.colmena "colmenaConfigurations" self;
+      nixosConfigurations = inputs.hivelib.lib.nixosConfigurations "nixosConfigurations" self;
+      arion = inputs.hivelib.lib.nixosConfigurations "arionComposes" self;
     }
     {
       # --- Flake Local Nix Configuration ----------------------------
