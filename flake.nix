@@ -71,6 +71,7 @@
         (data "colmenaConfigurations")
         (data "homeConfigurations")
         (hivelib.blockTypes.arions "arionComposes")
+        (data "arionProfiles")
 
         # devshells can be entered
         (devshells "devshells")

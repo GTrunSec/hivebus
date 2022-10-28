@@ -388,11 +388,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1666924142,
-        "narHash": "sha256-qUnVWY7JcDGYn8PO8IrBUiTT9qWqek2ylLcg8oE9neg=",
+        "lastModified": 1666926077,
+        "narHash": "sha256-JB1jh0DfxQSMFSqZB+Cg0OlOqLv95TRhHJ+J8ziUf+o=",
         "owner": "divnix",
         "repo": "hive",
-        "rev": "18bdbcbdfc1f9990f87078c32fa3615d53f5fc34",
+        "rev": "16c34ecf201237ad9adac48bd0cbf64480440025",
         "type": "github"
       },
       "original": {
