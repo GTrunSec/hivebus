@@ -1,12 +1,9 @@
 {
   inputs,
   cell,
-}: {
-  full-nixos = {
-    bee.system = "x86_64-linux";
-    bee.pkgs = inputs.nixos.legacyPackages;
-    modules = [
-      cell.arionProfiles.webapp
-    ];
-  };
-}
+}: let
+  inherit (inputs) std;
+in
+  __mapAttrs (_: std.lib.dev.mkArion) {
+    full-nixos = cell.arionProfiles.webapp;
+  }

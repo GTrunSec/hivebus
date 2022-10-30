@@ -3,11 +3,15 @@
 
   inputs = {
     std.url = "github:divnix/std";
+    # std.url = "/home/gtrun/ghq/github.com/divnix/std";
     std.inputs.nixpkgs.follows = "nixpkgs";
+    std.inputs.arion.follows = "arion";
+
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     cells-lab.url = "github:gtrunsec/cells-lab";
 
     hivelib.url = "github:divnix/hive?ref=refs/pull/1/head";
+    # hivelib.url = "/home/gtrun/ghq/github.com/divnix/hive-1";
     hivelib.inputs.std.follows = "std";
     hivelib.inputs.colmena.follows = "colmena";
   };
@@ -71,7 +75,7 @@
         (data "colmenaConfigurations")
         (data "homeConfigurations")
         (data "nixosConfigurations")
-        (hivelib.blockTypes.arions "arionComposes")
+        (arion "arionComposes")
         (data "arionProfiles")
 
         # devshells can be entered

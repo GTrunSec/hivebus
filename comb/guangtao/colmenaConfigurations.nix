@@ -8,12 +8,14 @@
   l = inputs.nixpkgs.lib // builtins;
 in {
   home = {
-    bee = {
-      pkgs = inputs.nixos.legacyPackages;
-      system = "x86_64-linux";
-      config = {
-        nixpkgs.allowUnfree = true;
+    bee = rec {
+      pkgs = import inputs.nixos {
+        config = {
+          allowUnfree = true;
+        };
+        inherit system;
       };
+      system = "x86_64-linux";
     };
 
     imports = [

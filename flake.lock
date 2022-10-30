@@ -20,27 +20,6 @@
         "type": "github"
       }
     },
-    "arion_2": {
-      "inputs": {
-        "nixpkgs": [
-          "hivelib",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1664986582,
-        "narHash": "sha256-syBM0apq0w/xDLvdTeLgW+NJ+JCZKVFbIrH+NwVL1EI=",
-        "owner": "hercules-ci",
-        "repo": "arion",
-        "rev": "8159c4faa3502a571cf8b9347f4d4b49f35c4c9f",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hercules-ci",
-        "repo": "arion",
-        "type": "github"
-      }
-    },
     "blank": {
       "locked": {
         "lastModified": 1625557891,
@@ -365,7 +344,6 @@
     },
     "hivelib": {
       "inputs": {
-        "arion": "arion_2",
         "colmena": [
           "colmena"
         ],
@@ -388,11 +366,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1666926077,
-        "narHash": "sha256-JB1jh0DfxQSMFSqZB+Cg0OlOqLv95TRhHJ+J8ziUf+o=",
+        "lastModified": 1667066952,
+        "narHash": "sha256-rubmjJ/U4dHfRt+BgkooiITCt5iKpNLqnaHblyJY5NM=",
         "owner": "divnix",
         "repo": "hive",
-        "rev": "16c34ecf201237ad9adac48bd0cbf64480440025",
+        "rev": "c089abf0191ffd0ecc4d211e1a00566486eb62af",
         "type": "github"
       },
       "original": {
@@ -970,6 +948,9 @@
     },
     "std_2": {
       "inputs": {
+        "arion": [
+          "arion"
+        ],
         "blank": "blank_2",
         "devshell": "devshell_2",
         "dmerge": "dmerge_2",
@@ -991,11 +972,11 @@
         "yants": "yants_2"
       },
       "locked": {
-        "lastModified": 1666722572,
-        "narHash": "sha256-p5hVXgBXnCnXfr06zj5LNJrg7K8a0ng/Pjvpz5rVVG4=",
+        "lastModified": 1667091757,
+        "narHash": "sha256-LGmErBFOAfRbUHo3olmi8A4RPigz8VBl3hHjN2NaG64=",
         "owner": "divnix",
         "repo": "std",
-        "rev": "c8197a5990dae3d5aca005b274f1ac62ab0bee91",
+        "rev": "758251046fddee9464e58d423a4c7975d7d3411d",
         "type": "github"
       },
       "original": {
