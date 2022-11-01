@@ -10,16 +10,15 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     cells-lab.url = "github:gtrunsec/cells-lab";
 
-    hivelib.url = "github:divnix/hive?ref=refs/pull/1/head";
+    hivelib.url = "github:divnix/hive";
+    hivelib.flake = false;
     # hivelib.url = "/home/gtrun/ghq/github.com/divnix/hive-1";
-    hivelib.inputs.std.follows = "std";
-    hivelib.inputs.colmena.follows = "colmena";
   };
 
   # tools
   inputs = {
-    # nixos-generators.url = "github:nix-community/nixos-generators";
-    nixos-generators.follows = "hivelib/nixos-generators";
+    nixos-generators.url = "github:nix-community/nixos-generators";
+    # nixos-generators.follows = "hivelib/nixos-generators";
     colmena.url = "github:zhaofengli/colmena";
     colmena.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -96,13 +95,13 @@
     }
     {
       devShells = inputs.std.harvest inputs.self ["_automation" "devshells"];
+      lib = (inputs.std.harvest inputs.self ["_QUEEN" "lib"]).x86_64-linux;
     }
     # soil - the first (and only) layer implements adapters for tooling
     {
       # tools
-      colmenaHive = inputs.hivelib.lib.colmenaHive "colmenaConfigurations" self;
-      nixosConfigurations = inputs.hivelib.lib.nixosConfigurations "nixosConfigurations" self;
-      arion = inputs.hivelib.lib.arion "arionComposes" self;
+      colmenaHive = self.lib.colmenaHive "colmenaConfigurations" self;
+      nixosConfigurations = self.lib.nixosConfigurations "nixosConfigurations" self;
     }
     {
       # --- Flake Local Nix Configuration ----------------------------

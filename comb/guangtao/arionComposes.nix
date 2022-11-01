@@ -3,7 +3,7 @@
   cell,
 }: let
   inherit (inputs) std;
-in
-  __mapAttrs (_: std.lib.dev.mkArion) {
-    full-nixos = cell.arionProfiles.webapp;
-  }
+  l = inputs.nixpkgs.lib // builtins;
+in {
+  full-nixos = std.lib.dev.mkArion cell.arionProfiles.webapp;
+}
