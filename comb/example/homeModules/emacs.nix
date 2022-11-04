@@ -7,7 +7,7 @@
   programs.emacs = {
     enable = true;
     package = pkgs.emacsWithPackagesFromUsePackage {
-      package = pkgs.emacs29-nox;
+      package = pkgs.emacsPgtkNativeComp;
       alwaysEnsure = true;
       extraEmacsPackages = p: with p; [use-package];
       config = ./init.el;
