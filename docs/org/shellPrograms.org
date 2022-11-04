@@ -10,7 +10,7 @@
 
 * Code location
 
-#+begin_src nix :exports both :results output :tangle "../../comb/guangtao/homeProfiles/shellPrograms.nix"
+#+begin_src nix :exports both :results output :tangle "../../nix/guangtao/homeProfiles/shellPrograms.nix"
 {
   programs.bat.enable = true;
   programs.fzf.enable = true;

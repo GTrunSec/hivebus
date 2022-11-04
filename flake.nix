@@ -57,7 +57,7 @@
         "x86_64-linux"
       ];
 
-      cellsFrom = ./comb;
+      cellsFrom = ./nix;
 
       cellBlocks = with std.blockTypes; [
         # modules implement

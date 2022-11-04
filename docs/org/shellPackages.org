@@ -7,7 +7,7 @@
 
 * Code location
 
-#+begin_src nix :exports both :results output :tangle "../../comb/guangtao/homeProfiles/shellPackages.nix"
+#+begin_src nix :exports both :results output :tangle "../../nix/guangtao/homeProfiles/shellPackages.nix"
 {
   inputs,
   cell,
