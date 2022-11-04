@@ -2,25 +2,28 @@
   description = "The Hive - The secretly open NixOS-Society";
 
   inputs = {
-    std.url = "github:divnix/std";
     # std.url = "/home/gtrun/ghq/github.com/divnix/std";
+    std.url = "github:divnix/std";
     std.inputs.nixpkgs.follows = "nixpkgs";
     std.inputs.arion.follows = "arion";
-
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    cells-lab.url = "github:gtrunsec/cells-lab";
+    std.inputs.microvm.follows = "microvm";
 
     hivelib.url = "github:divnix/hive";
     hivelib.flake = false;
     # hivelib.url = "/home/gtrun/ghq/github.com/divnix/hive-1";
+    cells-lab.url = "github:gtrunsec/cells-lab";
   };
 
   # tools
   inputs = {
     nixos-generators.url = "github:nix-community/nixos-generators";
+    nixos-hardware.url = "github:nixos/nixos-hardware";
+
     # nixos-generators.follows = "hivelib/nixos-generators";
     colmena.url = "github:zhaofengli/colmena";
     colmena.inputs.nixpkgs.follows = "nixpkgs";
+
+    microvm.url = "github:astro/microvm.nix";
 
     arion.url = "github:hercules-ci/arion";
     arion.inputs.nixpkgs.follows = "nixpkgs";
@@ -28,6 +31,7 @@
 
   # nixpkgs & home-manager
   inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixos.url = "github:nixos/nixpkgs/release-22.05";
 
     home.url = "github:nix-community/home-manager/release-22.05";
@@ -67,6 +71,8 @@
         (functions "devshellProfiles")
         (functions "userProfiles")
         (functions "secretProfiles")
+        (functions "arionProfiles")
+        (functions "microvmProfiles")
 
         # suites aggregate profiles
         (functions "nixosSuites")
@@ -77,7 +83,6 @@
         (data "homeConfigurations")
         (data "nixosConfigurations")
         (arion "arionComposes")
-        (data "arionProfiles")
 
         # devshells can be entered
         (devshells "devshells")
@@ -91,6 +96,8 @@
         (functions "config")
 
         (functions "packages")
+
+        (functions "overlays")
 
         (nixago "nixago")
       ];

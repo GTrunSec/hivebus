@@ -26,4 +26,8 @@ in {
     l
     __inputs__
     ;
+
+    a = nixpkgs.appendOverlays [
+      cell.overlays.nomad
+    ];
 }
