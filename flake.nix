@@ -29,7 +29,9 @@
   # nixpkgs & home-manager
   inputs = {
     nixos.url = "github:nixos/nixpkgs/release-22.05";
+
     home.url = "github:nix-community/home-manager/release-22.05";
+    home.inputs.nixpkgs.follows = "nixos";
   };
 
   # individual inputs
