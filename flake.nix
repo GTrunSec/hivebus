@@ -111,6 +111,7 @@
       # tools
       colmenaHive = self.lib.colmenaHive "colmenaConfigurations" self;
       nixosConfigurations = self.lib.nixosConfigurations "nixosConfigurations" self;
+      homeConfigurations = self.lib.homeConfigurations "homeConfigurations" self;
     }
     {
       # --- Flake Local Nix Configuration ----------------------------

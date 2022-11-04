@@ -27,7 +27,7 @@ in {
     __inputs__
     ;
 
-    a = nixpkgs.appendOverlays [
-      cell.overlays.nomad
-    ];
+  test-nixpkgs = nixpkgs.appendOverlays [
+    cell.overlays.nomad
+  ];
 }

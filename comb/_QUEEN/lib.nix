@@ -2,13 +2,13 @@
   inputs,
   cell,
 }: let
-  inherit (inputs) hivelib;
+  inherit (inputs) hivelib colmena;
 
   nixpkgs = inputs.nixos;
 in {
   colmenaHive = cellBlock: self: let
     makeHoneyFrom = import "${hivelib}/make-honey.nix" {
-      inherit nixpkgs cellBlock;
+      inherit nixpkgs cellBlock colmena;
     };
   in
     makeHoneyFrom self;
