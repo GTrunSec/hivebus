@@ -5,7 +5,7 @@
   inherit (inputs) nixpkgs;
 in {
   shellPrograms = import ./homeProfiles/shellPrograms.nix;
-  shellPackages = import ./homeProfiles/shellPackages.nix { inherit inputs cell; };
+  shellPackages = import ./homeProfiles/shellPackages.nix {inherit inputs cell;};
 
   alacritty.programs.alacritty = {
     enable = true;
