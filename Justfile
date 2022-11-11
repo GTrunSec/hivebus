@@ -4,10 +4,10 @@
 # NOTE: Without Nix, you are responsible for having all task dependencies
 # available locally!
 
+# Colmena build Guangtao Home Machine
+desktop:
+    colmena build --on guangtao-o-desktop
+
 # Formats all changed source files
 fmt:
     treefmt $(git diff --name-only --cached)
-
-# Colmena build Guangtao Home Machine
-home:
-    colmena build --on guangtao-o-home

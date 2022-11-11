@@ -9,7 +9,9 @@
     std.inputs.microvm.follows = "microvm";
 
     hivelib.url = "github:divnix/hive";
-    hivelib.flake = false;
+    hivelib.inputs.nixpkgs.follows = "nixpkgs";
+    hivelib.inputs.colmena.follows = "colmena";
+    hivelib.inputs.nixos-hardware.follows = "nixos-hardware";
     # hivelib.url = "/home/gtrun/ghq/github.com/divnix/hive-1";
     cells-lab.url = "github:gtrunsec/cells-lab";
   };
@@ -18,6 +20,7 @@
   inputs = {
     nixos-generators.url = "github:nix-community/nixos-generators";
     nixos-hardware.url = "github:nixos/nixos-hardware";
+    disko.follows = "hivelib/disko";
 
     # nixos-generators.follows = "hivelib/nixos-generators";
     colmena.url = "github:zhaofengli/colmena";

@@ -5,10 +5,10 @@
       treefmt $(git diff --name-only --cached)
     '';
   };
-  home = {
+  desktop = {
     description = "Colmena build Guangtao Home Machine";
     content = ''
-      colmena build --on guangtao-o-home
+      colmena build --on guangtao-o-desktop
     '';
   };
 }
