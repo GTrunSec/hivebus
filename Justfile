@@ -11,3 +11,7 @@ desktop:
 # Formats all changed source files
 fmt:
     treefmt $(git diff --name-only --cached)
+
+# Colmena build Guangtao Libvirtd Machine
+libvirtd_1:
+    colmena build --on guangtao-o-libvirtd-1
