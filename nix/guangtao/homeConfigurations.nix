@@ -5,8 +5,8 @@
   inherit (inputs) nixos home;
 in let
 in {
-  guangtao = {
-    inherit (cell.nixosConfigurations.home) bee;
+  destkop = {
+    inherit (cell.nixosConfigurations.desktop) bee;
     imports =
       [
         {

@@ -20,7 +20,7 @@ in {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
         home-manager.users.guangtao = {
-          inherit (cell.homeConfigurations.guangtao) imports;
+          inherit (cell.homeConfigurations.destkop) imports;
         };
       }
       cell.userProfiles.default
