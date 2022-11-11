@@ -6,7 +6,8 @@
 in {
   desktop = with nixosProfiles;
     [
-      inputs.cells._input.nixosModules.fcitx5
+      inputs.cells.input.nixosModules.fcitx5
+      inputs.cells.vm.nixosModules.libvirtd
     ]
     ++ [
       cell.userProfiles.default
