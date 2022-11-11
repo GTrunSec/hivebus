@@ -7,7 +7,6 @@
 in {
   desktop = import ./nixosConfigurations/desktop {inherit inputs cell;};
 
-
   # libvirtd machines
-  lib = import ./nixosConfigurations/desktop {inherit inputs cell;};
+  libvirtd_1 = import ./nixosConfigurations/libvirtd_1 {inherit inputs cell;};
 }

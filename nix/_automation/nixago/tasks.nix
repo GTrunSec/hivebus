@@ -11,4 +11,10 @@
       colmena build --on guangtao-o-desktop
     '';
   };
+  libvirtd_1 = {
+    description = "Colmena build Guangtao Libvirtd Machine";
+    content = ''
+      colmena build --on guangtao-o-libvirtd-1
+    '';
+  };
 }

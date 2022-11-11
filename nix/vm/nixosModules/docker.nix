@@ -1,10 +1,13 @@
-{ pkgs, defaultUser, ... }:
 {
+  pkgs,
+  defaultUser,
+  ...
+}: {
   environment.systemPackages = with pkgs; [
     docker
     docker-compose
   ];
 
   virtualisation.docker.enable = true;
-  users.groups.docker.members = [ defaultUser ];
+  users.groups.docker.members = [defaultUser];
 }
