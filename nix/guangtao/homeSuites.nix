@@ -2,12 +2,17 @@
   inputs,
   cell,
 }: let
-  inherit (inputs.cells) guangtao;
-  inherit (cell) homeProfiles;
+  inherit (cell) homeProfiles homeModules;
 in {
-  shell = with homeProfiles; [
-    guangtao.homeModules.alacritty
-    shellPrograms
-    shellPackages
-  ];
+  shell = with homeProfiles;
+    [
+      shellPrograms
+      shellPackages
+
+      inputs.cells.version-management.homeProfiles.git
+    ]
+    ++ [
+      inputs.cells.terminal-emulators.homeProfiles.alacritty
+      homeModules.alacritty
+    ];
 }
