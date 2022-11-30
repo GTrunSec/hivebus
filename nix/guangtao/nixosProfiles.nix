@@ -3,6 +3,6 @@
   cell,
 }: {
   bootstrap = [
-    inputs.cells.common.nixosModules.nix
+    inputs.cells.base.nixosModules.nix
   ];
 }
