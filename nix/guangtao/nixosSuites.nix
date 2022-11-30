@@ -6,6 +6,8 @@
 in {
   desktop = with nixosProfiles;
     bootstrap
+    ++ networking
+    ++ disk
     ++ [
       inputs.cells.input.nixosModules.fcitx5
       inputs.cells.virtualization.nixosModules.libvirtd
@@ -17,9 +19,9 @@ in {
       }
     ];
 
-  libvirt = with nixosProfiles;
-    [
-      inputs.cells.input.nixosModules.fcitx5
+  libvirtd = with nixosProfiles;
+    bootstrap
+    ++ [
       inputs.cells.virtualization.nixosModules.libvirtd
     ]
     ++ [

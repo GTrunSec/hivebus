@@ -1,0 +1,3 @@
+{
+  fstrim = ./fstrim.nix;
+}

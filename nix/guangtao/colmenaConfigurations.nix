@@ -13,7 +13,7 @@ in {
   };
   libvirtd_1 = {
     deployment = {
-      targetHost = "192.168.122.212";
+      targetHost = "192.168.122.157";
       targetPort = 22;
       targetUser = "root";
       # sshOPTS

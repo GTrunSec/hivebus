@@ -8,6 +8,7 @@
       ./hardware-configuration.nix
       (modulesPath + "/profiles/qemu-guest.nix")
     ];
+    system.stateVersion = "22.05";
   };
 in rec {
   bee.system = "x86_64-linux";
@@ -28,5 +29,5 @@ in rec {
         home-manager.useUserPackages = true;
       }
     ]
-    ++ cell.nixosSuites.libvirt;
+    ++ cell.nixosSuites.libvirtd;
 }

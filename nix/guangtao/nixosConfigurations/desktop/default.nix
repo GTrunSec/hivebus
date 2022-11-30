@@ -11,9 +11,6 @@
 
     system.stateVersion = "22.05";
 
-    ## ssd
-    services.fstrim.enable = true;
-
     i18n.defaultLocale = "en_US.UTF-8";
     time.timeZone = "America/Los_Angeles";
 
@@ -24,8 +21,6 @@
       allowedTCPPorts = [8888 8889];
       allowedUDPPorts = [8888 8889];
     };
-
-    networking.nat.enable = true;
 
     networking.firewall.extraCommands = ''
       # iptables -t nat -A PREROUTING -i eno1 -p tcp --dport 443 -j REDIRECT --to-port 8080
