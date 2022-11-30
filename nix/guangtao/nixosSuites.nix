@@ -8,7 +8,7 @@ in {
     bootstrap
     ++ [
       inputs.cells.input.nixosModules.fcitx5
-      inputs.cells.vm.nixosModules.libvirtd
+      inputs.cells.virtualization.nixosModules.libvirtd
     ]
     ++ [
       cell.userProfiles.gtrun
@@ -20,7 +20,7 @@ in {
   libvirt = with nixosProfiles;
     [
       inputs.cells.input.nixosModules.fcitx5
-      inputs.cells.vm.nixosModules.libvirtd
+      inputs.cells.virtualization.nixosModules.libvirtd
     ]
     ++ [
       cell.userProfiles.root
