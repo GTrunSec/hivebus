@@ -106,7 +106,7 @@
       ];
     }
     {
-      devShells = inputs.std.harvest inputs.self ["_automation" "devshells"];
+      devShells = inputs.std.harvest inputs.self ["automation" "devshells"];
       lib = (inputs.std.harvest inputs.self ["_QUEEN" "lib"]).x86_64-linux;
     }
     # soil - the first (and only) layer implements adapters for tooling
