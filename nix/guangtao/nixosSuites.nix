@@ -8,6 +8,7 @@ in {
     bootstrap
     ++ networking
     ++ disk
+    ++ secrets
     ++ [
       inputs.cells.input.nixosModules.fcitx5
       inputs.cells.virtualization.nixosModules.libvirtd

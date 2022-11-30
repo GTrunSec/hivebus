@@ -1,0 +1,3 @@
+{
+  age.secretsDir = "/run/keys";
+}

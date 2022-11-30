@@ -29,6 +29,13 @@ in
         (withCategory "hexagon" {package = cell.packages.colmena;})
         (withCategory "hexagon" {package = inputs.nixos-generators.packages.nixos-generate;})
         (withCategory "hexagon" {package = inputs.arion.packages.arion;})
+        (withCategory "secrets" {
+          package =
+            inputs.cells.secrets.packages.ragenix
+            // {
+              meta.description = "age-encrypted secrets for NixOS; drop-in replacement for agenix";
+            };
+        })
         (withCategory "hexagon" {
           name = "build-larva";
           help = "the hive x86_64-linux iso-bootstrapper";

@@ -4,6 +4,14 @@
 # NOTE: Without Nix, you are responsible for having all task dependencies
 # available locally!
 
+# edit the key age with ragenix
+age cell file:
+    ragenix --edit ./nix/{{ cell }}/secretProfiles/{{ file }} --rules ./nix/{{ cell }}/secretProfiles/secrets.nix
+
+# re-age key with ragenix
+age-rekey cell:
+    ragenix --rules ./nix/{{ cell }}/secretProfiles/secrets.nix --rekey
+
 # Colmena build Guangtao Home Machine
 desktop:
     colmena build --on guangtao-o-desktop
@@ -14,4 +22,4 @@ fmt:
 
 # Colmena build Guangtao Libvirtd Machine
 libvirtd_1:
-    colmena build --on guangtao-o-libvirtd-1
+    colmena build --on guangtao-o-libvirtd_1

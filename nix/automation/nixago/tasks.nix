@@ -14,7 +14,21 @@
   libvirtd_1 = {
     description = "Colmena build Guangtao Libvirtd Machine";
     content = ''
-      colmena build --on guangtao-o-libvirtd-1
+      colmena build --on guangtao-o-libvirtd_1
+    '';
+  };
+  age = {
+    args = ["cell" "file"];
+    description = "edit the key age with ragenix";
+    content = ''
+      ragenix --edit ./nix/{{cell}}/secretProfiles/{{file}} --rules ./nix/{{cell}}/secretProfiles/secrets.nix
+    '';
+  };
+  age-rekey = {
+    args = ["cell"];
+    description = "re-age key with ragenix";
+    content = ''
+      ragenix --rules ./nix/{{cell}}/secretProfiles/secrets.nix --rekey
     '';
   };
 }
