@@ -1,0 +1,8 @@
+:PROPERTIES:
+:ID:       3bfb17bc-95f9-4fc7-80c6-255f20732809
+:END:
+#+title: Security
+
+
+* Trusted_Platform_Module (TPM)
+- https://wiki.archlinux.org/title/Trusted_Platform_Module

@@ -5,7 +5,8 @@
   inherit (cell) nixosProfiles;
 in {
   desktop = with nixosProfiles;
-    [
+    bootstrap
+    ++ [
       inputs.cells.input.nixosModules.fcitx5
       inputs.cells.vm.nixosModules.libvirtd
     ]

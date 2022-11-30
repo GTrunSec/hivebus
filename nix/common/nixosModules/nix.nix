@@ -1,7 +1,4 @@
 {
-  inputs,
-  cell,
-}: {
   config,
   lib,
   modulesPath,

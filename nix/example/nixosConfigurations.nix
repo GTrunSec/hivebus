@@ -3,7 +3,7 @@
   cell,
 }: let
   inherit (cell) nixosSuites;
-  inherit (inputs.cells._common.lib) __inputs__;
+  inherit (inputs.cells.common.lib) __inputs__;
 in {
   home = {
     bee = rec {
