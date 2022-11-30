@@ -22,6 +22,7 @@ in {
 
   libvirtd = with nixosProfiles;
     bootstrap
+    ++ secrets
     ++ [
       inputs.cells.virtualization.nixosModules.libvirtd
     ]
