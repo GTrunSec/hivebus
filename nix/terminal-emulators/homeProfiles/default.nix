@@ -1,3 +1,3 @@
 {
-  alacritty = import ./alacritty.nix;
+  alacritty = ./alacritty.nix;
 }
