@@ -4,4 +4,5 @@
   };
   intel = ./intel.nix;
   hidpi = ./hidpi.nix;
+  lvm = ./lvm.nix;
 }

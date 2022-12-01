@@ -15,5 +15,6 @@ in {
       inputs.cells.terminal-emulators.homeProfiles.alacritty
       inputs.cells.terminal-emulators.homeModules.zsh
       homeModules.alacritty
+      inputs.cells.base.homeProfiles.default
     ];
 }

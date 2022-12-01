@@ -1,3 +1,3 @@
 {
-  git = import ./git.nix;
+  git = ./git.nix;
 }
