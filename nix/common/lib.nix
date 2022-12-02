@@ -26,14 +26,5 @@
       lib = inputs.nixpkgs.lib;
     };
   };
-in {
-  inherit
-    __inputs__
-    ;
-
-  l = l // digga-lib.importers;
-
-  test-nixpkgs = nixpkgs.appendOverlays [
-    cell.overlays.nomad
-  ];
-}
+in
+  digga-lib.importers // {inherit __inputs__;}
