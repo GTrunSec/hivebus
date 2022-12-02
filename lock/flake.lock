@@ -98,6 +98,22 @@
         "type": "github"
       }
     },
+    "digga": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1668250948,
+        "narHash": "sha256-qqyzJQHgb/Bgq3Zxwa0gmaDEpkuyVhvynnq6a0akMWw=",
+        "owner": "divnix",
+        "repo": "digga",
+        "rev": "54ede8e591d288c176a09d6fcf4b123896c0bf0f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "divnix",
+        "repo": "digga",
+        "type": "github"
+      }
+    },
     "dmerge": {
       "inputs": {
         "nixlib": [
@@ -531,6 +547,7 @@
     "root": {
       "inputs": {
         "bootsec": "bootsec",
+        "digga": "digga",
         "emacs-overlay": "emacs-overlay",
         "nixpkgs": "nixpkgs",
         "nomad-driver": "nomad-driver",

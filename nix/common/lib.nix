@@ -21,11 +21,17 @@
     ragenix.inputs.nixpkgs = "nixos";
     styx.inputs.nixpkgs = "nixpkgs";
   };
+  digga-lib = {
+    importers = import "${__inputs__.digga}/src/importers.nix" {
+      lib = inputs.nixpkgs.lib;
+    };
+  };
 in {
   inherit
-    l
     __inputs__
     ;
+
+  l = l // digga-lib.importers;
 
   test-nixpkgs = nixpkgs.appendOverlays [
     cell.overlays.nomad
