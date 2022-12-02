@@ -16,7 +16,7 @@ in rec {
   bee.pkgs = import inputs.nixos {
     inherit (inputs.nixpkgs) system;
     config.allowUnfree = true;
-    overlays = [];
+    overlays = cell.overlays.libvirtd_1;
   };
   imports =
     [

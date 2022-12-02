@@ -3,8 +3,8 @@
   cell,
 }: let
   inherit (cell) homeProfiles homeModules;
-in {
-  shell = with homeProfiles;
+in rec {
+  default = with homeProfiles;
     [
       shellPrograms
       shellPackages
@@ -16,5 +16,14 @@ in {
       inputs.cells.terminal-emulators.homeModules.zsh
       homeModules.alacritty
       inputs.cells.base.homeProfiles.default
+      inputs.cells.utils.homeProfiles.default
     ];
+
+  desktop = with homeProfiles;
+    default
+    ++ [
+      inputs.cells.emacs.homeProfiles.default
+    ];
+
+  libvirtd = default;
 }

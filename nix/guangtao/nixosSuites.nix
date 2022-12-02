@@ -18,7 +18,10 @@ in {
     ++ [
       cell.userProfiles.gtrun
       {
-        home-manager.users.guangtao = {inherit (cell.homeConfigurations.destkop) imports;};
+        home-manager.users.guangtao = {
+          inherit (cell.homeConfigurations.destkop) imports;
+          home.stateVersion = "22.11";
+        };
       }
     ];
 
@@ -36,7 +39,10 @@ in {
           password = "nixos";
           shell = nixpkgs.zsh;
         };
-        home-manager.users.admin = {imports = cell.homeSuites.shell;};
+        home-manager.users.admin = {
+          inherit (cell.homeConfigurations.libvirtd) imports;
+          home.stateVersion = "22.11";
+        };
       }
     ];
 }

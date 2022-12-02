@@ -3,7 +3,7 @@
   cell,
 }: {
   default = {
-     imports = [
+    imports = [
       inputs.cells.version-management.homeProfiles.git
     ];
   };
