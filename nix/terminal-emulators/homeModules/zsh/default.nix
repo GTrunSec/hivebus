@@ -7,6 +7,11 @@
   config = with lib;
     mkMerge [
       {
+        home.packages =with pkgs; [
+          peco
+          ghq
+        ];
+
         programs.zsh = {
           enable = true;
           autocd = true;
@@ -31,9 +36,7 @@
             em = "emacs";
             cp = "cp -i";
             mv = "mv -i";
-            gst = "${pkgs.gst}/bin/gst";
             cdghq = "cd $(ghq root)/$(ghq list | peco)";
-            cdgst = "cd $(gst --short | peco)";
             ##update Nixpkgs
             fp = "git fetch && git pull";
             sshi = "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null";
