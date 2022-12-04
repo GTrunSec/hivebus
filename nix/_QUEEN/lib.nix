@@ -20,6 +20,15 @@ in {
   in
     makeMeadFrom self;
 
+  darwinConfigurations = cellBlock: self: let
+    makeDarwinFrom = import ./make-darwin.nix {
+      inherit nixpkgs cellBlock;
+      pasteurize' = "${hivelib}/pasteurize.nix";
+      darwin = inputs.darwin;
+    };
+  in
+    makeDarwinFrom self;
+
   homeConfigurations = cellBlock: self: let
     makeMoonshineFrom = import "${hivelib}/make-moonshine.nix" {
       inherit nixpkgs cellBlock;

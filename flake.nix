@@ -34,6 +34,9 @@
 
   # nixpkgs & home-manager
   inputs = {
+    darwin.url = "github:LnL7/nix-darwin";
+    darwin.inputs.nixpkgs.follows = "nixpkgs";
+
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixos.url = "github:nixos/nixpkgs/release-22.11";
 
@@ -79,12 +82,14 @@
 
         # suites aggregate profiles
         (functions "nixosSuites")
+        (functions "darwinSuites")
         (functions "homeSuites")
 
         # configurations can be deployed
         (data "colmenaConfigurations")
         (data "homeConfigurations")
         (data "nixosConfigurations")
+        (data "darwinConfigurations")
         (arion "arionComposes")
 
         # devshells can be entered
@@ -115,6 +120,7 @@
       colmenaHive = self.lib.colmenaHive "colmenaConfigurations" self;
       nixosConfigurations = self.lib.nixosConfigurations "nixosConfigurations" self;
       homeConfigurations = self.lib.homeConfigurations "homeConfigurations" self;
+      darwinConfigurations = self.lib.darwinConfigurations "darwinConfigurations" self;
     }
     {
       # --- Flake Local Nix Configuration ----------------------------
