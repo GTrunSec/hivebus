@@ -8,13 +8,9 @@ in rec {
     [
       shellPrograms
       shellPackages
-
-      inputs.cells.version-management.homeProfiles.git
     ]
     ++ [
-      inputs.cells.terminal-emulators.homeProfiles.alacritty
       inputs.cells.terminal-emulators.homeModules.zsh
-      homeModules.alacritty
       inputs.cells.base.homeProfiles.default
       inputs.cells.utils.homeProfiles.default
     ];
@@ -22,8 +18,12 @@ in rec {
   desktop = with homeProfiles;
     default
     ++ [
+      inputs.cells.terminal-emulators.homeProfiles.alacritty
+      homeModules.alacritty
       inputs.cells.emacs.homeProfiles.default
     ];
+
+  macbook = default ++ [];
 
   libvirtd = default;
 }

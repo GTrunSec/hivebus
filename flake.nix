@@ -68,11 +68,13 @@
       cellBlocks = with std.blockTypes; [
         # modules implement
         (functions "nixosModules")
+        (functions "darwinModules")
         (functions "homeModules")
         (functions "devshellModules")
 
         # profiles activate
         (functions "nixosProfiles")
+        (functions "darwinProfiles")
         (functions "homeProfiles")
         (functions "devshellProfiles")
         (functions "userProfiles")
@@ -124,10 +126,17 @@
     }
     {
       # --- Flake Local Nix Configuration ----------------------------
-      # TODO: adopt spongix
       nixConfig = {
-        extra-substituters = [];
-        extra-trusted-public-keys = [];
+        extra-substituters = [
+          "https://hyprland.cachix.org"
+          "https://colmena.cachix.org"
+          "https://nixpkgs-wayland.cachix.org"
+        ];
+        extra-trusted-public-keys = [
+          "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
+          "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+          "colmena.cachix.org-1:7BzpDnjjH8ki2CT3f6GdOk7QAzPOl+1t3LvTLXqYcSg="
+        ];
       };
     };
 }

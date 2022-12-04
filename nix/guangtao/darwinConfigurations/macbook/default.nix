@@ -17,6 +17,8 @@ in rec {
     ]
     ++ [
       {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
       }
     ]
     ++ cell.darwinSuites.macbook;

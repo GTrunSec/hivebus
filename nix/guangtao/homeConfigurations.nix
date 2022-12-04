@@ -24,4 +24,14 @@ in {
     };
     imports = cell.homeSuites.libvirtd;
   };
+
+  macbook = {
+    inherit (cell.darwinConfigurations.macbook) bee;
+    home = rec {
+      homeDirectory = "/home/${username}";
+      stateVersion = version;
+      username = "gtrun";
+    };
+    imports = cell.homeSuites.macbook;
+  };
 }

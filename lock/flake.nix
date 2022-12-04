@@ -11,6 +11,21 @@
   };
 
   inputs = {
+    hyprland.url = "github:hyprwm/Hyprland";
+    hyprwm-contrib.url = "github:hyprwm/contrib";
+
+    # hyprland.inputs.nixpkgs.follows = "nixpkgs";
+
+    nixgl.url = "github:guibou/nixGL";
+    nixgl.inputs.nixpkgs.follows = "nixpkgs";
+
+    hyprpaper.url = "github:hyprwm/hyprpaper";
+    hyprpaper.inputs.nixpkgs.follows = "nixpkgs";
+
+    nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
+  };
+
+  inputs = {
     # https://github.com/DeterminateSystems/bootspec
     bootsec.url = "github:DeterminateSystems/bootspec";
     bootsec.inputs.nixpkgs.follows = "nixpkgs";
