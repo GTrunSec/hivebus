@@ -15,8 +15,8 @@ in {
     };
     imports = cell.homeSuites.desktop;
   };
-  libvirtd = {
-    inherit (cell.nixosConfigurations.libvirtd) bee;
+  libvirtd_1 = {
+    inherit (cell.nixosConfigurations.libvirtd_1) bee;
     home = rec {
       homeDirectory = "/home/${username}";
       stateVersion = version;
