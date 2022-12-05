@@ -9,7 +9,7 @@ in rec {
   bee.pkgs = import inputs.nixos {
     system = "x86_64-darwin";
     config.allowUnfree = true;
-    overlays = [];
+    overlays = cell.overlays.macbook;
   };
   imports =
     [

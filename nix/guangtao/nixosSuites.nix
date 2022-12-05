@@ -6,12 +6,12 @@
   inherit (inputs) nixpkgs;
 in {
   desktop = with nixosProfiles;
-    bootstrap
-    ++ networking
-    ++ graphics
-    ++ disk
-    ++ secrets
-    ++ [
+    [
+      bootstrap
+      networking
+      graphics
+      disk
+      secrets
       inputs.cells.i18n.nixosModules.fcitx5
       inputs.cells.virtualization.nixosModules.libvirtd
     ]
@@ -26,8 +26,10 @@ in {
     ];
 
   libvirtd = with nixosProfiles;
-    bootstrap
-    ++ secrets
+    [
+      bootstrap
+      secrets
+    ]
     ++ [
       inputs.cells.virtualization.nixosModules.libvirtd
     ]

@@ -16,14 +16,18 @@ in rec {
     ];
 
   desktop = with homeProfiles;
-    default
-    ++ [
+    [
       inputs.cells.terminal-emulators.homeProfiles.alacritty
       homeModules.alacritty
-      inputs.cells.emacs.homeProfiles.default
-    ];
+      inputs.cells.emacs.homeProfiles.linux
+    ]
+    ++ default;
 
-  macbook = default ++ [];
+  macbook = with homeProfiles;
+    default
+    ++ [
+      inputs.cells.emacs.homeProfiles.darwin
+    ];
 
   libvirtd = default;
 }

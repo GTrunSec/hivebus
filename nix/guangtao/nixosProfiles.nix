@@ -2,32 +2,32 @@
   inputs,
   cell,
 }: {
-  bootstrap = [
+  bootstrap.imports = [
     inputs.cells.base.nixosModules.nix
     inputs.cells.base.nixosModules.openssh
     inputs.cells.boot.nixosProfiles.tmp
   ];
 
-  graphics = [
+  graphics.imports = [
     inputs.cells.hardware.nixosProfiles.hidpi
   ];
 
-  searching = [];
+  searching.imports = [];
 
-  coding = [];
+  coding.imports = [];
 
-  databases = [];
+  databases.imports = [];
 
-  networking = [
+  networking.imports = [
     inputs.cells.networking.nixosProfiles.nat
   ];
 
-  disk = [
+  disk.imports = [
     # ssd setting
     inputs.cells.base.nixosProfiles.fstrim
   ];
 
-  secrets =
+  secrets.imports =
     [
       inputs.cells.secrets.nixosModules.sops
     ]

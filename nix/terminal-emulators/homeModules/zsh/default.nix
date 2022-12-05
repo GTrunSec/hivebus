@@ -7,7 +7,7 @@
   config = with lib;
     mkMerge [
       {
-        home.packages =with pkgs; [
+        home.packages = with pkgs; [
           peco
           ghq
         ];

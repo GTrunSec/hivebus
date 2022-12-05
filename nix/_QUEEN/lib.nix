@@ -21,7 +21,7 @@ in {
     makeMeadFrom self;
 
   darwinConfigurations = cellBlock: self: let
-    makeDarwinFrom = import ./make-darwin.nix {
+    makeDarwinFrom = import ./make-cider.nix {
       inherit nixpkgs cellBlock;
       pasteurize' = "${hivelib}/pasteurize.nix";
       darwin = inputs.darwin;

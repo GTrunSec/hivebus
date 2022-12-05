@@ -2,7 +2,16 @@
   inputs,
   cell,
 }: {
-  default = {
-    imports = [cell.homeModules.emacs];
+  linux = {
+    imports = [
+      cell.homeModules.linux
+      cell.homeModules.doom
+    ];
+  };
+  darwin = {
+    imports = [
+      cell.homeModules.darwin
+      cell.homeModules.doom
+    ];
   };
 }

@@ -22,6 +22,7 @@ in
             config.bee.home.darwinModules.home-manager
           ];
         system = config.bee.system;
+        pkgs = config.bee.pkgs;
       };
   in
     l.mapAttrs (evalNode {}) comb

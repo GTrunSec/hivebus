@@ -31,4 +31,11 @@
       ragenix --rules ./nix/{{cell}}/secretProfiles/secrets.nix --rekey
     '';
   };
+  darwin-build = {
+    args = ["machine"];
+    description = "build darwin machine";
+    content = ''
+      darwin-rebuild build --flake .#guangtao-o-{{machine}}
+    '';
+  };
 }
