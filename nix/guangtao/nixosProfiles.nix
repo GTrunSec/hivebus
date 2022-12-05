@@ -12,6 +12,14 @@
     inputs.cells.hardware.nixosProfiles.hidpi
   ];
 
+  locale.imports = [
+    inputs.cells.i18n.nixosModules.fcitx5
+  ];
+
+  virtualization.imports = [
+    inputs.cells.virtualization.nixosModules.libvirtd
+  ];
+
   searching.imports = [];
 
   coding.imports = [];

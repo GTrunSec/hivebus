@@ -4,13 +4,16 @@
 }: let
   l = inputs.nixpkgs.lib // builtins;
 in {
-  gtrun.users.users."${l.baseNameOf ./.}" = {
+  guangtao.users.users."${l.baseNameOf ./.}" = {
     password = "nixos";
     description = "default";
     isNormalUser = true;
     extraGroups = ["wheel"];
     inherit (cell.secretProfiles.guangtao) openssh;
   };
+
+  gtrun = cell.userProfiles.guangtao;
+
   root.users.users."root" = {
     inherit (cell.secretProfiles.guangtao) openssh;
   };

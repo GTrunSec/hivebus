@@ -5,14 +5,8 @@
   inherit (inputs) nixpkgs;
   inherit (cell) darwinProfiles;
 in {
-  macbook = with darwinProfiles;
+  macbook = with darwinProfiles; [
     bootstrap
-    ++ [
-      {
-        home-manager.users.gtrun = {
-          inherit (cell.homeConfigurations.macbook) imports;
-          home.stateVersion = "22.11";
-        };
-      }
-    ];
+    (cell.lib.mkHome "gtrun" "macbook" "22.11")
+  ];
 }

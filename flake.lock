@@ -1207,6 +1207,10 @@
           "hivelib",
           "disko"
         ],
+        "dmerge": [
+          "std",
+          "dmerge"
+        ],
         "hivelib": "hivelib",
         "home": "home",
         "microvm": "microvm",

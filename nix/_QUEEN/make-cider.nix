@@ -21,8 +21,7 @@ in
           ++ l.optionals (config.bee ? home) [
             config.bee.home.darwinModules.home-manager
           ];
-        system = config.bee.system;
-        pkgs = config.bee.pkgs;
+        inherit (config.bee) system pkgs;
       };
   in
     l.mapAttrs (evalNode {}) comb

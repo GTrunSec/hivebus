@@ -35,4 +35,11 @@ in {
     };
   in
     makeMoonshineFrom self;
+
+  diskoConfigurations = cellBlock: self: let
+    makeShantyFrom = import "${hivelib}/make-shanty.nix" {
+      inherit nixpkgs cellBlock;
+    };
+  in
+    makeShantyFrom self;
 }

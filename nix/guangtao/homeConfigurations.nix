@@ -6,7 +6,7 @@
 in let
   version = "22.11";
 in {
-  destkop = {
+  desktop = {
     inherit (cell.nixosConfigurations.desktop) bee;
     home = rec {
       homeDirectory = "/home/${username}";

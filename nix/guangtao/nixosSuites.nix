@@ -12,17 +12,11 @@ in {
       graphics
       disk
       secrets
-      inputs.cells.i18n.nixosModules.fcitx5
-      inputs.cells.virtualization.nixosModules.libvirtd
+      locale
+      virtualization
     ]
     ++ [
-      cell.userProfiles.gtrun
-      {
-        home-manager.users.guangtao = {
-          inherit (cell.homeConfigurations.destkop) imports;
-          home.stateVersion = "22.11";
-        };
-      }
+      (cell.lib.mkHome "guangtao" "desktop" "22.11")
     ];
 
   libvirtd = with nixosProfiles;
@@ -31,19 +25,15 @@ in {
       secrets
     ]
     ++ [
-      inputs.cells.virtualization.nixosModules.libvirtd
+      virtualization
     ]
     ++ [
       cell.userProfiles.root
-      cell.userProfiles.admin
+      (cell.lib.mkHome "admin" "libvirtd_1" "22.11")
       {
         users.users."admin" = {
           password = "nixos";
           shell = nixpkgs.zsh;
-        };
-        home-manager.users.admin = {
-          inherit (cell.homeConfigurations.libvirtd) imports;
-          home.stateVersion = "22.11";
         };
       }
     ];

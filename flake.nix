@@ -7,6 +7,7 @@
     std.inputs.nixpkgs.follows = "nixpkgs";
     std.inputs.arion.follows = "arion";
     std.inputs.microvm.follows = "microvm";
+    dmerge.follows = "std/dmerge";
 
     hivelib.url = "github:divnix/hive";
     hivelib.inputs.nixpkgs.follows = "nixpkgs";
@@ -92,7 +93,8 @@
         (data "homeConfigurations")
         (data "nixosConfigurations")
         (data "darwinConfigurations")
-        (arion "arionComposes")
+        (data "diskoConfigurations")
+        (arion "arionConfigurations")
 
         # devshells can be entered
         (devshells "devshells")
@@ -121,6 +123,7 @@
       nixosConfigurations = self.lib.nixosConfigurations "nixosConfigurations" self;
       homeConfigurations = self.lib.homeConfigurations "homeConfigurations" self;
       darwinConfigurations = self.lib.darwinConfigurations "darwinConfigurations" self;
+      diskoConfigurations = self.lib.diskoConfigurations "diskoConfigurations" self;
     }
     {
       # --- Flake Local Nix Configuration ----------------------------
