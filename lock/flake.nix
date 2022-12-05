@@ -8,6 +8,8 @@
   inputs = {
     emacs-overlay.url = "github:nix-community/emacs-overlay";
     emacs-overlay.inputs.nixpkgs.follows = "nixpkgs";
+
+    emacs-darwin.url = "github:cmacrae/emacs";
   };
 
   inputs = {
