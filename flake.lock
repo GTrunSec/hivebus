@@ -228,16 +228,15 @@
     "disko": {
       "inputs": {
         "nixpkgs": [
-          "hivelib",
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1668081890,
-        "narHash": "sha256-xm7yDuwuQLL/F0tJycutdprQekpETy3DssqfTudM9NI=",
+        "lastModified": 1670157103,
+        "narHash": "sha256-EDvoYUwi7RB/oSOtbk7ykRQXQ0KI5A+UPI8D/TanYXY=",
         "owner": "nix-community",
         "repo": "disko",
-        "rev": "d7e25ced8a15554e3afb2eb9b1800de271efbd87",
+        "rev": "e0ce5fb75f1197cf57b0a5c46434d69c14efc842",
         "type": "github"
       },
       "original": {
@@ -486,7 +485,9 @@
         "colmena": [
           "colmena"
         ],
-        "disko": "disko",
+        "disko": [
+          "disko"
+        ],
         "home": [
           "hivelib",
           "home-22-05"
@@ -1203,10 +1204,7 @@
         "cells-lab": "cells-lab",
         "colmena": "colmena",
         "darwin": "darwin",
-        "disko": [
-          "hivelib",
-          "disko"
-        ],
+        "disko": "disko",
         "dmerge": [
           "std",
           "dmerge"

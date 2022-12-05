@@ -1,7 +1,9 @@
 {
   inputs,
   cell,
-}: {
+}: let
+  profiles = inputs.cells.common.lib.rakeLeaves ./nixosProfiles;
+in {
   bootstrap.imports = [
     inputs.cells.base.nixosModules.nix
     inputs.cells.base.nixosModules.openssh
@@ -9,7 +11,7 @@
   ];
 
   graphics.imports = [
-    inputs.cells.hardware.nixosProfiles.hidpi
+    inputs.cells.hardware.nixosModules.hidpi
   ];
 
   locale.imports = [
@@ -30,10 +32,17 @@
     inputs.cells.networking.nixosProfiles.nat
   ];
 
-  disk.imports = [
+  disk.imports =
+    [
+      inputs.disko.nixosModules.disko
+      profiles.zsh
+      {
+        disko.devices = cell.diskoConfigurations.desktop {};
+      }
+    ]
+    ++
     # ssd setting
-    inputs.cells.base.nixosProfiles.fstrim
-  ];
+    inputs.cells.hardware.nixosSuites.ssd;
 
   secrets.imports =
     [
