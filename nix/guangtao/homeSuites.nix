@@ -10,14 +10,13 @@ in rec {
       shellPackages
     ]
     ++ [
-      inputs.cells.terminal-emulators.homeModules.zsh
       inputs.cells.base.homeProfiles.default
       inputs.cells.utils.homeProfiles.default
-    ];
+    ] ++ inputs.cells.terminal.homeSuites.default;
 
   desktop = with homeProfiles;
     [
-      inputs.cells.terminal-emulators.homeProfiles.alacritty
+      inputs.cells.terminal.homeProfiles.alacritty
       homeModules.alacritty
       inputs.cells.emacs.homeProfiles.linux
     ]

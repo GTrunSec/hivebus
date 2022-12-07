@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: nix
+# uuid:
+# key: nix
+# condiixtion: t
+# --
+watch_file flake.nix flake.lock
+{
+    # shell gc root dir
+    mkdir -p "$(direnv_layout_dir)"
+    eval "$(nix print-dev-env --no-update-lock-file --no-write-lock-file --profile $(direnv_layout_dir)/flake-profile)"
+} || use nix

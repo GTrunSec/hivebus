@@ -1,0 +1,41 @@
+# -*- mode: gitignore; -*-
+
+## nixos
+result
+
+
+.DS_Store
+dotfiles/emacs/emacs.d/var
+dotfiles/emacs/emacs.d/straight
+dotfiles/emacs/emacs.d/.*
+dotfiles/emacs/emacs.d/librime.so
+dotfiles/emacs/emacs.d/setup
+dotfiles/emacs/emacs.d/elpa
+dotfiles/emacs/emacs.d/pyim/rime
+Pattern.org
+##Emacs bookmarks
+bm-macos-data
+## Emacs librime config
+dotfiles/emacs/emacs.d/pyim/rime/build
+dotfiles/emacs/emacs.d/pyim/rime/easy_en.userdb
+dotfiles/emacs/emacs.d/pyim/rime/easy_en.userdb.old
+dotfiles/emacs/emacs.d/pyim/rime/luna_pinyin.userdb
+dotfiles/emacs/emacs.d/pyim/rime/luna_pinyin.userdb.old
+dotfiles/emacs/emacs.d/pyim/scel2pyim/scel2pyim
+dotfiles/emacs/emacs.d/liberime.so
+dotfiles/emacs/emacs.d/pyim/rime/user.yaml
+
+## lsp
+
+dotfiles/emacs/emacs.d/mspyls
+dotfiles/emacs/emacs.d/SessionDesktop.el
+
+
+#latex
+_minted-math
+#lang-python
+*.pyg
+
+#lang-R
+
+.Rhistory

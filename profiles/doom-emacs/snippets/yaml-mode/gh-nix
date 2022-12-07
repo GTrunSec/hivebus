@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: ghnix
+# uuid:
+# key: ghnix
+# condition: t
+# --
+- name: Update nix verison of GH
+  run: nix -Lv run github:hardenedlinux/nixpkgs-hardenedlinux#gh-nix-update

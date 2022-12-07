@@ -13,3 +13,4 @@ treefmt.toml
 docs/book/**
 
 /.cache
+profiles/*.el

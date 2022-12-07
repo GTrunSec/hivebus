@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: python-val
+# key: pval
+# --
+#+tblname: data_table
+$1
+#+begin_src python :var val=1 :var data=data_table
+# Return row specified by val.
+# In non-session mode, use return to return results.
+$2
+# return(data[val])
+#+end_src

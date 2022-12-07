@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: as
+# key: as
+# --
+
+#+begin_export md
+{{< asciinema key="$1" rows="10" preload="1" >}}
+#+end_export

@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: ein-rust
+# uuid:
+# key: er
+# condition: t
+# --
+#+begin_src ein-rust :session localhost :exports both
+$1
+#+end_src

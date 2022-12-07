@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: ein-python
+# key: ep  
+# --
+#+BEGIN_SRC ein-python :session localhost :exports both :results output
+$1
+#+END_SRC

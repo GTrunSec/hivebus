@@ -12,6 +12,7 @@ in {
 
   graphics.imports = [
     inputs.cells.hardware.nixosModules.hidpi
+    cell.nixosModules.nvidia
   ];
 
   locale.imports = [

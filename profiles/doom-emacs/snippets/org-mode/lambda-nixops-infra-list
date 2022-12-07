@@ -1,0 +1,28 @@
+# -*- mode: snippet -*-
+# name: infra list
+# key: il
+# --
++ [ ] [nixpkgs]
++ [ ] [nixos]
+  - [ ] [micro-vm]
+  - [ ] [module]
++ [ ] [nomad]
+  - [ ] [docker]
+  - [ ] [podmad]
+  - [ ] [qemu]
+  - [ ] [nix]
++ [  ] [makes]
+  - [ ] [release]
+  - [ ] [dev]
+  - [ ] [staging]
++ [ ] [Nickel]
+  - [ ] [dockerFile]
+  - [ ] [nomad]
+  - [ ] [kubernetes]
+  + [ ] [github]
+    - [  ] [internal]
+    - [  ] [runner]
++ [ ] [CUE]
+  - [ ] [dockerFile]
+  - [ ] [nomad]
+  - [ ] [kubernetes]

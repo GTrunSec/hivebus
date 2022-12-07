@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: logseq-public
+# key: :p
+# condition: t
+# --
+:public: true

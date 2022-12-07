@@ -12,6 +12,10 @@ age cell file:
 age-rekey cell:
     ragenix --rules ./nix/{{ cell }}/secretProfiles/secrets.nix --rekey
 
+# build darwin machine
+darwin-build machine:
+    darwin-rebuild build --flake .#guangtao-o-{{ machine }}
+
 # Colmena build Guangtao Home Machine
 desktop:
     colmena build --on guangtao-o-desktop

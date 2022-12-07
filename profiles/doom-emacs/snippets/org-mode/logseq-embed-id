@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: logseq-embed-id
+# key: lei
+# --
+- {{{embed(($1))}}}

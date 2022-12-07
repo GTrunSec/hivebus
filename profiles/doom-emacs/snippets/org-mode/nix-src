@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: nix
+# uuid: nix-src
+# key: no
+# condition: t
+# --
+#+begin_src nix :exports both :results output
+$1
+#+end_src

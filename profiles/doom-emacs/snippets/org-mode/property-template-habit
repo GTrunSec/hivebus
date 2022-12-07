@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name:  property-template-habit
+# key: pth
+# condition: t
+# --
+:PROPERTIES:
+:STYLE:    habit
+:LAST_REPEAT:
+:END:

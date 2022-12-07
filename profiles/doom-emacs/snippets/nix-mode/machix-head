@@ -1,0 +1,17 @@
+# -*- mode: snippet -*-
+# name: machix to head
+# key: mach
+# condition: t        
+# --
+{pkgs}:
+with builtins;
+let
+  pypi_fetcher_src = import (builtins.fetchTarball {
+    name = "nix-pypi-fetcher";
+    url = "https://github.com/DavHau/nix-pypi-fetcher/tarball/0d94c66e7b259f4dba0a7c5121d1f611f93bdfc8";
+    # Hash obtained using `nix-prefetch-url --unpack <url>`
+    sha256 = "1s1jag3cm2i05jraa9g42hfd3ya1x9ca3zdb2g5nnvzq5x52wwnx";
+  }){inherit pkgs;};
+
+  fetchPypi =  pypi_fetcher_src.fetchPypi;
+  fetchPypiWheel = pypi_fetcher_src.fetchPypiWheel;

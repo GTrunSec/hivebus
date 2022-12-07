@@ -1,0 +1,47 @@
+# -*- mode: snippet -*-
+# name: nocargo
+# uuid:
+# key: nocargo
+# condition: t
+# --
+{
+  description = "Rust crate deploy-rs";
+
+  inputs = {
+    nixpkgs.url = "nixpkgs/nixos-unstable";
+    flake-utils.url = "github:numtide/flake-utils";
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+    };
+    nocargo = {
+      url = "github:oxalica/nocargo";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.registry-crates-io.follows = "registry-crates-io";
+    };
+
+    registry-crates-io = { url = "github:rust-lang/crates.io-index"; flake = false; };
+  };
+
+  outputs = { nixpkgs, flake-utils, rust-overlay, nocargo, ... }@inputs:
+    flake-utils.lib.eachDefaultSystem (system:
+      let
+        pkgs = import nixpkgs {
+          inherit system;
+          overlays = [ rust-overlay.overlays.default nocargo.overlay ];
+        };
+
+        rustc = pkgs.rust-bin.stable.latest.minimal;
+
+      in
+      rec {
+        defaultPackage = packages."$1";
+        defaultApp = defaultPackage.bin;
+
+        packages."$2" = pkgs.nocargo.buildRustCrateFromSrcAndLock {
+          src = ./.;
+          inherit rustc;
+        };
+      });
+}

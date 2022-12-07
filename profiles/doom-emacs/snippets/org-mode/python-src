@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name:python-src 
+# key: po
+# --
+#+begin_src python :results output :async
+$1
+#+end_src

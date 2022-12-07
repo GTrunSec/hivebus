@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: conf
+# key: conf
+# --
+#+begin_src conf :exports both :tangle "~/.config/guangtao/dotfiles/"
+
+#+end_src

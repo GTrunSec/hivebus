@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: l
+# uuid:
+# key: l
+# condition: t
+# --
+l = inputs.nixpkgs.lib // builtins;

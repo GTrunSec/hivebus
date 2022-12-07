@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: pdf-image size
+# key: pi
+# --
+#+NAME: $1
+#+CAPTION: $2 
+#+ATTR_ORG: :width 600
+#+ATTR_LATEX: :width 5in
+$0

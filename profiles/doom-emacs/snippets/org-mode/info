@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: info
+# key: info
+# --
+TODAY=$(date)
+HOST=$(hostname)
+echo $TODAY
+echo $HOST

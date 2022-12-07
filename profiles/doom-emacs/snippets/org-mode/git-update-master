@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: git-update
+# key: gu
+# --
+cd $1
+TODAY=$(date)
+HOST=$(hostname)
+echo $TODAY
+echo $HOST
+git fetch origin master
+git pull origin master

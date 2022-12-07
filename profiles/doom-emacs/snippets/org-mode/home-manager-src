@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: home-manager org-babel
+# key: hm
+# condition: t
+# --
+#+begin_src nix :exports both :tangle "~/.config/guangtao/home-manager/"
+$1
+#+end_src

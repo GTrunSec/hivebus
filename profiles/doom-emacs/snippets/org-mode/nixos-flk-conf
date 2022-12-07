@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: nixos-flk conf
+# key: nf
+# condition: t
+# --
+#+begin_src nix :exports both :tangle "~/.config/guangtao/nixos-flk/"
+$1
+#+end_src

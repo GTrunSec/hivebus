@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: haskell-src
+# key: ho
+# --
+#+begin_src haskell :exports both :results output
+$1
+#+end_src

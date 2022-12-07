@@ -1,0 +1,19 @@
+# -*- mode: snippet -*-
+# name: org
+# uuid:
+# key: org
+# condition: t
+# --
+(package! org
+  :recipe (:host github
+           :repo "yantar92/org"
+           :branch "feature/org-fold"
+           :files ("*.el" "lisp/*.el" "contrib/lisp/*.el" "contrib/scripts")
+           :build t
+           :pre-build
+           (with-temp-file "org-version.el"
+             (insert "(defun org-release () \"9.5\")\n"
+                     (format "(defun org-git-version (&rest _) \"9.5-%s\")\n"
+                             (cdr (doom-call-process "git" "rev-parse" "--short" "HEAD")))
+                     "(provide 'org-version)\n")))
+  )

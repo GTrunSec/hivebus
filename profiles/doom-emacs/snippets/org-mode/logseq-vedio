@@ -1,0 +1,14 @@
+# -*- mode: snippet -*-
+# name: logseq-vedio
+# key: lv
+# --
+
+[:div.videoWrapper.mb-4
+        [:iframe
+         {:allowFullScreen "allowfullscreen"
+          :allow
+          "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        :frameBorder "0"
+        :src "https://www.youtube.com/embed/$1"
+        :height "367"
+        :width "653"}]]

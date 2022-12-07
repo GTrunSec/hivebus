@@ -1,0 +1,6 @@
+#+TITLE: ${1:Title}
+#+AUTHOR: `user-full-name`
+#+EMAIL: `user-mail-address`
+#+DATE: `(format-time-string "%Y-%m-%d %a %H:%M")`
+#+SETUPFILE: ./hugo.local
+#+SETUPFILE: ./theme-readtheorg.setup

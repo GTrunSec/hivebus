@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: html-image size
+# key: hi                 
+# --
+#+NAME: $2
+#+CAPTION: $3
+#+ATTR_HTML: :width 500 $1

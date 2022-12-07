@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: rule
+# uuid:
+# key: _r
+# condition: t
+# --
+schemas.result.rule = {
+        "0" = "";
+        "1" = "";
+        "-1" = "";
+      };
