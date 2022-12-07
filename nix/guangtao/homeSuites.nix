@@ -12,7 +12,8 @@ in rec {
     ++ [
       inputs.cells.base.homeProfiles.default
       inputs.cells.utils.homeProfiles.default
-    ] ++ inputs.cells.terminal.homeSuites.default;
+    ]
+    ++ inputs.cells.terminal.homeSuites.default;
 
   desktop = with homeProfiles;
     [
@@ -27,6 +28,5 @@ in rec {
     ++ [
       inputs.cells.emacs.homeProfiles.darwin
     ];
-
   libvirtd = default;
 }
