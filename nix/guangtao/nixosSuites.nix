@@ -14,6 +14,7 @@ in {
       secrets
       locale
       virtualization
+      coding.desktop
     ]
     ++ [
       (cell.lib.mkHome "guangtao" "desktop" "22.11")

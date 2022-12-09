@@ -17,6 +17,7 @@ in {
     };
     extraOptions = ''
       auto-optimise-store = true
+      # auto-allocate-uids = true
       experimental-features = nix-command flakes recursive-nix
     '';
   };

@@ -25,7 +25,11 @@ in {
 
   searching.imports = [];
 
-  coding.imports = [];
+  coding = {
+    desktop.imports = [
+      cell.nixosModules.coding.python.desktop
+    ];
+  };
 
   databases.imports = [];
 

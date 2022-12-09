@@ -20,6 +20,7 @@
 
   # tools
   inputs = {
+    nix-filter.url = "github:/numtide/nix-filter";
     nixos-generators.url = "github:nix-community/nixos-generators";
     nixos-hardware.url = "github:nixos/nixos-hardware";
     disko.url = "github:nix-community/disko";

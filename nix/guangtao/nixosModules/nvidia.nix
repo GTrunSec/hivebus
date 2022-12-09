@@ -24,6 +24,5 @@
       "multi-user.target"
     ];
   };
-
   boot.blacklistedKernelModules = ["nouveau"];
 }
