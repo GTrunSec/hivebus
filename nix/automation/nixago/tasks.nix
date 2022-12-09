@@ -38,4 +38,11 @@
       darwin-rebuild build --flake .#guangtao-o-{{machine}}
     '';
   };
+  nvfetcher-update = {
+    args = ["cell"];
+    description = "update packages via nvfetcher";
+    content = ''
+      nix develop github:GTrunSec/cells-lab#devShells.x86_64-linux.update --refresh --command nvfetcher-update nix/{{cell}}/packages/sources.toml
+    '';
+  };
 }

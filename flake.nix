@@ -38,11 +38,13 @@
 
   # nixpkgs & home-manager
   inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+
     darwin.url = "github:LnL7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
 
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixos.url = "github:nixos/nixpkgs/release-22.11";
+    nixos-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     home.url = "github:nix-community/home-manager/release-22.11";
     home.inputs.nixpkgs.follows = "nixos";
@@ -118,6 +120,7 @@
     {
       devShells = inputs.std.harvest inputs.self ["automation" "devshells"];
       lib = (inputs.std.harvest inputs.self ["_QUEEN" "lib"]).x86_64-linux;
+      overlays = (inputs.std.harvest inputs.self ["guangtao" "overlays"]).x86_64-linux;
     }
     # soil - the first (and only) layer implements adapters for tooling
     {

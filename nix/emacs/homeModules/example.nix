@@ -7,7 +7,7 @@
   programs.emacs = {
     enable = true;
     package = pkgs.emacsWithPackagesFromUsePackage {
-      package = pkgs.emacsPgtkNativeComp;
+      package = pkgs.emacsPgtk;
       alwaysEnsure = true;
       extraEmacsPackages = p: with p; [use-package];
       config = ./init.el;

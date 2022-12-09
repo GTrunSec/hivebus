@@ -1,0 +1,252 @@
+{
+    "HPI": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "HPI",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-GME0Z+TH/6U+smFkuk1sT8UBzlySv5/yGhb42Kiaj8w=",
+            "type": "url",
+            "url": "https://pypi.io/packages/source/H/HPI/HPI-0.3.20220607.tar.gz"
+        },
+        "version": "0.3.20220607"
+    },
+    "StevenBlack-hosts": {
+        "cargoLocks": null,
+        "date": "2022-12-06",
+        "extract": null,
+        "name": "StevenBlack-hosts",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "StevenBlack",
+            "repo": "hosts",
+            "rev": "f063ea479e841b0e593dc622eace62da4d2634b1",
+            "sha256": "sha256-YLLSaQKgjhpeHU86V7XXfbrGS3stojrC0DQfbtUGQ2U=",
+            "type": "github"
+        },
+        "version": "f063ea479e841b0e593dc622eace62da4d2634b1"
+    },
+    "adguardhome": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "adguardhome",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-KJIogRRlZFPy3jBb9JeEA7xgZkl9/97cA13rBK6/1fI=",
+            "type": "url",
+            "url": "https://github.com/AdguardTeam/AdGuardHome/releases/download/v0.107.20/AdGuardHome_linux_amd64.tar.gz"
+        },
+        "version": "v0.107.20"
+    },
+    "chord": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "chord",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-14rkxceyS0OwnOK14rICWnzLLkRB8dmqRkPq829znws=",
+            "type": "url",
+            "url": "https://github.com/PeterDing/chord/releases/download/v0.2.38/chord-0.2.38-linux-x86_64.AppImage"
+        },
+        "version": "0.2.38"
+    },
+    "drawio": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "drawio",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-jR49ROU+Yt1tx/Ixr1toLJ/w55imSAUoREulLM4CtMk=",
+            "type": "url",
+            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v20.6.1/drawio-x86_64-20.6.1.rpm"
+        },
+        "version": "20.6.1"
+    },
+    "hug": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "hug",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-sO2s4qy2GIc3ecnObs+RZdtU/vlcIiYvVwD83Z/rrsk=",
+            "type": "url",
+            "url": "https://pypi.io/packages/source/h/hug/hug-2.6.1.tar.gz"
+        },
+        "version": "2.6.1"
+    },
+    "magnetw": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "magnetw",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-ie6XGdd/HQCxIaLY5gGOgOXCHDJxcnaxgaO7plA5Eh8=",
+            "type": "url",
+            "url": "https://github.com/xiandanin/magnetW/releases/download/3.1.1/magnetw-3.1.1-linux.AppImage"
+        },
+        "version": "3.1.1"
+    },
+    "motrix": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "motrix",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-tE2Q7NM+cQOg+vyqyfRwg05EOMQWhhggTA6S+VT+SkM=",
+            "type": "url",
+            "url": "https://github.com/agalwood/Motrix/releases/download/v1.6.11/Motrix-1.6.11.AppImage"
+        },
+        "version": "1.6.11"
+    },
+    "notdeft": {
+        "cargoLocks": null,
+        "date": "2021-12-04",
+        "extract": null,
+        "name": "notdeft",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "hasu",
+            "repo": "notdeft",
+            "rev": "1b7054dcfc3547a7cafeb621552cec01d0540478",
+            "sha256": "sha256-LMMLJFVpmoE/y3MqrgY2fmsehmzk6TkLsVoHmFUxiSw=",
+            "type": "github"
+        },
+        "version": "1b7054dcfc3547a7cafeb621552cec01d0540478"
+    },
+    "orgparse": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "orgparse",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-hg5vu5pnt0K6p5LmD4zBhSLpeJwGXSaCHAIoXV/BBK8=",
+            "type": "url",
+            "url": "https://pypi.io/packages/source/o/orgparse/orgparse-0.3.1.tar.gz"
+        },
+        "version": "0.3.1"
+    },
+    "picom": {
+        "cargoLocks": null,
+        "date": "2022-12-03",
+        "extract": null,
+        "name": "picom",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "yshui",
+            "repo": "picom",
+            "rev": "882025092f52585fa5c88fef297a12472ec73314",
+            "sha256": "sha256-yspNnRCcYpdQbTDChIVVr91o1WufAVqjIOTnpB3tNqk=",
+            "type": "github"
+        },
+        "version": "882025092f52585fa5c88fef297a12472ec73314"
+    },
+    "polar-bookshelf": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "polar-bookshelf",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-jcq0hW698bAhVM3fLQQeKAnld33XLkHsGjS3QwUpciQ=",
+            "type": "url",
+            "url": "https://github.com/burtonator/polar-bookshelf/releases/download/v2.0.103/polar-desktop-app-2.0.103-amd64.deb"
+        },
+        "version": "2.0.103"
+    },
+    "polar-darwin": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "polar-darwin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-DCg5myqgcdOW9P7jq81QqDnfjwozlUq43gltZVjCrXI=",
+            "type": "url",
+            "url": "https://github.com/burtonator/polar-bookshelf/releases/download/v2.0.103/Polar-2.0.103.dmg"
+        },
+        "version": "2.0.103"
+    },
+    "promnesia": {
+        "cargoLocks": null,
+        "date": "2022-10-18",
+        "extract": null,
+        "name": "promnesia",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "karlicoss",
+            "repo": "promnesia",
+            "rev": "47ae8c654bbba8e506c2c0e852ff0d4763d42869",
+            "sha256": "sha256-d1lbn92fzHajRYOIOoT6pbR+hc+vks+aLHjmJvfPEAs=",
+            "type": "github"
+        },
+        "version": "47ae8c654bbba8e506c2c0e852ff0d4763d42869"
+    },
+    "spaceship-prompt": {
+        "cargoLocks": null,
+        "date": "2022-12-07",
+        "extract": null,
+        "name": "spaceship-prompt",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "spaceship-prompt",
+            "repo": "spaceship-prompt",
+            "rev": "684c46ab6527276f0bf836ad66efeba2e869ee8f",
+            "sha256": "sha256-ZL6z5pj2xbnUZl4SK7wxiJjheUY79hwDNVYm9+biKZU=",
+            "type": "github"
+        },
+        "version": "684c46ab6527276f0bf836ad66efeba2e869ee8f"
+    }
+}

@@ -27,3 +27,7 @@ fmt:
 # Colmena build Guangtao Libvirtd Machine
 libvirtd_1:
     colmena build --on guangtao-o-libvirtd_1
+
+# update packages via nvfetcher
+nvfetcher-update cell:
+    nix develop github:GTrunSec/cells-lab#devShells.x86_64-linux.update --refresh --command nvfetcher-update nix/{{ cell }}/packages/sources.toml

@@ -34,6 +34,5 @@
   #   options = ["x-systemd.automount"];
   #   fsType = "xfs";
   # };
-  nix.maxJobs = lib.mkDefault 12;
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 }
