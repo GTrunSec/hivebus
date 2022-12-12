@@ -9,7 +9,7 @@
   inherit (inputs) std self;
   src = "${(std.incl self ["profiles/doom-emacs"])}/profiles/doom-emacs";
   onChange = ''
-    export PATH=/usr/bin/:${pkgs.emacs}/bin:$PATH
+    export PATH=/run/current-system/etc/profiles/per-user/$USER/bin/:${pkgs.emacs}/bin:$PATH
     $HOME/.emacs.d/bin/doom sync
   '';
 in {

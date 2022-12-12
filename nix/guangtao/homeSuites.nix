@@ -15,18 +15,26 @@ in rec {
     ]
     ++ inputs.cells.terminal.homeSuites.default;
 
+  mathematic = with homeProfiles; [
+    latexPackages
+  ];
+
   desktop = with homeProfiles;
     [
       inputs.cells.terminal.homeProfiles.alacritty
       homeModules.alacritty
       inputs.cells.emacs.homeProfiles.linux
     ]
-    ++ default;
+    ++ default
+    ++ mathematic;
 
   macbook = with homeProfiles;
     default
+    ++ mathematic
     ++ [
       inputs.cells.emacs.homeProfiles.darwin
+      darwinPackages
     ];
+
   libvirtd = default;
 }

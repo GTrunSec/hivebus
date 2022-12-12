@@ -110,17 +110,21 @@
         # lib holds shared knowledge made code
         (functions "lib")
         (functions "config")
-        (functions "packages")
+        (installables "packages" {ci.build = true;})
         (functions "overlays")
 
         # nixago part
         (nixago "nixago")
+
+        # containers collection
+        (containers "containers" {ci.publish = true;})
       ];
     }
     {
       devShells = inputs.std.harvest inputs.self ["automation" "devshells"];
       lib = (inputs.std.harvest inputs.self ["_QUEEN" "lib"]).x86_64-linux;
       overlays = (inputs.std.harvest inputs.self ["guangtao" "overlays"]).x86_64-linux;
+      packages = inputs.std.harvest inputs.self [["guangtao" "packages"]];
     }
     # soil - the first (and only) layer implements adapters for tooling
     {

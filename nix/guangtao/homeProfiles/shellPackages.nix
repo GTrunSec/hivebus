@@ -10,11 +10,14 @@ in {
     curlie # modern curl
     dogdns # modern dig
     duf # modern df
+    ripgrep # modern grep
+    silver-searcher # modern search
+    coreutils
     du-dust # modern du
     exa # modern ls (not on LSD)
     fx # jq, but don't admit you somtimes like to use a mouse
     fd # modern find
-    gitui # git tui, the nicer one
+    # gitui # git tui, the nicer one
     gping # modern ping
     hyperfine # benchmark shell commands like a boss
     ijq # interactive jq wrapper, requires jq

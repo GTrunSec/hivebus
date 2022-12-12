@@ -12,7 +12,7 @@ in {
     configureBuildUsers = true;
     settings = {
       # Administrative users on Darwin systems are part of the admin group.
-      trusted-users = ["@admin"];
+      # trusted-users = ["@admin"];
       extra-platforms = l.mkIf isAarch64 ["x86_64-darwin" "aarch64-darwin"];
     };
     extraOptions = ''
@@ -23,5 +23,5 @@ in {
   };
   services.nix-daemon.enable = true;
   # Recreate /run/current-system symlink after boot
-  services.activate-system.enable = true;
+  # services.activate-system.enable = true;
 }

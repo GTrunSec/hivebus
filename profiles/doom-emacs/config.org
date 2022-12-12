@@ -2999,7 +2999,7 @@ showstringspaces=false
 (unless (display-graphic-p)
   (after! acm
     (use-package! acm-terminal
-      :load-path "/home/gtrun/ghq/github.com/twlz0ne/acm-terminal"
+      :load-path "~/ghq/github.com/twlz0ne/acm-terminal"
       )))
 #+end_src
 

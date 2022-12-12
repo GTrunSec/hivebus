@@ -3,8 +3,12 @@
   cell,
 }: let
   l = inputs.nixpkgs.lib // builtins;
-  inherit (inputs) nixpkgs;
+  nixpkgs = inputs.nixpkgs.appendOverlays ([
+    ]
+    ++ l.attrValues cell.overlays.profiles);
 in {
+  inherit nixpkgs;
+
   mkHome = user: host: version: {
     imports =
       [

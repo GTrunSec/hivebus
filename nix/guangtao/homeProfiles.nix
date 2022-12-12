@@ -7,4 +7,6 @@
 in {
   shellPrograms = import ./homeProfiles/shellPrograms.nix;
   shellPackages = import ./homeProfiles/shellPackages.nix {inherit inputs cell;};
+  latexPackages = import ./homeProfiles/shellPackages.nix {inherit inputs cell;};
+  darwinPackages = import ./homeProfiles/darwinPackages.nix {inherit inputs cell;};
 }
