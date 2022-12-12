@@ -9,6 +9,8 @@
     optimise.automatic = true;
     nrBuildUsers = 0;
     settings = {
+      allowed-users = ["@wheel"];
+      trusted-users = ["root" "@wheel"];
       auto-optimise-store = true;
       system-features = ["nixos-test" "benchmark" "big-parallel" "kvm"];
     };

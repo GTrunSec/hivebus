@@ -39,11 +39,11 @@ in {
 
   disk.imports =
     [
-      inputs.disko.nixosModules.disko
-      profiles.zsh
-      {
-        disko.devices = cell.diskoConfigurations.desktop {};
-      }
+      # inputs.disko.nixosModules.disko
+      # profiles.zfs
+      # {
+      #   disko.devices = cell.diskoConfigurations.desktop {};
+      # }
     ]
     ++
     # ssd setting
