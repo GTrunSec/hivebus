@@ -1,4 +1,7 @@
 {
+  inputs,
+  cell,
+}: {
   programs.fzf.enable = true;
   programs.direnv = {
     enable = true;

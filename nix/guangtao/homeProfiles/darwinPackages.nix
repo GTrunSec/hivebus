@@ -1,6 +1,8 @@
 {
   inputs,
   cell,
-}: {pkgs, ...}: {
-  home.packages = with pkgs; [];
+}: let
+  inherit (inputs) nixpkgs;
+in {
+  home.packages = with nixpkgs; [];
 }
