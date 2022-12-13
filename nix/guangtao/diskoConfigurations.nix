@@ -30,6 +30,7 @@
                 content = {
                   type = "btrfs";
                   mountpoint = "/";
+                  mountOptions = ["compress=zstd" "noatime"];
                   subvolumes = [
                     "/home"
                     "/nix"
@@ -39,6 +40,16 @@
             ];
           };
         };
+      };
+    };
+    nodev = {
+      "/tmp" = {
+        fsType = "tmpfs";
+        mountOptions = [
+          "defaults"
+          "size=2G"
+          "mode=755"
+        ];
       };
     };
   };
