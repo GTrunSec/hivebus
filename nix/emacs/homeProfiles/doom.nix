@@ -17,9 +17,4 @@ in {
     source = src + "/config.org";
     inherit onChange;
   };
-
-  home.file.".doom.d/meow.org" = {
-    source = src + "/meow.org";
-    inherit onChange;
-  };
 }

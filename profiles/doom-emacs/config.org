@@ -3127,6 +3127,20 @@ showstringspaces=false
 : julia-formatter
 
 
+** Nushell script
+
+- [2022-12-12 Mon 11:14] -> https://github.com/azzamsa/emacs-nushell
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-code/packages.el"
+(package! nushell-mode :recipe (:host github :repo "azzamsa/emacs-nushell"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
+(use-package! nushell-mode)
+#+end_src
+
+
+
 
 ** Python
 
@@ -3911,6 +3925,243 @@ by `org-babel-execute-src-block'"
   )
 #+end_src
 * Bugs
+* Meow
+- [2021-12-05 Sun 18:05] -> https://www.youtube.com/watch?v=HhuAlAcWWeU
+- [[https://github.com/DogLooksGood/meow][DogLooksGood/meow: modular Emacs on wish]]
+
+** use-package with meow
+#+begin_src emacs-lisp :tangle "meow.el"
+;;; meow.el -*- lexical-binding: t; -*-
+(use-package! meow
+  ;; If you set `use-package-always-defer' to t
+  ;; :demand nil
+  :init
+  (meow-global-mode 1)
+  :config
+  ;; meow-setup is your custom function, see below
+  ;; If you want relative line number in NORMAL state(for display-line-numbers-mode)
+  (meow-setup-line-number)
+  ;; If you need setup indicator, see `meow-indicator' for customizing by hand.
+  (meow-setup-indicator)
+#+end_src
+
+** meow setup keys
+
+#+begin_src emacs-lisp :tangle "meow.el"
+(defun meow-setup ()
+  (setq meow-cheatsheet-layout meow-cheatsheet-layout-dvorak)
+  (meow-leader-define-key
+   '("1" . meow-digit-argument)
+   '("2" . meow-digit-argument)
+   '("3" . meow-digit-argument)
+   '("4" . meow-digit-argument)
+   '("5" . meow-digit-argument)
+   '("6" . meow-digit-argument)
+   '("7" . meow-digit-argument)
+   '("8" . meow-digit-argument)
+   '("9" . meow-digit-argument)
+   '("0" . meow-digit-argument))
+  (meow-normal-define-key
+   '("0" . meow-expand-0)
+   '("9" . meow-expand-9)
+   '("8" . meow-expand-8)
+   '("7" . meow-expand-7)
+   '("6" . meow-expand-6)
+   '("5" . meow-expand-5)
+   '("4" . meow-expand-4)
+   '("3" . meow-expand-3)
+   '("2" . meow-expand-2)
+   '("1" . meow-expand-1)
+   '("-" . negative-argument)
+   '(";" . meow-reverse)
+   '("," . meow-inner-of-thing)
+   '("." . meow-bounds-of-thing)
+   '("<" . meow-beginning-of-thing)
+   '(">" . meow-end-of-thing)
+   '("a" . meow-append)
+   '("A" . meow-open-below)
+   '("b" . meow-back-word)
+   '("B" . meow-back-symbol)
+   '("c" . meow-change)
+   '("C" . meow-change-save)
+   '("d" . meow-delete)
+   '("e" . meow-line)
+   '("E" . meow-kmacro-lines)
+   '("f" . meow-find)
+   '("F" . meow-find-expand)
+   '("g" . meow-keyboard-quit)
+   '("G" . meow-goto-line)
+   '("h" . meow-left)
+   '("H" . meow-left-expand)
+   '("i" . meow-insert)
+   '("I" . meow-open-above)
+   '("j" . meow-join)
+   '("J" . delete-indentation)
+   '("k" . meow-kill)
+   '("l" . meow-till)
+   '("L" . meow-till-expand)
+   '("m" . meow-mark-word)
+   '("M" . meow-mark-symbol)
+   '("n" . meow-next)
+   '("N" . meow-next-expand)
+   '("o" . meow-block)
+   '("O" . meow-block-expand)
+   '("p" . meow-prev)
+   '("P" . meow-prev-expand)
+   '("q" . meow-quit)
+   '("Q" . +popup/quit-window)
+   '("r" . meow-replace)
+   '("R" . meow-replace-save)
+   '("s" . meow-search)
+   '("S" . meow-pop-search)
+   '("t" . meow-right-expand)
+   '("u" . undo-fu-only-undo)
+   '("U" . undo-fu-only-redo)
+   '("v" . meow-visit)
+   '("w" . meow-next-word)
+   '("W" . meow-next-symbol)
+   '("x" . meow-save)
+   '("X" . meow-clipboard-save)
+   '("y" . meow-yank)
+   '("Y" . meow-clipboard-yank)
+   '("z" . meow-pop-selection)
+   '("&" . meow-query-replace)
+   '("%" . meow-query-replace-regexp)
+   '("<escape>" . meow-last-buffer)))
+(meow-setup)
+#+end_src
+
+** Meow Define Leader Key
+
+#+begin_src emacs-lisp :tangle "meow.el"
+(meow-leader-define-key
+ '("df" . fd-dired)
+ '("r" . consult-recent-file )
+ '("f" . +vertico/find-file-in)
+ '("F" . consult-find)
+ '("da" . consult-ripgrep)
+ '("dd" . meow-M-x)
+ '("ti" . insert-current-date-time-inactive)
+ '("ta" . insert-current-date-time-active)
+ '("tc" . insert-current-date-time)
+ '("bs" . bookmark-set)
+ '("bm" . bookmark-bmenu-list)
+ '("bt" . bm-toggle)
+ '("bb" . switch-to-buffer)
+ '("bw" . +vertico/switch-workspace-buffer)
+ ;; '("jr" . helm-register)
+ ;; '("js" . point-to-register)
+ )
+#+end_src
+
+#+RESULTS:
+
+
+** Define global-set-key
+:PROPERTIES:
+:ID:       1fe04d86-bcaa-4236-93b2-7eac1de6e05f
+:END:
+- [2021-08-16 Mon 00:20] -> [[id:1849e2c7-d7d1-4a2c-a913-c4d34857d666][consult-dir]]
+
+#+begin_src emacs-lisp :tangle "meow.el"
+(global-set-key (kbd "<f2>") 'hydra/org-roam/body)
+(global-set-key (kbd "<f4>") 'org-starter-find-file-by-key)
+(global-set-key (kbd "<f5>") 'org-agenda)
+(global-set-key (kbd "C-s") '+vertico/search-symbol-at-point)
+(global-set-key (kbd "<f9>") 'save-buffer)
+;;(global-set-key (kbd "C-c s") 'doom/save-and-kill-buffer)
+(global-set-key (kbd "C-c s a") 'consult-ripgrep)
+(global-set-key (kbd "C-x g") 'magit-status)
+#+end_src
+
+** Meeow Mode State List
+
+#+begin_src emacs-lisp :tangle "meow.el"
+(add-to-list 'meow-mode-state-list '(zeek-mode . normal))
+(add-to-list 'meow-mode-state-list '(notdeft-mode . normal))
+(add-hook 'notdeft-mode-hook (lambda () (meow-insert-mode 1)))
+#+end_src
+
+#+RESULTS:
+| meow-insert-mode | meow-insert | t |
+
+** remap global keys
+
+#+begin_src emacs-lisp :tangle "meow.el"
+(global-set-key [remap list-buffers] #'+ivy/switch-buffer)
+#+END_SRC
+
+** advice-add [[https://github.com/DogLooksGood/meow/blob/master/meow-shims.el#L86-L115][meow/meow-shims.el at master · DogLooksGood/meow]]
+** Setting map! keys in specific mode
+*** Dired Mode map => map!
+#+begin_src emacs-lisp :tangle "meow.el"
+(map! :map dired-mode-map
+      "-" 'vinegar/up-directory
+      "/" 'vinegar/dired-diff
+      "," 'xah-open-in-external-app
+      "R" 'dired-async-do-rename
+      "C" 'dired-async-do-copy
+      "H" 'dired-async-do-hardlink
+      "S" 'dired-async-do-symlink
+      )
+#+end_src
+
+#+RESULTS:
+
+*** Org Mode Map => map!
+:PROPERTIES:
+:ID:       51647023-c013-40c4-83de-c2ba20e3a9c7
+:END:
+
+- [2021-07-27 Tue 12:44] <- [[id:e4386f66-eaeb-470f-9ea0-992e583a5909][Org Mode Map && After Org! settings]]
+
+
+#+begin_src emacs-lisp :tangle "meow.el"
+(map! :map org-mode-map
+      "C-c ;" #'org-time-stamp-inactive
+      "RET"   #'unpackaged/org-return-dwim
+      "C-c m"   #'completion-at-point
+      )
+#+end_src
+
+#+RESULTS:
+
+** Org Mode Hydra Key Map
+:PROPERTIES:
+:ID:       26a87c3a-375b-4bfb-9520-845641ec1335
+:END:
+
+- [2021-07-27 Tue 13:07] <- [[id:e4386f66-eaeb-470f-9ea0-992e583a5909][Org Mode Map && After Org! settings]]
+
+#+begin_src emacs-lisp :tangle "meow.el"
+(defhydra hydra/org-roam (:columns 4 :hint nil)
+  "Org Roam Hydra"
+  ("f" org-roam-node-find "Node Find")
+  ("n" org-roam-ref-find "Ref Find")
+  ("i" org-roam-node-insert "Node Insert")
+  ("b" org-roam-buffer-display-dedicated "Buffer Display")
+  ("a" org-roam-alias-add "Alias Add")
+  ("y" org-roam-db-sync "DB Sync")
+  ("r" revert-buffer "Revert buffer")
+
+  ("w" org-id-get-create "Id Create")
+  ("." org-super-links-insert-link "SL Insert")
+  ("," org-super-links-store-link "Link Store")
+  (";" org-super-links-quick-insert-inline-link "SL Inline Insert")
+  ("'" org-super-links-quick-insert-drawer-link "SL Drawer Insert")
+
+  ("c" nil "cancel")
+  )
+#+end_src
+
+#+RESULTS:
+: hydra/org-roam/body
+
+** end line of meow setting
+#+begin_src emacs-lisp :tangle "meow.el"
+;; test includes
+)
+#+end_src
 * [[https://github.com/r0man/docopt.el][r0man/docopt.el: A Docopt implementation in Emacs Lisp.]]
 
 * Cache
