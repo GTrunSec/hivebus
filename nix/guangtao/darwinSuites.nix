@@ -7,6 +7,7 @@
 in {
   macbook = with darwinProfiles; [
     bootstrap
+    homebrew
     (cell.lib.mkHome "gtrun" "macbook" "22.11")
   ];
 }

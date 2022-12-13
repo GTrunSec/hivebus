@@ -23,4 +23,6 @@ in {
         cell.userProfiles.${user}
       ];
   };
+
+  nixConfig = inputs.cells.base.lib.nixConfig.guangtao;
 }

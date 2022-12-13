@@ -6,10 +6,12 @@
 }: {
   # credit: https://github.com/montchr/dotfield/blob/dd5e577d91b1af7f13909f5dc4343717a718ff02/darwin/profiles/core/default.nix
   homebrew = {
-    enable = false;
+    enable = true;
     onActivation.cleanup = "zap";
+    onActivation.upgrade = true;
     # Use the nix-darwin brewfile when invoking `brew bundle` imperatively.
     global.brewfile = true;
+    global.lockfiles = false;
   };
   environment.variables =
     lib.mkIf config.homebrew.enable
