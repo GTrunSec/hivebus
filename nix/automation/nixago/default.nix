@@ -15,11 +15,6 @@ in {
       excludes = ["generated.nix"];
     };
   };
-  mdbook = std.presets.nixago.mdbook {
-    configData = {
-      book.title = "NixOS Hive";
-    };
-  };
   just = std.std.nixago.just {
     configData = {
       tasks = import ./tasks.nix;
