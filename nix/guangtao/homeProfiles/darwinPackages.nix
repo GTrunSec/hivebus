@@ -4,5 +4,7 @@
 }: let
   inherit (inputs) nixpkgs;
 in {
-  home.packages = with nixpkgs; [];
+  home.packages = with nixpkgs; [
+    zstd
+  ];
 }

@@ -366,7 +366,17 @@
 
 #+results:
 : t
+** quarto
 
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! quarto-mode :recipe (:host github :repo "quarto-dev/quarto-emacs"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! quarto-mode
+  ;;:mode (("\\.Rmd" . poly-quarto-mode))
+  )
+#+end_src
 ** Pinyin
 
 #+begin_src emacs-lisp :tangle "packages.el"
@@ -461,38 +471,6 @@
   (setq w3m-use-tab-line nil)
   )
 #+end_src
-
-** ein
-
-#+begin_src emacs-lisp :tangle "packages.el"
-(package! ein :recipe (:host github
-                       :repo "millejoh/emacs-ipython-notebook"
-                       :files ("lisp/*.el")
-                       :build (:not compile)))
-#+end_src
-
-#+RESULTS:
-| ein | :modules | (nil) | :recipe | (:host github :repo millejoh/emacs-ipython-notebook :files (lisp/*.el) :build (:not compile)) |
-
-#+begin_src emacs-lisp :tangle "config.el"
-(use-package! ein
-  :config
-  (setq ob-ein-languages
-        (quote
-         (("ein-python" . python)
-          ("ein-R" . R)
-          ("ein-r" . R)
-          ("ein-rust" . rust)
-          ("ein-haskell" . haskell)
-          ("ein-julia" . julia))))
-  )
-
-(after! ein:ipynb-mode                  ;
-  (poly-ein-mode 1)
-  (hungry-delete-mode -1)
-  )
-#+end_src
-
 ** undo-fu
 
 - [[https://gitlab.com/ideasman42/emacs-undo-fu-session][ideasman42 / emacs-undo-fu-session · GitLab]]
@@ -742,28 +720,6 @@
   (add-hook hook '(lambda ()
                     (setq grammatical-edit-mode 1)))
   )
-#+end_src
-
-* Visual Settings
-
-** Theme and modeline
-
-#+begin_src emacs-lisp :tangle "config.el"
-(when (not (display-graphic-p))
-  (setq doom-theme 'doom-city-lights)
-  )
-;; (remove-hook 'window-setup-hook #'doom-init-theme-h)
-;; (add-hook 'after-init-hook #'doom-init-theme-h 'append)
-;; (delq! t custom-theme-load-path)
-#+end_src
-
-** Line Number
-
-#+begin_src emacs-lisp :tangle "config.el"
-(setq display-line-numbers-type 'relative)
-
-(setq doom-fallback-buffer-name "► Doom"
-      +doom-dashboard-name "► Doom")
 #+end_src
 
 * Autoload
@@ -2241,7 +2197,8 @@ FACE defaults to inheriting from default and highlight."
 
 #+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
 (after! ob-async
-  (setq ob-async-no-async-languages-alist '("ipython" "ein-python"
+  (setq ob-async-no-async-languages-alist '("ipython"
+                                            "ein-python"
                                             "ein-rust"
                                             "ein-julia"
                                             "ein-haskell"
@@ -3102,6 +3059,25 @@ showstringspaces=false
              (setq inferior-julia-program-name "julia")))
 #+end_src
 
+*** ob-julia-vterm
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-code/packages.el"
+(package! ob-julia-vterm :recipe (:host github :repo "shg/ob-julia-vterm.el"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle ./modules/private/my-code/config.el
+(use-package! ob-julia-vterm
+  :config
+  (add-to-list 'org-babel-load-languages '(julia-vterm . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  (after! org
+    (defalias 'org-babel-execute:julia 'org-babel-execute:julia-vterm)
+    (defalias 'org-babel-variable-assignments:julia 'org-babel-variable-assignments:julia-vterm)))
+#+end_src
+
+#+RESULTS:
+: t
+
 *** julia formatter
 
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/packages.el"
@@ -3126,8 +3102,7 @@ showstringspaces=false
 #+RESULTS:
 : julia-formatter
 
-
-** Nushell script
+** Nushell
 
 - [2022-12-12 Mon 11:14] -> https://github.com/azzamsa/emacs-nushell
 
@@ -3138,8 +3113,6 @@ showstringspaces=false
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
 (use-package! nushell-mode)
 #+end_src
-
-
 
 
 ** Python
@@ -3262,7 +3235,7 @@ by `org-babel-execute-src-block'"
   )
 #+end_src
 
-** justl -> justfile
+** Justfile
 
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/packages.el"
 (package! justl :recipe (:host github :repo "psibi/justl.el"))
@@ -3281,7 +3254,7 @@ by `org-babel-execute-src-block'"
 #+RESULTS:
 : justl
 
-* Rust
+** Rust
 
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
 (set-company-backend! 'rustic-mode '(company-files
@@ -3301,54 +3274,6 @@ by `org-babel-execute-src-block'"
 
 #+RESULTS:
 : 4
-
-** Tree Sitter
-:PROPERTIES:
-:ID:       4bfe18f0-70f6-4f5d-9188-01c19c7a6304
-:END:
-
-- [2021-11-26 Fri 12:54] <- [[id:05534ff6-447b-4497-b170-5626edc8bacf][grammatical-edit]]
-
-
-#+begin_src elisp :tangle "./modules/private/my-code/packages.el"
-(when IS-LINUX
-  (package! emacs-tree-sitter :recipe (:local-repo "~/ghq/github.com/GTrunSec/emacs-tree-sitter"
-                                                   ))
-  )
-#+end_src
-
-#+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
-(when IS-LINUX
-  (use-package! emacs-tree-sitter
-    :hook
-    ((rustic-mode haskell-mode julia-mode nix-mode emacs-lisp-mode sh-mode python-mode nickel-mode)  . tree-sitter-mode)
-    (tree-sitter-mode . tree-sitter-hl-mode)
-    :init
-    (add-to-list 'load-path "~/ghq/github.com/GTrunSec/emacs-tree-sitter/.cask/28.0/elpa/tsc-20220212.1632")
-    (add-to-list 'load-path "~/ghq/github.com/GTrunSec/emacs-tree-sitter/langs")
-    (require 'tree-sitter)
-    (require 'tree-sitter-langs)
-    ;;haskell
-    (tree-sitter-load 'haskell "haskell")
-    (add-to-list 'tree-sitter-major-mode-language-alist '(haskell-mode . haskell))
-    ;;nix
-    (tree-sitter-load 'nix "nix")
-    ;;(tree-sitter-load 'nickel "nickel")
-    (add-to-list 'tree-sitter-major-mode-language-alist '(nix-mode . nix))
-    (add-to-list 'tree-sitter-major-mode-language-alist '(nickel-mode . nickel))
-    (add-to-list 'tree-sitter-major-mode-language-alist '(envrc-file-mode . bash))
-    ;;elisp
-    (tree-sitter-load 'elisp "elisp")
-    (add-to-list 'tree-sitter-major-mode-language-alist '(emacs-lisp-mode . elisp))
-    :config
-    (tree-sitter-require 'rust)
-    (tree-sitter-require 'python)
-    (tree-sitter-require 'julia)
-    ))
-#+end_src
-
-#+RESULTS:
-| tree-sitter-hl-mode | emacs-tree-sitter | tree-sitter-mode-set-explicitly |
 
 * Visualization
 
@@ -3415,6 +3340,13 @@ by `org-babel-execute-src-block'"
 #+end_src
 
 ** Window
+
+#+begin_src emacs-lisp :tangle "config.el"
+(setq display-line-numbers-type 'relative)
+
+(setq doom-fallback-buffer-name "► Doom"
+      +doom-dashboard-name "► Doom")
+#+end_src
 
 *** tab-bar
 
@@ -3483,6 +3415,16 @@ by `org-babel-execute-src-block'"
 
 
 ** Themes
+
+#+begin_src emacs-lisp :tangle "config.el"
+(when (not (display-graphic-p))
+  (setq doom-theme 'doom-city-lights)
+  )
+;; (remove-hook 'window-setup-hook #'doom-init-theme-h)
+;; (add-hook 'after-init-hook #'doom-init-theme-h 'append)
+;; (delq! t custom-theme-load-path)
+#+end_src
+
 
 *** [[https://github.com/vbuzin/berrys-theme][vbuzin/berrys-theme: A light, clean and elegant Emacs theme]]
 
@@ -3573,7 +3515,6 @@ by `org-babel-execute-src-block'"
 ** [[https://github.com/alphapapa/burly.el][alphapapa/burly.el: Save and restore frames and windows with their buffers in Emacs]]
 
 ** [[https://github.com/ashton314/emacs-writer][ashton314/emacs-writer: An elegant Emacs setup optimized for non-technical writers]]
-
 * Chinese
 
 ** Helm Pinyin
@@ -3844,6 +3785,7 @@ by `org-babel-execute-src-block'"
   #+end_src
 
   - bookmark
+
 #+begin_src emacs-lisp :tangle "macos.el"
 (setq bookmark-default-file
       (concat doom-private-dir "etc/bookmark-macos-default.el"))
@@ -3854,7 +3796,7 @@ by `org-babel-execute-src-block'"
 - variables
 
 #+begin_src emacs-lisp :tangle "macos.el"
-(setq insert-directory-program "/usr/local/bin/gls")
+;;(setq insert-directory-program "/usr/local/bin/gls")
 (setq org-roam-db-location "~/.emacs.d/.local/cache/org-roam-macos.db")
 (setq ispell-program-name "ispell")
 #+end_src
