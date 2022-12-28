@@ -2,43 +2,49 @@
   desktop = {disks ? ["/dev/sda"], ...}: {
     disk = {
       sda = {
-        vdb = {
-          type = "disk";
-          device = builtins.elemAt disks 0;
-          content = {
-            type = "table";
-            format = "gpt";
-            partitions = [
-              {
-                type = "partition";
-                name = "ESP";
-                start = "1MiB";
-                end = "128MiB";
-                fs-type = "fat32";
-                bootable = true;
-                content = {
-                  type = "filesystem";
-                  format = "vfat";
-                  mountpoint = "/boot";
+        type = "disk";
+        device = builtins.elemAt disks 0;
+        content = {
+          type = "table";
+          format = "gpt";
+          partitions = [
+            {
+              type = "partition";
+              name = "ESP";
+              start = "1MiB";
+              end = "128MiB";
+              fs-type = "fat32";
+              bootable = true;
+              content = {
+                type = "filesystem";
+                format = "vfat";
+                mountpoint = "/boot";
+              };
+            }
+            {
+              name = "root";
+              type = "partition";
+              start = "128MiB";
+              end = "100%";
+              content = {
+                type = "btrfs";
+                extraArgs = "-f";
+                subvolumes = {
+                  "/rootfs" = {
+                    mountpoint = "/";
+                  };
+                  # Mountpoints inferred from subvolume name
+                  "/home" = {
+                    mountOptions = ["compress=zstd" "noatime"];
+                  };
+                  "/nix" = {};
+                  "/persist" = {
+                    mountOptions = ["compress=zstd" "noatime"];
+                  };
                 };
-              }
-              {
-                name = "root";
-                type = "partition";
-                start = "128MiB";
-                end = "100%";
-                content = {
-                  type = "btrfs";
-                  mountpoint = "/";
-                  mountOptions = ["compress=zstd" "noatime"];
-                  subvolumes = [
-                    "/home"
-                    "/nix"
-                  ];
-                };
-              }
-            ];
-          };
+              };
+            }
+          ];
         };
       };
     };
@@ -47,7 +53,7 @@
         fsType = "tmpfs";
         mountOptions = [
           "defaults"
-          "size=2G"
+          "size=4G"
           "mode=755"
         ];
       };

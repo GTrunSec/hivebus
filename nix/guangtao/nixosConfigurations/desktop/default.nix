@@ -2,9 +2,15 @@
   inputs,
   cell,
 }: let
-  init = {pkgs, ...}: {
+  init = {
+    pkgs,
+    modulesPath,
+    ...
+  }: {
     ### root password is empty by default ###
-    imports = [./hardware-configuration.nix];
+    imports = [
+      ./hardware-configuration.nix
+    ];
 
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
@@ -16,6 +22,8 @@
 
     # sudo cp -r ~/.gnupg /var/lib/sops
     # sops.gnupg.home = "/home/gtrun/.gnupg";
+
+    networking.hostName = "Desktop";
 
     networking.firewall = {
       allowedTCPPorts = [8888 8889];

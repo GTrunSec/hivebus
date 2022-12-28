@@ -25,6 +25,8 @@ in {
           dvipng
           fontspec
           euenc
+          latexmk
+          elegantpaper
           ;
       }
     )

@@ -30,6 +30,9 @@
     # https://github.com/DeterminateSystems/bootspec
     bootsec.url = "github:DeterminateSystems/bootspec";
     bootsec.inputs.nixpkgs.follows = "nixpkgs";
+
+    lanzaboote.url = "github:nix-community/lanzaboote";
+    lanzaboote.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   inputs = {
@@ -48,6 +51,12 @@
     styx.inputs.nixpkgs.follows = "nixpkgs";
   };
 
+  inputs = {
+    rust-overlay.url = "github:oxalica/rust-overlay";
+    rust-overlay.inputs.nixpkgs.follows = "nixpkgs";
+
+    nil.url = "github:oxalica/nil";
+  };
   # Orchestration
   inputs = {
     nomad-driver.url = "github:input-output-hk/nomad-driver-nix";
