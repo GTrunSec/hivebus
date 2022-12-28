@@ -13,6 +13,7 @@ in {
   graphics.imports = [
     inputs.cells.hardware.nixosModules.hidpi
     cell.nixosModules.nvidia
+    inputs.cells.vm.nixosProfiles.hyprland
   ];
 
   locale.imports = [
@@ -56,11 +57,5 @@ in {
     ++ [
       inputs.cells.secrets.nixosModules.age
       inputs.cells.secrets.nixosProfiles.age
-      ({config, ...}: {
-        age.secrets.root-user.file = ./secretProfiles/root-user.age;
-        users.users.root = {
-          passwordFile = config.age.secrets.root-user.path;
-        };
-      })
     ];
 }

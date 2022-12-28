@@ -35,9 +35,11 @@
                   };
                   # Mountpoints inferred from subvolume name
                   "/home" = {
+                    mountOptions = ["compress=zstd"];
+                  };
+                  "/nix" = {
                     mountOptions = ["compress=zstd" "noatime"];
                   };
-                  "/nix" = {};
                   "/persist" = {
                     mountOptions = ["compress=zstd" "noatime"];
                   };
