@@ -22,10 +22,5 @@
     ragenix.inputs.nixpkgs = "nixos";
     styx.inputs.nixpkgs = "nixpkgs";
   };
-  digga-lib = {
-    importers = import "${__inputs__.digga}/src/importers.nix" {
-      lib = inputs.nixpkgs.lib;
-    };
-  };
 in
-  digga-lib.importers // {inherit __inputs__;}
+  inputs.cells-lab.inputs.xnlib.lib.digga // {inherit __inputs__;}

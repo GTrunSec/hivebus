@@ -70,14 +70,15 @@
         "nixos": "nixos",
         "nixpkgs": "nixpkgs",
         "org-roam-book-template": "org-roam-book-template",
-        "std": "std"
+        "std": "std",
+        "xnlib": "xnlib"
       },
       "locked": {
-        "lastModified": 1671834077,
-        "narHash": "sha256-pTejfgAf2sRz38reuBJ0h+ZvPpVyclNz3tRrMMPsmWk=",
+        "lastModified": 1672470383,
+        "narHash": "sha256-UMuKTHozpRK457wBD37co5KSyxWSLLBbkvYgraYUG6k=",
         "owner": "gtrunsec",
         "repo": "cells-lab",
-        "rev": "e1dcde0a0ab3d75aebae6e52bb0c655add871d02",
+        "rev": "f7bf6a691279abbfef07afee637a599d6722e9c7",
         "type": "github"
       },
       "original": {
@@ -222,6 +223,22 @@
       "original": {
         "owner": "numtide",
         "repo": "devshell",
+        "type": "github"
+      }
+    },
+    "digga": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1668250948,
+        "narHash": "sha256-qqyzJQHgb/Bgq3Zxwa0gmaDEpkuyVhvynnq6a0akMWw=",
+        "owner": "divnix",
+        "repo": "digga",
+        "rev": "54ede8e591d288c176a09d6fcf4b123896c0bf0f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "divnix",
+        "repo": "digga",
         "type": "github"
       }
     },
@@ -760,6 +777,21 @@
         "type": "github"
       }
     },
+    "nix-std": {
+      "locked": {
+        "lastModified": 1671250799,
+        "narHash": "sha256-uPIakP98gOf6504NtrAb2/0O0BgRRXNShM0PTV8z+T0=",
+        "owner": "chessai",
+        "repo": "nix-std",
+        "rev": "b300fd6dfeae8cc331c7d8cde0e81b404d50d40c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "chessai",
+        "repo": "nix-std",
+        "type": "github"
+      }
+    },
     "nixago": {
       "inputs": {
         "flake-utils": [
@@ -881,6 +913,21 @@
     },
     "nixlib": {
       "locked": {
+        "lastModified": 1671929364,
+        "narHash": "sha256-N9GW06FZTKDpkv9YLMXswUxnX27b9qEtfTg7WsSdXjc=",
+        "owner": "nix-community",
+        "repo": "nixpkgs.lib",
+        "rev": "a909f7a2fb4ec6d14d52b8a727bb9ba465e15766",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nixpkgs.lib",
+        "type": "github"
+      }
+    },
+    "nixlib_2": {
+      "locked": {
         "lastModified": 1636849918,
         "narHash": "sha256-nzUK6dPcTmNVrgTAC1EOybSMsrcx+QrVPyqRdyKLkjA=",
         "owner": "nix-community",
@@ -953,7 +1000,7 @@
     },
     "nixos-generators_2": {
       "inputs": {
-        "nixlib": "nixlib",
+        "nixlib": "nixlib_2",
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
@@ -1381,6 +1428,57 @@
       "original": {
         "owner": "numtide",
         "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "xnlib": {
+      "inputs": {
+        "digga": "digga",
+        "nix-std": "nix-std",
+        "nixlib": "nixlib",
+        "nixpkgs": [
+          "cells-lab",
+          "nixpkgs"
+        ],
+        "std": [
+          "cells-lab",
+          "std"
+        ],
+        "xnlib": "xnlib_2"
+      },
+      "locked": {
+        "lastModified": 1672470364,
+        "narHash": "sha256-NkFBSiTRIpDn9LSMl+P1psZLVnyDKQAVaNEM3DIYph4=",
+        "owner": "gtrunsec",
+        "repo": "xnlib",
+        "rev": "a7e2c2259af96ce472bb74202fdbd7818b5abed6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gtrunsec",
+        "repo": "xnlib",
+        "type": "github"
+      }
+    },
+    "xnlib_2": {
+      "inputs": {
+        "nixpkgs": [
+          "cells-lab",
+          "xnlib",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1656163058,
+        "narHash": "sha256-H6uPHeX6Hc2UyJiYUet+WU1CESu4AF6ZwlORmSMQM40=",
+        "owner": "ArctarusLimited",
+        "repo": "xnlib",
+        "rev": "905fbe51679a3a4163d358f893a05b22c714f1df",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ArctarusLimited",
+        "repo": "xnlib",
         "type": "github"
       }
     },

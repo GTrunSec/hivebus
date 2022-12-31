@@ -1,8 +1,6 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/3a86856a13c88c8c64ea32082a851fefc79aa700";
-    digga.url = "github:divnix/digga";
-    digga.flake = false;
+    nixpkgs.url = "github:NixOS/nixpkgs/2c74fcd6c5fc14a61de158fb796243543f46b217";
   };
 
   inputs = {
@@ -44,11 +42,6 @@
 
     vault-secrets.url = "github:gtrunsec/vault-secrets";
     vault-secrets.inputs.nixpkgs.follows = "nixpkgs";
-  };
-
-  inputs = {
-    styx.url = "github:styx-static/styx";
-    styx.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   inputs = {
