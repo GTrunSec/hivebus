@@ -5,7 +5,7 @@
   ...
 }: {
   home.activation.initDoomEmacs = config.lib.dag.entryAfter ["writeBoundary"] ''
-     if [ ! -d "$HOME/.emacs.d" ];then
+     if [ ! -d "$HOME/.emacs.d/bin" ];then
         ${lib.getExe pkgs.git} clone https://github.com/doomemacs/doomemacs ~/.emacs.d
      fi
 
@@ -20,6 +20,7 @@
        mkdir -p $HOME/.doom.d/{etc,autoload}
        mkdir -p $HOME/.doom.d/modules/private/{my-code,my-org}
        ln -sfT "$HOME/ghq/github.com/GTrunSec/hive/profiles/doom-emacs/snippets" $HOME/.doom.d/snippets
+       ~/.emacs/bin/doom sync
     fi
   '';
 }

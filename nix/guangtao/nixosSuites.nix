@@ -18,6 +18,12 @@ in {
     ]
     ++ [
       (cell.lib.mkHome "guangtao" "desktop" "22.11")
+      cell.userProfiles.root
+      {
+        users.users."guangtao" = {
+          shell = nixpkgs.zsh;
+        };
+      }
     ];
 
   libvirtd = with nixosProfiles;
@@ -33,7 +39,6 @@ in {
       (cell.lib.mkHome "admin" "libvirtd_1" "22.11")
       {
         users.users."admin" = {
-          password = "nixos";
           shell = nixpkgs.zsh;
         };
       }

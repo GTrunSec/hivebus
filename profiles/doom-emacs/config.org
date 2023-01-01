@@ -1177,6 +1177,8 @@ appropriate.  In tables, insert a new row or end the table."
 
 #+begin_src emacs-lisp :tangle "config.el"
 (use-package! copilot
+  :config
+  (setq copilot-node-executable "node16")
   :hook (prog-mode . copilot-mode)
   :bind ((:map copilot-completion-map
                ("C-e" . 'copilot-accept-completion)
@@ -1734,12 +1736,11 @@ FACE defaults to inheriting from default and highlight."
     ("braindump/self/" :agenda t)
     ("braindump/journals/" :agenda t)
     )
-  (org-starter-def "~/.config/guangtao/nixos-flk/users/dotfiles/doom-emacs/"
+  (org-starter-def "~/ghq/github.com/GTrunSec/hive/profiles/doom-emacs/"
     :files
     ("config.org" :key "c" :refile (:maxlevel . 5))
-    ("meow.org" :key "w" :refile (:maxlevel . 5))
     )
-  (org-starter-def "~/.config/guangtao"
+  (org-starter-def "~/ghq/github.com/GTrunSec/hive/resources"
     :files
     ("profiles.org")
     ("dotfiles/wallpaper/wallpaper.org" :agenda nil)

@@ -13,7 +13,7 @@ in {
   graphics.imports = [
     inputs.cells.hardware.nixosModules.hidpi
     cell.nixosModules.nvidia
-    inputs.cells.window-managers.nixosProfiles.hyprland
+    # inputs.cells.window-managers.nixosProfiles.hyprland
   ];
 
   locale.imports = [

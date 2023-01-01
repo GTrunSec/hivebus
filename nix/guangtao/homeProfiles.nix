@@ -12,6 +12,8 @@ in
       [
         shellPrograms
         shellPackages
+        corePackages
+        git
       ]
       ++ [
         inputs.cells.base.homeProfiles.default
@@ -25,6 +27,7 @@ in
 
     graphics = with homeProfiles; [
       inputs.cells.window-managers.homeProfiles.hyprland
+      wayland
     ];
 
     emacs = with homeProfiles;
@@ -33,7 +36,8 @@ in
       ]
       ++ l.optionals nixpkgs.stdenv.isDarwin [
         inputs.cells.emacs.homeProfiles.darwin
-      ] ++ [
+      ]
+      ++ [
         cell.homeModules.emacs
       ];
   }
