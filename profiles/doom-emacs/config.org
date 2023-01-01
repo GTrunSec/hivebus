@@ -1721,7 +1721,7 @@ FACE defaults to inheriting from default and highlight."
   ;; Enable external configuration files loaded from org-starter-path
   (org-starter-load-config-files t)
   :config
-  (org-starter-def "~/Documents/org-notes"
+  (org-starter-def "~/ghq/GTrunSec/org-notes"
     :files
     ("braindump/" :agenda t)
 
@@ -1740,11 +1740,11 @@ FACE defaults to inheriting from default and highlight."
     :files
     ("config.org" :key "c" :refile (:maxlevel . 5))
     )
-  (org-starter-def "~/ghq/github.com/GTrunSec/hive/resources"
-    :files
-    ("profiles.org")
-    ("dotfiles/wallpaper/wallpaper.org" :agenda nil)
-    )
+  ;; (org-starter-def "~/ghq/github.com/GTrunSec/hive/resources"
+  ;;   :files
+  ;;   ("profiles.org")
+  ;;   ("dotfiles/wallpaper/wallpaper.org" :agenda nil)
+  ;;   )
   :commands org-starter-load-all-files-in-path
   :hook
   (after-init . org-starter-load-all-files-in-path)
