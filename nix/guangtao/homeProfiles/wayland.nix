@@ -1,13 +1,16 @@
 {
   inputs,
   cell,
-}: {
+}: let
+  inherit (inputs) nixpkgs;
+in {
+  home.packages = with nixpkgs; [
+    qt5.qtwayland
+  ];
   home.sessionVariables = {
     XDG_SESSION_TYPE = "wayland";
     QT_QPA_PLATFORMTHEME = "qt5ct";
-    QT_QPA_PLATFORM = "wayland";
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-    MOZ_ENABLE_WAYLAND = true;
     WLR_RENDERER = "vulkan";
     LIBSEAT_BACKEND = "logind";
     LIBVA_DRIVER_NAME = "nvidia";

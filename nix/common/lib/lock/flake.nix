@@ -11,7 +11,7 @@
   };
 
   inputs = {
-    hyprland.url = "github:hyprwm/Hyprland/111d209bff5448c3a55e07f344cf89715536bba4";
+    hyprland.url = "github:hyprwm/Hyprland";
     hyprwm-contrib.url = "github:hyprwm/contrib";
     hyprpaper.url = "github:hyprwm/hyprpaper";
     hyprpaper.inputs.nixpkgs.follows = "nixpkgs";
