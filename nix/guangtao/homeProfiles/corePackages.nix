@@ -6,5 +6,6 @@
 in {
   home.packages = with nixpkgs; [
     unzip
+    pciutils
   ];
 }

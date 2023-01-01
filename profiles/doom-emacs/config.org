@@ -1189,7 +1189,7 @@ appropriate.  In tables, insert a new row or end the table."
 #+end_src
 
 #+RESULTS:
-: copilot-accept-completion
+: copilot-accept-completion-by-word
 
 ** Ordless
 
