@@ -3,6 +3,7 @@
   cell,
 }: let
   inherit (inputs) std;
+  l = inputs.nixpkgs.lib // builtins;
 in {
   treefmt = std.presets.nixago.treefmt {
     configData.formatter.prettier = {
@@ -17,7 +18,7 @@ in {
   };
   just = std.std.nixago.just {
     configData = {
-      tasks = import ./tasks.nix;
+      tasks = import ./justfile.nix {inherit inputs cell;};
     };
   };
 }

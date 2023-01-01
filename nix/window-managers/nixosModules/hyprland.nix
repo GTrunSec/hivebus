@@ -1,7 +1,4 @@
 {...}: {
-  hyprland = {
-    programs.hyprland.enable = true;
-
-    services.xserver.displayManager.defaultSession = "hyprland";
-  };
+  services.xserver.displayManager.defaultSession = "hyprland";
+  programs.hyprland.enable = true;
 }

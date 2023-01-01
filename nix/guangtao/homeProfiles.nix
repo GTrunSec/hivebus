@@ -4,6 +4,38 @@
 }: let
   inherit (inputs) nixpkgs;
   l = inputs.nixpkgs.lib // builtins;
+
+  inherit (cell) homeProfiles;
 in
-  l.mapAttrs (_: v: import v {inherit inputs cell;})
+  {
+    default = with homeProfiles;
+      [
+        shellPrograms
+        shellPackages
+      ]
+      ++ [
+        inputs.cells.base.homeProfiles.default
+        inputs.cells.utils.homeProfiles.default
+      ]
+      ++ inputs.cells.terminal.homeSuites.default;
+
+    mathematic = with homeProfiles; [
+      latexPackages
+    ];
+
+    graphics = with homeProfiles; [
+      inputs.cells.window-managers.homeProfiles.hyprland
+    ];
+
+    emacs = with homeProfiles;
+      l.optionals nixpkgs.stdenv.isLinux [
+        inputs.cells.emacs.homeProfiles.linux
+      ]
+      ++ l.optionals nixpkgs.stdenv.isDarwin [
+        inputs.cells.emacs.homeProfiles.darwin
+      ] ++ [
+        cell.homeModules.emacs
+      ];
+  }
+  // l.mapAttrs (_: v: import v {inherit inputs cell;})
   (inputs.cells.common.lib.rakeLeaves ./homeProfiles)

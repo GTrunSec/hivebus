@@ -13,6 +13,11 @@
       trusted-users = ["root" "@wheel"];
       auto-optimise-store = true;
       system-features = ["nixos-test" "benchmark" "big-parallel" "kvm"];
+      builders-use-substitutes = true;
+      keep-derivations = true;
+      auto-allocate-uids = true;
+      use-cgroups = true;
+      experimental-features = ["nix-command" "flakes" "ca-derivations" "auto-allocate-uids" "cgroups"];
     };
     gc = {
       automatic = true;
@@ -20,14 +25,9 @@
       options = "--delete-older-than 3d";
     };
     extraOptions = ''
-      # use-cgroups = true
-      # auto-allocate-uids = true
       min-free = 536870912
       accept-flake-config = true
-      keep-outputs = true
-      keep-derivations = true
       fallback = true
-      experimental-features = nix-command flakes recursive-nix
     '';
   };
 }

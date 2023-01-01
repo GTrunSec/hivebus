@@ -11,22 +11,22 @@
   };
   StevenBlack-hosts = {
     pname = "StevenBlack-hosts";
-    version = "f063ea479e841b0e593dc622eace62da4d2634b1";
+    version = "f461d302747ae10218c6af736236868918413f4e";
     src = fetchFromGitHub ({
       owner = "StevenBlack";
       repo = "hosts";
-      rev = "f063ea479e841b0e593dc622eace62da4d2634b1";
+      rev = "f461d302747ae10218c6af736236868918413f4e";
       fetchSubmodules = false;
-      sha256 = "sha256-YLLSaQKgjhpeHU86V7XXfbrGS3stojrC0DQfbtUGQ2U=";
+      sha256 = "sha256-3zeeO22umgRvyZ/yI00Rn2wm1ZcS1/YJxFGguosqEkg=";
     });
-    date = "2022-12-06";
+    date = "2022-12-29";
   };
   adguardhome = {
     pname = "adguardhome";
-    version = "v0.107.20";
+    version = "v0.107.21";
     src = fetchurl {
-      url = "https://github.com/AdguardTeam/AdGuardHome/releases/download/v0.107.20/AdGuardHome_linux_amd64.tar.gz";
-      sha256 = "sha256-KJIogRRlZFPy3jBb9JeEA7xgZkl9/97cA13rBK6/1fI=";
+      url = "https://github.com/AdguardTeam/AdGuardHome/releases/download/v0.107.21/AdGuardHome_linux_amd64.tar.gz";
+      sha256 = "sha256-xU5PxscqBEGNCgA241UbhJcxlNXpCxbFeU7bfmSqf7I=";
     };
   };
   chord = {
@@ -39,10 +39,10 @@
   };
   drawio = {
     pname = "drawio";
-    version = "20.6.1";
+    version = "20.7.4";
     src = fetchurl {
-      url = "https://github.com/jgraph/drawio-desktop/releases/download/v20.6.1/drawio-x86_64-20.6.1.rpm";
-      sha256 = "sha256-jR49ROU+Yt1tx/Ixr1toLJ/w55imSAUoREulLM4CtMk=";
+      url = "https://github.com/jgraph/drawio-desktop/releases/download/v20.7.4/drawio-x86_64-20.7.4.rpm";
+      sha256 = "sha256-gmC8s+0eef09wcLE9fBiG82rRPXijRyR1WTlp4gYPq4=";
     };
   };
   hug = {
@@ -91,15 +91,15 @@
   };
   picom = {
     pname = "picom";
-    version = "882025092f52585fa5c88fef297a12472ec73314";
+    version = "60ac2b64db78363fe04189cc734daea3d721d87e";
     src = fetchFromGitHub ({
       owner = "yshui";
       repo = "picom";
-      rev = "882025092f52585fa5c88fef297a12472ec73314";
+      rev = "60ac2b64db78363fe04189cc734daea3d721d87e";
       fetchSubmodules = false;
-      sha256 = "sha256-yspNnRCcYpdQbTDChIVVr91o1WufAVqjIOTnpB3tNqk=";
+      sha256 = "sha256-DcTnulkhWPMqGDLD7V17f9Lxs4i44/H26gHo+dmbSCc=";
     });
-    date = "2022-12-03";
+    date = "2022-12-23";
   };
   polar-bookshelf = {
     pname = "polar-bookshelf";
@@ -119,26 +119,26 @@
   };
   promnesia = {
     pname = "promnesia";
-    version = "47ae8c654bbba8e506c2c0e852ff0d4763d42869";
+    version = "32b8e9a68b672faa9f65bc5fd463dc9a36aa4834";
     src = fetchFromGitHub ({
       owner = "karlicoss";
       repo = "promnesia";
-      rev = "47ae8c654bbba8e506c2c0e852ff0d4763d42869";
+      rev = "32b8e9a68b672faa9f65bc5fd463dc9a36aa4834";
       fetchSubmodules = false;
-      sha256 = "sha256-d1lbn92fzHajRYOIOoT6pbR+hc+vks+aLHjmJvfPEAs=";
+      sha256 = "sha256-UQh3Vsy+ANoGKK0PdcN8UvMDGuAPfi6LkWmAoK2nOvQ=";
     });
-    date = "2022-10-18";
+    date = "2022-12-31";
   };
   spaceship-prompt = {
     pname = "spaceship-prompt";
-    version = "684c46ab6527276f0bf836ad66efeba2e869ee8f";
+    version = "89b532bfa3ff2221c42daa78c52847cdac2401cc";
     src = fetchFromGitHub ({
       owner = "spaceship-prompt";
       repo = "spaceship-prompt";
-      rev = "684c46ab6527276f0bf836ad66efeba2e869ee8f";
+      rev = "89b532bfa3ff2221c42daa78c52847cdac2401cc";
       fetchSubmodules = false;
-      sha256 = "sha256-ZL6z5pj2xbnUZl4SK7wxiJjheUY79hwDNVYm9+biKZU=";
+      sha256 = "sha256-TNkHr/tlrH1EgCgpgw30lI5LNIw2tEzc8m8mqLaKIFQ=";
     });
-    date = "2022-12-07";
+    date = "2022-12-29";
   };
 }

@@ -1,0 +1,22 @@
+{
+    "acm-terminal": {
+        "cargoLocks": null,
+        "date": "2022-12-04",
+        "extract": null,
+        "name": "acm-terminal",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "twlz0ne",
+            "repo": "acm-terminal",
+            "rev": "8560abb3d951a73782e64dd1b1333c5a60ea28d4",
+            "sha256": "sha256-HIRlG9DcazA7wN7dNCJ3meZ51fLxJtSu4fajMigEhAQ=",
+            "type": "github"
+        },
+        "version": "8560abb3d951a73782e64dd1b1333c5a60ea28d4"
+    }
+}

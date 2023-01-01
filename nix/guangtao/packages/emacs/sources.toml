@@ -1,0 +1,3 @@
+[acm-terminal]
+src.git = "https://github.com/twlz0ne/acm-terminal"
+fetch.github = "twlz0ne/acm-terminal"

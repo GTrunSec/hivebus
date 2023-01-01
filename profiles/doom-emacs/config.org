@@ -263,7 +263,7 @@
 (setenv "QT_DEBUG_PLUGINS" "1")
 (fset 'yes-or-no-p 'y-or-n-p)
 
-(setq plantuml-jar-path (expand-file-name "~/.myscript/plantuml"))
+(setq plantuml-jar-path (expand-file-name "~/.config/guangtao-sources/plantuml"))
 #+end_src
 
 ** Better Default Setting
@@ -1687,7 +1687,7 @@ FACE defaults to inheriting from default and highlight."
     (interactive)
     (org-content -1))
   (setq org-download-timestamp "%Y%m%d_%H%M%S")
-  (setq org-plantuml-jar-path (expand-file-name "~/.myscript/plantuml"))
+  (setq org-plantuml-jar-path (expand-file-name "~/.config/guangtao-sources/plantuml"))
   )
 #+end_src
 
@@ -2884,16 +2884,17 @@ a separator ' -> '."
 #+end_src
 
 #+begin_src emacs-lisp :tangle "config.el"
-(use-package! lsp-bridge
-  :config
-  (require 'lsp-bridge-jdtls)
-  (global-lsp-bridge-mode)
-  (setq lsp-bridge-flash-line-delay 1)
-  (setq lsp-bridge-ref-flash-line-delay 1)
-  (setq lsp-bridge-python-command "/run/current-system/sw/bin/python")
-  (add-hook 'lsp-bridge-mode-hook (lambda () (corfu-mode -1)))
-  (setq acm-enable-tabnine-helper t)
-  )
+(when (display-graphic-p)
+  (use-package! lsp-bridge
+    :config
+    (require 'lsp-bridge-jdtls)
+    (global-lsp-bridge-mode)
+    (setq lsp-bridge-flash-line-delay 1)
+    (setq lsp-bridge-ref-flash-line-delay 1)
+    (setq lsp-bridge-python-command "/run/current-system/sw/bin/python")
+    (add-hook 'lsp-bridge-mode-hook (lambda () (corfu-mode -1)))
+    (setq acm-enable-tabnine-helper t)
+    ))
 #+end_src
 
 
@@ -2901,7 +2902,7 @@ a separator ' -> '."
 (unless (display-graphic-p)
   (after! acm
     (use-package! acm-terminal
-      :load-path "~/ghq/github.com/twlz0ne/acm-terminal"
+      :load-path "~/.config/guangtao-sources/acm-terminal"
       )))
 #+end_src
 

@@ -1,6 +1,5 @@
 {
   inputs,
   cell,
-}: {
-  alacritty = import ./programs/alacritty;
-}
+}:
+inputs.cells.common.lib.rakeLeaves ./programs

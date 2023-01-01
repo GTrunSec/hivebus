@@ -28,6 +28,14 @@ fmt:
 libvirtd_1:
     colmena build --on guangtao-o-libvirtd_1
 
+# update default toolchain with nvfetcher
+nvfetcher-default:
+    nix develop github:GTrunSec/cells-lab#update --refresh --command nvfetcher-update nix/guangtao/packages/./sources.toml
+
+# update emacs toolchain with nvfetcher
+nvfetcher-emacs:
+    nix develop github:GTrunSec/cells-lab#update --refresh --command nvfetcher-update nix/guangtao/packages/emacs/sources.toml
+
 # update packages via nvfetcher
 nvfetcher-update cell:
     nix develop github:GTrunSec/cells-lab#devShells.x86_64-linux.update --refresh --command nvfetcher-update nix/{{ cell }}/packages/sources.toml

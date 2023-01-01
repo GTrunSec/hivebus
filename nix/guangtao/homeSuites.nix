@@ -3,38 +3,24 @@
   cell,
 }: let
   inherit (cell) homeProfiles homeModules;
-in rec {
-  default = with homeProfiles;
-    [
-      shellPrograms
-      shellPackages
-    ]
-    ++ [
-      inputs.cells.base.homeProfiles.default
-      inputs.cells.utils.homeProfiles.default
-    ]
-    ++ inputs.cells.terminal.homeSuites.default;
-
-  mathematic = with homeProfiles; [
-    latexPackages
-  ];
-
+in {
   desktop = with homeProfiles;
     [
       inputs.cells.terminal.homeProfiles.alacritty
       homeModules.alacritty
-      inputs.cells.emacs.homeProfiles.linux
     ]
     ++ default
-    ++ mathematic;
+    ++ emacs
+    ++ mathematic
+    ++ graphics;
 
   macbook = with homeProfiles;
     default
     ++ mathematic
+    ++ emacs
     ++ [
-      inputs.cells.emacs.homeProfiles.darwin
       darwinPackages
     ];
 
-  libvirtd = default;
+  libvirtd = homeProfiles.default;
 }
