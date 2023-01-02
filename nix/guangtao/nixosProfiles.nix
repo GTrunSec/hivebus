@@ -73,4 +73,8 @@ in {
       inputs.cells.secrets.nixosModules.age
       inputs.cells.secrets.nixosProfiles.age
     ];
+
+  desktopOnly.imports = [
+    profiles.desktopServices
+  ];
 }

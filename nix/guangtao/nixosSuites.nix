@@ -15,6 +15,7 @@ in {
       locale
       virtualization
       coding.desktop
+      desktopOnly
     ]
     ++ [
       (cell.lib.mkHome "guangtao" "desktop" "22.11")
