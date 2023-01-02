@@ -9,7 +9,8 @@ in {
     ++ terminal
     ++ emacs
     ++ mathematic
-    ++ graphics;
+    ++ graphics
+    ++ applications;
 
   macbook = with homeProfiles;
     default

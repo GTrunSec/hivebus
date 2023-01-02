@@ -3,10 +3,9 @@
   cell,
 }: let
   l = inputs.nixpkgs.lib // builtins;
+  inherit (inputs.cells.common.lib) __inputs__;
 
-  profiles =
-    l.mapAttrs (_: v: import v {inherit inputs cell;})
-    (inputs.cells.common.lib.rakeLeaves ./overlays);
+  profiles = inputs.cells.common.lib.importRakeLeaves ./overlays;
 in {
   inherit profiles;
 
@@ -14,6 +13,7 @@ in {
     inputs.cells.emacs.overlays.emacs-overlay
     profiles.default
     profiles.desktop
+    __inputs__.rust-overlay.overlays.default
   ];
   macbook = [
     profiles.default

@@ -24,4 +24,10 @@ in {
     MOZ_ENABLE_WAYLAND = true;
     QT_QPA_PLATFORM = "wayland";
   };
+  wayland.windowManager.hyprland.extraConfig = ''
+    $mod = SUPER
+
+    bind = $mod, Return, exec, alacritty
+    bind = $mod, f, exec, brave
+  '';
 }

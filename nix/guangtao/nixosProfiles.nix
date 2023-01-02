@@ -17,6 +17,7 @@ in {
     inputs.cells.security.nixosModules.polkit
     # gtk require
     profiles.dfconf
+    cell.nixosModules.fonts
   ];
 
   locale.imports = [

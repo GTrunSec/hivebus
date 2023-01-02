@@ -29,6 +29,7 @@ in
       [
         inputs.cells.window-managers.homeProfiles.hyprland
         wayland
+        kanshi
       ]
       ++ [
         homeModules.qt
@@ -51,5 +52,9 @@ in
       ++ [
         cell.homeModules.programs.emacs
       ];
+
+    applications = with homeProfiles; [
+      browser
+    ];
   }
   // inputs.cells.common.lib.importRakeLeaves ./homeProfiles
