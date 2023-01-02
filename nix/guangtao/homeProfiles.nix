@@ -5,7 +5,7 @@
   inherit (inputs) nixpkgs;
   l = inputs.nixpkgs.lib // builtins;
 
-  inherit (cell) homeProfiles;
+  inherit (cell) homeProfiles homeModules;
 in
   {
     default = with homeProfiles;
@@ -25,9 +25,20 @@ in
       latexPackages
     ];
 
-    graphics = with homeProfiles; [
-      inputs.cells.window-managers.homeProfiles.hyprland
-      wayland
+    graphics = with homeProfiles;
+      [
+        inputs.cells.window-managers.homeProfiles.hyprland
+        wayland
+      ]
+      ++ [
+        homeModules.qt
+        homeModules.gtk
+        homeModules.cursor
+      ];
+
+    terminal = with homeProfiles; [
+      inputs.cells.terminal.homeProfiles.alacritty
+      homeModules.programs.alacritty
     ];
 
     emacs = with homeProfiles;
@@ -38,8 +49,7 @@ in
         inputs.cells.emacs.homeProfiles.darwin
       ]
       ++ [
-        cell.homeModules.emacs
+        cell.homeModules.programs.emacs
       ];
   }
-  // l.mapAttrs (_: v: import v {inherit inputs cell;})
-  (inputs.cells.common.lib.rakeLeaves ./homeProfiles)
+  // inputs.cells.common.lib.importRakeLeaves ./homeProfiles

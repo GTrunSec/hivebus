@@ -7,6 +7,7 @@ in {
   home.packages = with nixpkgs; [
     qt5.qtwayland
   ];
+
   home.sessionVariables = {
     XDG_SESSION_TYPE = "wayland";
     QT_QPA_PLATFORMTHEME = "qt5ct";

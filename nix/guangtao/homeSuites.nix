@@ -5,11 +5,8 @@
   inherit (cell) homeProfiles homeModules;
 in {
   desktop = with homeProfiles;
-    [
-      inputs.cells.terminal.homeProfiles.alacritty
-      homeModules.alacritty
-    ]
-    ++ default
+    default
+    ++ terminal
     ++ emacs
     ++ mathematic
     ++ graphics;

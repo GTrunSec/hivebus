@@ -23,4 +23,14 @@
     styx.inputs.nixpkgs = "nixpkgs";
   };
 in
-  inputs.cells-lab.inputs.xnlib.lib.digga // {inherit __inputs__;}
+  inputs.cells-lab.inputs.xnlib.lib.digga
+  // {
+    inherit __inputs__;
+
+    importRakeLeaves = path:
+      l.mapAttrs (_: v:
+        if (l.isFunction v)
+        then import v {inherit inputs cell;}
+        else import v)
+      (cell.lib.rakeLeaves path);
+  }

@@ -13,7 +13,10 @@ in {
   graphics.imports = [
     inputs.cells.hardware.nixosModules.hidpi
     cell.nixosModules.nvidia
-    # inputs.cells.window-managers.nixosProfiles.hyprland
+    # wayland require
+    inputs.cells.security.nixosModules.polkit
+    # gtk require
+    profiles.dfconf
   ];
 
   locale.imports = [
