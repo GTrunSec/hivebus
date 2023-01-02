@@ -2885,19 +2885,17 @@ a separator ' -> '."
 #+end_src
 
 #+begin_src emacs-lisp :tangle "config.el"
-(when (display-graphic-p)
-  (use-package! lsp-bridge
-    :config
-    (require 'lsp-bridge-jdtls)
-    (global-lsp-bridge-mode)
-    (setq lsp-bridge-flash-line-delay 1)
-    (setq lsp-bridge-ref-flash-line-delay 1)
-    (setq lsp-bridge-python-command "/run/current-system/sw/bin/python")
-    (add-hook 'lsp-bridge-mode-hook (lambda () (corfu-mode -1)))
-    (setq acm-enable-tabnine-helper t)
-    ))
+(use-package! lsp-bridge
+  :config
+  (require 'lsp-bridge-jdtls)
+  (global-lsp-bridge-mode)
+  (setq lsp-bridge-flash-line-delay 1)
+  (setq lsp-bridge-ref-flash-line-delay 1)
+  (setq lsp-bridge-python-command "/run/current-system/sw/bin/python")
+  (add-hook 'lsp-bridge-mode-hook (lambda () (corfu-mode -1)))
+  (setq acm-enable-tabnine-helper t)
+  )
 #+end_src
-
 
 #+begin_src emacs-lisp :tangle "config.el"
 (unless (display-graphic-p)

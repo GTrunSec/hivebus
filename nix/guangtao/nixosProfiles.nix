@@ -31,7 +31,8 @@ in {
 
   coding = {
     desktop.imports = [
-      cell.nixosModules.coding.python.desktop
+      cell.nixosModules.python
+      cell.nixosModules.rust
     ];
   };
 
