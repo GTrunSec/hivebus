@@ -29,7 +29,7 @@ in
 
     importRakeLeaves = path:
       l.mapAttrs (_: v:
-        if (l.isFunction v)
+        if (l.isFunction (import v))
         then import v {inherit inputs cell;}
         else import v)
       (cell.lib.rakeLeaves path);

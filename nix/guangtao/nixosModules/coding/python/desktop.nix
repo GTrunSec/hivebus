@@ -3,12 +3,6 @@
   lib,
   ...
 }: let
-  wenls = pkgs.fetchFromGitHub {
-    owner = "metaescape";
-    repo = "Wen";
-    rev = "25a815217d5234e9e28c18e740e1aa5e74690208";
-    sha256 = "sha256-2kFiaPZnc5Y7jaCJTG50bgFWhs6mejKqeumqwg44XP8=";
-  };
   my-python-packages = (
     pkgs.python3Override.withPackages (
       ps:
@@ -38,7 +32,6 @@
             # jupyterlab
             pdftotext
             pypinyin
-            # pygls
           ]
           ++ lib.optional pkgs.stdenv.isLinux [
             pyqt6
@@ -56,9 +49,25 @@ in {
     promnesia
     orgparse
     (
-      pkgs.writeShellScriptBin "wenls" ''
-        ${my-python-packages}/bin/python3 ${wenls}/server.py
-      ''
+      let
+        wenPy = pkgs.python3Override.withPackages (
+          ps:
+            with ps; [
+              pygls
+              pypinyin
+              jieba
+            ]
+        );
+        wenEnv = pkgs.runCommand "wenEnv" {} ''
+          mkdir -p $out/completion
+          cp -r ${pkgs.guangtao-sources.GodTian_Pinyin.src}/* $out/completion
+          cp -r ${pkgs.guangtao-sources.wen.src}/* $out/
+          cd $out/completion && ${lib.getExe pkgs.git} apply ../0001-for-py3.patch
+        '';
+      in
+        pkgs.writeShellScriptBin "wenls" ''
+          ${wenPy}/bin/python3 ${wenEnv}/server.py
+        ''
     )
   ];
 }

@@ -1,4 +1,24 @@
 {
+    "GodTian_Pinyin": {
+        "cargoLocks": null,
+        "date": "2017-07-19",
+        "extract": null,
+        "name": "GodTian_Pinyin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "whatbeg",
+            "repo": "GodTian_Pinyin",
+            "rev": "e21e41510b6d440389966bb0b2a70b38fafc6741",
+            "sha256": "sha256-uSrj+hwai7fSJN7SWL5u80hp8nSzJ4XI5t/8s19uoV8=",
+            "type": "github"
+        },
+        "version": "e21e41510b6d440389966bb0b2a70b38fafc6741"
+    },
     "acm-terminal": {
         "cargoLocks": null,
         "date": "2022-12-04",
@@ -18,5 +38,25 @@
             "type": "github"
         },
         "version": "8560abb3d951a73782e64dd1b1333c5a60ea28d4"
+    },
+    "wen": {
+        "cargoLocks": null,
+        "date": "2022-09-18",
+        "extract": null,
+        "name": "wen",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "metaescape",
+            "repo": "Wen",
+            "rev": "50a9afbe6499077f97ebb52f40d051930df640e8",
+            "sha256": "sha256-5Y4u6XmX9qVCQMb6/SfwtYGzH79VlGM32tI7EFGhzVg=",
+            "type": "github"
+        },
+        "version": "50a9afbe6499077f97ebb52f40d051930df640e8"
     }
 }
