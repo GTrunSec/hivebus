@@ -13,6 +13,7 @@
       {
         home.packages = [
           pkgs.nodejs_latest
+          pkgs.sqlite
           (
             pkgs.writeShellScriptBin "node16" ''
               ${lib.getExe pkgs.nodejs-16_x} "$@"

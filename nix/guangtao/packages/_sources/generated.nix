@@ -11,15 +11,15 @@
   };
   StevenBlack-hosts = {
     pname = "StevenBlack-hosts";
-    version = "f461d302747ae10218c6af736236868918413f4e";
+    version = "f91285ebe73d82b48875aee2fcd06c20f4566e12";
     src = fetchFromGitHub ({
       owner = "StevenBlack";
       repo = "hosts";
-      rev = "f461d302747ae10218c6af736236868918413f4e";
+      rev = "f91285ebe73d82b48875aee2fcd06c20f4566e12";
       fetchSubmodules = false;
-      sha256 = "sha256-3zeeO22umgRvyZ/yI00Rn2wm1ZcS1/YJxFGguosqEkg=";
+      sha256 = "sha256-BRAitGAtzk4gGDZ7+K3FBS81D/8cwkVLRQkccMBhBLQ=";
     });
-    date = "2022-12-29";
+    date = "2023-01-01";
   };
   adguardhome = {
     pname = "adguardhome";
@@ -69,18 +69,6 @@
       sha256 = "sha256-tE2Q7NM+cQOg+vyqyfRwg05EOMQWhhggTA6S+VT+SkM=";
     };
   };
-  notdeft = {
-    pname = "notdeft";
-    version = "1b7054dcfc3547a7cafeb621552cec01d0540478";
-    src = fetchFromGitHub ({
-      owner = "hasu";
-      repo = "notdeft";
-      rev = "1b7054dcfc3547a7cafeb621552cec01d0540478";
-      fetchSubmodules = false;
-      sha256 = "sha256-LMMLJFVpmoE/y3MqrgY2fmsehmzk6TkLsVoHmFUxiSw=";
-    });
-    date = "2021-12-04";
-  };
   orgparse = {
     pname = "orgparse";
     version = "0.3.1";
@@ -89,45 +77,17 @@
       sha256 = "sha256-hg5vu5pnt0K6p5LmD4zBhSLpeJwGXSaCHAIoXV/BBK8=";
     };
   };
-  picom = {
-    pname = "picom";
-    version = "60ac2b64db78363fe04189cc734daea3d721d87e";
-    src = fetchFromGitHub ({
-      owner = "yshui";
-      repo = "picom";
-      rev = "60ac2b64db78363fe04189cc734daea3d721d87e";
-      fetchSubmodules = false;
-      sha256 = "sha256-DcTnulkhWPMqGDLD7V17f9Lxs4i44/H26gHo+dmbSCc=";
-    });
-    date = "2022-12-23";
-  };
-  polar-bookshelf = {
-    pname = "polar-bookshelf";
-    version = "2.0.103";
-    src = fetchurl {
-      url = "https://github.com/burtonator/polar-bookshelf/releases/download/v2.0.103/polar-desktop-app-2.0.103-amd64.deb";
-      sha256 = "sha256-jcq0hW698bAhVM3fLQQeKAnld33XLkHsGjS3QwUpciQ=";
-    };
-  };
-  polar-darwin = {
-    pname = "polar-darwin";
-    version = "2.0.103";
-    src = fetchurl {
-      url = "https://github.com/burtonator/polar-bookshelf/releases/download/v2.0.103/Polar-2.0.103.dmg";
-      sha256 = "sha256-DCg5myqgcdOW9P7jq81QqDnfjwozlUq43gltZVjCrXI=";
-    };
-  };
   promnesia = {
     pname = "promnesia";
-    version = "32b8e9a68b672faa9f65bc5fd463dc9a36aa4834";
+    version = "3e788bb219c5b2ce5684d1222ff8d22010ca538d";
     src = fetchFromGitHub ({
       owner = "karlicoss";
       repo = "promnesia";
-      rev = "32b8e9a68b672faa9f65bc5fd463dc9a36aa4834";
+      rev = "3e788bb219c5b2ce5684d1222ff8d22010ca538d";
       fetchSubmodules = false;
-      sha256 = "sha256-UQh3Vsy+ANoGKK0PdcN8UvMDGuAPfi6LkWmAoK2nOvQ=";
+      sha256 = "sha256-5PXoh7k05b/5UvQ0HxONFSHvzrGemod8duUVTM1auoM=";
     });
-    date = "2022-12-31";
+    date = "2023-01-02";
   };
   spaceship-prompt = {
     pname = "spaceship-prompt";

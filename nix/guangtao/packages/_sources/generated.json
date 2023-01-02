@@ -16,7 +16,7 @@
     },
     "StevenBlack-hosts": {
         "cargoLocks": null,
-        "date": "2022-12-29",
+        "date": "2023-01-01",
         "extract": null,
         "name": "StevenBlack-hosts",
         "passthru": null,
@@ -28,11 +28,11 @@
             "name": null,
             "owner": "StevenBlack",
             "repo": "hosts",
-            "rev": "f461d302747ae10218c6af736236868918413f4e",
-            "sha256": "sha256-3zeeO22umgRvyZ/yI00Rn2wm1ZcS1/YJxFGguosqEkg=",
+            "rev": "f91285ebe73d82b48875aee2fcd06c20f4566e12",
+            "sha256": "sha256-BRAitGAtzk4gGDZ7+K3FBS81D/8cwkVLRQkccMBhBLQ=",
             "type": "github"
         },
-        "version": "f461d302747ae10218c6af736236868918413f4e"
+        "version": "f91285ebe73d82b48875aee2fcd06c20f4566e12"
     },
     "adguardhome": {
         "cargoLocks": null,
@@ -124,26 +124,6 @@
         },
         "version": "1.6.11"
     },
-    "notdeft": {
-        "cargoLocks": null,
-        "date": "2021-12-04",
-        "extract": null,
-        "name": "notdeft",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "hasu",
-            "repo": "notdeft",
-            "rev": "1b7054dcfc3547a7cafeb621552cec01d0540478",
-            "sha256": "sha256-LMMLJFVpmoE/y3MqrgY2fmsehmzk6TkLsVoHmFUxiSw=",
-            "type": "github"
-        },
-        "version": "1b7054dcfc3547a7cafeb621552cec01d0540478"
-    },
     "orgparse": {
         "cargoLocks": null,
         "date": null,
@@ -159,59 +139,9 @@
         },
         "version": "0.3.1"
     },
-    "picom": {
-        "cargoLocks": null,
-        "date": "2022-12-23",
-        "extract": null,
-        "name": "picom",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "yshui",
-            "repo": "picom",
-            "rev": "60ac2b64db78363fe04189cc734daea3d721d87e",
-            "sha256": "sha256-DcTnulkhWPMqGDLD7V17f9Lxs4i44/H26gHo+dmbSCc=",
-            "type": "github"
-        },
-        "version": "60ac2b64db78363fe04189cc734daea3d721d87e"
-    },
-    "polar-bookshelf": {
-        "cargoLocks": null,
-        "date": null,
-        "extract": null,
-        "name": "polar-bookshelf",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "name": null,
-            "sha256": "sha256-jcq0hW698bAhVM3fLQQeKAnld33XLkHsGjS3QwUpciQ=",
-            "type": "url",
-            "url": "https://github.com/burtonator/polar-bookshelf/releases/download/v2.0.103/polar-desktop-app-2.0.103-amd64.deb"
-        },
-        "version": "2.0.103"
-    },
-    "polar-darwin": {
-        "cargoLocks": null,
-        "date": null,
-        "extract": null,
-        "name": "polar-darwin",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "name": null,
-            "sha256": "sha256-DCg5myqgcdOW9P7jq81QqDnfjwozlUq43gltZVjCrXI=",
-            "type": "url",
-            "url": "https://github.com/burtonator/polar-bookshelf/releases/download/v2.0.103/Polar-2.0.103.dmg"
-        },
-        "version": "2.0.103"
-    },
     "promnesia": {
         "cargoLocks": null,
-        "date": "2022-12-31",
+        "date": "2023-01-02",
         "extract": null,
         "name": "promnesia",
         "passthru": null,
@@ -223,11 +153,11 @@
             "name": null,
             "owner": "karlicoss",
             "repo": "promnesia",
-            "rev": "32b8e9a68b672faa9f65bc5fd463dc9a36aa4834",
-            "sha256": "sha256-UQh3Vsy+ANoGKK0PdcN8UvMDGuAPfi6LkWmAoK2nOvQ=",
+            "rev": "3e788bb219c5b2ce5684d1222ff8d22010ca538d",
+            "sha256": "sha256-5PXoh7k05b/5UvQ0HxONFSHvzrGemod8duUVTM1auoM=",
             "type": "github"
         },
-        "version": "32b8e9a68b672faa9f65bc5fd463dc9a36aa4834"
+        "version": "3e788bb219c5b2ce5684d1222ff8d22010ca538d"
     },
     "spaceship-prompt": {
         "cargoLocks": null,

@@ -14,5 +14,7 @@ in
     orgparse = prev.python3Packages.callPackage ../packages/python/orgparse {};
     hpi = prev.pythonPackages.callPackage ../packages/python/HPI {};
 
+    material-symbols = prev.callPackage ../packages/material-symbols.nix {};
+
     inherit (__inputs__.nil.packages.${prev.system}) nil;
   }

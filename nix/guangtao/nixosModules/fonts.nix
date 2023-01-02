@@ -22,6 +22,8 @@
       weather-icons
       iosevka
       nerdfonts
+    ] ++ [
+      material-symbols
     ];
 
     fontconfig = {

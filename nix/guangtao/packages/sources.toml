@@ -3,11 +3,6 @@
 src.git = "https://github.com/StevenBlack/hosts"
 fetch.github = "StevenBlack/hosts"
 
-[polar-darwin]
-src.github = "burtonator/polar-bookshelf"
-fetch.url = "https://github.com/burtonator/polar-bookshelf/releases/download/v$ver/Polar-$ver.dmg"
-src.prefix = "v"
-
 [drawio]
 src.github = "jgraph/drawio-desktop"
 fetch.url = "https://github.com/jgraph/drawio-desktop/releases/download/v$ver/drawio-x86_64-$ver.rpm"
@@ -26,18 +21,9 @@ src.github = "agalwood/Motrix"
 fetch.url = "https://github.com/agalwood/Motrix/releases/download/v$ver/Motrix-$ver.AppImage"
 src.prefix = "v"
 
-[polar-bookshelf]
-src.github = "burtonator/polar-bookshelf"
-fetch.url = "https://github.com/burtonator/polar-bookshelf/releases/download/v$ver/polar-desktop-app-$ver-amd64.deb"
-src.prefix = "v"
-
 [adguardhome]
 src.github = "AdguardTeam/AdGuardHome"
 fetch.url = "https://github.com/AdguardTeam/AdGuardHome/releases/download/$ver/AdGuardHome_linux_amd64.tar.gz"
-
-[notdeft]
-src.git = "https://github.com/hasu/notdeft"
-fetch.github = "hasu/notdeft"
 
 [spaceship-prompt]
 src.git = "https://github.com/spaceship-prompt/spaceship-prompt"
@@ -46,10 +32,6 @@ fetch.github = "spaceship-prompt/spaceship-prompt"
 [promnesia]
 src.git = "https://github.com/karlicoss/promnesia"
 fetch.github = "karlicoss/promnesia"
-
-[picom]
-src.git = "https://github.com/yshui/picom"
-fetch.github = "yshui/picom"
 
 [HPI]
 src.pypi = "HPI"
