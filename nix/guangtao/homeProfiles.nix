@@ -30,6 +30,7 @@ in
         inputs.cells.window-managers.homeProfiles.hyprland
         wayland
         kanshi
+        eww
       ]
       ++ [
         homeModules.qt

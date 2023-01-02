@@ -33,6 +33,7 @@ in {
     monitor = DP-2, preferred, auto, auto
 
     exec-once = kanshi
+    exec-once = eww open bar
 
     bind = $mod, Return, exec, alacritty
     bind = $mod, b, exec, brave

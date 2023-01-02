@@ -16,6 +16,11 @@
     hyprpaper.url = "github:hyprwm/hyprpaper";
     hyprpaper.inputs.nixpkgs.follows = "nixpkgs";
 
+    eww = {
+      url = "github:elkowar/eww";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.rust-overlay.follows = "rust-overlay";
+    };
     # hyprland.inputs.nixpkgs.follows = "nixpkgs";
 
     nixgl.url = "github:guibou/nixGL";
