@@ -15,12 +15,12 @@
         programs.zsh = {
           enable = true;
           autocd = true;
-          dotDir = ".config/zsh";
+          # dotDir = ".config/zsh";
           enableAutosuggestions = true;
           enableCompletion = true;
           enableSyntaxHighlighting = true;
           history = {
-            path = config.programs.zsh.dotDir + "/.zsh_history";
+            # path = config.programs.zsh.dotDir + "/.zsh_history";
             share = true;
             save = 10000000;
             ignoreDups = true;

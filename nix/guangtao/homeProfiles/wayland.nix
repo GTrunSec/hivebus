@@ -6,6 +6,8 @@
 in {
   home.packages = with nixpkgs; [
     qt5.qtwayland
+    wayland-utils
+    kanshi
   ];
 
   home.sessionVariables = {
@@ -26,6 +28,11 @@ in {
   };
   wayland.windowManager.hyprland.extraConfig = ''
     $mod = SUPER
+
+    # monitor=,3840x2160,auto,2
+    monitor = DP-2, preferred, auto, auto
+
+    exec-once = kanshi
 
     bind = $mod, Return, exec, alacritty
     bind = $mod, b, exec, brave
@@ -50,4 +57,11 @@ in {
     bind = , escape, submap, reset
     submap = reset
   '';
+
+  programs.zsh = {
+    loginExtra = ''
+      # If running from tty1 start hyprland
+      [ "$(tty)" = "/dev/tty1" ] && exec Hyprland
+    '';
+  };
 }
