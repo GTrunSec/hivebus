@@ -28,6 +28,26 @@ in {
     $mod = SUPER
 
     bind = $mod, Return, exec, alacritty
-    bind = $mod, f, exec, brave
+    bind = $mod, b, exec, brave
+
+    compositor commands
+    bind = $mod SHIFT, E, exec, pkill Hyprland
+    bind = $mod, Q, killactive,
+    bind = $mod, F, fullscreen,
+    bind = $mod, G, togglegroup,
+    $kw = dwindle:no_gaps_when_only
+    bind = $mod, M, exec, hyprctl keyword $kw $(($(hyprctl getoption $kw -j | jaq -r '.int') ^ 1))
+
+
+    # window resize
+    bind = $mod, S, submap, resize
+
+    submap = resize
+    binde = , right, resizeactive, 10 0
+    binde = , left, resizeactive, -10 0
+    binde = , up, resizeactive, 0 -10
+    binde = , down, resizeactive, 0 10
+    bind = , escape, submap, reset
+    submap = reset
   '';
 }

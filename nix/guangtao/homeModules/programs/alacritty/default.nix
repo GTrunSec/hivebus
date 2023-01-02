@@ -16,8 +16,13 @@ in {
 
   config = mkMerge [
     (mkIf cfg.enable {
-      programs.alacritty.settings.key_bindings =
-        mkIf cfg.CSIuSupport CSIuKeyBindings;
+      programs.alacritty = {
+        settings = {
+          font.size = 30.0;
+          key_bindings =
+            mkIf cfg.CSIuSupport CSIuKeyBindings;
+        };
+      };
     })
   ];
 }

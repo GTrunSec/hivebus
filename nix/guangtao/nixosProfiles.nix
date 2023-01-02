@@ -10,15 +10,24 @@ in {
     inputs.cells.boot.nixosProfiles.tmp
   ];
 
-  graphics.imports = [
-    inputs.cells.hardware.nixosModules.hidpi
-    cell.nixosModules.nvidia
-    # wayland require
-    inputs.cells.security.nixosModules.polkit
-    # gtk require
-    profiles.dfconf
-    cell.nixosModules.fonts
-  ];
+  graphics.imports =
+    [
+      inputs.cells.hardware.nixosModules.hidpi
+      cell.nixosModules.nvidia
+      # wayland require
+      inputs.cells.security.nixosModules.polkit
+      # gtk require
+      profiles.dfconf
+      cell.nixosModules.fonts
+    ]
+    ++ [
+      # audio
+      inputs.cells.hardware.nixosModules.bluetooth
+      inputs.cells.hardware.nixosModules.pipewire
+    ]
+    ++ [
+      inputs.cells.i18n.nixosModules.fcitx5
+    ];
 
   locale.imports = [
     inputs.cells.i18n.nixosModules.fcitx5
