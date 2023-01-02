@@ -26,7 +26,7 @@
 
 .icon-text {
   font-size: 3rem;
-  padding: .7rem;
+  padding: 0.7rem;
 }
 
 .sys-text-sub {
@@ -48,8 +48,8 @@
 .system-info-box {
   @include rounding;
   background-color: $surface0;
-  margin: .5rem 1rem;
-  padding: .5rem;
+  margin: 0.5rem 1rem;
+  padding: 0.5rem;
 }
 
 .sys-mem,
@@ -70,7 +70,9 @@
 }
 
 .sys-box {
-  margin: .3em;
+  margin: 0.3em;
 
-  box { margin-left: 1rem; }
+  box {
+    margin-left: 1rem;
+  }
 }

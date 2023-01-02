@@ -31,6 +31,7 @@ in
         wayland
         kanshi
         eww
+        rofi
       ]
       ++ [
         homeModules.qt

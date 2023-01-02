@@ -3,11 +3,13 @@
   cell,
 }: {config, ...}: let
   inherit (inputs.cells.common.lib) __inputs__;
+  inherit (inputs) nixpkgs std self;
+  src = "${(std.incl self ["profiles/eww"])}/profiles/eww";
+
   eww = __inputs__.eww.packages.default;
   eww-wayland = __inputs__.eww.packages.eww-wayland;
 
   l = inputs.nixpkgs.lib // builtins;
-  inherit (inputs) nixpkgs;
 in let
   dependencies =
     [
@@ -50,7 +52,7 @@ in {
   programs.eww = {
     enable = true;
     package = eww-wayland;
-    configDir = l.cleanSource ./.;
+    configDir = src;
   };
 
   systemd.user.services.eww = {

@@ -12,23 +12,27 @@
 .top-row {
   margin: 1rem 1.5rem 0;
 
-  .time { font-size: 2rem; }
+  .time {
+    font-size: 2rem;
+  }
 
   .date-box {
     margin: 0 1rem;
 
-    label { font-size: 1.1rem; }
+    label {
+      font-size: 1.1rem;
+    }
 
     .date {
       background: unset;
-      margin: 0 .5rem 0 0;
+      margin: 0 0.5rem 0 0;
       padding: 0;
     }
   }
 }
 
 .system-row {
-  margin: .5rem .7rem;
+  margin: 0.5rem 0.7rem;
 
   .airplane-box button {
     padding: 1rem 3rem;
@@ -36,14 +40,14 @@
 
   label {
     font-size: 1rem;
-    margin: 0 .1rem;
+    margin: 0 0.1rem;
   }
 }
 
 .element {
   @include rounding;
   background: $surface0;
-  margin: .3rem;
+  margin: 0.3rem;
 
   button {
     @include rounding;
@@ -62,17 +66,21 @@
 .sliders {
   @include rounding;
   background-color: $surface0;
-  margin: .5rem 1rem;
-  padding: .6rem 1rem;
+  margin: 0.5rem 1rem;
+  padding: 0.6rem 1rem;
 
   scale {
     margin-right: -1rem;
     min-width: 21.5rem;
   }
 
-  box { margin: .2rem 0; }
+  box {
+    margin: 0.2rem 0;
+  }
 
-  label { font-size: 1.2rem; }
+  label {
+    font-size: 1.2rem;
+  }
 }
 
 .volume-bar highlight {
@@ -86,23 +94,31 @@
 }
 
 .bottom-row {
-  margin: .5rem 1rem;
+  margin: 0.5rem 1rem;
 
-  .battery-icon { font-size: 2rem; }
-  .battery-wattage { color: $mauve; }
+  .battery-icon {
+    font-size: 2rem;
+  }
+  .battery-wattage {
+    color: $mauve;
+  }
 
   .battery-status {
     color: $subtext0;
-    margin: 0 .5rem;
+    margin: 0 0.5rem;
   }
 
   button {
     background-color: $surface0;
     border-radius: 50%;
-    margin-bottom: .1rem;
-    padding: 0 .5rem;
+    margin-bottom: 0.1rem;
+    padding: 0 0.5rem;
 
-    label { font-size: 1.5rem; }
-    &:hover { background: $overlay0; }
+    label {
+      font-size: 1.5rem;
+    }
+    &:hover {
+      background: $overlay0;
+    }
   }
 }

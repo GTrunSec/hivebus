@@ -14,6 +14,7 @@ in {
     profiles.default
     profiles.desktop
     __inputs__.rust-overlay.overlays.default
+    __inputs__.nixpkgs-wayland.overlays.default
   ];
   macbook = [
     profiles.default

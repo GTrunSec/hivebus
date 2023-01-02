@@ -1,4 +1,4 @@
-@import 'css/colors';
+@import "css/colors";
 
 @mixin rounding {
   border-radius: 16px;
@@ -17,13 +17,13 @@
   font-family: Product Sans, Roboto, sans-serif;
 }
 
-@import 'css/calendar';
-@import 'css/music';
-@import 'css/notification';
-@import 'css/osd';
-@import 'css/sidebar';
-@import 'css/system';
-@import 'css/volume';
+@import "css/calendar";
+@import "css/music";
+@import "css/notification";
+@import "css/osd";
+@import "css/sidebar";
+@import "css/system";
+@import "css/volume";
 
 .bar {
   background-color: $bg;
@@ -44,9 +44,13 @@ tooltip {
   }
 }
 
-.icon { font-family: Material Symbols Outlined; }
+.icon {
+  font-family: Material Symbols Outlined;
+}
 
-.module { margin: 0 5px; }
+.module {
+  margin: 0 5px;
+}
 .hour {
   font-weight: bold;
   margin-left: 5px;
@@ -61,8 +65,12 @@ tooltip {
   }
 }
 
-.bright-icon { color: $yellow; }
-.module-bt { font-size: 1.2rem; }
+.bright-icon {
+  color: $yellow;
+}
+.module-bt {
+  font-size: 1.2rem;
+}
 
 scale trough {
   background-color: $bg1;
@@ -72,7 +80,9 @@ scale trough {
   min-width: 70px;
 }
 
-.workspaces { margin-left: 10px; }
+.workspaces {
+  margin-left: 10px;
+}
 
 .notif-toggle {
   padding: 0 5px;
