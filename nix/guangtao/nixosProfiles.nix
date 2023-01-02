@@ -2,12 +2,13 @@
   inputs,
   cell,
 }: let
-  profiles = inputs.cells.common.lib.rakeLeaves ./nixosProfiles;
+  profiles = inputs.cells.common.lib.importRakeLeaves ./nixosProfiles;
 in {
   bootstrap.imports = [
     inputs.cells.base.nixosModules.nix
     inputs.cells.base.nixosModules.openssh
     inputs.cells.boot.nixosProfiles.tmp
+    profiles.corePackages
   ];
 
   graphics.imports =

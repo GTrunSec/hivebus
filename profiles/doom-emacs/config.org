@@ -1615,7 +1615,7 @@ FACE defaults to inheriting from default and highlight."
 - Default
 
 #+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
-(setq-default org-directory "~/Documents/org-notes")
+(setq-default org-directory "~/ghq/github.com/GTrunSec/org-notes")
 (setq enable-local-variables :all)
 #+end_src
 
@@ -1658,8 +1658,6 @@ FACE defaults to inheriting from default and highlight."
   (when IS-MAC
     (setq org-id-locations-file (concat org-directory "/cache/.mac-orgids"))
     )
-
-  (setq org-directory "~/Documents/org-notes")
 
   (setq org-src-fontify-natively t
         org-startup-indented t ; Enable `org-indent-mode' by default
@@ -1721,7 +1719,7 @@ FACE defaults to inheriting from default and highlight."
   ;; Enable external configuration files loaded from org-starter-path
   (org-starter-load-config-files t)
   :config
-  (org-starter-def "~/ghq/GTrunSec/org-notes"
+  (org-starter-def "~/ghq/github.com/GTrunSec/org-notes"
     :files
     ("braindump/" :agenda t)
 
@@ -1977,7 +1975,7 @@ FACE defaults to inheriting from default and highlight."
 #+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
 (use-package! org-books
   :config
-  (setq org-books-file "~/Documents/org-notes/braindump/guangtao_library.org")
+  (setq org-books-file "~/ghq/github.com/GTrunSec/org-notes/braindump/guangtao_library.org")
   )
 #+end_src
 
