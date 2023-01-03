@@ -21,8 +21,8 @@ in {
             shell = pkgs."${shell}";
           };
         })
-
-      ] ++ l.optionals (shell == "zsh") [({environment.pathsToLink = ["/share/zsh"];})]
+      ]
+      ++ l.optionals (shell == "zsh") [{environment.pathsToLink = ["/share/zsh"];}]
       ++ l.optionals nixpkgs.stdenv.isLinux [
         cell.userProfiles.${user}
       ];
