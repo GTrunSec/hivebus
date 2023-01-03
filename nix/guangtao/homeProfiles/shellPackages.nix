@@ -5,6 +5,7 @@
   inherit (inputs) nixpkgs;
 in {
   home.packages = with nixpkgs; [
+    just
     alejandra # nix formatter
     bottom # more modern top / htop
     choose # between cut & awk - beautiful

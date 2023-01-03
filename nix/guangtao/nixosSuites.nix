@@ -18,13 +18,8 @@ in {
       desktopOnly
     ]
     ++ [
-      (cell.lib.mkHome "guangtao" "desktop" "22.11")
+      (cell.lib.mkHome "guangtao" "desktop" "zsh" "22.11")
       cell.userProfiles.root
-      {
-        users.users."guangtao" = {
-          shell = nixpkgs.zsh;
-        };
-      }
     ];
 
   libvirtd = with nixosProfiles;
@@ -37,11 +32,6 @@ in {
     ]
     ++ [
       cell.userProfiles.root
-      (cell.lib.mkHome "admin" "libvirtd_1" "22.11")
-      {
-        users.users."admin" = {
-          shell = nixpkgs.zsh;
-        };
-      }
+      (cell.lib.mkHome "admin" "libvirtd_1" "zsh" "22.11")
     ];
 }

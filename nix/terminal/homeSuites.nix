@@ -11,5 +11,6 @@ in {
     dircolors
     tmux
     zsh
+    starship
   ];
 }
