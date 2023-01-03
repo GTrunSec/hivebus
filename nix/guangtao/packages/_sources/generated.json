@@ -94,6 +94,51 @@
         },
         "version": "2.6.1"
     },
+    "kitty-darwin": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "kitty-darwin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-bh3P6/0NHEwuv8+96+aIr9CKQHfErADbS1B/7ukwc1M=",
+            "type": "url",
+            "url": "https://github.com/kovidgoyal/kitty/releases/download/v0.26.5/kitty-0.26.5.dmg"
+        },
+        "version": "0.26.5"
+    },
+    "logseq": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "logseq",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-lE/bO/zpqChvdf8vfNqbC5iIpXAZDb36/N7Tpsj7PWY=",
+            "type": "url",
+            "url": "https://github.com/logseq/logseq/releases/download/0.8.15/logseq-linux-x64-0.8.15.AppImage"
+        },
+        "version": "0.8.15"
+    },
+    "logseq-darwin": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "logseq-darwin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-0IgycMWpXQEtp0Twbwvps4/vEXmq3d5ayHS9W1DAxNE=",
+            "type": "url",
+            "url": "https://github.com/logseq/logseq/releases/download/0.8.15/logseq-darwin-x64-0.8.15.dmg"
+        },
+        "version": "0.8.15"
+    },
     "magnetw": {
         "cargoLocks": null,
         "date": null,
@@ -161,7 +206,7 @@
     },
     "spaceship-prompt": {
         "cargoLocks": null,
-        "date": "2022-12-29",
+        "date": "2023-01-02",
         "extract": null,
         "name": "spaceship-prompt",
         "passthru": null,
@@ -173,10 +218,10 @@
             "name": null,
             "owner": "spaceship-prompt",
             "repo": "spaceship-prompt",
-            "rev": "89b532bfa3ff2221c42daa78c52847cdac2401cc",
-            "sha256": "sha256-TNkHr/tlrH1EgCgpgw30lI5LNIw2tEzc8m8mqLaKIFQ=",
+            "rev": "96a07d922ad9de198c475f82ec1570cbf81e64d1",
+            "sha256": "sha256-S21lv6g7GeODWcJjdOp4DLXDX/TQY53PZEvFCPdtVmw=",
             "type": "github"
         },
-        "version": "89b532bfa3ff2221c42daa78c52847cdac2401cc"
+        "version": "96a07d922ad9de198c475f82ec1570cbf81e64d1"
     }
 }

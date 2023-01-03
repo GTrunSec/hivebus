@@ -53,6 +53,30 @@
       sha256 = "sha256-sO2s4qy2GIc3ecnObs+RZdtU/vlcIiYvVwD83Z/rrsk=";
     };
   };
+  kitty-darwin = {
+    pname = "kitty-darwin";
+    version = "0.26.5";
+    src = fetchurl {
+      url = "https://github.com/kovidgoyal/kitty/releases/download/v0.26.5/kitty-0.26.5.dmg";
+      sha256 = "sha256-bh3P6/0NHEwuv8+96+aIr9CKQHfErADbS1B/7ukwc1M=";
+    };
+  };
+  logseq = {
+    pname = "logseq";
+    version = "0.8.15";
+    src = fetchurl {
+      url = "https://github.com/logseq/logseq/releases/download/0.8.15/logseq-linux-x64-0.8.15.AppImage";
+      sha256 = "sha256-lE/bO/zpqChvdf8vfNqbC5iIpXAZDb36/N7Tpsj7PWY=";
+    };
+  };
+  logseq-darwin = {
+    pname = "logseq-darwin";
+    version = "0.8.15";
+    src = fetchurl {
+      url = "https://github.com/logseq/logseq/releases/download/0.8.15/logseq-darwin-x64-0.8.15.dmg";
+      sha256 = "sha256-0IgycMWpXQEtp0Twbwvps4/vEXmq3d5ayHS9W1DAxNE=";
+    };
+  };
   magnetw = {
     pname = "magnetw";
     version = "3.1.1";
@@ -91,14 +115,14 @@
   };
   spaceship-prompt = {
     pname = "spaceship-prompt";
-    version = "89b532bfa3ff2221c42daa78c52847cdac2401cc";
+    version = "96a07d922ad9de198c475f82ec1570cbf81e64d1";
     src = fetchFromGitHub ({
       owner = "spaceship-prompt";
       repo = "spaceship-prompt";
-      rev = "89b532bfa3ff2221c42daa78c52847cdac2401cc";
+      rev = "96a07d922ad9de198c475f82ec1570cbf81e64d1";
       fetchSubmodules = false;
-      sha256 = "sha256-TNkHr/tlrH1EgCgpgw30lI5LNIw2tEzc8m8mqLaKIFQ=";
+      sha256 = "sha256-S21lv6g7GeODWcJjdOp4DLXDX/TQY53PZEvFCPdtVmw=";
     });
-    date = "2022-12-29";
+    date = "2023-01-02";
   };
 }

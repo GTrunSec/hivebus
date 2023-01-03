@@ -12,5 +12,6 @@ in {
     tmux
     zsh
     starship
+    atuin
   ];
 }

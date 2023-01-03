@@ -57,6 +57,7 @@ in
 
     applications = with homeProfiles; [
       browser
+      cell.homeModules.applications
     ];
   }
   // inputs.cells.common.lib.importRakeLeaves ./homeProfiles
