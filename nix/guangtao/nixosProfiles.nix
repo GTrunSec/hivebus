@@ -1,14 +1,13 @@
 {
   inputs,
   cell,
-}: let
-  profiles = inputs.cells.common.lib.importRakeLeaves ./nixosProfiles;
-in {
+}:
+{
   bootstrap.imports = [
     inputs.cells.base.nixosModules.nix
     inputs.cells.base.nixosModules.openssh
     inputs.cells.boot.nixosProfiles.tmp
-    profiles.corePackages
+    cell.nixosProfiles.corePackages
   ];
 
   graphics.imports =
@@ -18,8 +17,9 @@ in {
       # wayland require
       inputs.cells.security.nixosModules.polkit
       # gtk require
-      profiles.dfconf
+      cell.nixosProfiles.dfconf
       cell.nixosModules.fonts
+      cell.nixosProfiles.applications
     ]
     ++ [
       # audio
@@ -56,7 +56,7 @@ in {
   disk.imports =
     [
       inputs.disko.nixosModules.disko
-      # profiles.zfs
+      # cell.nixosProfiles.zfs
       {
         disko.devices = cell.diskoConfigurations.desktop {};
       }
@@ -75,6 +75,7 @@ in {
     ];
 
   desktopOnly.imports = [
-    profiles.desktopServices
+    cell.nixosProfiles.desktopServices
   ];
 }
+// inputs.cells.common.lib.importRakeLeaves ./nixosProfiles

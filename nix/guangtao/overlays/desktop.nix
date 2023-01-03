@@ -16,5 +16,5 @@ in
 
     material-symbols = prev.callPackage ../packages/material-symbols.nix {};
 
-    inherit (__inputs__.nil.packages.${prev.system}) nil;
+    inherit (__inputs__.nil.packages) nil;
   }
