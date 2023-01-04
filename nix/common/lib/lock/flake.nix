@@ -31,8 +31,13 @@
 
   inputs = {
     # https://github.com/DeterminateSystems/bootspec
-    bootsec.url = "github:DeterminateSystems/bootspec";
-    bootsec.inputs.nixpkgs.follows = "nixpkgs";
+    # bootsec.url = "github:DeterminateSystems/bootspec";
+    # bootsec.inputs.nixpkgs.follows = "nixpkgs";
+    #   lanzaboote = {
+    #   url = "github:nix-community/lanzaboote";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    #   inputs.flake-utils.follows = "flake-utils";
+    # };
 
     lanzaboote.url = "github:nix-community/lanzaboote";
     lanzaboote.inputs.nixpkgs.follows = "nixpkgs";

@@ -21,26 +21,6 @@
         "type": "github"
       }
     },
-    "bootsec": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1671754496,
-        "narHash": "sha256-SthycIPzen/nTb+6bCRMTwl9zrx54gem/4B0LP0/WVg=",
-        "owner": "DeterminateSystems",
-        "repo": "bootspec",
-        "rev": "7e8093ac3c13ca016e69b0621a3e1598ab36c4c2",
-        "type": "github"
-      },
-      "original": {
-        "owner": "DeterminateSystems",
-        "repo": "bootspec",
-        "type": "github"
-      }
-    },
     "crane": {
       "inputs": {
         "flake-compat": "flake-compat_2",
@@ -524,11 +504,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1672616473,
-        "narHash": "sha256-hJTJgZEDIH0mO25lu1fVawwmFeB1mcLVohZipNuEjUI=",
+        "lastModified": 1672794749,
+        "narHash": "sha256-/7cADDUNt+NE3s7wWJ3exJwvF1tRHT9jAzUPcGzQpAg=",
         "owner": "nix-community",
         "repo": "lanzaboote",
-        "rev": "7afbc43195771912eb407da9a5cb003750886485",
+        "rev": "e9d911a5f5342da2548f4993957f2289e0aebd9c",
         "type": "github"
       },
       "original": {
@@ -947,7 +927,6 @@
     },
     "root": {
       "inputs": {
-        "bootsec": "bootsec",
         "emacs-darwin": "emacs-darwin",
         "emacs-overlay": "emacs-overlay",
         "eww": "eww",

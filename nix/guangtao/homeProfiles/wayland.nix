@@ -32,8 +32,8 @@ in {
      # monitor=,3840x2160,auto,2
      monitor = DP-2, preferred, auto, 1
 
-     exec-once = kanshi
      exec-once = eww open bar
+     exec-once = kanshi
 
      bind = $mod, Return, exec, alacritty
      bind = $mod, B, exec, brave
