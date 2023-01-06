@@ -57,7 +57,7 @@ in {
     programs.zsh = {
       loginExtra = ''
         # If running from tty1 start hyprland
-        [ "$(tty)" = "/dev/tty1" ] && bash -c Hyprland
+        [ "$(tty)" = "/dev/tty1" ] && Hyprland
       '';
     };
   };
@@ -68,5 +68,6 @@ in {
       cell.homeProfiles.hyprland.zsh
     ];
     wayland.windowManager.hyprland.extraConfig = builtins.readFile "${src}/hyprland.conf";
+    wayland.windowManager.hyprland.nvidiaPatches = true;
   };
 }

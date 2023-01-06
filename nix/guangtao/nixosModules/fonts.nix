@@ -23,7 +23,7 @@
         material-icons
         weather-icons
         iosevka
-        (nerdfonts.override { fonts = [ "JetBrainsMono" "RobotoMono" ]; })
+        (nerdfonts.override {fonts = ["JetBrainsMono" "RobotoMono"];})
       ]
       ++ [
         material-symbols

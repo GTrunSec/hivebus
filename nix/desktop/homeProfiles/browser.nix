@@ -7,7 +7,7 @@ in {
   guangtao = {
     home.packages = with nixpkgs; [
       brave
-      firefox
+      firefox-wayland
     ];
   };
 }

@@ -12,7 +12,7 @@
               type = "partition";
               name = "ESP";
               start = "1MiB";
-              end = "128MiB";
+              end = "512MiB";
               fs-type = "fat32";
               bootable = true;
               content = {
@@ -24,7 +24,7 @@
             {
               name = "root";
               type = "partition";
-              start = "128MiB";
+              start = "512MiB";
               end = "100%";
               content = {
                 type = "btrfs";

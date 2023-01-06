@@ -21,6 +21,7 @@
       cell.nixosProfiles.dfconf
       cell.nixosModules.fonts
       inputs.cells.desktop.nixosModules.xdg
+      # cell.nixosProfiles.nixgl
     ]
     ++ [
       # use home-manager instead

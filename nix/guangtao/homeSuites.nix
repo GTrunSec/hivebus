@@ -15,7 +15,8 @@ in {
     default
     ++ emacs
     ++ [
-    ] ++ inputs.cells.utils.homeSuites.mathematical;
+    ]
+    ++ inputs.cells.utils.homeSuites.mathematical;
 
   libvirtd = homeProfiles.default;
 }
