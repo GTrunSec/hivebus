@@ -7,5 +7,5 @@
       cell.homeModules.chat
       cell.homeModules.notes
     ]
-    ++ cell.homeSuites.mathematic;
+    ++ cell.homeSuites.mathematical;
 }

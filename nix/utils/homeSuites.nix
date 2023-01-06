@@ -4,7 +4,7 @@
 }: let
   inherit (cell) homeModules homeProfiles;
 in {
-  mathematic = with homeProfiles; [
+  mathematical = with homeProfiles; [
     homeModules.latex
   ];
 }

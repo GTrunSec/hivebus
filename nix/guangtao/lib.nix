@@ -28,5 +28,5 @@ in {
       ];
   };
 
-  nixConfig = inputs.cells.base.lib.nixConfig.guangtao;
+  nixConfig = inputs.cells.bootstrap.lib.nixConfig.guangtao;
 }

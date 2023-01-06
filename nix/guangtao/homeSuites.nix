@@ -13,11 +13,9 @@ in {
 
   macbook = with homeProfiles;
     default
-    ++ mathematic
     ++ emacs
     ++ [
-      darwinPackages
-    ];
+    ] ++ inputs.cells.utils.homeSuites.mathematical;
 
   libvirtd = homeProfiles.default;
 }

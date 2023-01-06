@@ -27,7 +27,7 @@ in
 
       commands = [
         (withCategory "hexagon" {package = cell.packages.colmena;})
-        (withCategory "hexagon" {package = inputs.nixos-generators.packages.nixos-generate;})
+        (withCategory "hexagon" {package = inputs.nixos-generators.packages.${nixpkgs.system}.nixos-generate;})
         (withCategory "hexagon" {package = inputs.arion.packages.arion;})
         (withCategory "secrets" {
           package =
