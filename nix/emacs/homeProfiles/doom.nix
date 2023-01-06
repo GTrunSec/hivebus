@@ -23,16 +23,13 @@ in {
 
     if [ ! -d "$HOME/.doom.d" ];then
        mkdir -p $HOME/.doom.d/
-       cp "$HOME/ghq/github.com/GTrunSec/hive/profiles/doom-emacs/init.el" \
-       "$HOME/.doom.d/init.el"
+       cp "$HOME/ghq/github.com/GTrunSec/hive/profiles/doom-emacs/init.el" "$HOME/.doom.d/init.el"
 
-       ln -sfT "$HOME/ghq/github.com/GTrunSec/hive/profiles/doom-emacs/modules" \
-       $HOME/.doom.d/modules
+       ln -sfT "$HOME/ghq/github.com/GTrunSec/hive/profiles/doom-emacs/modules" $HOME/.doom.d/modules
 
        mkdir -p $HOME/.doom.d/{etc,autoload}
        mkdir -p $HOME/.doom.d/modules/private/{my-code,my-org}
        ln -sfT "$HOME/ghq/github.com/GTrunSec/hive/profiles/doom-emacs/snippets" $HOME/.doom.d/snippets
-       ~/.emacs/bin/doom sync
     fi
   '';
 
