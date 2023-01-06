@@ -1,0 +1,8 @@
+{
+  inputs,
+  cell,
+}: {
+  guangtao = {
+    imports = [];
+  };
+}

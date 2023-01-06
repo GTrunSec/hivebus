@@ -5,7 +5,8 @@
       [
         fantasque-sans-mono
         noto-fonts
-        noto-fonts-cjk
+        noto-fonts-cjk-sans
+        noto-fonts-cjk-serif
         noto-fonts-emoji
         emojione
         twemoji-color-font
@@ -22,7 +23,7 @@
         material-icons
         weather-icons
         iosevka
-        nerdfonts
+        (nerdfonts.override { fonts = [ "JetBrainsMono" "RobotoMono" ]; })
       ]
       ++ [
         material-symbols

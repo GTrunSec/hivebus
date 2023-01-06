@@ -55,10 +55,10 @@ in {
 
   zsh = {
     programs.zsh = {
-      # loginExtra = ''
-      #   # If running from tty1 start hyprland
-      #   [ "$(tty)" = "/dev/tty1" ] && bash -c Hyprland
-      # '';
+      loginExtra = ''
+        # If running from tty1 start hyprland
+        [ "$(tty)" = "/dev/tty1" ] && bash -c Hyprland
+      '';
     };
   };
 

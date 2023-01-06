@@ -6,9 +6,6 @@
 
 
 * hyprland.conf
-
-** keybindings
-
 ** default
 #+begin_src conf :exports both
 $mod = SUPER
@@ -22,8 +19,12 @@ bind = $mod, A, togglefloating,
 bind = $mod, Q, killactive,
 bind = $mod, F, fullscreen,
 bind = $mod, G, togglegroup,
-$kw = dwindle:no_gaps_when_only
-bind = $mod, M, exec, hyprctl keyword $kw $(($(hyprctl getoption $kw -j | jaq -r '.int') ^ 1))
+bind = $mod, Y, pin,
+bind = $mod, P, pseudo, # dwindle
+bind = $mod, V, togglesplit, # dwindle
+
+bindm = $mod, mouse:272, movewindow
+bindm = $mod, mouse:273, resizewindow
 #+end_src
 
 
@@ -96,5 +97,68 @@ animate_manual_resizes = false
 enable_swallow = true
 swallow_regex =
 focus_on_activate = true
+}
+#+end_src
+** animations
+
+#+begin_src conf :exports both
+animations {
+        enabled=1
+        bezier = overshot, 0.13, 0.99, 0.29, 1.1
+        animation = windows, 1, 4, overshot, slide
+        animation = windowsOut, 1, 5, default, popin 80%
+        animation = border, 1, 5, default
+        animation = fade, 1, 8, default
+        animation = workspaces, 1, 6, overshot, slidevert
+      }
+#+end_src
+** decoration
+
+#+begin_src conf :exports both
+decoration {
+        multisample_edges = true
+        active_opacity = 1.0
+        inactive_opacity = 1.0
+        fullscreen_opacity = 1.0
+        rounding = 0
+        blur = no
+        blur_size = 3
+        blur_passes = 1
+        blur_new_optimizations = true
+
+        drop_shadow = false
+        shadow_range = 4
+        shadow_render_power = 3
+        shadow_ignore_window = true
+      # col.shadow =
+      # col.shadow_inactive
+      # shadow_offset
+        dim_inactive = false
+      # dim_strength = #0.0 ~ 1.0
+        blur_ignore_opacity = false
+        col.shadow = rgba(1a1a1aee)
+      }
+#+end_src
+** master
+
+#+begin_src conf :exports both
+master {
+new_is_master = true
+special_scale_factor = 0.8
+new_is_master = true
+no_gaps_when_only = false
+}
+#+end_src
+** general
+
+#+begin_src conf :exports both
+general {
+gaps_in = 3
+gaps_out = 5
+border_size = 3
+col.active_border = rgb(ffc0cb)
+col.inactive_border = rgba(595959aa)
+
+layout = dwindle # master|dwindle
 }
 #+end_src
