@@ -10,54 +10,24 @@ in
   {
     default = with homeProfiles;
       [
-        shellPrograms
-        shellPackages
-        corePackages
-        git
-      ]
-      ++ [
-        inputs.cells.base.homeProfiles.default
-        inputs.cells.utils.homeProfiles.default
+        inputs.cells.bootstrap.homeProfiles.guangtao
       ]
       ++ inputs.cells.terminal.homeSuites.default;
 
-    mathematic = with homeProfiles; [
-      latexPackages
-    ];
-
-    graphics = with homeProfiles;
+    terminal = with homeProfiles;
       [
-        inputs.cells.window-managers.homeProfiles.hyprland
-        wayland
-        kanshi
-        eww
-        rofi
+        inputs.cells.terminal.homeProfiles.alacritty
+        homeModules.programs.alacritty
       ]
-      ++ [
-        homeModules.qt
-        homeModules.gtk
-        homeModules.cursor
-      ];
+      ++ inputs.cells.terminal.homeSuites.default;
 
-    terminal = with homeProfiles; [
-      inputs.cells.terminal.homeProfiles.alacritty
-      homeModules.programs.alacritty
+    emacs = with homeProfiles; [
+      inputs.cells.emacs.homeProfiles.guangtao
     ];
-
-    emacs = with homeProfiles;
-      l.optionals nixpkgs.stdenv.isLinux [
-        inputs.cells.emacs.homeProfiles.linux
-      ]
-      ++ l.optionals nixpkgs.stdenv.isDarwin [
-        inputs.cells.emacs.homeProfiles.darwin
-      ]
-      ++ [
-        cell.homeModules.programs.emacs
-      ];
 
     applications = with homeProfiles; [
-      browser
-      cell.homeModules.applications
+      inputs.cells.desktop.homeProfiles.browser.guangtao
+      inputs.cells.utils.homeProfiles.guangtao
     ];
   }
-  // inputs.cells.common.lib.importRakeLeaves ./homeProfiles
+  // inputs.cells.common.lib.importRakeLeaves ./homeProfiles {inherit inputs cell;}

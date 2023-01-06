@@ -11,5 +11,5 @@
     })
   ];
 in {
-  hive = import "${path}/site.nix" {pkgs = nixpkgs;};
+  # hive = import "${path}/site.nix" {pkgs = nixpkgs;};
 }

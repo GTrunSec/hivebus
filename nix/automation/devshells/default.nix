@@ -19,7 +19,7 @@ in
       };
       imports = [
         std.std.devshellProfiles.default
-        inputs.cells.boot.devshellProfiles.secureboot
+        inputs.cells.bootstrap.devshellProfiles.secureboot
         "${extraModulesPath}/git/hooks.nix"
       ];
 

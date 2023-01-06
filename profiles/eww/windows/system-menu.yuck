@@ -178,23 +178,6 @@
 
     (centerbox
       :class "bottom-row"
-      (box
-        :class "battery-box"
-        :space-evenly false
-        :halign "start"
-        (label
-          :class "battery-icon icon"
-          :style "color: ${battery.color}"
-          :text {battery.icon})
-        (label
-          :class "battery-percentage"
-          :text {EWW_BATTERY["BAT0"].capacity})
-        (label
-          :class "battery-status"
-          :text {battery.status})
-        (label
-          :class "battery-wattage"
-          :text {battery.wattage}))
       (label)
       (box
         :space-evenly false

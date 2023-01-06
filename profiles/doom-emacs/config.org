@@ -3633,6 +3633,7 @@ by `org-babel-execute-src-block'"
 (setq python-shell-interpreter "python")
 (setq eaf-python-command "python")
 
+(setq browse-url-generic-program "brave")
 
 (when (not window-system)
   (xterm-mouse-mode 1)
@@ -3717,7 +3718,7 @@ by `org-babel-execute-src-block'"
       "C-c l" 'grab-x-link
       )
 #+end_src
-** MacOS Linux
+** MacOS
 *** Default Settings
 - cursor
 

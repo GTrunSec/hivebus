@@ -13,5 +13,6 @@
   ];
   homebrew.brews = [
     "fontconfig"
+    "coreutils"
   ];
 }

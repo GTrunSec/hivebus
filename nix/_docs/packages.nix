@@ -5,5 +5,5 @@
   inherit (inputs) nixpkgs;
   inherit (inputs.cells.common.lib.__inputs__) styx;
 in {
-  inherit (styx.packages.${nixpkgs.system}) styx;
+  # inherit (styx.packages.${nixpkgs.system}) styx;
 }

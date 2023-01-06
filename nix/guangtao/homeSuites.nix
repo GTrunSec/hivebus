@@ -8,9 +8,8 @@ in {
     default
     ++ terminal
     ++ emacs
-    ++ mathematic
-    ++ graphics
-    ++ applications;
+    ++ applications
+    ++ inputs.cells.desktop.homeSuites.guangtao;
 
   macbook = with homeProfiles;
     default

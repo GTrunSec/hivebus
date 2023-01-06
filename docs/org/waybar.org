@@ -1,0 +1,12 @@
+:PROPERTIES:
+:ID:       10013320-494e-45a5-a004-555e42391032
+:END:
+#+title: Waybar
+
+
+
+
+
+* Configuration from other users
+- https://github.com/CnTeng/nixfiles/blob/master/modules/desktop/modules/waybar.nix
+- https://github.com/Misterio77/nix-config/blob/main/home/misterio/features/desktop/common/wayland-wm/waybar.nix

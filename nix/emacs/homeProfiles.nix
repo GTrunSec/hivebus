@@ -1,21 +1,13 @@
 {
   inputs,
   cell,
-}: let
-  doom = import ./homeProfiles/doom.nix {inherit inputs cell;};
-in {
-  linux = {
+}:
+{
+  guangtao = {
     imports = [
-      doom
-      cell.homeModules.linux
-      cell.homeModules.doom
-    ];
-  };
-  darwin = {
-    imports = [
-      doom
-      cell.homeModules.darwin
-      cell.homeModules.doom
+      cell.homeProfiles.doom
+      cell.homeModules.packages
     ];
   };
 }
+// inputs.cells.common.lib.importRakeLeaves ./homeProfiles {inherit cell inputs;}

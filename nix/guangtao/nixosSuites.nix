@@ -7,15 +7,15 @@
 in {
   desktop = with nixosProfiles;
     [
-      bootstrap
+      default
       networking
-      graphics
+      graphical
       disk
       secrets
       locale
       virtualization
       coding.desktop
-      desktopOnly
+      cell.nixosModules.Desktop
     ]
     ++ [
       (cell.lib.mkHome "guangtao" "desktop" "zsh" "22.11")
@@ -24,7 +24,7 @@ in {
 
   libvirtd = with nixosProfiles;
     [
-      bootstrap
+      default
       secrets
     ]
     ++ [

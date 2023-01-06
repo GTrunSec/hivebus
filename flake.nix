@@ -43,10 +43,14 @@
     darwin.url = "github:LnL7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
 
-    nixos.url = "github:NixOS/nixpkgs/nixos-unstable-small";
-    nixos-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixos.follows = "nixos-unstable";
+    nixos-unstable.url = "github:nixos/nixpkgs/nixos-unstable-small";
+    nixos-22-11.url = "github:nixos/nixpkgs/release-22.11";
 
-    home.url = "github:nix-community/home-manager/release-22.11";
+    home-22-11.url = "github:nix-community/home-manager/release-22.11";
+    home-22-11.inputs.nixpkgs.follows = "nixos-22-11";
+
+    home.url = "github:nix-community/home-manager";
     home.inputs.nixpkgs.follows = "nixos";
   };
 

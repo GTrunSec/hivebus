@@ -27,10 +27,10 @@ in
   // {
     inherit __inputs__;
 
-    importRakeLeaves = path:
+    importRakeLeaves = path: args:
       l.mapAttrs (_: v:
         if (l.isFunction (import v))
-        then import v {inherit inputs cell;}
+        then import v args
         else import v)
       (cell.lib.rakeLeaves path);
   }

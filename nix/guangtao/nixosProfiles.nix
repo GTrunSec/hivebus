@@ -3,14 +3,15 @@
   cell,
 }:
 {
-  bootstrap.imports = [
-    inputs.cells.base.nixosModules.nix
-    inputs.cells.base.nixosModules.openssh
-    inputs.cells.boot.nixosProfiles.tmp
-    cell.nixosProfiles.corePackages
+  default.imports = [
+    inputs.cells.bootstrap.nixosModules.nix
+    inputs.cells.bootstrap.nixosModules.openssh
+    inputs.cells.bootstrap.nixosModules.base
+
+    inputs.cells.bootstrap.nixosModules.tmp
   ];
 
-  graphics.imports =
+  graphical.imports =
     [
       inputs.cells.hardware.nixosModules.hidpi
       cell.nixosModules.nvidia
@@ -19,7 +20,11 @@
       # gtk require
       cell.nixosProfiles.dfconf
       cell.nixosModules.fonts
-      cell.nixosProfiles.applications
+      inputs.cells.desktop.nixosModules.xdg
+    ]
+    ++ [
+      # use home-manager instead
+      # inputs.cells.desktop.nixosModules.hyprland
     ]
     ++ [
       # audio
@@ -35,7 +40,7 @@
   ];
 
   virtualization.imports = [
-    inputs.cells.virtualization.nixosModules.libvirtd
+    inputs.cells.virtualization.nixosProfiles.guangtao
   ];
 
   searching.imports = [];
@@ -78,4 +83,4 @@
     cell.nixosProfiles.desktopServices
   ];
 }
-// inputs.cells.common.lib.importRakeLeaves ./nixosProfiles
+// inputs.cells.common.lib.importRakeLeaves ./nixosProfiles {inherit cell inputs;}

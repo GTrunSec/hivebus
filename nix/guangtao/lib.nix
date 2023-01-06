@@ -5,7 +5,7 @@
   l = inputs.nixpkgs.lib // builtins;
   nixpkgs = inputs.nixpkgs.appendOverlays ([
     ]
-    ++ l.attrValues cell.overlays.profiles);
+    ++ l.attrValues (inputs.cells.common.lib.importRakeLeaves ./overlays {inherit inputs cell;}));
 in {
   inherit nixpkgs;
 
