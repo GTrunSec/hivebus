@@ -9,6 +9,7 @@
     inputs.cells.bootstrap.nixosModules.base
 
     inputs.cells.bootstrap.nixosModules.tmp
+    inputs.cells.bootstrap.nixosModules.systemd-boot
   ];
 
   graphical.imports =

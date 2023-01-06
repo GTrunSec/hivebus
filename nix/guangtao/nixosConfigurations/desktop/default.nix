@@ -12,14 +12,11 @@
       ./hardware-configuration.nix
     ];
 
-    boot.loader.systemd-boot.enable = true;
-    boot.loader.efi.canTouchEfiVariables = true;
-
     services.getty.autologinUser = "guangtao";
 
     system.stateVersion = "22.11";
 
-    i18n.defaultLocale = "C.UTF-8";
+    i18n.defaultLocale = "en_US.UTF-8";
     time.timeZone = "America/Los_Angeles";
 
     # boot.kernelPackages = pkgs.linuxPackages_6_0.extend (_: super: {});
