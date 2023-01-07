@@ -19,7 +19,7 @@
     i18n.defaultLocale = "en_US.UTF-8";
     time.timeZone = "America/Los_Angeles";
 
-    # boot.kernelPackages = pkgs.linuxPackages_6_0.extend (_: super: {});
+    boot.kernelPackages = pkgs.linuxPackages_latest;
 
     # sudo cp -r ~/.gnupg /var/lib/sops
     # sops.gnupg.home = "/home/gtrun/.gnupg";

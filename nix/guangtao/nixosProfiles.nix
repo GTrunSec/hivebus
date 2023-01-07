@@ -2,6 +2,9 @@
   inputs,
   cell,
 }:
+let
+
+in
 {
   default.imports = [
     inputs.cells.bootstrap.nixosModules.nix
@@ -10,6 +13,10 @@
 
     inputs.cells.bootstrap.nixosModules.tmp
     inputs.cells.bootstrap.nixosModules.systemd-boot
+    # sudo lsblk -o name,mountpoint,label,size,uuid
+    ({
+      # boot.loader.grub.device = "/dev/disk/by-id/ata-CT1000MX500SSD1_2039E4B362FC";
+    })
   ];
 
   graphical.imports =
