@@ -19,6 +19,10 @@
     i18n.defaultLocale = "en_US.UTF-8";
     time.timeZone = "America/Los_Angeles";
 
+    # sudo lsblk -o name,mountpoint,label,size,uuid
+    boot.loader.grub.efiSupport = true;
+    boot.loader.efi.efiSysMountPoint = "/boot/efi";
+    boot.loader.grub.device = "/dev/disk/by-id/ata-CT1000MX500SSD1_2039E4B362FC";
     boot.kernelPackages = pkgs.linuxPackages_latest;
 
     # sudo cp -r ~/.gnupg /var/lib/sops
