@@ -17,8 +17,8 @@ darwin-build machine:
     darwin-rebuild build --flake .#guangtao-o-{{ machine }}
 
 # Colmena build Guangtao Home Machine
-desktop:
-    colmena build --on guangtao-o-desktop
+desktop action:
+    colmena {{ action }} --on guangtao-o-desktop
 
 # Formats all changed source files
 fmt:

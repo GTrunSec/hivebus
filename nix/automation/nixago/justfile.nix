@@ -26,9 +26,10 @@ in
       '';
     };
     desktop = {
+      args = ["action"];
       description = "Colmena build Guangtao Home Machine";
       content = ''
-        colmena build --on guangtao-o-desktop
+        colmena {{action}} --on guangtao-o-desktop
       '';
     };
     libvirtd_1 = {
