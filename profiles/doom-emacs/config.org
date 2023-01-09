@@ -2878,7 +2878,7 @@ a separator ' -> '."
 :END:
 #+begin_src emacs-lisp :tangle "packages.el"
 ;;(package! lsp-bridge :recipe (:host github :repo "manateelazycat/lsp-bridge" :files ("*.el" "*.py" "core/*.py" "langserver/*.json" "acm/*")))
-(package! lsp-bridge :recipe (:local-repo "~/ghq/github.com/manateelazycat/lsp-bridge" :files ("*.el" "*.py" "core" "langserver" "acm")
+(package! lsp-bridge :recipe (:local-repo "~/.config/guangtao-sources/lsp-bridge" :files ("*.el" "*.py" "core" "langserver" "acm")
                                           ))
 #+end_src
 
@@ -2939,7 +2939,7 @@ a separator ' -> '."
 #+begin_src emacs-lisp :tangle "packages.el"
 (when IS-LINUX
   (package! nickel-mode
-    :recipe (:local-repo "~/ghq/github.com/GTrunSec/nickel-mode"
+    :recipe (:local-repo "~/.config/guangtao-sources/nickel-mode"
                          ))
   )
 #+end_src

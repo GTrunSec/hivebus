@@ -15,15 +15,27 @@
   };
   acm-terminal = {
     pname = "acm-terminal";
-    version = "8560abb3d951a73782e64dd1b1333c5a60ea28d4";
+    version = "eaa1b7a7bdb2ed24b08bd071410478837d614b5f";
     src = fetchFromGitHub ({
       owner = "twlz0ne";
       repo = "acm-terminal";
-      rev = "8560abb3d951a73782e64dd1b1333c5a60ea28d4";
+      rev = "eaa1b7a7bdb2ed24b08bd071410478837d614b5f";
       fetchSubmodules = false;
-      sha256 = "sha256-HIRlG9DcazA7wN7dNCJ3meZ51fLxJtSu4fajMigEhAQ=";
+      sha256 = "sha256-Jb0U1uAbrPkMOE76qaTosGjzJA5lcUDpPtLMmxJH0Yc=";
     });
-    date = "2022-12-04";
+    date = "2023-01-09";
+  };
+  lsp-bridge = {
+    pname = "lsp-bridge";
+    version = "81cc2fcce76c6bec705281d476bc19a186efbe31";
+    src = fetchFromGitHub ({
+      owner = "manateelazycat";
+      repo = "lsp-bridge";
+      rev = "81cc2fcce76c6bec705281d476bc19a186efbe31";
+      fetchSubmodules = false;
+      sha256 = "sha256-/meIn7C+ZJzqyiYlKh3+/au8vSPTJ2pyG7mtwAZBIYA=";
+    });
+    date = "2023-01-08";
   };
   wen = {
     pname = "wen";
