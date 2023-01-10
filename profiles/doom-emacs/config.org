@@ -172,6 +172,7 @@
        (org
         +dragndrop
         +journal
+        +jupyter
         +roam2
         +noter
         ); organize your plain life in plain text
