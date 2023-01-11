@@ -7,6 +7,6 @@
     [
       cell.lib.nixConfig
     ]
-    ++ inputs.cells.base.darwinSuites.default;
+    ++ inputs.cells.bootstrap.darwinSuites.default;
 }
 // inputs.cells.common.lib.rakeLeaves ./darwinProfiles

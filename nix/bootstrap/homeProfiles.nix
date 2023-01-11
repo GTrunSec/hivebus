@@ -6,6 +6,7 @@
   default = {
     imports = [
       cell.homeModules.git
+      cell.homeModules.ssh
     ];
   };
 }

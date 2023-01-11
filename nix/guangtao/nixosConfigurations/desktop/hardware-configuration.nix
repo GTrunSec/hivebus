@@ -14,5 +14,8 @@
     options = ["x-systemd.automount"];
     fsType = "xfs";
   };
+
+  fileSystems."/persist".neededForBoot = true;
+
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 }
