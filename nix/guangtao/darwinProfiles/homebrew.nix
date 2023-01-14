@@ -6,6 +6,7 @@
     "homebrew/cask-versions"
     "homebrew/bundle"
     "homebrew/core"
+    "d12frosted/emacs-plus"
   ];
 
   homebrew.casks = [
@@ -14,5 +15,6 @@
   homebrew.brews = [
     "fontconfig"
     "coreutils"
+    "emacs-plus@30"
   ];
 }

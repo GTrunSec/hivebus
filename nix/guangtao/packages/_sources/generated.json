@@ -16,7 +16,7 @@
     },
     "StevenBlack-hosts": {
         "cargoLocks": null,
-        "date": "2023-01-01",
+        "date": "2023-01-13",
         "extract": null,
         "name": "StevenBlack-hosts",
         "passthru": null,
@@ -28,11 +28,11 @@
             "name": null,
             "owner": "StevenBlack",
             "repo": "hosts",
-            "rev": "f91285ebe73d82b48875aee2fcd06c20f4566e12",
-            "sha256": "sha256-BRAitGAtzk4gGDZ7+K3FBS81D/8cwkVLRQkccMBhBLQ=",
+            "rev": "47d6b2a17b7b7558fa0915fc6497c03232ce3580",
+            "sha256": "sha256-dkYKi2P8qLoCe2SlVmaB1dIZze8cnuHs5vuTapxL7x8=",
             "type": "github"
         },
-        "version": "f91285ebe73d82b48875aee2fcd06c20f4566e12"
+        "version": "47d6b2a17b7b7558fa0915fc6497c03232ce3580"
     },
     "adguardhome": {
         "cargoLocks": null,
@@ -48,6 +48,21 @@
             "url": "https://github.com/AdguardTeam/AdGuardHome/releases/download/v0.107.21/AdGuardHome_linux_amd64.tar.gz"
         },
         "version": "v0.107.21"
+    },
+    "brave": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "brave",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-0hKosta1fxth9ScDRmrrt8BH4CTIRm0ghetY4Jkuco8=",
+            "type": "url",
+            "url": "https://github.com/brave/brave-browser/releases/download/v1.47.171/brave-browser_1.47.171_amd64.deb"
+        },
+        "version": "1.47.171"
     },
     "chord": {
         "cargoLocks": null,
@@ -118,11 +133,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-lE/bO/zpqChvdf8vfNqbC5iIpXAZDb36/N7Tpsj7PWY=",
+            "sha256": "sha256-0tIDoNQoqSn1nYm+YdgzXh34aH1e5N8wl9lqGbQoOeU=",
             "type": "url",
-            "url": "https://github.com/logseq/logseq/releases/download/0.8.15/logseq-linux-x64-0.8.15.AppImage"
+            "url": "https://github.com/logseq/logseq/releases/download/0.8.16/logseq-linux-x64-0.8.16.AppImage"
         },
-        "version": "0.8.15"
+        "version": "0.8.16"
     },
     "logseq-darwin": {
         "cargoLocks": null,
@@ -133,11 +148,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-0IgycMWpXQEtp0Twbwvps4/vEXmq3d5ayHS9W1DAxNE=",
+            "sha256": "sha256-RsHmZjNpsvX6zJBdVeEZj1ntKoCWC7dR19MFve3U4rE=",
             "type": "url",
-            "url": "https://github.com/logseq/logseq/releases/download/0.8.15/logseq-darwin-x64-0.8.15.dmg"
+            "url": "https://github.com/logseq/logseq/releases/download/0.8.16/logseq-darwin-x64-0.8.16.dmg"
         },
-        "version": "0.8.15"
+        "version": "0.8.16"
     },
     "magnetw": {
         "cargoLocks": null,
@@ -178,15 +193,15 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-hg5vu5pnt0K6p5LmD4zBhSLpeJwGXSaCHAIoXV/BBK8=",
+            "sha256": "sha256-RRBQ55rLelHGXcmbkJXq5NUL1ZhUE1T552PLTL31mlU=",
             "type": "url",
-            "url": "https://pypi.io/packages/source/o/orgparse/orgparse-0.3.1.tar.gz"
+            "url": "https://pypi.io/packages/source/o/orgparse/orgparse-0.3.2.tar.gz"
         },
-        "version": "0.3.1"
+        "version": "0.3.2"
     },
     "promnesia": {
         "cargoLocks": null,
-        "date": "2023-01-02",
+        "date": "2023-01-12",
         "extract": null,
         "name": "promnesia",
         "passthru": null,
@@ -198,15 +213,15 @@
             "name": null,
             "owner": "karlicoss",
             "repo": "promnesia",
-            "rev": "3e788bb219c5b2ce5684d1222ff8d22010ca538d",
-            "sha256": "sha256-5PXoh7k05b/5UvQ0HxONFSHvzrGemod8duUVTM1auoM=",
+            "rev": "9a2efdf8a30c6a9dd243dfba76039e01e8b9490f",
+            "sha256": "sha256-eNXYqBwqUOTyl/ejk1AYg2PN3TANk8LI2HHyK+i0q9o=",
             "type": "github"
         },
-        "version": "3e788bb219c5b2ce5684d1222ff8d22010ca538d"
+        "version": "9a2efdf8a30c6a9dd243dfba76039e01e8b9490f"
     },
     "spaceship-prompt": {
         "cargoLocks": null,
-        "date": "2023-01-02",
+        "date": "2023-01-11",
         "extract": null,
         "name": "spaceship-prompt",
         "passthru": null,
@@ -218,10 +233,10 @@
             "name": null,
             "owner": "spaceship-prompt",
             "repo": "spaceship-prompt",
-            "rev": "96a07d922ad9de198c475f82ec1570cbf81e64d1",
-            "sha256": "sha256-S21lv6g7GeODWcJjdOp4DLXDX/TQY53PZEvFCPdtVmw=",
+            "rev": "f1744472babdc801e1806b663409facd84ecfa25",
+            "sha256": "sha256-hJWgOcsYnyY+EyFSnfhDro16RjSSDFOeg6M2luA3r3g=",
             "type": "github"
         },
-        "version": "96a07d922ad9de198c475f82ec1570cbf81e64d1"
+        "version": "f1744472babdc801e1806b663409facd84ecfa25"
     }
 }

@@ -12,6 +12,7 @@ in
       __inputs__.rust-overlay.overlays.default
       inputs.cells.emacs.overlays.emacs-overlay
       __inputs__.nixpkgs-wayland.overlays.default
+      # __inputs__.nixpkgs-hardenedlinux.overlays.python
     ];
     macbook = [
       cell.overlays.default

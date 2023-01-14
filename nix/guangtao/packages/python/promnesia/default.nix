@@ -87,6 +87,12 @@ in
       beautifulsoup4
       hpi
       mistletoe
+      fastapi
+      uvicorn
+      uvloop
+      watchfiles
+      httptools
+      websockets
     ];
 
     postPatch = ''

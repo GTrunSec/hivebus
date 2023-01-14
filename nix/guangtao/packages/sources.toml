@@ -3,6 +3,11 @@
 src.git = "https://github.com/StevenBlack/hosts"
 fetch.github = "StevenBlack/hosts"
 
+[brave]
+src.github = "brave/brave-browser"
+fetch.url = "https://github.com/brave/brave-browser/releases/download/v$ver/brave-browser_$ver_amd64.deb"
+src.prefix = "v"
+
 [drawio]
 src.github = "jgraph/drawio-desktop"
 fetch.url = "https://github.com/jgraph/drawio-desktop/releases/download/v$ver/drawio-x86_64-$ver.rpm"

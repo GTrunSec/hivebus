@@ -11,15 +11,15 @@
   };
   StevenBlack-hosts = {
     pname = "StevenBlack-hosts";
-    version = "f91285ebe73d82b48875aee2fcd06c20f4566e12";
+    version = "47d6b2a17b7b7558fa0915fc6497c03232ce3580";
     src = fetchFromGitHub ({
       owner = "StevenBlack";
       repo = "hosts";
-      rev = "f91285ebe73d82b48875aee2fcd06c20f4566e12";
+      rev = "47d6b2a17b7b7558fa0915fc6497c03232ce3580";
       fetchSubmodules = false;
-      sha256 = "sha256-BRAitGAtzk4gGDZ7+K3FBS81D/8cwkVLRQkccMBhBLQ=";
+      sha256 = "sha256-dkYKi2P8qLoCe2SlVmaB1dIZze8cnuHs5vuTapxL7x8=";
     });
-    date = "2023-01-01";
+    date = "2023-01-13";
   };
   adguardhome = {
     pname = "adguardhome";
@@ -27,6 +27,14 @@
     src = fetchurl {
       url = "https://github.com/AdguardTeam/AdGuardHome/releases/download/v0.107.21/AdGuardHome_linux_amd64.tar.gz";
       sha256 = "sha256-xU5PxscqBEGNCgA241UbhJcxlNXpCxbFeU7bfmSqf7I=";
+    };
+  };
+  brave = {
+    pname = "brave";
+    version = "1.47.171";
+    src = fetchurl {
+      url = "https://github.com/brave/brave-browser/releases/download/v1.47.171/brave-browser_1.47.171_amd64.deb";
+      sha256 = "sha256-0hKosta1fxth9ScDRmrrt8BH4CTIRm0ghetY4Jkuco8=";
     };
   };
   chord = {
@@ -63,18 +71,18 @@
   };
   logseq = {
     pname = "logseq";
-    version = "0.8.15";
+    version = "0.8.16";
     src = fetchurl {
-      url = "https://github.com/logseq/logseq/releases/download/0.8.15/logseq-linux-x64-0.8.15.AppImage";
-      sha256 = "sha256-lE/bO/zpqChvdf8vfNqbC5iIpXAZDb36/N7Tpsj7PWY=";
+      url = "https://github.com/logseq/logseq/releases/download/0.8.16/logseq-linux-x64-0.8.16.AppImage";
+      sha256 = "sha256-0tIDoNQoqSn1nYm+YdgzXh34aH1e5N8wl9lqGbQoOeU=";
     };
   };
   logseq-darwin = {
     pname = "logseq-darwin";
-    version = "0.8.15";
+    version = "0.8.16";
     src = fetchurl {
-      url = "https://github.com/logseq/logseq/releases/download/0.8.15/logseq-darwin-x64-0.8.15.dmg";
-      sha256 = "sha256-0IgycMWpXQEtp0Twbwvps4/vEXmq3d5ayHS9W1DAxNE=";
+      url = "https://github.com/logseq/logseq/releases/download/0.8.16/logseq-darwin-x64-0.8.16.dmg";
+      sha256 = "sha256-RsHmZjNpsvX6zJBdVeEZj1ntKoCWC7dR19MFve3U4rE=";
     };
   };
   magnetw = {
@@ -95,34 +103,34 @@
   };
   orgparse = {
     pname = "orgparse";
-    version = "0.3.1";
+    version = "0.3.2";
     src = fetchurl {
-      url = "https://pypi.io/packages/source/o/orgparse/orgparse-0.3.1.tar.gz";
-      sha256 = "sha256-hg5vu5pnt0K6p5LmD4zBhSLpeJwGXSaCHAIoXV/BBK8=";
+      url = "https://pypi.io/packages/source/o/orgparse/orgparse-0.3.2.tar.gz";
+      sha256 = "sha256-RRBQ55rLelHGXcmbkJXq5NUL1ZhUE1T552PLTL31mlU=";
     };
   };
   promnesia = {
     pname = "promnesia";
-    version = "3e788bb219c5b2ce5684d1222ff8d22010ca538d";
+    version = "9a2efdf8a30c6a9dd243dfba76039e01e8b9490f";
     src = fetchFromGitHub ({
       owner = "karlicoss";
       repo = "promnesia";
-      rev = "3e788bb219c5b2ce5684d1222ff8d22010ca538d";
+      rev = "9a2efdf8a30c6a9dd243dfba76039e01e8b9490f";
       fetchSubmodules = false;
-      sha256 = "sha256-5PXoh7k05b/5UvQ0HxONFSHvzrGemod8duUVTM1auoM=";
+      sha256 = "sha256-eNXYqBwqUOTyl/ejk1AYg2PN3TANk8LI2HHyK+i0q9o=";
     });
-    date = "2023-01-02";
+    date = "2023-01-12";
   };
   spaceship-prompt = {
     pname = "spaceship-prompt";
-    version = "96a07d922ad9de198c475f82ec1570cbf81e64d1";
+    version = "f1744472babdc801e1806b663409facd84ecfa25";
     src = fetchFromGitHub ({
       owner = "spaceship-prompt";
       repo = "spaceship-prompt";
-      rev = "96a07d922ad9de198c475f82ec1570cbf81e64d1";
+      rev = "f1744472babdc801e1806b663409facd84ecfa25";
       fetchSubmodules = false;
-      sha256 = "sha256-S21lv6g7GeODWcJjdOp4DLXDX/TQY53PZEvFCPdtVmw=";
+      sha256 = "sha256-hJWgOcsYnyY+EyFSnfhDro16RjSSDFOeg6M2luA3r3g=";
     });
-    date = "2023-01-02";
+    date = "2023-01-11";
   };
 }

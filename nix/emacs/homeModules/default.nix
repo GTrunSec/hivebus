@@ -16,9 +16,10 @@
         services.emacs.client.enable = true;
       })
       (mkIf pkgs.stdenv.isDarwin {
-        home.packages = [
-          pkgs.emacs
-        ];
+        # installed by homebrew
+        # home.packages = [
+        #   pkgs.emacs
+        # ];
       })
     ];
 }

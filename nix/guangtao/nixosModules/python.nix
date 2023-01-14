@@ -48,6 +48,7 @@ in {
     nodePackages.pyright
     promnesia
     orgparse
+    poetry
     (
       let
         wenPy = pkgs.python3Override.withPackages (

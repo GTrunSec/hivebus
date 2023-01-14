@@ -3,9 +3,9 @@
   cell,
 }: let
   l = inputs.nixpkgs.lib // builtins;
-  nixpkgs = inputs.nixpkgs.appendOverlays ([
-    ]
-    ++ l.attrValues (inputs.cells.common.lib.importRakeLeaves ./overlays {inherit inputs cell;}));
+  nixpkgs = inputs.nixpkgs.appendOverlays ([]
+    ++ l.attrValues
+    (inputs.cells.common.lib.importRakeLeaves ./overlays {inherit inputs cell;}));
 in {
   inherit nixpkgs;
 

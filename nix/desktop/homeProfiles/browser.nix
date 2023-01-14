@@ -5,8 +5,8 @@
   inherit (inputs) nixpkgs;
 in {
   guangtao = {
+    imports = [cell.homeModules.brave];
     home.packages = with nixpkgs; [
-      brave
       firefox-wayland
     ];
   };
