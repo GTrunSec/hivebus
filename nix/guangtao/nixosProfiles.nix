@@ -73,14 +73,10 @@ in
       # ssd setting
       inputs.cells.hardware.nixosSuites.ssd;
 
-    secrets.imports =
-      [
-        inputs.cells.secrets.nixosModules.sops
-      ]
-      ++ [
-        inputs.cells.secrets.nixosModules.age
-        inputs.cells.secrets.nixosProfiles.age
-      ];
+    secrets.imports = [
+      # inputs.cells.secrets.nixosProfiles.sops
+      inputs.cells.secrets.nixosProfiles.age
+    ];
 
     desktopOnly.imports = [
       cell.nixosProfiles.desktopServices

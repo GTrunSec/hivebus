@@ -1,0 +1,13 @@
+:PROPERTIES:
+:ID:       020e5f24-6bb2-4433-a93d-0e18e09af946
+:END:
+#+title: Terminal
+
+
+- tags:: [[id:e52cca9d-f7af-4365-aa0b-a92fe498364b][Shell]]
+
+
+* alacritty
+:PROPERTIES:
+:ID:       b4ad3b94-4458-429d-9322-946fd8c69fc0
+:END:

@@ -41,7 +41,7 @@
     },
     "lsp-bridge": {
         "cargoLocks": null,
-        "date": "2023-01-08",
+        "date": "2023-01-12",
         "extract": null,
         "name": "lsp-bridge",
         "passthru": null,
@@ -53,11 +53,11 @@
             "name": null,
             "owner": "manateelazycat",
             "repo": "lsp-bridge",
-            "rev": "81cc2fcce76c6bec705281d476bc19a186efbe31",
-            "sha256": "sha256-/meIn7C+ZJzqyiYlKh3+/au8vSPTJ2pyG7mtwAZBIYA=",
+            "rev": "ee33fc9c75c0595b9082ae0f16869aa9d8cb22a3",
+            "sha256": "sha256-82+WO/GL2Wm/qA0/Al7oRq1vIfhGcrPfVwM88hY4p9o=",
             "type": "github"
         },
-        "version": "81cc2fcce76c6bec705281d476bc19a186efbe31"
+        "version": "ee33fc9c75c0595b9082ae0f16869aa9d8cb22a3"
     },
     "wen": {
         "cargoLocks": null,

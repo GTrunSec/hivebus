@@ -2,5 +2,3 @@
 :ID:       e52cca9d-f7af-4365-aa0b-a92fe498364b
 :END:
 #+title: Shell
-
-
