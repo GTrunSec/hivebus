@@ -25,6 +25,13 @@ in
         treefmt $(git diff --name-only --cached)
       '';
     };
+    nvfetcher = {
+      description = "update sources with nvfetcher";
+      args = ["path"];
+      content = ''
+        nix develop github:GTrunSec/cells-lab#update --refresh --command nvfetcher-update {{path}}/sources.toml
+      '';
+    };
     desktop = {
       args = ["action"];
       description = "Colmena build Guangtao Home Machine";

@@ -59,6 +59,9 @@
     rust-overlay.inputs.nixpkgs.follows = "nixpkgs";
 
     nil.url = "github:oxalica/nil";
+
+    devos-ext-lib.url = "github:divnix/devos-ext-lib/?ref=refs/pull/8/head";
+    devos-ext-lib.inputs.nixpkgs.follows = "nixpkgs";
   };
   # Orchestration
   inputs = {

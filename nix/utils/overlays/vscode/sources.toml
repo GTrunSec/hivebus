@@ -1,0 +1,79 @@
+[copilot]
+src.vsmarketplace = "GitHub.copilot"
+fetch.vsmarketplace = "GitHub.copilot"
+passthru = { name = "copilot", publisher = "Github" }
+
+[nickel-syntax]
+src.vsmarketplace = "kubukoz.nickel-syntax"
+fetch.vsmarketplace = "kubukoz.nickel-syntax"
+passthru = { name = "kubukoz", publisher = "nickel-syntax" }
+
+[multi-cursor-case-preserve]
+src.vsmarketplace = "Cardinal90.multi-cursor-case-preserve"
+fetch.vsmarketplace = "Cardinal90.multi-cursor-case-preserve"
+passthru = { name = "multi-cursor-case-preserve", publisher = "Cardinal90" }
+
+[tokyo-night]
+src.vsmarketplace = "enkia.tokyo-night"
+fetch.vsmarketplace = "enkia.tokyo-night"
+passthru = { name = "tokyo-night", publisher = "enkia" }
+
+[vscode-emacs-friendly]
+src.vsmarketplace = "lfs.vscode-emacs-friendly"
+fetch.vsmarketplace = "lfs.vscode-emacs-friendly"
+passthru = { name = "vscode-emacs-friendly", publisher = "lfs" }
+
+[zeek]
+src.vsmarketplace = "aeppert.bro"
+fetch.vsmarketplace = "aeppert.bro"
+passthru = { name = "bro", publisher = "aeppert" }
+
+[readable-indent]
+src.vsmarketplace = "cnojima.readable-indent"
+fetch.vsmarketplace = "cnojima.readable-indent"
+passthru = { name = "readable-indent", publisher = "cnojima" }
+
+[indent-rainbow]
+src.vsmarketplace = "oderwat.indent-rainbow"
+fetch.vsmarketplace = "oderwat.indent-rainbow"
+passthru = { name = "indent-rainbow", publisher = "oderwat" }
+
+[pdf]
+src.vsmarketplace = "tomoki1207.pdf"
+fetch.vsmarketplace = "tomoki1207.pdf"
+passthru = { name = "pdf", publisher = "tomoki1207" }
+
+[rust]
+src.vsmarketplace = "rust-lang.rust"
+fetch.vsmarketplace = "rust-lang.rust"
+passthru = { name = "rust", publisher = "rust-lang" }
+
+[rust-analyzer]
+src.vsmarketplace = "rust-lang.rust-analyzer"
+fetch.vsmarketplace = "rust-lang.rust-analyzer"
+passthru = { name = "rust-analyzer", publisher = "rust-lang" }
+
+[julia]
+src.vsmarketplace = "julialang.language-julia"
+fetch.vsmarketplace = "julialang.language-julia"
+passthru = { name = "language-julia", publisher = "julialang" }
+
+[julia-color-themes]
+src.vsmarketplace = "cameronbieganek.julia-color-themes"
+fetch.vsmarketplace = "cameronbieganek.julia-color-themes"
+passthru = { name = "julia-color-themes", publisher = "cameronbieganek" }
+
+[vscode-markdownlint]
+src.vsmarketplace = "DavidAnson.vscode-markdownlint"
+fetch.vsmarketplace = "DavidAnson.vscode-markdownlint"
+passthru = { name = "vscode-markdownlint", publisher = "DavidAnson" }
+
+[markdown-preview-enhanced]
+src.vsmarketplace = "shd101wyy.markdown-preview-enhanced"
+fetch.vsmarketplace = "shd101wyy.markdown-preview-enhanced"
+passthru = { name = "markdown-preview-enhanced", publisher = "shd101wyy" }
+
+[direnv]
+src.vsmarketplace = "mkhl.direnv"
+fetch.vsmarketplace = "mkhl.direnv"
+passthru = { name = "direnv", publisher = "mkhl" }

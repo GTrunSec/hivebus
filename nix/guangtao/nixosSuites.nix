@@ -16,6 +16,7 @@ in {
       virtualization
       coding.desktop
       cell.nixosModules.Desktop
+      applications
     ]
     ++ [
       (cell.lib.mkHome "guangtao" "desktop" "zsh" "22.11")

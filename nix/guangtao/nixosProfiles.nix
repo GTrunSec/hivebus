@@ -81,5 +81,9 @@ in
     desktopOnly.imports = [
       cell.nixosProfiles.desktopServices
     ];
+
+    applications.imports = [
+      inputs.cells.utils.nixosProfiles.vscode
+    ];
   }
   // inputs.cells.common.lib.importRakeLeaves ./nixosProfiles {inherit cell inputs;}

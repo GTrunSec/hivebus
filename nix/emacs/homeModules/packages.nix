@@ -20,9 +20,10 @@ in {
         home.file.".config/guangtao-sources/plantuml".source = pkgs.plantuml;
       }
       {
-        home.packages = [
-          pkgs.nodejs_latest
-          pkgs.sqlite
+        home.packages = with pkgs; [
+          nodejs_latest
+          sqlite
+          libvterm
           (
             pkgs.writeShellScriptBin "node16" ''
               ${lib.getExe pkgs.nodejs-16_x} "$@"
