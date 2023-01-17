@@ -1,11 +1,14 @@
 :PROPERTIES:
 :ID:       e8d4f8d3-dc0d-488a-b390-ffbe2f282230
-:header-args: :tangle ../../profiles/hyprland/hyprland.conf
 :END:
 #+title: Hyprland
 
 
 * hyprland.conf
+:PROPERTIES:
+:ID:       d05ca0f0-92e8-4ccd-9a69-8dc6a74a2043
+:header-args: :tangle ../../profiles/hyprland/hyprland.conf
+:END:
 ** default
 #+begin_src conf :exports both
 $mod = SUPER
@@ -75,6 +78,8 @@ submap = reset
 #+begin_src conf :exports both
 windowrulev2 = float,title:^(Zoom)$
 windowrulev2 = windowdance,title:^(Zoom)$
+
+windowrulev2 = opacity 0.8 0.8,class:^(Alacritty)$
 #+end_src
 ** exec
 
@@ -162,3 +167,14 @@ col.inactive_border = rgba(595959aa)
 layout = dwindle # master|dwindle
 }
 #+end_src
+
+* hyprpaper.conf
+:PROPERTIES:
+:ID:       b8bbfe01-39c0-4889-8443-ca27e623a40e
+:header-args: :tangle ../../profiles/hyprland/hyprpaper.conf
+:END:
+
+ #+begin_src conf :exports both
+preload = /home/guangtao/ghq/github.com/GTrunSec/hive/resources/wallpaper/.attach/00/d885ed-3c8e-4c03-b325-52a807f9a3c7/20201219_162324george-turmanidze-10.jpg.jpeg
+wallpaper = DP-2,contain:/home/guangtao/ghq/github.com/GTrunSec/hive/resources/wallpaper/.attach/00/d885ed-3c8e-4c03-b325-52a807f9a3c7/20201219_162324george-turmanidze-10.jpg.jpeg
+ #+end_src

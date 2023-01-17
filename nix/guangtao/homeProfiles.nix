@@ -17,7 +17,7 @@ in
     terminal = with homeProfiles;
       [
         inputs.cells.terminal.homeProfiles.alacritty
-        homeModules.programs.alacritty
+        inputs.cells.terminal.homeModules.alacritty
       ]
       ++ inputs.cells.terminal.homeSuites.default;
 

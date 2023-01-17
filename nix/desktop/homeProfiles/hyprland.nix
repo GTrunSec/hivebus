@@ -46,11 +46,7 @@ in {
   };
 
   packages = {
-    home.packages = with nixpkgs; [
-      qt5.qtwayland
-      wayland-utils
-      # kanshi
-    ];
+    home.packages = with nixpkgs; [];
   };
 
   zsh = {

@@ -16,5 +16,6 @@
     "fontconfig"
     "coreutils"
     "emacs-plus@30"
+    "rxvt-unicode"
   ];
 }

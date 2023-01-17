@@ -6,6 +6,7 @@
       env.TERM = "xterm-256color";
       window.decorations = "full";
       cursor.style = "Beam";
+      window.opacity = 0.7;
       # snazzy theme
       colors = {
         # Default colors

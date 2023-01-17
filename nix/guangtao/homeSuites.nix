@@ -14,6 +14,7 @@ in {
   macbook = with homeProfiles;
     default
     ++ emacs
+    ++ terminal
     ++ [
     ]
     ++ inputs.cells.utils.homeSuites.mathematical;

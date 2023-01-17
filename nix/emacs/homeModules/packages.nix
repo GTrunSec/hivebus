@@ -23,7 +23,6 @@ in {
         home.packages = with pkgs; [
           nodejs_latest
           sqlite
-          libvterm
           (
             pkgs.writeShellScriptBin "node16" ''
               ${lib.getExe pkgs.nodejs-16_x} "$@"

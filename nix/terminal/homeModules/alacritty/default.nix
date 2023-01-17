@@ -18,9 +18,22 @@ in {
     (mkIf cfg.enable {
       programs.alacritty = {
         settings = {
-          font.size = 30.0;
           key_bindings =
             mkIf cfg.CSIuSupport CSIuKeyBindings;
+        };
+      };
+    })
+    (mkIf pkgs.stdenv.isDarwin {
+      programs.alacritty = {
+        settings = {
+          font.size = 15.0;
+        };
+      };
+    })
+    (mkIf pkgs.stdenv.isLinux {
+      programs.alacritty = {
+        settings = {
+          font.size = 30.0;
         };
       };
     })
