@@ -6,14 +6,13 @@
   inherit (inputs) nixpkgs std self;
 
   src = "${(std.incl self ["profiles/hyprland"])}/profiles/hyprland";
-in {
-  inherit cell;
+in rec {
   default = {
     imports = [
       __inputs__.hyprland.homeManagerModules.default
-      cell.homeProfiles.hyprland.homeSession
-      cell.homeProfiles.hyprland.packages
-      cell.homeProfiles.hyprland.windowManager
+      homeSession
+      packages
+      windowManager
     ];
   };
   windowManager = {
@@ -60,8 +59,8 @@ in {
 
   guangtao = {
     imports = [
-      cell.homeProfiles.hyprland.default
-      cell.homeProfiles.hyprland.zsh
+      default
+      # cell.homeProfiles.hyprland.zsh
     ];
     wayland.windowManager.hyprland.extraConfig = builtins.readFile "${src}/hyprland.conf";
     wayland.windowManager.hyprland.nvidiaPatches = true;

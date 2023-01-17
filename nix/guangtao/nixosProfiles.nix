@@ -27,7 +27,7 @@ in
       ]
       ++ [
         # use home-manager instead
-        # inputs.cells.desktop.nixosModules.hyprland
+        inputs.cells.desktop.nixosProfiles.hyprland.guangtao
       ]
       ++ [
         # audio
