@@ -10,8 +10,9 @@ in
       cell.overlays.default
       cell.overlays.python
       __inputs__.rust-overlay.overlays.default
-      inputs.cells.emacs.overlays.emacs-overlay
       __inputs__.nixpkgs-wayland.overlays.default
+
+      inputs.cells.emacs.overlays.emacs-overlay
 
       inputs.cells.utils.overlays.vscode
       inputs.cells.utils.overlays.vscode-extensions
