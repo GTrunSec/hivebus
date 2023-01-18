@@ -1,6 +1,5 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    wlr-randr
     qt5.qtwayland
     wayland-utils
     wlr-randr
@@ -9,5 +8,6 @@
     grim # Grab images from a Wayland compositor
     ksnip
     kooha # Elegantly record your screen
+    sunpaper # Wallpaper manager for Wayland
   ];
 }

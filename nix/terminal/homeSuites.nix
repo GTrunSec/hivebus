@@ -2,8 +2,8 @@
   inputs,
   cell,
 }: let
-  inherit (cell) homeModules;
-in {
+  inherit (cell) homeModules homeProfiles;
+in rec {
   default = with homeModules;
     [
       zoxide
@@ -21,6 +21,7 @@ in {
     ++ [
       packages
     ];
+
   minimal = with homeModules; [
     tmux
     zsh
@@ -28,4 +29,10 @@ in {
     atuin
     gh
   ];
+
+  guangtao =
+    [
+      homeProfiles.alacritty.guangtao
+    ]
+    ++ default;
 }

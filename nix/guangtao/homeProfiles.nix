@@ -15,11 +15,9 @@ in
       ++ inputs.cells.terminal.homeSuites.default;
 
     terminal = with homeProfiles;
-      [
-        inputs.cells.terminal.homeProfiles.alacritty
-        inputs.cells.terminal.homeModules.alacritty
-      ]
-      ++ inputs.cells.terminal.homeSuites.default;
+      inputs.cells.terminal.homeSuites.guangtao
+      ++ [
+      ];
 
     emacs = with homeProfiles; [
       inputs.cells.emacs.homeProfiles.guangtao

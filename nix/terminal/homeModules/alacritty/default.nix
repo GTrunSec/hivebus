@@ -33,7 +33,7 @@ in {
     (mkIf pkgs.stdenv.isLinux {
       programs.alacritty = {
         settings = {
-          font.size = 30.0;
+          font.size = 23.0;
         };
       };
     })
