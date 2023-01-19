@@ -45,7 +45,9 @@ in rec {
   };
 
   packages = {
-    home.packages = with nixpkgs; [];
+    home.packages = with nixpkgs; [
+      swaynotificationcenter
+    ];
   };
 
   zsh = {

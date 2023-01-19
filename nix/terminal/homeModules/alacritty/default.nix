@@ -23,19 +23,5 @@ in {
         };
       };
     })
-    (mkIf pkgs.stdenv.isDarwin {
-      programs.alacritty = {
-        settings = {
-          font.size = 15.0;
-        };
-      };
-    })
-    (mkIf pkgs.stdenv.isLinux {
-      programs.alacritty = {
-        settings = {
-          font.size = 23.0;
-        };
-      };
-    })
   ];
 }

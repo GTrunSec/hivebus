@@ -8,6 +8,7 @@
     pciutils
     gzip
     clang
+    nixpkgs-fmt
     cachix
     wget
     curl
