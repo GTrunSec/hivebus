@@ -76,11 +76,11 @@
         "xnlib": "xnlib"
       },
       "locked": {
-        "lastModified": 1673085019,
-        "narHash": "sha256-VWT9Ab2lFtjYzmu1wpDfeWbYw32iTw2pAlOulyciqMs=",
+        "lastModified": 1674228217,
+        "narHash": "sha256-TbnO2SAu4vTAoDp2cFW0kD0/RN/14/1HVMNeX64X6RA=",
         "owner": "gtrunsec",
         "repo": "cells-lab",
-        "rev": "bc86b19934b05e8dd2e6c3207f890ce87b3da2bd",
+        "rev": "9ed87fdd9ffa5e178738f8475d7f6be664455c47",
         "type": "github"
       },
       "original": {
@@ -225,22 +225,6 @@
       "original": {
         "owner": "numtide",
         "repo": "devshell",
-        "type": "github"
-      }
-    },
-    "digga": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1673030868,
-        "narHash": "sha256-ScgEQyFdzmJQ8DxB0nsLbx5XZMBCbl3PSN4+VfasWhg=",
-        "owner": "divnix",
-        "repo": "digga",
-        "rev": "bca4b89f497b8553dd9c0006e85c65e3e2937743",
-        "type": "github"
-      },
-      "original": {
-        "owner": "divnix",
-        "repo": "digga",
         "type": "github"
       }
     },
@@ -972,11 +956,11 @@
     },
     "nixlib": {
       "locked": {
-        "lastModified": 1672534360,
-        "narHash": "sha256-4r25ZnSyGM3wSuXhAMzROTIvIEqPwAx/L9hjbXDJB2c=",
+        "lastModified": 1673743903,
+        "narHash": "sha256-sloY6KYyVOozJ1CkbgJPpZ99TKIjIvM+04V48C04sMQ=",
         "owner": "nix-community",
         "repo": "nixpkgs.lib",
-        "rev": "360b002d33d735931db40cdd5ddb4f9ba4ba5804",
+        "rev": "7555e2dfcbac1533f047021f1744ac8871150f9f",
         "type": "github"
       },
       "original": {
@@ -1378,11 +1362,11 @@
         "yants": "yants"
       },
       "locked": {
-        "lastModified": 1673046192,
-        "narHash": "sha256-1WvIv4O8D9XUDSASw8/OCwxTswmTYMoNRkobhLyDZik=",
+        "lastModified": 1674068571,
+        "narHash": "sha256-j0Roj8nH9w35VadMKnqCa+e957W8/a/1qll2NIr5bXg=",
         "owner": "divnix",
         "repo": "std",
-        "rev": "13501eb6f20e11fd5343d1a4271380a7d96564d0",
+        "rev": "f9129df3099aab7f3f5eac57e111666d6d136eaf",
         "type": "github"
       },
       "original": {
@@ -1511,51 +1495,23 @@
     },
     "xnlib": {
       "inputs": {
-        "digga": "digga",
         "nix-std": "nix-std",
         "nixlib": "nixlib",
-        "nixpkgs": [
-          "cells-lab",
-          "nixpkgs"
-        ],
         "std": [
           "cells-lab",
           "std"
-        ],
-        "xnlib": "xnlib_2"
-      },
-      "locked": {
-        "lastModified": 1673050716,
-        "narHash": "sha256-oJv6E56AOE+FA7txDlvk1CSM4IszUAhriVRfViXVgpw=",
-        "owner": "gtrunsec",
-        "repo": "xnlib",
-        "rev": "ea1a23b3642c908cb74e01688723740445879052",
-        "type": "github"
-      },
-      "original": {
-        "owner": "gtrunsec",
-        "repo": "xnlib",
-        "type": "github"
-      }
-    },
-    "xnlib_2": {
-      "inputs": {
-        "nixpkgs": [
-          "cells-lab",
-          "xnlib",
-          "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1656163058,
-        "narHash": "sha256-H6uPHeX6Hc2UyJiYUet+WU1CESu4AF6ZwlORmSMQM40=",
-        "owner": "ArctarusLimited",
+        "lastModified": 1674228201,
+        "narHash": "sha256-2ONv2b8TTkCAyOSO9LMp3wTzOS9BW6riEBxq5xwsvvc=",
+        "owner": "gtrunsec",
         "repo": "xnlib",
-        "rev": "905fbe51679a3a4163d358f893a05b22c714f1df",
+        "rev": "b9625c523d34617dc5aab311abb59590406fa8be",
         "type": "github"
       },
       "original": {
-        "owner": "ArctarusLimited",
+        "owner": "gtrunsec",
         "repo": "xnlib",
         "type": "github"
       }

@@ -11,7 +11,9 @@
 
   homebrew.casks = [
     "font-fantasque-sans-mono"
+    "wez/wezterm/wezterm-nightly"
   ];
+
   homebrew.brews = [
     "fontconfig"
     "coreutils"
