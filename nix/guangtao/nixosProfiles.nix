@@ -64,6 +64,7 @@
       {
         disko.devices = cell.diskoConfigurations.desktop {};
       }
+      inputs.cells.filesystems.nixosProfiles.impermanence.guangtao
     ]
     ++
     # ssd setting

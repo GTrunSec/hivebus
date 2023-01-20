@@ -623,6 +623,21 @@
         "type": "github"
       }
     },
+    "impermanence": {
+      "locked": {
+        "lastModified": 1668668915,
+        "narHash": "sha256-QjY4ZZbs9shwO4LaLpvlU2bO9J1juYhO9NtV3nrbnYQ=",
+        "owner": "nix-community",
+        "repo": "impermanence",
+        "rev": "5df9108b346f8a42021bf99e50de89c9caa251c3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "impermanence",
+        "type": "github"
+      }
+    },
     "incl": {
       "inputs": {
         "nixlib": [
@@ -1301,6 +1316,7 @@
         "hivelib": "hivelib",
         "home": "home",
         "home-22-11": "home-22-11",
+        "impermanence": "impermanence",
         "microvm": "microvm",
         "nix-filter": "nix-filter_2",
         "nixos": [
@@ -1450,11 +1466,11 @@
         "yants": "yants_3"
       },
       "locked": {
-        "lastModified": 1674068571,
-        "narHash": "sha256-j0Roj8nH9w35VadMKnqCa+e957W8/a/1qll2NIr5bXg=",
+        "lastModified": 1674237934,
+        "narHash": "sha256-I2dqYywlHG/1ecVxZ0iUEdgp4YH78Bu0wPdjgBooQ4U=",
         "owner": "divnix",
         "repo": "std",
-        "rev": "f9129df3099aab7f3f5eac57e111666d6d136eaf",
+        "rev": "0d8c6af870b2e5312dbe90bb12a3e56b315924a4",
         "type": "github"
       },
       "original": {

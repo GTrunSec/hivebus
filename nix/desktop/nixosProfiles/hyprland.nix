@@ -39,13 +39,15 @@ in {
   };
 
   guangtao = {
-    imports = [
-      cell.nixosProfiles.hyprland.default
-      cell.nixosProfiles.hyprland.greetd
-
-      cell.nixosProfiles.hyprland.displayManager
-      cell.nixosProfiles.hyprland.autoLogin
-    ];
+    imports =
+      [
+        cell.nixosProfiles.hyprland.default
+        cell.nixosProfiles.hyprland.displayManager
+        cell.nixosProfiles.hyprland.autoLogin
+      ]
+      ++ [
+        # cell.nixosProfiles.hyprland.greetd
+      ];
     # services.greetd.settings.initial_session.user = "guangtao";
     services.xserver.displayManager = {
       autoLogin = {
