@@ -16,7 +16,7 @@
     },
     "StevenBlack-hosts": {
         "cargoLocks": null,
-        "date": "2023-01-13",
+        "date": "2023-01-19",
         "extract": null,
         "name": "StevenBlack-hosts",
         "passthru": null,
@@ -28,11 +28,11 @@
             "name": null,
             "owner": "StevenBlack",
             "repo": "hosts",
-            "rev": "47d6b2a17b7b7558fa0915fc6497c03232ce3580",
-            "sha256": "sha256-dkYKi2P8qLoCe2SlVmaB1dIZze8cnuHs5vuTapxL7x8=",
+            "rev": "157474a55839c3bf40acc5b3325f2d87da187700",
+            "sha256": "sha256-+gUP5AH44Mun4GOywvgKFg0pMdfhDP9JAbxMlNt56mU=",
             "type": "github"
         },
-        "version": "47d6b2a17b7b7558fa0915fc6497c03232ce3580"
+        "version": "157474a55839c3bf40acc5b3325f2d87da187700"
     },
     "adguardhome": {
         "cargoLocks": null,
@@ -43,11 +43,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-xU5PxscqBEGNCgA241UbhJcxlNXpCxbFeU7bfmSqf7I=",
+            "sha256": "sha256-1mFOlerwTOLUQGiVX1nyFfMC1vl7W0c+P/xnPjNTrYE=",
             "type": "url",
-            "url": "https://github.com/AdguardTeam/AdGuardHome/releases/download/v0.107.21/AdGuardHome_linux_amd64.tar.gz"
+            "url": "https://github.com/AdguardTeam/AdGuardHome/releases/download/v0.107.22/AdGuardHome_linux_amd64.tar.gz"
         },
-        "version": "v0.107.21"
+        "version": "v0.107.22"
     },
     "brave": {
         "cargoLocks": null,
@@ -201,7 +201,7 @@
     },
     "promnesia": {
         "cargoLocks": null,
-        "date": "2023-01-12",
+        "date": "2023-01-19",
         "extract": null,
         "name": "promnesia",
         "passthru": null,
@@ -213,11 +213,11 @@
             "name": null,
             "owner": "karlicoss",
             "repo": "promnesia",
-            "rev": "9a2efdf8a30c6a9dd243dfba76039e01e8b9490f",
-            "sha256": "sha256-eNXYqBwqUOTyl/ejk1AYg2PN3TANk8LI2HHyK+i0q9o=",
+            "rev": "494c953f7bbc305d3bfb2cd580c8b39162f07e38",
+            "sha256": "sha256-bs1AIc+/8aPZyokKPx9pNKTwq71hidUUKdpnhnWe7XA=",
             "type": "github"
         },
-        "version": "9a2efdf8a30c6a9dd243dfba76039e01e8b9490f"
+        "version": "494c953f7bbc305d3bfb2cd580c8b39162f07e38"
     },
     "spaceship-prompt": {
         "cargoLocks": null,
@@ -238,5 +238,35 @@
             "type": "github"
         },
         "version": "f1744472babdc801e1806b663409facd84ecfa25"
+    },
+    "wezterm-appimage": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "wezterm-appimage",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-obeuSqA7wxDf+q5fMdbWMu2wP2uwwrRdienfhjw22ps=",
+            "type": "url",
+            "url": "https://github.com/wez/wezterm/releases/download/nightly/WezTerm-nightly-Ubuntu18.04.AppImage"
+        },
+        "version": "01-19-2023"
+    },
+    "wezterm-darwin": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "wezterm-darwin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-XeyPO6zG1/XMVJon8W4oCnYhb7TuNCMVAjAqbWQVvWM=",
+            "type": "url",
+            "url": "https://github.com/wez/wezterm/releases/download/nightly/WezTerm-macos-nightly.zip"
+        },
+        "version": "date +%m-%d-%Y"
     }
 }

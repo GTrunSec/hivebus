@@ -58,7 +58,7 @@ in rec {
         (mkIf nixpkgs.stdenv.isDarwin {
           programs.alacritty = {
             settings = {
-              font.size = 15.0;
+              font.size = 18.0;
             };
           };
         })

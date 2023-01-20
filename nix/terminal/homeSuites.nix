@@ -32,6 +32,7 @@ in rec {
 
   guangtao =
     [
+      # homeModules.wezterm
       homeProfiles.alacritty.guangtao
     ]
     ++ default;

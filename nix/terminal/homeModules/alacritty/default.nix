@@ -15,7 +15,7 @@ in {
   };
 
   config = mkMerge [
-    (mkIf cfg.enable {
+    (mkIf (cfg.enable && pkgs.stdenv.isLinux) {
       programs.alacritty = {
         settings = {
           key_bindings =
