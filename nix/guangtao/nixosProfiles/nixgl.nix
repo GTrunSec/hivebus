@@ -13,6 +13,7 @@
     runtimeEnv = {
       NIXPKGS_ALLOW_UNFREE = 1;
     };
+    # https://download.nvidia.com/XFree86/Linux-x86_64/
     text = ''
       if [ ! -f "$HOME/.nix-profile/bin/nixGLNvidia-${config.hardware.nvidia.package.version}" ]; then
          nix profile install github:guibou/nixGL#nixGLNvidia --impure \

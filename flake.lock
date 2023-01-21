@@ -9,11 +9,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1672877952,
-        "narHash": "sha256-WBX3v2/D2k219aZyDp8uq4rr9fEb6lZ3z+T7iYKl4As=",
+        "lastModified": 1673633885,
+        "narHash": "sha256-XxFZvY20EqOYlOP1dF/YcPYpgSJtlRIqIeWXHJqCnws=",
         "owner": "hercules-ci",
         "repo": "arion",
-        "rev": "50bf4fe6c5845a5d96916411bc264b7fc0c715e9",
+        "rev": "09ef2d13771ec1309536bbf97720767f90a5afa7",
         "type": "github"
       },
       "original": {
@@ -1108,11 +1108,11 @@
     },
     "nixos-unstable": {
       "locked": {
-        "lastModified": 1673296385,
-        "narHash": "sha256-zlDgiHh0k1GtB8g6wrBzWBDZIBoCNYXfI5+qWE5Rrjk=",
+        "lastModified": 1674247172,
+        "narHash": "sha256-6gbmukIy81hh95YS7xIFfHjhOCcwIuw37mEopJSsIzs=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "92c151047e978f2e6abc809c20fb701b5b2d78b0",
+        "rev": "f043916573c888930442d101ff4adc2e4cae3665",
         "type": "github"
       },
       "original": {
@@ -1134,6 +1134,21 @@
       "original": {
         "owner": "NixOS",
         "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-master": {
+      "locked": {
+        "lastModified": 1674302877,
+        "narHash": "sha256-V1Gv4nB2pfMLJUG3WtZn8ZZniknr1Zo2nkLOXpjwPbs=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "112e7c9a8ea414ed1fe087c9906662bf9aa4dbb7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -1200,11 +1215,11 @@
     },
     "nixpkgs_6": {
       "locked": {
-        "lastModified": 1672756850,
-        "narHash": "sha256-Smbq3+fitwA13qsTMeaaurv09/KVbZfW7m7lINwzDGA=",
+        "lastModified": 1674236650,
+        "narHash": "sha256-B4GKL1YdJnII6DQNNJ4wDW1ySJVx2suB1h/v4Ql8J0Q=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "298add347c2bbce14020fcb54051f517c391196b",
+        "rev": "cfb43ad7b941d9c3606fb35d91228da7ebddbfc5",
         "type": "github"
       },
       "original": {
@@ -1327,6 +1342,7 @@
         "nixos-hardware": "nixos-hardware",
         "nixos-unstable": "nixos-unstable",
         "nixpkgs": "nixpkgs_6",
+        "nixpkgs-master": "nixpkgs-master",
         "std": "std_3"
       }
     },

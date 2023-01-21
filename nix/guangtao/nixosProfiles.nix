@@ -13,12 +13,14 @@
     [
       inputs.cells.hardware.nixosModules.hidpi
       cell.nixosModules.nvidia
+      inputs.cells.hardware.nixosModules.opengl
       # wayland require
       inputs.cells.security.nixosModules.polkit
       # gtk require
       cell.nixosProfiles.dfconf
       cell.nixosModules.fonts
       inputs.cells.desktop.nixosModules.xdg
+      cell.nixosProfiles.nixgl
       # cell.nixosProfiles.nixgl
     ]
     ++ [

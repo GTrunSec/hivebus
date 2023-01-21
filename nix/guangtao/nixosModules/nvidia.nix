@@ -19,16 +19,13 @@
     # blacklistedKernelModules = ["nouveau"];
   };
   hardware = {
-    nvidia.package = config.boot.kernelPackages.nvidiaPackages.vulkan_beta;
-    # nvidia.package = config.boot.kernelPackages.nvidiaPackages.beta;
+    nvidia.package = config.boot.kernelPackages.nvidiaPackages.production;
     # nvidia = {
     #   package = config.boot.kernelPackages.nvidiaPackages.stable;
     #   open = true;
     #   nvidiaSettings = false;
     # };
-    opengl = {
-      enable = true;
-    };
+    opengl.enable = true;
     nvidia.modesetting.enable = true;
     nvidia.powerManagement.enable = true;
     # nvidia.prime = {

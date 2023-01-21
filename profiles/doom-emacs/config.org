@@ -3063,23 +3063,11 @@ a separator ' -> '."
 
 *** lsp
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/packages.el"
-;;(package! lsp-pyright)
-#+end_src
-
-#+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
-;; (use-package! lsp-pyright
-;;   :config
-;;   (setq flycheck-python-pylint-executable "pylint")
-;;   (setq lsp-clients-python-command "pyright")
-;;   :hook (python-mode . (lambda ()
-;;                          (require 'lsp-pyright)
-;;                          (lsp))))
 #+end_src
 
 *** jupyter
 
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/packages.el"
-;;(package! lsp-pyright)
 (package! emacs-jupyter  :recipe (:host github :repo "GTrunSec/emacs-jupyter"
                                   :branch "ignore-warning"))
 #+end_src
