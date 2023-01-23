@@ -41,6 +41,7 @@ in rec {
       _JAVA_AWT_WM_NONREPARENTING = 1;
       MOZ_ENABLE_WAYLAND = 1;
       QT_QPA_PLATFORM = "wayland";
+      NO_AT_BRIDGE = 1; # https://github.com/NixOS/nixpkgs/issues/16327#issuecomment-315729994
     };
   };
 

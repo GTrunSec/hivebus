@@ -84,6 +84,8 @@ windowrulev2 = float,title:^(Zoom)$
 windowrulev2 = windowdance,title:^(Zoom)$
 
 windowrulev2 = opacity 0.8 0.8,class:^(Alacritty)$
+
+windowrulev2 = pin, floating:1
 #+end_src
 ** exec
 

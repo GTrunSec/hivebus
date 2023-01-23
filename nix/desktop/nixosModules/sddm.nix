@@ -6,7 +6,9 @@
   config = with lib;
     mkMerge [
       {
-        services.xserver.enable = true;
+        services.xserver = {
+          enable = true;
+        };
         services.xserver.displayManager.sddm.enable = true;
       }
       (mkIf config.hardware.video.hidpi.enable {

@@ -4,17 +4,38 @@
 }: let
   inherit (inputs) nixpkgs;
   inherit (inputs.cells.common.lib) __inputs__;
-in {
-  default = {
+  l = inputs.nixpkgs.lib // builtins;
+in rec {
+  default = {nvidia ? false}: {
     imports = [
       __inputs__.hyprland.nixosModules.default
       cell.nixosModules.hyprland
     ];
+    config = with l;
+      mkMerge [
+        (mkIf nvidia {programs.hyprland.package = __inputs__.hyprland.packages.hyprland-nvidia;})
+      ];
   };
 
   displayManager = {
+    nvidia ? false,
+    autoLogin ? false,
+    user ? "",
+  }: {
     imports = [cell.nixosModules.sddm];
-    services.xserver.displayManager.sessionPackages = [__inputs__.hyprland.packages.default];
+    config = with l;
+      mkMerge [
+        (mkIf nvidia {services.xserver.videoDrivers = ["nvidia"];})
+        (mkIf autoLogin {
+          services.xserver.displayManager = {
+            autoLogin = {
+              enable = true;
+              inherit user;
+            };
+            defaultSession = "hyprland";
+          };
+        })
+      ];
   };
 
   greetd = {
@@ -29,30 +50,19 @@ in {
     };
   };
 
-  autoLogin = {
-    services.xserver.displayManager = {
-      autoLogin = {
-        enable = true;
-      };
-      defaultSession = "hyprland";
-    };
-  };
-
   guangtao = {
     imports =
       [
-        cell.nixosProfiles.hyprland.default
-        cell.nixosProfiles.hyprland.displayManager
-        cell.nixosProfiles.hyprland.autoLogin
+        (default {nvidia = true;})
+        (displayManager {
+          nvidia = true;
+          autoLogin = true;
+          user = "guangtao";
+        })
       ]
       ++ [
         # cell.nixosProfiles.hyprland.greetd
       ];
     # services.greetd.settings.initial_session.user = "guangtao";
-    services.xserver.displayManager = {
-      autoLogin = {
-        user = "guangtao";
-      };
-    };
   };
 }

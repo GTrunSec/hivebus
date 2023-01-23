@@ -14,7 +14,7 @@
         "/var"
       ];
       files = [
-        "/etc/machine-id"
+        # "/etc/machine-id"
       ];
       users.guangtao = {
         directories = [
