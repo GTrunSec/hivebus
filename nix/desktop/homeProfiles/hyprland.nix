@@ -25,6 +25,13 @@ in rec {
       };
     };
   };
+
+  wallpaper = {
+    home.packages = [
+      cell.packages.swww
+      cell.entrypoints.swww-random
+    ];
+  };
   homeSession = {
     home.sessionVariables = {
       XDG_SESSION_TYPE = "wayland";
@@ -63,7 +70,8 @@ in rec {
   guangtao = {
     imports = [
       default
-      # cell.homeProfiles.hyprland.zsh
+      wallpaper
+      # zsh
     ];
     wayland.windowManager.hyprland.extraConfig = builtins.readFile "${src}/hyprland.conf";
     wayland.windowManager.hyprland.nvidiaPatches = true;

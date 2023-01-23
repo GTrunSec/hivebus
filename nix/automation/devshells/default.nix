@@ -44,6 +44,8 @@ in
           '';
         })
       ];
-      packages = [];
+      packages = [
+        inputs.cells.desktop.packages.swww
+      ];
     };
   }
