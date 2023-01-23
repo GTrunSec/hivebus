@@ -13,6 +13,7 @@ in {
 
   packages.home.packages = with nixpkgs; [
     __inputs__.hyprpaper.packages.hyprpaper
+    swaynotificationcenter
   ];
 
   guangtao = {

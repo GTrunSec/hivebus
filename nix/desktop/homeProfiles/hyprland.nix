@@ -4,6 +4,7 @@
 }: let
   inherit (inputs.cells.common.lib) __inputs__;
   inherit (inputs) nixpkgs std self;
+  l = inputs.nixpkgs.lib // builtins;
 
   src = "${(std.incl self ["profiles/hyprland"])}/profiles/hyprland";
 in rec {
@@ -11,19 +12,27 @@ in rec {
     imports = [
       __inputs__.hyprland.homeManagerModules.default
       homeSession
-      packages
-      windowManager
     ];
   };
   windowManager = {
-    wayland.windowManager.hyprland = {
-      enable = true;
-      systemdIntegration = true;
-      xwayland = {
-        enable = true;
-        hidpi = true;
-      };
-    };
+    nvidia ? false,
+    config ? "",
+  }: {
+    config = with l;
+      mkMerge [
+        {
+          wayland.windowManager.hyprland = {
+            enable = true;
+            systemdIntegration = true;
+            extraConfig = config;
+            xwayland = {
+              enable = true;
+              hidpi = true;
+            };
+          };
+        }
+        (mkIf nvidia {wayland.windowManager.hyprland.nvidiaPatches = true;})
+      ];
   };
 
   wallpaper = {
@@ -58,11 +67,13 @@ in rec {
     ];
   };
 
-  zsh = {
-    programs.zsh = {
+  login = {shell ? "zsh"}: {
+    programs.${shell} = {
       loginExtra = ''
         # If running from tty1 start hyprland
-        [ "$(tty)" = "/dev/tty1" ] && Hyprland
+        if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
+          Hyprland
+        fi
       '';
     };
   };
@@ -70,10 +81,13 @@ in rec {
   guangtao = {
     imports = [
       default
+      (windowManager {
+        config = builtins.readFile "${src}/hyprland.conf";
+        nvidia = true;
+      })
       wallpaper
-      # zsh
+      (login {shell = "zsh";})
+      packages
     ];
-    wayland.windowManager.hyprland.extraConfig = builtins.readFile "${src}/hyprland.conf";
-    wayland.windowManager.hyprland.nvidiaPatches = true;
   };
 }

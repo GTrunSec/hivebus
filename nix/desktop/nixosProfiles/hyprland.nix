@@ -38,31 +38,30 @@ in rec {
       ];
   };
 
-  greetd = {
+  greetd = {user ? ""}: {
     imports = [cell.nixosModules.greetd];
+    services.getty.autologinUser = user;
     services.greetd = {
       package = nixpkgs.greetd.tuigreet;
-      settings = {
-        initial_session.command = "Hyprland";
-        # default_session.command = "${nixpkgs.greetd.tuigreet}/bin/tuigreet --time --cmd ${__inputs__.hyprland.packages.default}/bin/Hyprland";
-        default_session.command = "${nixpkgs.greetd.greetd}/bin/agreety --cmd Hyprland";
+      settings = rec {
+        initial_session = {
+          command = "${nixpkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
+          inherit user;
+        };
+        default_session = initial_session;
       };
     };
   };
 
   guangtao = {
-    imports =
-      [
-        (default {nvidia = true;})
-        (displayManager {
-          nvidia = true;
-          autoLogin = true;
-          user = "guangtao";
-        })
-      ]
-      ++ [
-        # cell.nixosProfiles.hyprland.greetd
-      ];
-    # services.greetd.settings.initial_session.user = "guangtao";
+    imports = [
+      # (default {nvidia = true;})
+      # (displayManager {
+      #   nvidia = true;
+      #   autoLogin = true;
+      #   user = "guangtao";
+      # })
+      (greetd {user = "guangtao";})
+    ];
   };
 }
