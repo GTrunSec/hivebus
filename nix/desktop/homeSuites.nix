@@ -10,11 +10,11 @@ in {
     homeProfiles.kanshi.guangtao
     homeProfiles.rofi-wayland.guangtao
     homeProfiles.eww.guangtao
+    homeProfiles.waybar.guangtao
 
     homeModules.gtk
     homeModules.qt
     homeModules.kanshi
-    homeModules.waybar
     homeModules.wayland
   ];
 }

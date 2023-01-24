@@ -34,7 +34,8 @@
     ]
     ++ [
       inputs.cells.i18n.nixosModules.fcitx5
-    ];
+    ]
+    ++ inputs.cells.desktop.nixosSuites.guangtao;
 
   locale.imports = [
     inputs.cells.i18n.nixosModules.fcitx5

@@ -38,19 +38,41 @@ in rec {
       ];
   };
 
-  greetd = {user ? ""}: {
-    imports = [cell.nixosModules.greetd];
-    services.getty.autologinUser = user;
-    services.greetd = {
-      package = nixpkgs.greetd.tuigreet;
-      settings = rec {
-        initial_session = {
-          command = "${nixpkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
-          inherit user;
-        };
-        default_session = initial_session;
-      };
-    };
+  greetd = {
+    user ? "",
+    autoLogin ? false,
+  }: {
+    imports = [];
+    config = with l;
+      mkMerge [
+        (mkIf autoLogin {
+          services.getty.autologinUser = user;
+        })
+        {
+          environment.etc."greetd/environments".text = "Hyprland";
+          environment.etc."greetd/gtkgreet.css".text = ''
+            window {
+               background-size: cover;
+               background-position: center;
+            }
+            box#body {
+               border-radius: 10px;
+               position: center;
+               padding: 15px;
+            }
+          '';
+          # services.greetd = {
+          #   package = nixpkgs.greetd.gtkgreet;
+          #   settings = rec {
+          #     initial_session = {
+          #       command = "${nixpkgs.cage}/bin/cage -s -- ${nixpkgs.greetd.gtkgreet}/bin/gtkgreet -l -s /etc/greetd/gtkgreet.css";
+          #       inherit user;
+          #     };
+          #     default_session = initial_session;
+          #   };
+          # };
+        }
+      ];
   };
 
   guangtao = {
@@ -61,7 +83,10 @@ in rec {
       #   autoLogin = true;
       #   user = "guangtao";
       # })
-      (greetd {user = "guangtao";})
+      (greetd {
+        user = "guangtao";
+        autoLogin = true;
+      })
     ];
   };
 }
