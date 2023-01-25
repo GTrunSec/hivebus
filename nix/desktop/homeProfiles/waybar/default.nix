@@ -14,16 +14,16 @@ in {
     ];
     programs.waybar = {
       style = l.readFile ./style.css;
-      settings = [
-        (l.recursiveUpdate (l.fromJSON (l.readFile ./config.json)) {
+      settings = {
+        top = (l.recursiveUpdate (l.fromJSON (l.readFile ./config-top.json)) {
           output = ["DP-2"];
           network.on-click-right = "nm-connection-editor";
           pulseaudio = {
             "on-click" = "pamixer -t";
             "on-click-right" = "pavucontrol";
           };
-        })
-      ];
+        });
+      };
     };
   };
 }

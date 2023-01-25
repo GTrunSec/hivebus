@@ -27,6 +27,8 @@ in
   // {
     inherit __inputs__;
 
+    __utils__ = callFlake ./lib/utils {};
+
     importRakeLeaves = path: args:
       l.mapAttrs (_: v:
         if (l.isFunction (import v))

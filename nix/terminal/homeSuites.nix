@@ -34,6 +34,7 @@ in rec {
     [
       # homeModules.wezterm
       homeProfiles.alacritty.guangtao
+      homeProfiles.bat.catppuccin-mocha
     ]
     ++ default;
 }

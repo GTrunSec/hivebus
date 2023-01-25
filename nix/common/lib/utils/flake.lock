@@ -1,0 +1,78 @@
+{
+  "nodes": {
+    "catppuccin-bat": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1668065083,
+        "narHash": "sha256-6WVKQErGdaqb++oaXnY3i6/GuH2FhTgK0v4TN4Y0Wbw=",
+        "owner": "catppuccin",
+        "repo": "bat",
+        "rev": "ba4d16880d63e656acced2b7d4e034e4a93f74b1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "bat",
+        "type": "github"
+      }
+    },
+    "catppuccin-gitui": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1669172699,
+        "narHash": "sha256-frkGtsk/VuS6MYUf7S2hqNHhTaV6S0Mv2UuttCgvimk=",
+        "owner": "catppuccin",
+        "repo": "gitui",
+        "rev": "ff1e802cfff3d5ff41b0d829a3df1da8087b1265",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "gitui",
+        "type": "github"
+      }
+    },
+    "catppuccin-hyprland": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1669689131,
+        "narHash": "sha256-P0D/9ANuQjz5oqIH3w5BdzPM8CQAtOtBsLsqDN8Mq5s=",
+        "owner": "catppuccin",
+        "repo": "hyprland",
+        "rev": "15383218340309cd77d1dc501bfa82c30c45067f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "hyprland",
+        "type": "github"
+      }
+    },
+    "catppuccin-waybar": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1673578738,
+        "narHash": "sha256-sZO0j01LBxhYgI3LiL8dIaETdsWuy9kjecWk3vnTxUU=",
+        "owner": "catppuccin",
+        "repo": "waybar",
+        "rev": "81c0e401d45263596dcdc441878739f95841e129",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "waybar",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "catppuccin-bat": "catppuccin-bat",
+        "catppuccin-gitui": "catppuccin-gitui",
+        "catppuccin-hyprland": "catppuccin-hyprland",
+        "catppuccin-waybar": "catppuccin-waybar"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
