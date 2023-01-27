@@ -6,7 +6,7 @@
     "tooltip": false
   },
   "custom/weather": {
-    "exec": "python ~/ghq/github.com/GTrunSec/hive/profiles/waybar/scripts/weather.py ",
+    "exec": "python weather.py",
     "on-click": "xdg-open https://weather.com/en-IN/weather/today/l/f5418ee48ceba432e37ed772ea73abe27c9f47fa4ff4e4506ba3b8fa96f514f0",
     "restart-interval": 300,
     "return-type": "json"

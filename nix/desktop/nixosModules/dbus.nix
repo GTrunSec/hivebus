@@ -11,5 +11,8 @@
       dconf
     ];
   };
+  services.passSecretService = {
+    enable = true;
+  };
   services.udev.packages = with pkgs; [gnome.gnome-settings-daemon];
 }

@@ -3068,7 +3068,7 @@ a separator ' -> '."
 *** jupyter
 
 #+begin_src emacs-lisp :tangle "./modules/private/my-code/packages.el"
-(package! emacs-jupyter  :recipe (:host github :repo "GTrunSec/emacs-jupyter"
+(package! jupyter  :recipe (:host github :repo "GTrunSec/emacs-jupyter"
                                   :branch "ignore-warning"))
 #+end_src
 
