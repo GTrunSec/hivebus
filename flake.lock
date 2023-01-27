@@ -76,11 +76,11 @@
         "xnlib": "xnlib"
       },
       "locked": {
-        "lastModified": 1674769710,
-        "narHash": "sha256-TYZVd3r6E7O5EC+Sh2lDK4ttDzzcVlqiqX2WDzp4TyI=",
+        "lastModified": 1674833255,
+        "narHash": "sha256-55y5hoakjMHc/5AvNy7ZTJ5F9o6VDXJkuLTEWq6qQa0=",
         "owner": "gtrunsec",
         "repo": "cells-lab",
-        "rev": "4d69925423f0c72242c94b0225b769c8e464356f",
+        "rev": "37310a55b8058245be1cc2940c0bb811a253c5cb",
         "type": "github"
       },
       "original": {
@@ -1484,17 +1484,17 @@
         "yants": "yants_3"
       },
       "locked": {
-        "lastModified": 1674237934,
-        "narHash": "sha256-I2dqYywlHG/1ecVxZ0iUEdgp4YH78Bu0wPdjgBooQ4U=",
-        "owner": "divnix",
-        "repo": "std",
-        "rev": "0d8c6af870b2e5312dbe90bb12a3e56b315924a4",
-        "type": "github"
+        "lastModified": 1674526466,
+        "narHash": "sha256-tMTaS0bqLx6VJ+K+ZT6xqsXNpzvSXJTmogkraBGzymg=",
+        "ref": "refs/heads/microvm",
+        "rev": "516387e3d8d059b50e742a2ff1909ed3c8f82826",
+        "revCount": 462,
+        "type": "git",
+        "url": "file:///home/guangtao/ghq/github.com/divnix/std"
       },
       "original": {
-        "owner": "divnix",
-        "repo": "std",
-        "type": "github"
+        "type": "git",
+        "url": "file:///home/guangtao/ghq/github.com/divnix/std"
       }
     },
     "utils": {

@@ -2,8 +2,8 @@
   description = "The Hive - The secretly open NixOS-Society";
 
   inputs = {
-    # std.url = "/home/guangtao/ghq/github.com/divnix/std";
-    std.url = "github:divnix/std";
+    std.url = "/home/guangtao/ghq/github.com/divnix/std";
+    # std.url = "github:divnix/std";
     std.inputs.nixpkgs.follows = "nixpkgs";
     std.inputs.arion.follows = "arion";
     std.inputs.microvm.follows = "microvm";

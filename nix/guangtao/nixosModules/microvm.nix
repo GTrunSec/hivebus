@@ -10,7 +10,7 @@
 
   services.openssh = {
     enable = true;
-    permitRootLogin = "yes";
+    settings.permitRootLogin = "yes";
   };
 
   microvm.shares = [

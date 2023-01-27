@@ -2,10 +2,14 @@
   inputs,
   cell,
 }: let
-  inherit (inputs.cells-lab.microvms.lib) makeVM;
+  inherit (inputs.std.lib.ops) mkMicrovm;
 in {
-  dev = makeVM {
-    channel = inputs.nixos.legacyPackages;
-    module.imports = [cell.nixosModules.microvm cell.microvmProfiles.dev];
+  # std //guangtao/microvms/dev:run
+  dev = mkMicrovm {
+    imports = [
+      cell.nixosModules.microvm
+      cell.microvmProfiles.dev
+      {nixpkgs.pkgs = cell.nixosConfigurations.desktop.bee.pkgs;}
+    ];
   };
 }

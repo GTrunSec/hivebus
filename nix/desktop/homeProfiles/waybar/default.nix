@@ -1,24 +1,22 @@
-{ inputs
-, cell
-,
-}:
-let
+{
+  inputs,
+  cell,
+}: let
   l = inputs.nixpkgs.lib // builtins;
   inherit (inputs) nixpkgs;
-in
-{
+in {
   guangtao = {
-    imports = [ cell.homeModules.waybar ];
+    imports = [cell.homeModules.waybar];
     home.packages = with nixpkgs; [
       networkmanagerapplet
-      pavucontrol #a6da95wi#a6da95wi
+      pavucontrol
       pamixer
     ];
     programs.waybar = {
       style = l.readFile ./style.css;
       settings = {
-        top = (l.recursiveUpdate (l.fromJSON (l.readFile ./config-top.json)) {
-          output = [ "DP-2" ];
+        top = l.recursiveUpdate (l.fromJSON (l.readFile ./config-top.json)) {
+          output = ["DP-2"];
           network.on-click-right = "nm-connection-editor";
           "custom/weather" = {
             exec = "python ~/ghq/github.com/GTrunSec/hive/profiles/waybar/scripts/weather.py";
@@ -28,7 +26,7 @@ in
             "on-click" = "pamixer -t";
             "on-click-right" = "pavucontrol";
           };
-        });
+        };
       };
     };
   };
