@@ -13,7 +13,9 @@
     imports = [inputs.cells.common.lib.__inputs__.sops-nix.nixosModules.sops];
   };
   yubikey = {
-    imports = [];
+    imports = [
+      cell.nixosModules.yubikey
+    ];
   };
 }
 // inputs.cells.common.lib.importRakeLeaves ./nixosProfiles {inherit inputs cell;}

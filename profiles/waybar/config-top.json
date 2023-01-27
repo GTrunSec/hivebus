@@ -11,10 +11,6 @@
     "restart-interval": 300,
     "return-type": "json"
   },
-  "custom/wintitle": {
-    "exec": "/nix/store/2qy379ilr2qhndnmbf66nxmgs3c1agsv-hyprland-window/bin/hyprland-window",
-    "interval": 1
-  },
   "cpu": {
     "interval": 10,
     "format": " {}%",
@@ -35,17 +31,34 @@
   },
   "layer": "top",
   "margin": "5px 5px 0",
-  "modules-center": ["custom/wintitle"],
-  "modules-left": ["custom/launcher", "wlr/workspaces"],
+  "modules-center": [""],
+  "modules-left": ["custom/launcher", "wlr/workspaces", "clock"],
   "modules-right": [
+    "backlight",
     "custom/weather",
     "network",
     "Hyprland/submap",
     "cpu",
     "memory",
     "pulseaudio",
-    "tray"
+    "tray",
+    "custom/power-menu"
   ],
+  "custom/power-menu": {
+    "format": " <span color='#6a92d7'>⏻ </span>",
+    "on-click": "bash powermenu.sh"
+  },
+  "backlight": {
+    "device": "DP-2",
+    "format": "{icon} {percent}%",
+    "format-icons": ["", "", "", "", "", "", "", "", ""],
+    "on-click": ""
+  },
+  "clock": {
+    "format": "<span color='#bf616a'> </span>{:%a %b %d}",
+    "format-alt": "<span color='#bf616a'> </span>{:%I:%M %p}",
+    "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>"
+  },
   "network": {
     "format-alt": "<span color='#8aadf4'>{ifname}</span> {ipaddr}/{cidr}",
     "format-disconnected": "Not connected",

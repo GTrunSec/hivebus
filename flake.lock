@@ -1486,15 +1486,15 @@
       "locked": {
         "lastModified": 1674526466,
         "narHash": "sha256-tMTaS0bqLx6VJ+K+ZT6xqsXNpzvSXJTmogkraBGzymg=",
-        "ref": "refs/heads/microvm",
+        "owner": "divnix",
+        "repo": "std",
         "rev": "516387e3d8d059b50e742a2ff1909ed3c8f82826",
-        "revCount": 462,
-        "type": "git",
-        "url": "file:///home/guangtao/ghq/github.com/divnix/std"
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "file:///home/guangtao/ghq/github.com/divnix/std"
+        "owner": "divnix",
+        "repo": "std",
+        "type": "github"
       }
     },
     "utils": {

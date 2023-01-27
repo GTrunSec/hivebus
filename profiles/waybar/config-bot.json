@@ -1,0 +1,9 @@
+{
+  "output": ["DP-2"],
+  "position": "bottom",
+  "modules-center": ["custom/wintitle"],
+  "custom/wintitle": {
+    "exec": "/nix/store/2qy379ilr2qhndnmbf66nxmgs3c1agsv-hyprland-window/bin/hyprland-window",
+    "interval": 1
+  }
+}
