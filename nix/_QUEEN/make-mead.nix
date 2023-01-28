@@ -19,4 +19,4 @@ in
         ];
       };
   in
-    comb
+    l.mapAttrs (evalNode {}) comb
