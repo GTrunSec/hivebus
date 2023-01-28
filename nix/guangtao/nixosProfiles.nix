@@ -24,10 +24,6 @@
       # cell.nixosProfiles.nixgl
     ]
     ++ [
-      # use home-manager instead
-      inputs.cells.desktop.nixosProfiles.hyprland.guangtao
-    ]
-    ++ [
       # audio
       inputs.cells.hardware.nixosModules.bluetooth
       inputs.cells.hardware.nixosModules.pipewire

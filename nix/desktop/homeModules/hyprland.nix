@@ -3,12 +3,12 @@
   lib,
   ...
 }: let
-  cfg = config.programs.hyprland;
-  cfg' = config.programs.hyprland.hiveProfiles;
+  cfg = config.wayland.windowManager.hyprland;
+  cfg' = config.wayland.windowManager.hyprland.hiveProfiles;
 in
   with lib; {
     options = {
-      programs.hyprland = {
+      wayland.windowManager.hyprland = {
         hiveProfiles = mkOption {
           default = {};
           type = types.submodule {
@@ -38,6 +38,11 @@ in
                 default = false;
                 description = "nvidia profile";
               };
+              shell = mkOption {
+                type = types.str;
+                default = "zsh";
+                description = "Shell of the profile";
+              };
               autoLogin = mkOption {
                 type = types.bool;
                 default = false;
@@ -50,44 +55,35 @@ in
     };
 
     config = mkIf cfg.enable (mkMerge [
-      (mkIf cfg'.displayManager {
-        services.xserver.displayManager = {
-          autoLogin = mkIf cfg'.autoLogin {
-            enable = true;
-            user = cfg'.user;
-          };
-          defaultSession = "hyprland";
+      {
+        home.sessionVariables = {
+          QT_QPA_PLATFORM = "wayland";
+          SDL_VIDEODRIVER = "wayland";
+          GDK_BACKEND = "wayland";
+          _JAVA_AWT_WM_NONREPARENTING = 1;
+          MOZ_ENABLE_WAYLAND = "1";
+          XDG_CURRENT_DESKTOP = "Hyprland";
+          XDG_SESSION_DESKTOP = "Hyprland";
+          XDG_SESSION_TYPE = "wayland";
+        };
+      }
+      (mkIf cfg'.nvidia {
+        wayland.windowManager.hyprland.nvidiaPatches = true;
+        home.sessionVariables = {
+          LIBVA_DRIVER_NAME = "nvidia";
+          GBM_BACKEND = "nvidia-drm";
+          __GLX_VENDOR_LIBRARY_NAME = "nvidia";
         };
       })
-      (mkIf (cfg'.displayManager && cfg'.nvidia) {
-        services.xserver.videoDrivers = ["nvidia"];
-      })
-      (mkIf cfg'.greetd {
-        environment.etc."greetd/environments".text = "Hyprland";
-        environment.etc."greetd/gtkgreet.css".text = ''
-          window {
-             background-size: cover;
-             background-position: center;
-          }
-          box#body {
-             border-radius: 10px;
-             position: center;
-             padding: 15px;
-          }
-        '';
-        services.greetd = {
-          package = pkgs.greetd.gtkgreet;
-          settings = rec {
-            initial_session = {
-              command = "${pkgs.cage}/bin/cage -s -- ${pkgs.greetd.gtkgreet}/bin/gtkgreet -l -s /etc/greetd/gtkgreet.css";
-              inherit user;
-            };
-            default_session = initial_session;
-          };
+      (mkIf cfg'.autoLogin {
+        programs.${cfg'.shell} = {
+          loginExtra = ''
+            # If running from tty1 start hyprland
+            if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
+              Hyprland
+            fi
+          '';
         };
-      })
-      (mkIf (cfg'.getty && cfg'.autoLogin) {
-        services.getty.autologinUser = cfg'.user;
       })
     ]);
   }
