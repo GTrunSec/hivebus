@@ -9,12 +9,6 @@
     std.inputs.microvm.follows = "microvm";
     dmerge.follows = "std/dmerge";
 
-    hivelib.url = "github:divnix/hive";
-    hivelib.inputs.nixpkgs.follows = "nixpkgs";
-    hivelib.inputs.colmena.follows = "colmena";
-    hivelib.inputs.nixos-hardware.follows = "nixos-hardware";
-    hivelib.inputs.disko.follows = "disko";
-    # hivelib.url = "/home/gtrun/ghq/github.com/divnix/hive-1";
     cells-lab.url = "github:gtrunsec/cells-lab";
   };
 
@@ -63,7 +57,6 @@
     self,
     std,
     nixpkgs,
-    hivelib,
     ...
   } @ inputs:
     std.growOn {

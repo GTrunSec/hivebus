@@ -3,45 +3,46 @@
   cell,
 }:
 {
-  default.imports =
-    [
-      inputs.cells.bootstrap.nixosModules.systemd-initrd
-    ]
-    ++ inputs.cells.bootstrap.nixosSuites.default;
+  default = {
+    systemd-initrd.imports =
+      [
+        inputs.cells.bootstrap.nixosModules.systemd-initrd
+      ]
+      ++ inputs.cells.bootstrap.nixosSuites.default;
+    systemd-boot.imports =
+      [
+        inputs.cells.bootstrap.nixosModules.systemd-initrd
+      ]
+      ++ inputs.cells.bootstrap.nixosSuites.default;
+  };
 
-  graphical.imports =
-    [
-      inputs.cells.hardware.nixosModules.hidpi
+  graphical = {
+    default.imports =
+      [
+        inputs.cells.hardware.nixosModules.opengl
+        cell.nixosProfiles.nixgl
+        # gtk modules
+        cell.nixosProfiles.dfconf
+        cell.nixosModules.fonts
+        inputs.cells.desktop.nixosModules.xdg
+        inputs.cells.i18n.nixosModules.fcitx5
+        # audio modules
+        inputs.cells.hardware.nixosModules.bluetooth
+        inputs.cells.hardware.nixosModules.pipewire
+      ]
+      ++ inputs.cells.desktop.nixosSuites.guangtao;
+
+    nvidia.imports = [
       cell.nixosModules.nvidia
-      inputs.cells.hardware.nixosModules.opengl
-      # wayland require
-      inputs.cells.security.nixosModules.polkit
-      # gtk require
-      cell.nixosProfiles.dfconf
-      cell.nixosModules.fonts
-      inputs.cells.desktop.nixosModules.xdg
-      cell.nixosProfiles.nixgl
-      # cell.nixosProfiles.nixgl
-    ]
-    ++ [
-      # audio
-      inputs.cells.hardware.nixosModules.bluetooth
-      inputs.cells.hardware.nixosModules.pipewire
-    ]
-    ++ [
-      inputs.cells.i18n.nixosModules.fcitx5
-    ]
-    ++ inputs.cells.desktop.nixosSuites.guangtao;
-
-  locale.imports = [
-    inputs.cells.i18n.nixosModules.fcitx5
-  ];
+    ];
+    hidpi.imports = [
+      inputs.cells.hardware.nixosModules.hidpi
+    ];
+  };
 
   virtualization.imports = [
     inputs.cells.virtualization.nixosProfiles.guangtao
   ];
-
-  searching.imports = [];
 
   coding = {
     desktop.imports = [
@@ -59,25 +60,11 @@
   disk.imports =
     [
       inputs.disko.nixosModules.disko
-      # cell.nixosProfiles.zfs
-      {
-        disko.devices = cell.diskoConfigurations.desktop {};
-      }
       inputs.cells.filesystems.nixosProfiles.impermanence.guangtao
     ]
-    ++
-    # ssd setting
-    inputs.cells.hardware.nixosSuites.ssd;
+    ++ inputs.cells.hardware.nixosSuites.ssd;
 
-  secrets.imports =
-    [
-      # inputs.cells.secrets.nixosProfiles.sops
-    ]
-    ++ inputs.cells.secrets.nixosSuites.guangtao;
-
-  desktopOnly.imports = [
-    cell.nixosProfiles.desktopServices
-  ];
+  secrets.imports = inputs.cells.secrets.nixosSuites.default;
 
   applications.imports = [
     inputs.cells.utils.nixosProfiles.vscode

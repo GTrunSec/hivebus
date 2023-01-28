@@ -3,6 +3,8 @@
   pkgs,
   ...
 }: {
+  system.stateVersion = config.system.nixos.version;
+
   environment.systemPackages = with pkgs; [
     unzip
     pciutils

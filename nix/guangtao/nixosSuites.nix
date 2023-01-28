@@ -7,20 +7,21 @@
 in {
   desktop = with nixosProfiles;
     [
-      default
+      default.systemd-initrd
+      graphical.default
+      graphical.nvidia
+      graphical.hidpi
       networking
-      graphical
       disk
       secrets
-      locale
       virtualization
       coding.desktop
-      cell.nixosModules.Desktop
       applications
     ]
     ++ [
       (cell.lib.mkHome "guangtao" "desktop" "zsh" "22.11")
       cell.userProfiles.root
+      desktop
     ];
 
   libvirtd = with nixosProfiles;

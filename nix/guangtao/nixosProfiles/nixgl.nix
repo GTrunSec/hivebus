@@ -9,7 +9,6 @@
   inherit (inputs.cells-lab.writers.lib) writeShellApplication;
   nixgl = writeShellApplication {
     name = "nixgl";
-    runtimeInputs = with inputs.nixpkgs; [];
     runtimeEnv = {
       NIXPKGS_ALLOW_UNFREE = 1;
     };

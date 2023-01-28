@@ -2,10 +2,9 @@
   nixpkgs,
   darwin,
   cellBlock ? "darwinConfigurations",
-  pasteurize',
 }: let
   l = nixpkgs.lib // builtins;
-  inherit (import pasteurize' {inherit nixpkgs cellBlock;}) cure beeOptions;
+  inherit (import ./pasteurize.nix {inherit nixpkgs cellBlock;}) cure beeOptions;
 in
   self: let
     comb = cure self;
