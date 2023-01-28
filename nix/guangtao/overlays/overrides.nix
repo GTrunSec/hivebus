@@ -1,10 +1,17 @@
 {
   inputs,
   cell,
-}: final: prev: {
-  inherit
-    (inputs.nixpkgs-master.legacyPackages.${prev.stdenv.system})
-    gnome-remote-desktop
-    bibata-cursors
-    ;
-}
+}: let
+  nixpkgs-master = import inputs.nixpkgs-master {
+    inherit (inputs.nixpkgs) system;
+    config.allowUnfree = true;
+  };
+in
+  final: prev: {
+    inherit
+      (nixpkgs-master)
+      gnome-remote-desktop
+      bibata-cursors
+      zoom-us
+      ;
+  }

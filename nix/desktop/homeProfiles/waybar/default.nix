@@ -6,7 +6,12 @@
 
   inherit (inputs) nixpkgs std self;
   src = "${(std.incl self ["profiles/waybar"])}/profiles/waybar";
-in {
+in rec {
+  default = {
+    top = l.fromJSON (l.readFile "${src}/config-top.json");
+    bottom = l.fromJSON (l.readFile "${src}/config-bottom.json");
+  };
+
   guangtao = {
     imports = [
       cell.homeModules.waybar
@@ -21,7 +26,7 @@ in {
     programs.waybar = {
       style = l.readFile "${src}/style.css";
       settings = {
-        top = l.recursiveUpdate (l.fromJSON (l.readFile "${src}/config-top.json")) {
+        top = l.recursiveUpdate default.top {
           output = ["DP-2"];
           network.on-click-right = "nm-connection-editor";
           "custom/weather" = {
@@ -32,14 +37,14 @@ in {
             device = "DP-2";
           };
           "custom/power-menu" = {
-            on-click = "bash ${src}/scripts/power-menu.sh";
+            on-click = "bash ${src}/scripts/power-menu/power-menu.sh";
           };
           pulseaudio = {
             "on-click" = "pamixer -t";
             "on-click-right" = "pavucontrol";
           };
         };
-        bottom = l.recursiveUpdate (l.fromJSON (l.readFile "${src}/config-bot.json")) {};
+        bottom = l.recursiveUpdate default.bottom {};
       };
     };
   };
