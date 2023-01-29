@@ -4,18 +4,21 @@
 }: rec {
   default = {
     imports = [inputs.impermanence.nixosModules.impermanence];
+    environment.persistence."/persist" = {
+      directories = [
+        "/var"
+        "/root"
+      ];
+      files = [
+        "/etc/machine-id"
+      ];
+    };
   };
   guangtao = {
     imports = [
       default
     ];
     environment.persistence."/persist" = {
-      directories = [
-        "/var"
-      ];
-      files = [
-        # "/etc/machine-id"
-      ];
       users.guangtao = {
         directories = [
           "Documents"
