@@ -17,6 +17,7 @@ in {
       "video"
       "docker"
     ];
+    inherit (cell.secretProfiles.guangtao) openssh;
   };
 
   gtrun = cell.userProfiles.guangtao;
