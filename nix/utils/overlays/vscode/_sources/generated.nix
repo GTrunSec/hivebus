@@ -3,11 +3,11 @@
 {
   copilot = {
     pname = "copilot";
-    version = "1.67.7944";
+    version = "1.71.8269";
     src = fetchurl {
-      url = "https://GitHub.gallery.vsassets.io/_apis/public/gallery/publisher/GitHub/extension/copilot/1.67.7944/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage";
-      name = "copilot-1.67.7944.zip";
-      sha256 = "sha256-2Luj6BIK9JswVS1QMxZtnW8tHQPk0CKj33STShkFBCY=";
+      url = "https://GitHub.gallery.vsassets.io/_apis/public/gallery/publisher/GitHub/extension/copilot/1.71.8269/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage";
+      name = "copilot-1.71.8269.zip";
+      sha256 = "sha256-btN0VNPid6dsmqXWrHBXxAQoP5qBOpOC2McPxuF2Nbg=";
     };
     name = "copilot";
     publisher = "Github";
@@ -36,11 +36,11 @@
   };
   julia = {
     pname = "julia";
-    version = "1.40.1";
+    version = "1.41.1";
     src = fetchurl {
-      url = "https://julialang.gallery.vsassets.io/_apis/public/gallery/publisher/julialang/extension/language-julia/1.40.1/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage";
-      name = "language-julia-1.40.1.zip";
-      sha256 = "sha256-BPF8J5DubzBesmO+nbMTbH76tVrkd7fQykzt1zDSgt8=";
+      url = "https://julialang.gallery.vsassets.io/_apis/public/gallery/publisher/julialang/extension/language-julia/1.41.1/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage";
+      name = "language-julia-1.41.1.zip";
+      sha256 = "sha256-h/8/YcqaJgL8GiqXBBXMQ5TSYU7Rn/hr39jPvyfL1KA=";
     };
     name = "language-julia";
     publisher = "julialang";
@@ -124,11 +124,11 @@
   };
   rust-analyzer = {
     pname = "rust-analyzer";
-    version = "0.4.1370";
+    version = "0.4.1387";
     src = fetchurl {
-      url = "https://rust-lang.gallery.vsassets.io/_apis/public/gallery/publisher/rust-lang/extension/rust-analyzer/0.4.1370/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage";
-      name = "rust-analyzer-0.4.1370.zip";
-      sha256 = "sha256-n6CYo3VBi2h9FwKhdQDTCArewORBbDpEGg8WvraXM+I=";
+      url = "https://rust-lang.gallery.vsassets.io/_apis/public/gallery/publisher/rust-lang/extension/rust-analyzer/0.4.1387/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage";
+      name = "rust-analyzer-0.4.1387.zip";
+      sha256 = "sha256-n92F7AJoGSSTaoBtGKR+ML/Wf7zptmSKpsEjPhW9BU0=";
     };
     name = "rust-analyzer";
     publisher = "rust-lang";
@@ -143,6 +143,17 @@
     };
     name = "tokyo-night";
     publisher = "enkia";
+  };
+  vs-code-bpmn-io = {
+    pname = "vs-code-bpmn-io";
+    version = "0.14.0";
+    src = fetchurl {
+      url = "https://bpmn-io.gallery.vsassets.io/_apis/public/gallery/publisher/bpmn-io/extension/vs-code-bpmn-io/0.14.0/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage";
+      name = "vs-code-bpmn-io-0.14.0.zip";
+      sha256 = "sha256-803btmWe+TIookgbOFgiVkvVzqxjghmT4LuChNdOxps=";
+    };
+    name = "vs-code-bpmn-io";
+    publisher = "bpmn-io";
   };
   vscode-emacs-friendly = {
     pname = "vscode-emacs-friendly";

@@ -1,3 +1,8 @@
+[vs-code-bpmn-io]
+src.vsmarketplace = "bpmn-io.vs-code-bpmn-io"
+fetch.vsmarketplace = "bpmn-io.vs-code-bpmn-io"
+passthru = { publisher = "bpmn-io", name = "vs-code-bpmn-io" }
+
 [copilot]
 src.vsmarketplace = "GitHub.copilot"
 fetch.vsmarketplace = "GitHub.copilot"

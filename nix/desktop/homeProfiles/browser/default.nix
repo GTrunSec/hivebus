@@ -13,7 +13,8 @@ in rec {
       imports = [homeModules.firefox];
     }
     // import ./firefox.nix {inherit inputs cell;};
+
   guangtao = {
-    imports = [firefox];
+    imports = [firefox brave];
   };
 }

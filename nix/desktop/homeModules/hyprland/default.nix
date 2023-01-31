@@ -7,7 +7,7 @@
   cfg' = config.wayland.windowManager.hyprland.hiveProfiles;
 in
   with lib; {
-    options = import ./options.nix {inherit lib;};
+    options = import ./types.nix {inherit lib;};
 
     config = mkIf cfg.enable (mkMerge [
       {

@@ -3,7 +3,7 @@
   cell,
 }: let
   l = inputs.nixpkgs.lib // builtins;
-  nixpkgs = inputs.nixpkgs.appendOverlays ([] ++ cell.overlays.destkop);
+  nixpkgs = inputs.nixpkgs.appendOverlays ([] ++ cell.overlays.desktop);
 in {
   inherit nixpkgs;
 

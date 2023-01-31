@@ -24,7 +24,7 @@
         lfs.vscode-emacs-friendly
         enkia.tokyo-night
         davidanson.vscode-markdownlint
-        davidanson.vscode-markdownlint
+        bpmn-io.vs-code-bpmn-io
         mkhl.direnv
         github.copilot
         rust-lang.rust-analyzer
