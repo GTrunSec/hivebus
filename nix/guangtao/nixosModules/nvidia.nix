@@ -5,7 +5,7 @@
   ...
 }: {
   services.xserver = {
-    videoDrivers = ["nvidia" "intel"];
+    videoDrivers = ["nvidia"];
   };
 
   systemd.services.nvidia-control-devices = {
@@ -19,19 +19,27 @@
     # blacklistedKernelModules = ["nouveau"];
   };
   hardware = {
-    nvidia.package = config.boot.kernelPackages.nvidiaPackages.production;
+    nvidia = {
+      package = config.boot.kernelPackages.nvidiaPackages.production;
+      modesetting.enable = true;
+      powerManagement.enable = false;
+    };
     # nvidia = {
     #   package = config.boot.kernelPackages.nvidiaPackages.stable;
     #   open = true;
     #   nvidiaSettings = false;
     # };
     opengl.enable = true;
-    nvidia.modesetting.enable = true;
-    nvidia.powerManagement.enable = true;
     # nvidia.prime = {
     #   nvidiaBusId = "PCI:1:0:0";
     #   intelBusId = "PCI:0:2:0";
     #   offload.enable = true;
     # };
   };
+
+  environment.systemPackages = with pkgs; [
+    glxinfo
+    vulkan-tools
+    glmark2
+  ];
 }

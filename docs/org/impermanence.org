@@ -1,0 +1,10 @@
+:PROPERTIES:
+:ID:       62747325-b552-4848-a358-a0eb308878da
+:END:
+#+title: Impermanence
+
+* Blogs
+
+** https://grahamc.com/blog/erase-your-darlings
+
+** https://lantian.pub/article/modify-computer/nixos-impermanence.lantian/ :chinese:

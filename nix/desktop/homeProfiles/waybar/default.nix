@@ -44,7 +44,12 @@ in rec {
             "on-click-right" = "pavucontrol";
           };
         };
-        bottom = l.recursiveUpdate default.bottom {};
+        bottom = l.recursiveUpdate default.bottom {
+          output = ["DP-2"];
+          "custom/wintitle" = {
+            exec = "${l.getExe cell.entrypoints.hyprland-window}";
+          };
+        };
       };
     };
   };
