@@ -12,6 +12,8 @@
     clang
     nixpkgs-fmt
     cachix
+    openssl
+    pkg-config
     wget
     curl
     (

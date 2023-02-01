@@ -18,7 +18,7 @@
 in rec {
   bee.system = "x86_64-darwin";
   bee.home = inputs.home;
-  bee.pkgs = import inputs.nixos {
+  bee.pkgs = import inputs.nixos-22-11 {
     system = "x86_64-darwin";
     config.allowUnfree = true;
     overlays = cell.overlays.macbook;

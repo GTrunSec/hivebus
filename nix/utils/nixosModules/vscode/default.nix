@@ -7,7 +7,7 @@
   cfg' = config.programs.vscode.hiveProfiles;
 in {
   options = import ./types.nix {inherit lib;};
-  config = with lib;{
+  config = with lib; {
     environment.systemPackages = with pkgs; [
       (pkgs.vscode-with-extensions.override {
         # When the extension is already available in the default extensions set.
