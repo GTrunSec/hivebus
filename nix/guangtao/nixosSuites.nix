@@ -12,7 +12,6 @@ in {
       graphical.nvidia
       graphical.hidpi
       networking
-      disk
       secrets
       virtualization
       coding.desktop

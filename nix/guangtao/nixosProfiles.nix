@@ -50,12 +50,6 @@
     inputs.cells.networking.nixosProfiles.nat
   ];
 
-  disk.imports =
-    [
-      inputs.cells.filesystems.nixosProfiles.impermanence.guangtao
-    ]
-    ++ inputs.cells.hardware.nixosSuites.ssd;
-
   secrets.imports = inputs.cells.secrets.nixosSuites.default;
 
   applications.imports = [

@@ -7,11 +7,14 @@
     lib,
     ...
   }: {
-    imports = [
-      inputs.disko.nixosModules.disko
-      {disko.devices = cell.diskoConfigurations.desktop {};}
-      # inputs.nixos-hardware.nixosModules.common-gpu-nvidia
-    ];
+    imports =
+      [
+        inputs.disko.nixosModules.disko
+        inputs.cells.filesystems.nixosProfiles.impermanence.guangtao
+        {disko.devices = cell.diskoConfigurations.desktop {};}
+        # inputs.nixos-hardware.nixosModules.common-gpu-nvidia
+      ]
+      ++ inputs.cells.hardware.nixosSuites.ssd;
 
     boot.kernelPackages = pkgs.linuxPackages_latest;
 
