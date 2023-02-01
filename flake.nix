@@ -80,6 +80,7 @@
         # profiles activate
         (functions "nixosProfiles")
         (functions "darwinProfiles")
+        (functions "hardwareProfiles")
         (functions "homeProfiles")
         (functions "devshellProfiles")
         (functions "userProfiles")

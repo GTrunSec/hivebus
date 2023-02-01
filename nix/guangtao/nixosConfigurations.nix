@@ -5,7 +5,16 @@
   inherit (cell) nixosSuites;
   l = inputs.nixpkgs.lib // builtins;
 in {
-  desktop = import ./nixosConfigurations/desktop {inherit inputs cell;};
+  desktop = {
+    bee.system = "x86_64-linux";
+    bee.home = inputs.home;
+    bee.pkgs = import inputs.nixos {
+      inherit (inputs.nixpkgs) system;
+      config.allowUnfree = true;
+      overlays = cell.overlays.desktop;
+    };
+    imports = cell.nixosSuites.desktop;
+  };
 
   # libvirtd machines
   libvirtd_1 = import ./nixosConfigurations/libvirtd_1 {inherit inputs cell;};

@@ -5,9 +5,9 @@
   imports = [
     inputs.cells.bootstrap.nixosModules.zswap
     cell.nixosModules.desktop
+    cell.hardwareProfiles.desktop
   ];
-  disko.devices = cell.diskoConfigurations.desktop {};
-
+  networking.hostName = "Desktop";
   time.timeZone = "America/Los_Angeles";
 
   networking.firewall = {
