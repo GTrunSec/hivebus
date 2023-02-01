@@ -8,6 +8,7 @@
     ...
   }: {
     imports = [
+      inputs.disko.nixosModules.disko
       {disko.devices = cell.diskoConfigurations.desktop {};}
       # inputs.nixos-hardware.nixosModules.common-gpu-nvidia
     ];

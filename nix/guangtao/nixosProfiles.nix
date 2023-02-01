@@ -52,7 +52,6 @@
 
   disk.imports =
     [
-      inputs.disko.nixosModules.disko
       inputs.cells.filesystems.nixosProfiles.impermanence.guangtao
     ]
     ++ inputs.cells.hardware.nixosSuites.ssd;
