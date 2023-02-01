@@ -208,12 +208,12 @@
         },
         "pinned": false,
         "src": {
-            "name": "rust-analyzer-0.4.1387.zip",
-            "sha256": "sha256-n92F7AJoGSSTaoBtGKR+ML/Wf7zptmSKpsEjPhW9BU0=",
+            "name": "rust-analyzer-0.4.1388.zip",
+            "sha256": "sha256-A1RxQHbqvDnAaqm3Kjlc9stR6Ge9zbrRAwNyjtRrcPM=",
             "type": "url",
-            "url": "https://rust-lang.gallery.vsassets.io/_apis/public/gallery/publisher/rust-lang/extension/rust-analyzer/0.4.1387/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
+            "url": "https://rust-lang.gallery.vsassets.io/_apis/public/gallery/publisher/rust-lang/extension/rust-analyzer/0.4.1388/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
         },
-        "version": "0.4.1387"
+        "version": "0.4.1388"
     },
     "tokyo-night": {
         "cargoLocks": null,

@@ -124,11 +124,11 @@
   };
   rust-analyzer = {
     pname = "rust-analyzer";
-    version = "0.4.1387";
+    version = "0.4.1388";
     src = fetchurl {
-      url = "https://rust-lang.gallery.vsassets.io/_apis/public/gallery/publisher/rust-lang/extension/rust-analyzer/0.4.1387/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage";
-      name = "rust-analyzer-0.4.1387.zip";
-      sha256 = "sha256-n92F7AJoGSSTaoBtGKR+ML/Wf7zptmSKpsEjPhW9BU0=";
+      url = "https://rust-lang.gallery.vsassets.io/_apis/public/gallery/publisher/rust-lang/extension/rust-analyzer/0.4.1388/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage";
+      name = "rust-analyzer-0.4.1388.zip";
+      sha256 = "sha256-A1RxQHbqvDnAaqm3Kjlc9stR6Ge9zbrRAwNyjtRrcPM=";
     };
     name = "rust-analyzer";
     publisher = "rust-lang";

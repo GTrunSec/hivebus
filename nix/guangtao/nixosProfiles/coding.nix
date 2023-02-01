@@ -7,7 +7,7 @@
       cell.nixosModules.julia
       cell.nixosModules.python
       cell.nixosModules.rust
-      inputs.cells.utils.nixosProfiles.vscode
+      inputs.cells.utils.nixosProfiles.vscode.guangtao
     ];
   };
 }
