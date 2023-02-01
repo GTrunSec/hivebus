@@ -32,7 +32,7 @@ in rec {
 
   guangtao =
     [
-      # homeModules.wezterm
+      homeProfiles.wezterm.default # disabled on linux
       homeProfiles.alacritty.guangtao
       homeProfiles.bat.catppuccin-mocha
     ]

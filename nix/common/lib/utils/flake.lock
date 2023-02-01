@@ -64,12 +64,29 @@
         "type": "github"
       }
     },
+    "catppuccin-wezterm": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1666243499,
+        "narHash": "sha256-pSiJJLiZoa5D3TgmJmN/9fuwm5LY12EoQav8vRTz1TQ=",
+        "owner": "catppuccin",
+        "repo": "wezterm",
+        "rev": "abf490a413516863b44ed4c6b7e2c1e805630e07",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "wezterm",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "catppuccin-bat": "catppuccin-bat",
         "catppuccin-gitui": "catppuccin-gitui",
         "catppuccin-hyprland": "catppuccin-hyprland",
-        "catppuccin-waybar": "catppuccin-waybar"
+        "catppuccin-waybar": "catppuccin-waybar",
+        "catppuccin-wezterm": "catppuccin-wezterm"
       }
     }
   },

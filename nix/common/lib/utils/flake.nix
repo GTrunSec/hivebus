@@ -17,6 +17,11 @@
       url = "github:catppuccin/bat";
       flake = false;
     };
+
+    catppuccin-wezterm = {
+      url = "github:catppuccin/wezterm";
+      flake = false;
+    };
   };
 
   outputs = {self, ...}: {};

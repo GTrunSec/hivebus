@@ -67,8 +67,3 @@ fetch.url = "https://github.com/logseq/logseq/releases/download/$ver/logseq-darw
 src.github = "logseq/logseq"
 # src.manual = "0.5.4"
 fetch.url = "https://github.com/logseq/logseq/releases/download/$ver/logseq-linux-x64-$ver.AppImage"
-
-[kitty-darwin]
-src.github = "kovidgoyal/kitty"
-src.prefix = "v"
-fetch.url = "https://github.com/kovidgoyal/kitty/releases/download/v$ver/kitty-$ver.dmg"

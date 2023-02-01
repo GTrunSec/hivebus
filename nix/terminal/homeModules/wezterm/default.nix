@@ -3,24 +3,15 @@
   lib,
   pkgs,
   ...
-}: {
-  programs.wezterm = {
-    enable = true;
-    package =
-      pkgs.wezterm.overrideAtrrs {
-      };
-    colorSchemes = {
-      "Dracula" = {
-        foreground = "#f8f8f2";
-        background = "#282a36";
-        cursor_bg = "#f8f8f2";
-        cursor_border = "#f8f8f2";
-        cursor_fg = "#282a36";
-        selection_bg = "#44475a";
-        selection_fg = "#f8f8f2";
-        ansi = ["#21222c" "#ff5555" "#50fa7b" "#f1fa8c" "#bd93f9" "#ff79c6" "#8be9fd" "#f8f8f2"];
-        brights = ["#6272a4" "#ff6e6e" "#69ff94" "#ffffa5" "#d6acff" "#ff92d0" "#a4ffff" "#ffffff"];
-      };
-    };
-  };
+}: let
+  cfg = config.programs.wezterm;
+in {
+  config = with lib;
+    mkMerge [
+      (mkIf (cfg.enable && nixpkgs.stdenv.isLinux) {
+        programs.wezterm = {
+          package = pkgs.wezterm.overrideAtrrs {};
+        };
+      })
+    ];
 }
