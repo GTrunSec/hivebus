@@ -18,6 +18,7 @@ in
 
       inputs.cells.utils.overlays.vscode
       inputs.cells.utils.overlays.vscode-extensions
+      __inputs__.julia2nix.overlays.default
       # __inputs__.nixpkgs-hardenedlinux.overlays.python
     ];
     macbook = [

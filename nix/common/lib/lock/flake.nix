@@ -67,6 +67,9 @@
   inputs = {
     nomad-driver.url = "github:input-output-hk/nomad-driver-nix";
     nomad-driver.inputs.nixpkgs.follows = "nixpkgs";
+
+    julia2nix.url = "github:JuliaCN/Julia2Nix.jl";
+    julia2nix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {self, ...}: {};

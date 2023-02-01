@@ -44,13 +44,6 @@
     inputs.cells.virtualization.nixosProfiles.guangtao
   ];
 
-  coding = {
-    desktop.imports = [
-      cell.nixosModules.python
-      cell.nixosModules.rust
-    ];
-  };
-
   databases.imports = [];
 
   networking.imports = [
