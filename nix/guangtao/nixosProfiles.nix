@@ -44,16 +44,8 @@
     inputs.cells.virtualization.nixosProfiles.guangtao
   ];
 
-  databases.imports = [];
-
   networking.imports = [
     inputs.cells.networking.nixosProfiles.nat
-  ];
-
-  secrets.imports = inputs.cells.secrets.nixosSuites.default;
-
-  applications.imports = [
-    inputs.cells.utils.nixosProfiles.vscode
   ];
 }
 // inputs.cells.common.lib.importRakeLeaves ./nixosProfiles {inherit cell inputs;}

@@ -10,7 +10,7 @@ in {
     mkMerge [
       (mkIf (cfg.enable && nixpkgs.stdenv.isLinux) {
         programs.wezterm = {
-          package = pkgs.wezterm.overrideAtrrs {};
+          package = pkgs.wezterm;
         };
       })
     ];
