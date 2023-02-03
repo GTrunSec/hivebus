@@ -18,7 +18,7 @@
 
     boot.kernelPackages = pkgs.linuxPackages_latest;
 
-    boot.loader.grub.device = lib.mkForce "/dev/disk/by-id/ata-CT1000MX500SSD1_2039E4B362FC";
+    # boot.loader.grub.device = lib.mkForce "/dev/disk/by-id/ata-CT1000MX500SSD1_2039E4B362FC";
 
     # hardware.nvidia.prime = {
     #   nvidiaBusId = "PCI:1:0:0";
@@ -32,6 +32,10 @@
     hardware.enableAllFirmware = true;
 
     powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
+
+    # sudo blkid
+    # https://askubuntu.com/questions/711016/slow-boot-a-start-job-is-running-for-dev-disk-by
+    fileSystems."/".device = lib.mkForce "/dev/disk/by-uuid/a8045ceb-eb63-4cfc-bd7c-bb05e82f1a5c";
 
     fileSystems."/DATABASE-4TB" = {
       device = "/dev/disk/by-uuid/749df476-c355-469a-9d00-4565a07901bf";

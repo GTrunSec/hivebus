@@ -25,7 +25,7 @@ in {
 
   libvirtd = with nixosProfiles;
     [
-      default
+      (default {boot = "boot";})
       inputs.cells.secrets.nixosProfiles.age
     ]
     ++ [
