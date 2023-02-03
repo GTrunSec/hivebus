@@ -18,7 +18,8 @@
 
     boot.kernelPackages = pkgs.linuxPackages_latest;
 
-    boot.loader.grub.device = lib.mkDefault "/dev/disk/by-id/ata-CT1000MX500SSD1_2039E4B362FC";
+    boot.loader.grub.device = lib.mkForce "/dev/disk/by-id/ata-CT1000MX500SSD1_2039E4B362FC";
+
     # hardware.nvidia.prime = {
     #   nvidiaBusId = "PCI:1:0:0";
     #   intelBusId = "PCI:0:2:0";

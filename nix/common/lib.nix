@@ -11,7 +11,7 @@
   __inputs__ = callFlake ./lib/lock {
     nixpkgs.locked = inputs.nixpkgs.sourceInfo;
     nixos.locked =
-      inputs.nixos.sourceInfo
+      inputs.nixos-22-11.sourceInfo
       // {
         type = "github";
         owner = "NixOS";
@@ -20,7 +20,6 @@
 
     sops-nix.inputs.nixpkgs = "nixos";
     ragenix.inputs.nixpkgs = "nixos";
-    styx.inputs.nixpkgs = "nixpkgs";
   };
 in
   inputs.cells-lab.inputs.xnlib.lib.digga

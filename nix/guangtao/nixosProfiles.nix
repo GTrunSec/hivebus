@@ -3,15 +3,10 @@
   cell,
 }:
 {
-  default = {
-    systemd-initrd.imports =
+  default = {boot ? "boot"}: {
+    imports =
       [
-        inputs.cells.bootstrap.nixosModules.systemd-initrd
-      ]
-      ++ inputs.cells.bootstrap.nixosSuites.default;
-    systemd-boot.imports =
-      [
-        inputs.cells.bootstrap.nixosModules.systemd-initrd
+        inputs.cells.bootstrap.nixosModules."systemd-${boot}"
       ]
       ++ inputs.cells.bootstrap.nixosSuites.default;
   };
