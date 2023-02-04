@@ -8,11 +8,11 @@ in rec {
   brave = {
     imports = [homeModules.brave];
   };
-  firefox =
-    {
-      imports = [homeModules.firefox];
-    }
-    // import ./firefox.nix {inherit inputs cell;};
+  firefox = {
+    imports = [
+      homeModules.firefox
+    ];
+  };
 
   guangtao = {
     imports = [firefox brave];
