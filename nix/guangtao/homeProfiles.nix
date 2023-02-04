@@ -16,8 +16,7 @@ in
 
     terminal = with homeProfiles;
       inputs.cells.terminal.homeSuites.guangtao
-      ++ [
-      ];
+      ++ [];
 
     emacs = with homeProfiles; [
       inputs.cells.emacs.homeProfiles.guangtao

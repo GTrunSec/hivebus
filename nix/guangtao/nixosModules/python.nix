@@ -15,6 +15,7 @@
             xlib
             grip
             black
+            keyring
             # pyqt5
             # pyqtwebengine
             markdown

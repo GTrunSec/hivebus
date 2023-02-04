@@ -11,7 +11,9 @@
   full =
     default
     ++ [
+      cell.nixosModules.gpg
       cell.nixosModules._1password
+      cell.nixosModules.gnome-keyring
     ];
 
   minimal = [cell.nixosProfiles.age];

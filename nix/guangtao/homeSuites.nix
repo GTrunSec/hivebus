@@ -9,7 +9,8 @@ in {
     ++ terminal
     ++ emacs
     ++ applications
-    ++ inputs.cells.desktop.homeSuites.guangtao;
+    ++ inputs.cells.desktop.homeSuites.guangtao
+    ++ inputs.cells.secrets.homeSuites.full;
 
   macbook = with homeProfiles;
     default
