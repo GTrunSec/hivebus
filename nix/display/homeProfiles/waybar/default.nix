@@ -15,7 +15,14 @@ in rec {
   guangtao = {
     imports = [
       cell.homeModules.waybar
-      ({pkgs, ...}: {
+      ({
+        pkgs,
+        config,
+        ...
+      }: {
+        home.activation.waybarConfig = config.lib.dag.entryAfter ["writeBoundary"] ''
+          ln -sfT ${src}/scripts ~/.config/waybar/scripts
+        '';
         home.packages = with pkgs; [
           networkmanagerapplet
           pavucontrol
@@ -37,7 +44,7 @@ in rec {
             device = "DP-2";
           };
           "custom/power-menu" = {
-            on-click = "bash ${src}/scripts/power-menu/power-menu.sh";
+            on-click = "bash ${src}/scripts/power-menu/powermenu.sh";
           };
           pulseaudio = {
             "on-click" = "pamixer -t";

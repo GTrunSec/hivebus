@@ -10,6 +10,7 @@
     dmerge.follows = "std/dmerge";
 
     cells-lab.url = "github:gtrunsec/cells-lab";
+    cells-lab.inputs.std.follows = "std";
   };
 
   # tools

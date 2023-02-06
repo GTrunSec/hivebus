@@ -5,9 +5,8 @@
   ...
 }: {
   home.packages = with pkgs; [
-    gtk3
-    gnome3.adwaita-icon-theme
-    # gnome3.gnome-themes-extra
+    gnome.adwaita-icon-theme
+    gnome.gnome-themes-extra
   ];
   home.pointerCursor = {
     package = pkgs.bibata-cursors;

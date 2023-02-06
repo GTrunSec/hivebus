@@ -23,7 +23,7 @@ in
     ];
 
     applications = with homeProfiles; [
-      inputs.cells.desktop.homeProfiles.browser.guangtao
+      inputs.cells.display.homeProfiles.browser.guangtao
       inputs.cells.utils.homeProfiles.guangtao
     ];
   }

@@ -19,13 +19,13 @@
         # gtk modules
         cell.nixosProfiles.dfconf
         cell.nixosModules.fonts
-        inputs.cells.desktop.nixosModules.xdg
+        inputs.cells.display.nixosModules.xdg
         inputs.cells.i18n.nixosModules.fcitx5
         # audio modules
         inputs.cells.hardware.nixosModules.bluetooth
         inputs.cells.hardware.nixosModules.pipewire
       ]
-      ++ inputs.cells.desktop.nixosSuites.guangtao;
+      ++ inputs.cells.display.nixosSuites.guangtao;
 
     nvidia.imports = [
       cell.nixosModules.nvidia

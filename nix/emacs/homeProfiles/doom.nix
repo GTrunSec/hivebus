@@ -11,7 +11,6 @@
 
   src = "${(std.incl self ["profiles/doom-emacs"])}/profiles/doom-emacs";
   onChange = ''
-    export PATH=/run/current-system/etc/profiles/per-user/$USER/bin/:${pkgs.emacs}/bin:$PATH
     $HOME/.emacs.d/bin/doom sync
   '';
 in {
@@ -32,12 +31,6 @@ in {
        ln -sfT "$HOME/ghq/github.com/GTrunSec/hive/profiles/doom-emacs/snippets" $HOME/.doom.d/snippets
     fi
   '';
-
-  programs.emacs.extraPackages = epkgs:
-    with epkgs; [
-      vterm
-      grab-x-link
-    ];
 
   home.file.".doom.d/config.org" = {
     source = src + "/config.org";
