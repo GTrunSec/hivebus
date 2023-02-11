@@ -26,7 +26,7 @@
         };
       };
     };
-    extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+    profiles.default.extensions = with pkgs.nur.repos.rycee.firefox-addons; [
       vimium
       darkreader
       privacy-badger

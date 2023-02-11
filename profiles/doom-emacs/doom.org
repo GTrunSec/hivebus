@@ -255,7 +255,8 @@
     (set-fontset-font
      (frame-parameter nil 'font)
      charset
-     (font-spec :name "Weibei SC"
+     (font-spec :name (cond (IS-LINUX "Weibei SC")
+                            (IS-MAC "-*-STFangsong-normal-normal-normal-*-*-*-*-*-p-0-iso10646-1"))
                 :weight 'normal
                 :slant 'normal
                 :size 24.5))))
@@ -313,9 +314,6 @@
 ;; (add-hook 'window-setup-hook #'centaur-setup-fonts)
 ;; (add-hook 'server-after-make-frame-hook #'centaur-setup-fonts)
 #+end_src
-
-#+RESULTS:
-: 4
 
 ** theme :theme:
 
@@ -454,6 +452,33 @@ FACE defaults to inheriting from default and highlight."
 #+begin_src emacs-lisp :tangle "config.el"
 (load! "show-parentheses.el")
 #+end_src
+
+** auto-save :save:buffer:
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! auto-save :recipe (:host github :repo "manateelazycat/auto-save"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(add-hook! 'before-save-hook 'font-lock-flush)
+
+(use-package! auto-save
+  :config
+  (auto-save-enable)
+  (setq auto-save-silent t)   ; quietly save
+  ;; after foraml-buffer
+  (setq auto-save-idle 5)
+  (setq auto-save-delete-trailing-whitespace nil)  ; automatically delete spaces at the end of the line when saving
+;;; custom predicates if you don't want auto save.
+;;; disable auto save mode when current filetype is an gpg file.
+  (setq auto-save-disable-predicates
+        '((lambda ()
+            (string-suffix-p
+             "gpg"
+             (file-name-extension (buffer-name)) t))))
+  )
+#+end_src
+
 
 * Packages
 
@@ -863,7 +888,7 @@ FACE defaults to inheriting from default and highlight."
                                          "c++" "sh"))
   :hook (doom-first-input . global-lsp-bridge-mode)
   :config
-  ;; (add-hook 'lsp-bridge-mode-hook #'(lambda () (company-mode -1)
+  ;; (add-hook 'lsp-bridge-mode-hook '(lambda () (company-mode -1)
   ;;                                   ))
   ;; (push '((jupyter-python-mode) . "pylsp") lsp-bridge-single-lang-server-mode-list)
   )
@@ -978,9 +1003,8 @@ FACE defaults to inheriting from default and highlight."
    '("<escape>" . meow-last-buffer))
   (meow-leader-define-key
    '("df" . fd-dired)
-   '("r" . consult-recent-file )
-   '("ff" . +vertico/find-file-in)
-   '("F" . counsel-file)
+   '("rr" . consult-recent-file )
+   '("ff" . counsel-find)
    '("da" . consult-ripgrep)
    '("SPC" . meow-M-x)
    '("ti" . insert-current-date-time-inactive)
