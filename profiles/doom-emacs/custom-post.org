@@ -1,0 +1,387 @@
+#+title: Custom Post
+
+
+
+* custom
+
+#+begin_src emacs-lisp :tangle "custom.el"
+;;; custom.el --- -*- lexical-binding: t -*-
+
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+      (bootstrap-version 6))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
+
+(straight-use-package 'use-package)
+
+(setq centaur-lsp nil)
+(setq centaur-server t)
+(setq centaur-package-archives 'melpa)
+#+end_src
+
+** fonts
+
+#+begin_src emacs-lisp :tangle "custom.el"
+;; Fonts
+(defun centaur-setup-fonts ()
+  "Setup fonts."
+  (when (display-graphic-p)
+    ;; Set default font
+    (cl-loop for font in '("Cascadia Code" "Fira Code" "Jetbrains Mono"
+                           "SF Mono" "Hack" "Source Code Pro" "Menlo"
+                           "Monaco" "DejaVu Sans Mono" "Consolas")
+             when (font-installed-p font)
+             return (set-face-attribute 'default nil
+                                        :family font
+                                        :height (cond (sys/macp 130)
+                                                      (sys/win32p 110)
+                                                      (t 200))))
+
+    ;; Set mode-line font
+    ;; (cl-loop for font in '("Menlo" "SF Pro Display" "Helvetica")
+    ;;          when (font-installed-p font)
+    ;;          return (progn
+    ;;                   (set-face-attribute 'mode-line nil :family font :height 120)
+    ;;                   (when (facep 'mode-line-active)
+    ;;                     (set-face-attribute 'mode-line-active nil :family font :height 120))
+    ;;                   (set-face-attribute 'mode-line-inactive nil :family font :height 120)))
+
+    ;; Specify font for all unicode characters
+    (cl-loop for font in '("Segoe UI Symbol" "Symbola" "Symbol")
+             when (font-installed-p font)
+             return (if (< emacs-major-version 27)
+                        (set-fontset-font "fontset-default" 'unicode font nil 'prepend)
+                      (set-fontset-font t 'symbol (font-spec :family font) nil 'prepend)))
+
+    ;; Emoji
+    (cl-loop for font in '("Noto Color Emoji" "Apple Color Emoji" "Segoe UI Emoji")
+             when (font-installed-p font)
+             return (cond
+                     ((< emacs-major-version 27)
+                      (set-fontset-font "fontset-default" 'unicode font nil 'prepend))
+                     ((< emacs-major-version 28)
+                      (set-fontset-font t 'symbol (font-spec :family font) nil 'prepend))
+                     (t
+                      (set-fontset-font t 'emoji (font-spec :family font) nil 'prepend))))
+
+    ;; Specify font for Chinese characters
+    (cl-loop for font in '("WenQuanYi Micro Hei" "PingFang SC" "Microsoft Yahei" "STFangsong")
+             when (font-installed-p font)
+             return (progn
+                      (setq face-font-rescale-alist `((,font . 1.3)))
+                      (set-fontset-font t '(#x4e00 . #x9fff) (font-spec :family font))))))
+
+(centaur-setup-fonts)
+(add-hook 'window-setup-hook #'centaur-setup-fonts)
+(add-hook 'server-after-make-frame-hook #'centaur-setup-fonts)
+#+end_src
+
+** theme
+
+
+#+begin_src emacs-lisp :tangle "custom.el"
+  ;;(setq centaur-theme 'dark)
+
+(unless (display-graphic-p)
+  (setq centaur-theme 'doom-city-lights)
+)
+(when (display-graphic-p)
+  (setq centaur-theme 'doom-one)
+)
+#+end_src
+
+
+* lsp-bridge
+
+
+#+begin_src emacs-lisp :tangle "custom.el"
+(use-package posframe
+  :defer t)
+#+end_src
+
+#+begin_src emacs-lisp :tangle "custom.el"
+(use-package lsp-bridge
+  :after posframe
+  :straight (:local-repo "~/.config/guangtao-sources/lsp-bridge"
+             :files ("*.el" "*.py" "core" "langserver" "acm"))
+  :init
+  (require 'lsp-bridge-jdtls)
+  :config
+  ;;(global-lsp-bridge-mode)
+  
+  (setq lsp-bridge-flash-line-delay 1
+        lsp-bridge-ref-flash-line-delay 1
+        lsp-bridge-use-ds-pinyin-in-org-mode t
+        acm-enable-tabnine-helper t
+        lsp-bridge-python-command "/run/current-system/sw/bin/python")
+  
+  (add-hook 'lsp-bridge-mode-hook #'(lambda () (company-mode -1)
+                                    ))
+  (setq lsp-bridge-org-babel-lang-list '("go" "python" "ipython"
+                                         "ruby" "js" "css" "sass"
+                                         "jupyter" "c" "rust" "java" "cpp" "jupyter-python"
+                                         "c++" "sh"))
+  ;; (push '((jupyter-python-mode) . "pylsp") lsp-bridge-single-lang-server-mode-list)
+     (setq lsp-bridge-python-lsp-server "pylsp")
+  )
+
+
+(use-package yasnippet
+  :straight t)
+#+end_src
+
+
+#+begin_src emacs-lisp :tangle "custom.el"
+
+(unless (display-graphic-p)
+  (use-package acm-terminal
+    :after acm
+    :load-path "~/.config/guangtao-sources/acm-terminal"
+    ))
+#+end_src
+
+
+#+begin_src emacs-lisp :tangle "custom.el"
+(use-package popon
+  :straight (:type git :host nil :repo "https://codeberg.org/akib/emacs-popon.git"))
+#+end_src
+
+
+
+* Packages
+
+** envrc
+
+#+begin_src emacs-lisp :tangle "custom.el"
+(use-package envrc :straight t
+  :hook (after-init . envrc-global-mode))
+#+end_src
+
+
+** undo
+
+#+begin_src emacs-lisp :tangle "custom.el"
+(use-package undo-fu
+  :straight t
+  :config
+  ;; Store more undo history to prevent loss of data
+  (setq undo-limit 400000
+        undo-strong-limit 3000000
+        undo-outer-limit 3000000)
+
+  (define-minor-mode undo-fu-mode
+    "Enables `undo-fu' for the current session."
+    :keymap (let ((map (make-sparse-keymap)))
+              (define-key map [remap undo] #'undo-fu-only-undo)
+              (define-key map [remap redo] #'undo-fu-only-redo)
+              (define-key map (kbd "C-_")     #'undo-fu-only-undo)
+              (define-key map (kbd "M-_")     #'undo-fu-only-redo)
+              (define-key map (kbd "C-M-_")   #'undo-fu-only-redo-all)
+              (define-key map (kbd "C-x r u") #'undo-fu-session-save)
+              (define-key map (kbd "C-x r U") #'undo-fu-session-recover)
+              map)
+    :init-value nil
+    :global t)
+  )
+#+end_src
+
+* Programming
+
+** nix
+
+#+begin_src emacs-lisp :tangle "custom.el"
+(use-package nix-mode
+    :defer t
+    :after nix-mode
+    :straight (:type git :host github :repo "NixOS/nix-mode"
+               :pin "20ee8d88900b169831d6b0783bd82d2625e940c7")
+    :init
+    ;; Treat flake.lock files as json. Fall back to js-mode because it's faster
+    ;; than js2-mode, and its extra features aren't needed there.
+    )
+#+end_src
+
+** jupyter
+
+
+#+begin_src emacs-lisp :tangle "custom.el"
+(use-package jupyter
+  :defer t
+  :straight (:type git :host github :repo "gtrunsec/emacs-jupyter"
+             :branch "ignore-warning"))
+#+end_src
+
+* Meow
+
+
+  #+begin_src emacs-lisp :tangle "custom.el"
+(defun meow-setup ()
+  (setq meow-cheatsheet-layout meow-cheatsheet-layout-dvorak)
+  (meow-leader-define-key
+   '("1" . meow-digit-argument)
+   '("2" . meow-digit-argument)
+   '("3" . meow-digit-argument)
+   '("4" . meow-digit-argument)
+   '("5" . meow-digit-argument)
+   '("6" . meow-digit-argument)
+   '("7" . meow-digit-argument)
+   '("8" . meow-digit-argument)
+   '("9" . meow-digit-argument)
+   '("0" . meow-digit-argument))
+  (meow-normal-define-key
+   '("0" . meow-expand-0)
+   '("9" . meow-expand-9)
+   '("8" . meow-expand-8)
+   '("7" . meow-expand-7)
+   '("6" . meow-expand-6)
+   '("5" . meow-expand-5)
+   '("4" . meow-expand-4)
+   '("3" . meow-expand-3)
+   '("2" . meow-expand-2)
+   '("1" . meow-expand-1)
+   '("-" . negative-argument)
+   '(";" . meow-reverse)
+   '("," . meow-inner-of-thing)
+   '("." . meow-bounds-of-thing)
+   '("<" . meow-beginning-of-thing)
+   '(">" . meow-end-of-thing)
+   '("a" . meow-append)
+   '("A" . meow-open-below)
+   '("b" . meow-back-word)
+   '("B" . meow-back-symbol)
+   '("c" . meow-change)
+   '("C" . meow-change-save)
+   '("d" . meow-delete)
+   '("e" . meow-line)
+   '("E" . meow-kmacro-lines)
+   '("f" . meow-find)
+   '("F" . meow-find-expand)
+   '("g" . meow-keyboard-quit)
+   '("G" . meow-goto-line)
+   '("h" . meow-left)
+   '("H" . meow-left-expand)
+   '("i" . meow-insert)
+   '("I" . meow-open-above)
+   '("j" . meow-join)
+   '("J" . delete-indentation)
+   '("k" . meow-kill)
+   '("l" . meow-till)
+   '("L" . meow-till-expand)
+   '("m" . meow-mark-word)
+   '("M" . meow-mark-symbol)
+   '("n" . meow-next)
+   '("N" . meow-next-expand)
+   '("o" . meow-block)
+   '("O" . meow-block-expand)
+   '("p" . meow-prev)
+   '("P" . meow-prev-expand)
+   '("q" . meow-quit)
+   '("Q" . +popup/quit-window)
+   '("r" . meow-replace)
+   '("R" . meow-replace-save)
+   '("s" . meow-search)
+   '("S" . meow-pop-search)
+   '("t" . meow-right-expand)
+   '("u" . undo-fu-only-undo)
+   '("U" . undo-fu-only-redo)
+   '("v" . meow-visit)
+   '("w" . meow-next-word)
+   '("W" . meow-next-symbol)
+   '("x" . meow-save)
+   '("X" . meow-clipboard-save)
+   '("y" . meow-yank)
+   '("Y" . meow-clipboard-yank)
+   '("z" . meow-pop-selection)
+   '("&" . meow-query-replace)
+   '("%" . meow-query-replace-regexp)
+   '("<escape>" . meow-last-buffer))
+  (meow-leader-define-key
+   '("df" . fd-dired)
+   '("r" . consult-recent-file )
+   '("f" . +vertico/find-file-in)
+   '("F" . consult-find)
+   '("da" . consult-rg)
+   '("SPC" . meow-M-x)
+   '("ti" . insert-current-date-time-inactive)
+   '("ta" . insert-current-date-time-active)
+   '("tc" . insert-current-date-time)
+   '("bs" . bookmark-set)
+   '("bm" . bookmark-bmenu-list)
+   '("bt" . bm-toggle)
+   '("bb" . switch-to-buffer)
+   '("bw" . +vertico/switch-workspace-buffer)
+   ;; '("jr" . helm-register)
+   ;; '("js" . point-to-register)
+   '("?" . meow-cheatsheet)
+   ))
+
+
+  #+end_src
+
+#+begin_src emacs-lisp :tangle "custom.el"
+(use-package meow
+  :straight (:type git :host github :repo "meow-edit/meow")
+  :ensure t
+  :init
+  (meow-global-mode 1)
+  :custom
+  (meow-esc-delay 0.001)
+  :config
+  (setq meow-keypad-leader-dispatch "C-c")
+  (meow-setup-line-number)
+  ;; If you need setup indicator, see `meow-indicator' for customizing by hand.
+  (meow-setup-indicator)
+  (setq meow-mode-state-list
+        '((fundamental-mode . normal)
+          (text-mode . normal)
+          (prog-mode . normal)
+          (conf-mode . normal)
+          (eaf-mode . insert)))
+  (meow-setup))
+#+end_src
+
+
+* Org
+
+** after
+
+#+begin_src emacs-lisp :tangle "custom.el"
+(with-eval-after-load 'org-src
+  (dolist (lang '(python julia R))
+    (cl-pushnew (cons (format "jupyter-%s" lang) lang)
+                  org-src-lang-modes :key #'car)))
+
+;; (with-eval-after-load 'org
+;;   (use-package ob-jupyter
+;;     :init
+;;     (cl-pushnew '(jupyter . t) org-babel-load-languages)))
+#+end_src
+
+** writing room
+
+
+
+#+begin_src emacs-lisp :tangle "custom.el"
+(use-package writeroom-mode
+  :straight t
+  :hook
+  (org-mode . writeroom-mode)
+  (w3m-mode . writeroom-mode)
+  (markdown-mode . writeroom-mode)
+  :config
+  (advice-add 'text-scale-adjust :after
+              #'visual-fill-column-adjust)
+
+  ;;https://github.com/joostkremers/writeroom-mode#fullscreen-effect
+  (setq writeroom-fullscreen-effect 'maximized)
+  (setq writeroom-width 75)
+  )
+#+end_src

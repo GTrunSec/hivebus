@@ -4,6 +4,7 @@
   ];
 
   hardware.bluetooth = {
+    package = pkgs.bluez5-experimental;
     enable = true;
     powerOnBoot = true;
   };

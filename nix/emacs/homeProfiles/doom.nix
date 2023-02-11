@@ -11,6 +11,7 @@
 
   src = "${(std.incl self ["profiles/doom-emacs"])}/profiles/doom-emacs";
   onChange = ''
+    export PATH=/run/current-system/etc/profiles/per-user/$USER/bin:$PATH
     $HOME/.emacs.d/bin/doom sync
   '';
 in {
@@ -23,17 +24,13 @@ in {
     if [ ! -d "$HOME/.doom.d" ];then
        mkdir -p $HOME/.doom.d/
        cp "$HOME/ghq/github.com/GTrunSec/hive/profiles/doom-emacs/init.el" "$HOME/.doom.d/init.el"
-
-       ln -sfT "$HOME/ghq/github.com/GTrunSec/hive/profiles/doom-emacs/modules" $HOME/.doom.d/modules
-
        mkdir -p $HOME/.doom.d/{etc,autoload}
-       mkdir -p $HOME/.doom.d/modules/private/{my-code,my-org}
        ln -sfT "$HOME/ghq/github.com/GTrunSec/hive/profiles/doom-emacs/snippets" $HOME/.doom.d/snippets
     fi
   '';
 
   home.file.".doom.d/config.org" = {
-    source = src + "/config.org";
+    source = src + "/doom.org";
     inherit onChange;
   };
 }

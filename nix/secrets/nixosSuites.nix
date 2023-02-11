@@ -11,7 +11,6 @@
   full =
     default
     ++ [
-      cell.nixosModules.gpg
       cell.nixosModules._1password
       cell.nixosModules.gnome-keyring
     ];

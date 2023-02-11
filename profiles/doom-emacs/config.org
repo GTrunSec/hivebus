@@ -5,7 +5,7 @@
 #+title: GuangTao's Doom Emacs Config
 #+email: gtrunsec@hardenedlinux.org
 #+author: GuangTao
-#+options: H:3 num:t toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t pri:t
+ #+options: H:3 num:t toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t pri:t
 #+tags: GTD(G) writing(w) export(e) manage(m) graphical(g) nix(n)
 
 
@@ -443,6 +443,22 @@
 #+RESULTS:
 : major-mode-hydra
 
+
+** treesit-auto
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! treesit-auto :recipe (:host github
+                                    :repo "renzmann/treesit-auto"
+                                    ))
+
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! treesit-auto
+  :config
+  (global-treesit-auto-mode))
+#+end_src
+
 ** imenu-list
 
 #+begin_src emacs-lisp :tangle "packages.el"
@@ -490,7 +506,7 @@
     :keymap (let ((map (make-sparse-keymap)))
               (define-key map [remap undo] #'undo-fu-only-undo)
               (define-key map [remap redo] #'undo-fu-only-redo)
-              (define-key map (kbd "C-_")     #'undo-fu-only-undo)
+(define-key map (kbd "C-_")     #'undo-fu-only-undo)
               (define-key map (kbd "M-_")     #'undo-fu-only-redo)
               (define-key map (kbd "C-M-_")   #'undo-fu-only-redo-all)
               (define-key map (kbd "C-x r u") #'undo-fu-session-save)
@@ -2893,8 +2909,14 @@ a separator ' -> '."
   (setq lsp-bridge-python-command "/run/current-system/sw/bin/python")
   (add-hook 'lsp-bridge-mode-hook (lambda () (corfu-mode -1)))
   (setq acm-enable-tabnine-helper t)
+  (push '((nickel-mode nickel-ts-mode) . "nls") lsp-bridge-single-lang-server-mode-list)
+  (setq lsp-bridge-org-babel-lang-list '("bash" "haskell" "python" "latex" "jupyter-python"))
   )
 #+end_src
+
+#+RESULTS:
+: t
+
 
 #+begin_src emacs-lisp :tangle "config.el"
 (unless (display-graphic-p)
@@ -3019,8 +3041,7 @@ a separator ' -> '."
     (defalias 'org-babel-variable-assignments:julia 'org-babel-variable-assignments:julia-vterm)))
 #+end_src
 
-#+RESULTS:
-: t
+
 
 *** julia formatter
 

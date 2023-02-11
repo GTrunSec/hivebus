@@ -10,6 +10,7 @@
     pkgs.runCommand "lsp-bridge" {} ''
       cp -r ${src} $out && chmod -R +rw $out/*
       sed -i 's|\["rnix-lsp"\]|\["nil"\]|' $out/langserver/rnix-lsp.json
+      cp ${./nls.json} $out/langserver/nls.json
     '';
 in {
   config = with lib;
@@ -23,6 +24,7 @@ in {
         home.packages = with pkgs; [
           nodejs_latest
           sqlite
+          zeromq
           (
             pkgs.writeShellScriptBin "node16" ''
               ${lib.getExe pkgs.nodejs-16_x} "$@"

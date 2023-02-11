@@ -27,6 +27,7 @@
             pytest
             #orgparse
             pytest
+            jupyter
             #voila
             pygments
             # orgbabelhelper

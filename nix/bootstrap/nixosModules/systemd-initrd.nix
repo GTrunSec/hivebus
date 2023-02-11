@@ -11,7 +11,10 @@
       };
     };
     initrd = {
-      systemd.enable = true;
+      systemd = {
+        enable = true;
+        # emergencyAccess = true;
+      };
     };
   };
 }

@@ -4,7 +4,6 @@
 #+title: Shell Packages
 #+header-args:sh: :dir ../../
 
-
 * Code location
 
 #+begin_src nix :exports both :results output :tangle "../../nix/guangtao/homeProfiles/shellPackages.nix"

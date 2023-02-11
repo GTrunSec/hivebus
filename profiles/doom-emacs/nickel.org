@@ -1,0 +1,23 @@
+#+title: Nickel
+
+#+begin_src emacs-lisp :tangle yes
+(defconst nickel-ts-mode--kernel-keywords
+  '("switch" "import" "if" "else" "then" "let" "in""with"))
+
+(progn
+  (add-to-list 'auto-mode-alist '("\\.ncl\\'" . nickel-ts-mode))
+  )
+(define-derived-mode nickel-ts-mode prog-mode "Nickel"
+  (treesit-parser-create 'nickel)
+  (setq-local comment-start "# ")
+  (setq-local comment-start-skip
+              (rx "#" (* (syntax whitespace))))
+  (setq-local comment-end "")
+  (setq-local comment-end-skip
+              (rx (* (syntax whitespace))
+                  (group (or (syntax comment-end) "\n"))))
+  )
+#+end_src
+
+#+RESULTS:
+: nickel-ts-mode
