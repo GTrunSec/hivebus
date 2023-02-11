@@ -214,7 +214,7 @@
        :config
        literate
        (default +bindings))
-#+end_src
+      #+end_src
 
 #+RESULTS:
 
@@ -225,14 +225,14 @@
 (setq enable-local-variables :all)
 #+end_src
 
-** ui
+** ui :ui:
 #+begin_src emacs-lisp :tangle "config.el"
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
 #+end_src
 
-** font
+** font :font:
 
 #+begin_src emacs-lisp :tangle "config.el"
 ;; Font
@@ -316,7 +316,7 @@
 #+RESULTS:
 : 4
 
-** theme
+** theme :theme:
 
 #+begin_src emacs-lisp :tangle "config.el"
 (unless (display-graphic-p)
@@ -328,7 +328,7 @@
 
 #+end_src
 
-** popup rules
+** popup rules :window:
 
 #+begin_src emacs-lisp :tangle "config.el"
 (set-popup-rules! '(
@@ -344,7 +344,7 @@
       user-mail-address "gtrunsec@hardenedlinux.org")
 #+end_src
 
-** scroll :scroll:
+** scroll :scroll:window:
 
 #+begin_src emacs-lisp :tangle "config.el"
 (setq scroll-margin 15
@@ -355,7 +355,7 @@
       auto-window-vscroll nil)
 #+end_src
 
-** dired
+** dired :file:
 
 #+begin_src emacs-lisp :tangle "config.el"
 (add-hook 'dired-mode-hook (lambda () (dired-async-mode 1)))
@@ -410,7 +410,7 @@
   ;; (advice-add 'text-scale-adjust :after
   ;;             #'visual-fill-column-adjust)
 
-;;https://github.com/joostkremers/writeroom-mode#fullscreen-effect
+  ;;https://github.com/joostkremers/writeroom-mode#fullscreen-effect
   (setq writeroom-fullscreen-effect 'maximized)
   (setq writeroom-width 75)
   )
@@ -462,10 +462,10 @@
   :config
   (global-set-key [remap scroll-up-command] #'iscroll-up)
   (global-set-key [remap scroll-down-command] #'iscroll-down)
-)
+  )
 #+end_src
 
-** orderless
+** orderless :completion:
 
 #+begin_src emacs-lisp :tangle "packages.el"
 (unpin! orderless)
@@ -478,17 +478,302 @@
   ;; (setq orderless-style-dispatchers '(+orderless-dispatch)
   ;;       orderless-component-separator #'orderless-escapable-split-on-space)
   (setq ;;completion-styles '(orderless basic)
-        completion-category-defaults nil
-        completion-category-overrides '((file (styles . (partial-completion))))))
+   completion-category-defaults nil
+   completion-category-overrides '((file (styles . (partial-completion))))))
 #+end_src
 
-** consult
+** consult :search:
 
 #+begin_src emacs-lisp :tangle "packages.el"
 ;;(unpin! consult)
 #+end_src
 
-* Lsp Bridge
+** color-rg :search:
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! color-rg :recipe (:host github :repo "manateelazycat/color-rg"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! color-rg
+  ;; :commands (color-rg-search-input color-rg-search-symbol
+  ;;                                  color-rg-search-input-in-project
+  ;;                                  )
+  :bind
+  (:map isearch-mode-map
+        ("M-s M-s" . isearch-toggle-color-rg))
+  )
+#+end_src
+
+* Org
+
+** default
+
+#+begin_src emacs-lisp :tangle "config.el"
+(setq org-directory "~/ghq/github.com/GTrunSec/org-notes")
+
+
+(after! org
+  ;;https://orgmode.org/worg/org-contrib/babel/examples/fontify-src-code-blocks.html
+  (defun org-only-show-headings ()
+    (interactive)
+    (org-content -1))
+  (add-hook! 'org-mode-hook 'org-only-show-headings)
+
+  (add-hook! 'org-mode-hook 'auto-revert-mode)
+  (add-hook! 'dired-mode-hook 'org-download-enable)
+  (add-hook! 'org-mode-hook 'org-only-show-headings)
+  (add-hook! 'unpackaged/org-return-dwim 'unpackaged/org-fix-blank-lines)
+  )
+#+end_src
+
+
+** theme
+
+#+begin_src emacs-lisp :tangle  "packages.el"
+(package! org-modern :recipe (:host github :repo "minad/org-modern"
+                              :files ("*.el")
+                              ))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! org-modern
+  :hook
+  (org-mode . org-modern-mode)
+  (org-agenda-finalize . org-modern-agenda)
+  :custom
+  (org-modern-hide-stars nil) ; adds extra indentation
+  )
+#+end_src
+
+** org-roam :roam:
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(unpin! org-roam)
+#+end_src
+
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! org-roam
+  :config
+  (setq org-roam-directory (concat org-directory "/braindump"))
+  )
+#+end_src
+
+** org-super-agenda :agenda:
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! org-super-agenda)
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! org-super-agenda
+  :hook
+  (after-init . org-super-agenda-mode)
+  :init
+  (require 'org-habit)
+  :config
+  (setq
+   org-agenda-skip-scheduled-if-done t
+   org-agenda-skip-deadline-if-done t
+   org-agenda-include-deadlines t
+   org-agenda-include-diary nil
+   org-agenda-block-separator nil
+   org-agenda-compact-blocks t
+   org-agenda-start-with-log-mode t)
+  )
+#+end_src
+
+
+** consult-notes :roam:search:
+
+- https://github.com/mclear-tools/consult-notes
+
+#+begin_src emacs-lisp :tangle  "packages.el"
+(package! consult-notes :recipe (:host github :repo "mclear-tools/consult-notes"))
+#+end_src
+
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! consult-notes
+  :hook
+  (org-roam-mode . consult-notes-org-roam-mode)
+  :commands (consult-notes
+             consult-notes-search-in-all-notes
+             consult-notes-org-roam-find-node
+             consult-notes-org-roam-find-node-relation)
+  :config
+  (setq consult-notes-sources '(("Org Braindump"
+                                 ?b  "~/ghq/github.com/GTrunSec/org-notes/braindump")))
+  ;; Set notes dir(s), see below
+  )
+
+#+end_src
+
+#+RESULTS:
+| consult-notes-org-roam-mode | turn-on-visual-line-mode |
+
+
+* Programming
+
+** flycheck
+
+#+begin_src emacs-lisp :tangle "custom.el"
+(after! flycheck
+  ;;(setq flycheck-check-syntax-automatically '(save mode-enabled))
+  ;;(setq-default flycheck-disabled-checkers '(c/c++-clang))
+  (global-flycheck-mode -1)
+  )
+#+end_src
+
+** rust :rust:
+
+#+begin_src emacs-lisp :tangle "config.el"
+(after! rustic
+  (setq rustic-indent-offset 4)
+  )
+#+end_src
+
+
+** copilot :completion:
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! copilot
+  :recipe (:host github :repo "zerolfx/copilot.el" :files ("*.el" "dist")))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! copilot
+  :config
+  (setq copilot-node-executable "node16")
+  :hook (prog-mode . copilot-mode)
+  :bind ((:map copilot-completion-map
+               ("C-e" . 'copilot-accept-completion)
+               ("TAB" . 'copilot-accept-completion-by-word)
+               ("<tab>" . 'copilot-accept-completion-by-word)
+               ;;("LEFT" . 'copilot-accept-completion)
+               )))
+#+end_src
+
+
+** quarto mode
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! quarto-mode :recipe (:host github :repo "quarto-dev/quarto-emacs"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! quarto-mode
+  ;;:mode (("\\.Rmd" . poly-quarto-mode))
+  )
+#+end_src
+
+
+
+** ob-julia-vterm :julia:
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! ob-julia-vterm :recipe (:host github :repo "shg/ob-julia-vterm.el"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! ob-julia-vterm
+  :defer t
+  :config
+  (add-to-list 'org-babel-load-languages '(julia-vterm . t))
+  (after! org
+    (defalias 'org-babel-execute:julia 'org-babel-execute:julia-vterm)
+    (defalias 'org-babel-variable-assignments:julia 'org-babel-variable-assignments:julia-vterm)))
+#+end_src
+
+** fingertip :treesit:
+
+- https://github.com/manateelazycat/fingertip
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! fingertip :recipe (:host github :repo "manateelazycat/fingertip"
+                             ;;:build (:not compile)
+                             :files ("*")))
+#+end_src
+
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! fingertip
+  :config
+  (dolist (hook (list
+                 'c-mode-common-hook
+                 'c-mode-hook
+                 'c++-mode-hook
+                 'java-mode-hook
+                 'haskell-mode-hook
+                 'emacs-lisp-mode-hook
+                 'lisp-interaction-mode-hook
+                 'lisp-mode-hook
+                 'maxima-mode-hook
+                 'ielm-mode-hook
+                 'sh-mode-hook
+                 'makefile-gmake-mode-hook
+                 'php-mode-hook
+                 'python-mode-hook
+                 'js-mode-hook
+                 'go-mode-hook
+                 'qml-mode-hook
+                 'jade-mode-hook
+                 'css-mode-hook
+                 'ruby-mode-hook
+                 'coffee-mode-hook
+                 'rust-mode-hook
+                 'qmake-mode-hook
+                 'lua-mode-hook
+                 'swift-mode-hook
+                 'minibuffer-inactive-mode-hook
+                 'typescript-mode-hook
+
+                 'c-ts-mode-hook
+                 'c++-ts-mode-hook
+                 'cmake-ts-mode-hook
+                 'toml-ts-mode-hook
+                 'css-ts-mode-hook
+                 'js-ts-mode-hook
+                 'json-ts-mode-hook
+                 'python-ts-mode-hook
+                 'bash-ts-mode-hook
+                 'typescript-ts-mode-hook
+                 ))
+    (add-hook hook '(lambda () (fingertip-mode 1))))
+  (define-key fingertip-mode-map (kbd "(") 'fingertip-open-round)
+  (define-key fingertip-mode-map (kbd "[") 'fingertip-open-bracket)
+  (define-key fingertip-mode-map (kbd "{") 'fingertip-open-curly)
+  (define-key fingertip-mode-map (kbd ")") 'fingertip-close-round)
+  (define-key fingertip-mode-map (kbd "]") 'fingertip-close-bracket)
+  (define-key fingertip-mode-map (kbd "}") 'fingertip-close-curly)
+  (define-key fingertip-mode-map (kbd "=") 'fingertip-equal)
+
+  (define-key fingertip-mode-map (kbd "%") 'fingertip-match-paren)
+  (define-key fingertip-mode-map (kbd "\"") 'fingertip-double-quote)
+  (define-key fingertip-mode-map (kbd "'") 'fingertip-single-quote)
+
+  (define-key fingertip-mode-map (kbd "SPC") 'fingertip-space)
+  (define-key fingertip-mode-map (kbd "RET") 'fingertip-newline)
+
+  (define-key fingertip-mode-map (kbd "M-o") 'fingertip-backward-delete)
+  (define-key fingertip-mode-map (kbd "C-d") 'fingertip-forward-delete)
+  (define-key fingertip-mode-map (kbd "C-k") 'fingertip-kill)
+
+  (define-key fingertip-mode-map (kbd "M-\"") 'fingertip-wrap-double-quote)
+  (define-key fingertip-mode-map (kbd "M-'") 'fingertip-wrap-single-quote)
+  (define-key fingertip-mode-map (kbd "M-[") 'fingertip-wrap-bracket)
+  (define-key fingertip-mode-map (kbd "M-{") 'fingertip-wrap-curly)
+  (define-key fingertip-mode-map (kbd "M-(") 'fingertip-wrap-round)
+  (define-key fingertip-mode-map (kbd "M-)") 'fingertip-unwrap)
+
+  (define-key fingertip-mode-map (kbd "M-p") 'fingertip-jump-right)
+  (define-key fingertip-mode-map (kbd "M-n") 'fingertip-jump-left)
+  (define-key fingertip-mode-map (kbd "M-:") 'fingertip-jump-out-pair-and-newline)
+
+  (define-key fingertip-mode-map (kbd "C-j") 'fingertip-jump-up)
+  )
+#+end_src
+
+** lsp-bridge :lsp:
 
 #+begin_src emacs-lisp :tangle "config.el"
 (use-package lsp-bridge
@@ -536,135 +821,9 @@
       )))
 #+end_src
 
-* Org
-
-** default
-
-#+begin_src emacs-lisp :tangle "config.el"
-(setq org-directory "~/ghq/github.com/GTrunSec/org-notes")
-
-
-(after! org
-;;https://orgmode.org/worg/org-contrib/babel/examples/fontify-src-code-blocks.html
-  (defun org-only-show-headings ()
-    (interactive)
-    (org-content -1))
-  (add-hook! 'org-mode-hook 'org-only-show-headings)
-
-  (add-hook! 'org-mode-hook 'auto-revert-mode)
-  (add-hook! 'dired-mode-hook 'org-download-enable)
-  (add-hook! 'org-mode-hook 'org-only-show-headings)
-  (add-hook! 'unpackaged/org-return-dwim 'unpackaged/org-fix-blank-lines)
-  )
-#+end_src
-
-
-** theme
-
-#+begin_src emacs-lisp :tangle  "packages.el"
-(package! org-modern :recipe (:host github :repo "minad/org-modern"
-                              :files ("*.el")
-                              ))
-#+end_src
-
-#+begin_src emacs-lisp :tangle "config.el"
-(use-package! org-modern
-  :hook
-  (org-mode . org-modern-mode)
-  (org-agenda-finalize . org-modern-agenda)
-  :custom
-  (org-modern-hide-stars nil) ; adds extra indentation
-  )
-#+end_src
-
-** roam
-
-#+begin_src emacs-lisp :tangle "packages.el"
-(unpin! org-roam)
-#+end_src
-
-
-#+begin_src emacs-lisp :tangle "config.el"
-(use-package! org-roam
-  :config
-  (setq org-roam-directory (concat org-directory "/braindump"))
-  )
-#+end_src
-* Programming
-
-** flycheck
-
-#+begin_src emacs-lisp :tangle "custom.el"
-(after! flycheck
-  ;;(setq flycheck-check-syntax-automatically '(save mode-enabled))
-  ;;(setq-default flycheck-disabled-checkers '(c/c++-clang))
-  (global-flycheck-mode -1)
-  )
-#+end_src
-
-** rust
-
-#+begin_src emacs-lisp :tangle "config.el"
-(after! rustic
-  (setq rustic-indent-offset 4)
-  )
-#+end_src
-
-
-** copilot :completion:
-
-#+begin_src emacs-lisp :tangle "packages.el"
-(package! copilot
-  :recipe (:host github :repo "zerolfx/copilot.el" :files ("*.el" "dist")))
-#+end_src
-
-#+begin_src emacs-lisp :tangle "config.el"
-(use-package! copilot
-  :config
-  (setq copilot-node-executable "node16")
-  :hook (prog-mode . copilot-mode)
-  :bind ((:map copilot-completion-map
-               ("C-e" . 'copilot-accept-completion)
-               ("TAB" . 'copilot-accept-completion-by-word)
-               ("<tab>" . 'copilot-accept-completion-by-word)
-               ;;("LEFT" . 'copilot-accept-completion)
-               )))
-#+end_src
-
-
-** quarto mode
-#+begin_src emacs-lisp :tangle "packages.el"
-(package! quarto-mode :recipe (:host github :repo "quarto-dev/quarto-emacs"))
-#+end_src
-
-#+begin_src emacs-lisp :tangle "config.el"
-(use-package! quarto-mode
-  ;;:mode (("\\.Rmd" . poly-quarto-mode))
-  )
-#+end_src
-
-
-
-** ob-julia-vterm
-
-#+begin_src emacs-lisp :tangle "packages.el"
-(package! ob-julia-vterm :recipe (:host github :repo "shg/ob-julia-vterm.el"))
-#+end_src
-
-#+begin_src emacs-lisp :tangle "config.el"
-(use-package! ob-julia-vterm
-  :defer t
-  :config
-  (add-to-list 'org-babel-load-languages '(julia-vterm . t))
-  (after! org
-    (defalias 'org-babel-execute:julia 'org-babel-execute:julia-vterm)
-    (defalias 'org-babel-variable-assignments:julia 'org-babel-variable-assignments:julia-vterm)))
-#+end_src
-
-
 * Meow
 ** default
-  #+begin_src emacs-lisp :tangle "config.el"
+#+begin_src emacs-lisp :tangle "config.el"
 (defun meow-setup ()
   (setq meow-cheatsheet-layout meow-cheatsheet-layout-dvorak)
   (meow-leader-define-key
@@ -748,9 +907,9 @@
   (meow-leader-define-key
    '("df" . fd-dired)
    '("r" . consult-recent-file )
-   '("f" . +vertico/find-file-in)
+   '("ff" . +vertico/find-file-in)
    '("F" . counsel-file)
-   '("da" . consult-rg)
+   '("da" . consult-ripgrep)
    '("SPC" . meow-M-x)
    '("ti" . insert-current-date-time-inactive)
    '("ta" . insert-current-date-time-active)
@@ -764,10 +923,10 @@
    ;; '("js" . point-to-register)
    '("?" . meow-cheatsheet)
    ))
-  #+end_src
+#+end_src
 
-  #+RESULTS:
-  : meow-setup
+#+RESULTS:
+: meow-setup
 
 ** package
 #+begin_src emacs-lisp :tangle "packages.el"
