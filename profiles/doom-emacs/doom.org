@@ -195,7 +195,7 @@
        ;;swift             ; who asked for emoji variables?
        ;;terra             ; Earth and Moon in alignment for performance.
        ;;web               ; the tubes
-       ;;yaml              ; JSON, but readable
+       yaml              ; JSON, but readable
        ;;zig               ; C, but simpler
 
        :email
@@ -315,16 +315,16 @@
 ;; (add-hook 'server-after-make-frame-hook #'centaur-setup-fonts)
 #+end_src
 
-** theme :theme:
+** doom-theme :theme:
 
 #+begin_src emacs-lisp :tangle "config.el"
 (unless (display-graphic-p)
-  (setq doom-theme 'doom-city-lights)
+  ;;(setq doom-theme 'doom-city-lights)
+  (setq doom-theme 'doom-one)
 )
 (when (display-graphic-p)
   (setq doom-theme 'doom-one)
 )
-
 #+end_src
 
 ** popup rules :window:
@@ -463,14 +463,14 @@ FACE defaults to inheriting from default and highlight."
 (add-hook! 'before-save-hook 'font-lock-flush)
 
 (use-package! auto-save
-  :config
-  (auto-save-enable)
+  :init
   (setq auto-save-silent t)   ; quietly save
   ;; after foraml-buffer
   (setq auto-save-idle 5)
   (setq auto-save-delete-trailing-whitespace nil)  ; automatically delete spaces at the end of the line when saving
-;;; custom predicates if you don't want auto save.
 ;;; disable auto save mode when current filetype is an gpg file.
+  :config
+  (auto-save-enable)
   (setq auto-save-disable-predicates
         '((lambda ()
             (string-suffix-p
@@ -707,9 +707,6 @@ FACE defaults to inheriting from default and highlight."
 
 #+end_src
 
-#+RESULTS:
-| consult-notes-org-roam-mode | turn-on-visual-line-mode |
-
 
 * Programming
 
@@ -857,7 +854,7 @@ FACE defaults to inheriting from default and highlight."
 
   (define-key fingertip-mode-map (kbd "M-\"") 'fingertip-wrap-double-quote)
   (define-key fingertip-mode-map (kbd "M-'") 'fingertip-wrap-single-quote)
-  (define-key fingertip-mode-map (kbd "M-[") 'fingertip-wrap-bracket)
+  ;;(define-key fingertip-mode-map (kbd "M-[") 'fingertip-wrap-bracket)
   (define-key fingertip-mode-map (kbd "M-{") 'fingertip-wrap-curly)
   (define-key fingertip-mode-map (kbd "M-(") 'fingertip-wrap-round)
   (define-key fingertip-mode-map (kbd "M-)") 'fingertip-unwrap)
@@ -868,7 +865,7 @@ FACE defaults to inheriting from default and highlight."
 
   (define-key fingertip-mode-map (kbd "C-j") 'fingertip-jump-up)
   )
-#+end_src
+  #+end_src
 
 ** lsp-bridge :lsp:
 
@@ -1004,7 +1001,6 @@ FACE defaults to inheriting from default and highlight."
   (meow-leader-define-key
    '("df" . fd-dired)
    '("rr" . consult-recent-file )
-   '("ff" . counsel-find)
    '("da" . consult-ripgrep)
    '("SPC" . meow-M-x)
    '("ti" . insert-current-date-time-inactive)
@@ -1052,5 +1048,11 @@ FACE defaults to inheriting from default and highlight."
 ** keybinds
 
 #+begin_src emacs-lisp :tangle "config.el"
-(map! "C-s" #'+vertico/search-symbol-at-point)
+(map! "C-s" #'+vertico/search-symbol-at-point
+      ;; (:prefix-map ("f" . "file")
+      ;;  :desc "Search File" "f" #'consult-find
+      ;;  )
+      )
 #+end_src
+
+#+RESULTS:
