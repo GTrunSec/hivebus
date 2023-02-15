@@ -9,6 +9,9 @@
       cell.nixosModules.rust
       inputs.cells.utils.nixosProfiles.vscode.guangtao
       languageServers
+      ({pkgs, ...}: {
+        environment.systemPackages = with pkgs; [nickel];
+      })
     ];
   };
   languageServers = {pkgs, ...}: {
