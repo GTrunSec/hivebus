@@ -1,0 +1,12 @@
+{
+  "name": "julia",
+  "languageId": "julia",
+  "command": [
+    "julia",
+    "--project=.",
+    "-e",
+    "using LanguageServer, LanguageServer.SymbolServer; runserver()",
+    "."
+  ],
+  "settings": {}
+}

@@ -613,6 +613,7 @@ FACE defaults to inheriting from default and highlight."
 #+end_src
 
 #+begin_src emacs-lisp :tangle "config.el"
+;; copyright https://github.com/seagle0128/.emacs.d
 (defun icon-displayable-p ()
   "Return non-nil if icons are displayable."
   (or (display-graphic-p) (daemonp))
@@ -620,7 +621,7 @@ FACE defaults to inheriting from default and highlight."
       (require 'all-the-icons nil t)))
 
 (use-package! pretty-hydra
-  :bind ("<f6>" . toggles-hydra/body)
+  :bind ("M-SPC" . major-mode-hydra)
   :hook (emacs-lisp-mode . (lambda ()
                              (add-to-list
                               'imenu-generic-expression
@@ -692,6 +693,9 @@ FACE defaults to inheriting from default and highlight."
         )))))
 #+end_src
 
+#+RESULTS:
+: major-mode-hydra
+
 ** goggles :highlights:modify:region:
 
 #+begin_src emacs-lisp :tangle "packages.el"
@@ -747,7 +751,7 @@ FACE defaults to inheriting from default and highlight."
 
 
 #+begin_src emacs-lisp :tangle "config.el"
-;; copyight https://github.com/seagle0128/.emacs.d
+;; copyright https://github.com/seagle0128/.emacs.d
 (defun hot-expand (str &optional mod)
     "Expand org template.
 
@@ -1072,7 +1076,8 @@ prepended to the element after the #+HEADER: tag."
   :config
   ;; (add-hook 'lsp-bridge-mode-hook '(lambda () (company-mode -1)
   ;;                                   ))
-  ;; (push '((jupyter-python-mode) . "pylsp") lsp-bridge-single-lang-server-mode-list)
+  (push '((nickel-mode nickel-ts-mode) . "nls") lsp-bridge-single-lang-server-mode-list)
+  (push '((julia-mode) . "julia") lsp-bridge-single-lang-server-mode-list)
   )
 #+end_src
 

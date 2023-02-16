@@ -3,11 +3,11 @@
 {
   copilot = {
     pname = "copilot";
-    version = "1.71.8269";
+    version = "1.73.8685";
     src = fetchurl {
-      url = "https://GitHub.gallery.vsassets.io/_apis/public/gallery/publisher/GitHub/extension/copilot/1.71.8269/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage";
-      name = "copilot-1.71.8269.zip";
-      sha256 = "sha256-btN0VNPid6dsmqXWrHBXxAQoP5qBOpOC2McPxuF2Nbg=";
+      url = "https://GitHub.gallery.vsassets.io/_apis/public/gallery/publisher/GitHub/extension/copilot/1.73.8685/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage";
+      name = "copilot-1.73.8685.zip";
+      sha256 = "sha256-W1j1VAuSM1sgxHRIahqVncUlknT+MPi7uutY+0NURZQ=";
     };
     name = "copilot";
     publisher = "Github";
@@ -124,22 +124,22 @@
   };
   rust-analyzer = {
     pname = "rust-analyzer";
-    version = "0.4.1388";
+    version = "0.4.1405";
     src = fetchurl {
-      url = "https://rust-lang.gallery.vsassets.io/_apis/public/gallery/publisher/rust-lang/extension/rust-analyzer/0.4.1388/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage";
-      name = "rust-analyzer-0.4.1388.zip";
-      sha256 = "sha256-A1RxQHbqvDnAaqm3Kjlc9stR6Ge9zbrRAwNyjtRrcPM=";
+      url = "https://rust-lang.gallery.vsassets.io/_apis/public/gallery/publisher/rust-lang/extension/rust-analyzer/0.4.1405/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage";
+      name = "rust-analyzer-0.4.1405.zip";
+      sha256 = "sha256-ATkOkoaQV1vr9ErNRkCrnTiku8NyTWASul9phBaz+uY=";
     };
     name = "rust-analyzer";
     publisher = "rust-lang";
   };
   tokyo-night = {
     pname = "tokyo-night";
-    version = "0.9.4";
+    version = "0.9.6";
     src = fetchurl {
-      url = "https://enkia.gallery.vsassets.io/_apis/public/gallery/publisher/enkia/extension/tokyo-night/0.9.4/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage";
-      name = "tokyo-night-0.9.4.zip";
-      sha256 = "sha256-pKokB6446SR6LsTHyJtQ+FEA07A0W9UAI+byqtGeMGw=";
+      url = "https://enkia.gallery.vsassets.io/_apis/public/gallery/publisher/enkia/extension/tokyo-night/0.9.6/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage";
+      name = "tokyo-night-0.9.6.zip";
+      sha256 = "sha256-Vk6wIGMzWPpv+A4vnHWAYnxTFYQBpVYZNu1BRim/TN0=";
     };
     name = "tokyo-night";
     publisher = "enkia";
@@ -165,6 +165,17 @@
     };
     name = "vscode-emacs-friendly";
     publisher = "lfs";
+  };
+  vscode-extension-dmn-editor = {
+    pname = "vscode-extension-dmn-editor";
+    version = "0.26.0";
+    src = fetchurl {
+      url = "https://redhat.gallery.vsassets.io/_apis/public/gallery/publisher/redhat/extension/vscode-extension-dmn-editor/0.26.0/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage";
+      name = "vscode-extension-dmn-editor-0.26.0.zip";
+      sha256 = "sha256-OY5+z2lQPctpovLyJR7fd+uD5ll7TlXsNAOGMe0l+bs=";
+    };
+    name = "vscode-extension-dmn-editor";
+    publisher = "redhat";
   };
   vscode-markdownlint = {
     pname = "vscode-markdownlint";

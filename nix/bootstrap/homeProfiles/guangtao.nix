@@ -15,6 +15,7 @@
       ".Rhistory"
       ".notdeft*"
       "eaf"
+      ".org-src-babel"
       ".auctex-auto"
       "vast.db"
       ".DS_Store"

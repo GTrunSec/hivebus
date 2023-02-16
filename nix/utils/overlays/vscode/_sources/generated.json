@@ -10,12 +10,12 @@
         },
         "pinned": false,
         "src": {
-            "name": "copilot-1.71.8269.zip",
-            "sha256": "sha256-btN0VNPid6dsmqXWrHBXxAQoP5qBOpOC2McPxuF2Nbg=",
+            "name": "copilot-1.73.8685.zip",
+            "sha256": "sha256-W1j1VAuSM1sgxHRIahqVncUlknT+MPi7uutY+0NURZQ=",
             "type": "url",
-            "url": "https://GitHub.gallery.vsassets.io/_apis/public/gallery/publisher/GitHub/extension/copilot/1.71.8269/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
+            "url": "https://GitHub.gallery.vsassets.io/_apis/public/gallery/publisher/GitHub/extension/copilot/1.73.8685/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
         },
-        "version": "1.71.8269"
+        "version": "1.73.8685"
     },
     "direnv": {
         "cargoLocks": null,
@@ -208,12 +208,12 @@
         },
         "pinned": false,
         "src": {
-            "name": "rust-analyzer-0.4.1388.zip",
-            "sha256": "sha256-A1RxQHbqvDnAaqm3Kjlc9stR6Ge9zbrRAwNyjtRrcPM=",
+            "name": "rust-analyzer-0.4.1405.zip",
+            "sha256": "sha256-zzMVNUBKtuiScOnnsznw631hB4jCONneDI8QO+XCkUg=",
             "type": "url",
-            "url": "https://rust-lang.gallery.vsassets.io/_apis/public/gallery/publisher/rust-lang/extension/rust-analyzer/0.4.1388/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
+            "url": "https://rust-lang.gallery.vsassets.io/_apis/public/gallery/publisher/rust-lang/extension/rust-analyzer/0.4.1405/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
         },
-        "version": "0.4.1388"
+        "version": "0.4.1405"
     },
     "tokyo-night": {
         "cargoLocks": null,
@@ -226,12 +226,12 @@
         },
         "pinned": false,
         "src": {
-            "name": "tokyo-night-0.9.4.zip",
-            "sha256": "sha256-pKokB6446SR6LsTHyJtQ+FEA07A0W9UAI+byqtGeMGw=",
+            "name": "tokyo-night-0.9.6.zip",
+            "sha256": "sha256-Vk6wIGMzWPpv+A4vnHWAYnxTFYQBpVYZNu1BRim/TN0=",
             "type": "url",
-            "url": "https://enkia.gallery.vsassets.io/_apis/public/gallery/publisher/enkia/extension/tokyo-night/0.9.4/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
+            "url": "https://enkia.gallery.vsassets.io/_apis/public/gallery/publisher/enkia/extension/tokyo-night/0.9.6/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
         },
-        "version": "0.9.4"
+        "version": "0.9.6"
     },
     "vs-code-bpmn-io": {
         "cargoLocks": null,
@@ -268,6 +268,24 @@
             "url": "https://lfs.gallery.vsassets.io/_apis/public/gallery/publisher/lfs/extension/vscode-emacs-friendly/0.9.0/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
         },
         "version": "0.9.0"
+    },
+    "vscode-extension-dmn-editor": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "vscode-extension-dmn-editor",
+        "passthru": {
+            "name": "vscode-extension-dmn-editor",
+            "publisher": "redhat"
+        },
+        "pinned": false,
+        "src": {
+            "name": "vscode-extension-dmn-editor-0.26.0.zip",
+            "sha256": "sha256-OY5+z2lQPctpovLyJR7fd+uD5ll7TlXsNAOGMe0l+bs=",
+            "type": "url",
+            "url": "https://redhat.gallery.vsassets.io/_apis/public/gallery/publisher/redhat/extension/vscode-extension-dmn-editor/0.26.0/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
+        },
+        "version": "0.26.0"
     },
     "vscode-markdownlint": {
         "cargoLocks": null,

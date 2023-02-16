@@ -11,6 +11,7 @@
       cp -r ${src} $out && chmod -R +rw $out/*
       sed -i 's|\["rnix-lsp"\]|\["nil"\]|' $out/langserver/rnix-lsp.json
       cp ${./nls.json} $out/langserver/nls.json
+      cp ${./julia.json} $out/langserver/julia.json
     '';
 in {
   config = with lib;

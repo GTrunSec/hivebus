@@ -21,7 +21,7 @@
     },
     "acm-terminal": {
         "cargoLocks": null,
-        "date": "2023-01-09",
+        "date": "2023-02-15",
         "extract": null,
         "name": "acm-terminal",
         "passthru": null,
@@ -33,15 +33,15 @@
             "name": null,
             "owner": "twlz0ne",
             "repo": "acm-terminal",
-            "rev": "eaa1b7a7bdb2ed24b08bd071410478837d614b5f",
-            "sha256": "sha256-Jb0U1uAbrPkMOE76qaTosGjzJA5lcUDpPtLMmxJH0Yc=",
+            "rev": "321e05fc0398a6159925b858f46608ea07ef269e",
+            "sha256": "sha256-Flw07EwH9z0E3tqXs4mStICJmoHfp60ALrP1GmUmeuU=",
             "type": "github"
         },
-        "version": "eaa1b7a7bdb2ed24b08bd071410478837d614b5f"
+        "version": "321e05fc0398a6159925b858f46608ea07ef269e"
     },
     "lsp-bridge": {
         "cargoLocks": null,
-        "date": "2023-02-05",
+        "date": "2023-02-15",
         "extract": null,
         "name": "lsp-bridge",
         "passthru": null,
@@ -53,11 +53,11 @@
             "name": null,
             "owner": "manateelazycat",
             "repo": "lsp-bridge",
-            "rev": "b74620039d5d5c3731196254ce909fc8b1672b04",
-            "sha256": "sha256-kyuBdNMdZeDCxzJGYhv5zSZAWL6az0gNN7pwy4wAz/o=",
+            "rev": "52c7d7e7a671454cc1c063a9ed3abd91d0908a36",
+            "sha256": "sha256-kicZByZyjPzVZX2RIUbxSW4OG47RPeomDlzNOCxvP1g=",
             "type": "github"
         },
-        "version": "b74620039d5d5c3731196254ce909fc8b1672b04"
+        "version": "52c7d7e7a671454cc1c063a9ed3abd91d0908a36"
     },
     "wen": {
         "cargoLocks": null,

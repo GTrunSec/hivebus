@@ -29,6 +29,7 @@ in {
           ]
           ++ optionals cfg'.bpmn [
             bpmn-io.vs-code-bpmn-io
+            redhat.vscode-extension-dmn-editor
           ]
           ++ optionals cfg'.markdown [
             davidanson.vscode-markdownlint

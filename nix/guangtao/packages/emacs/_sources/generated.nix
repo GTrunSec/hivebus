@@ -15,27 +15,27 @@
   };
   acm-terminal = {
     pname = "acm-terminal";
-    version = "eaa1b7a7bdb2ed24b08bd071410478837d614b5f";
+    version = "321e05fc0398a6159925b858f46608ea07ef269e";
     src = fetchFromGitHub ({
       owner = "twlz0ne";
       repo = "acm-terminal";
-      rev = "eaa1b7a7bdb2ed24b08bd071410478837d614b5f";
+      rev = "321e05fc0398a6159925b858f46608ea07ef269e";
       fetchSubmodules = false;
-      sha256 = "sha256-Jb0U1uAbrPkMOE76qaTosGjzJA5lcUDpPtLMmxJH0Yc=";
+      sha256 = "sha256-Flw07EwH9z0E3tqXs4mStICJmoHfp60ALrP1GmUmeuU=";
     });
-    date = "2023-01-09";
+    date = "2023-02-15";
   };
   lsp-bridge = {
     pname = "lsp-bridge";
-    version = "b74620039d5d5c3731196254ce909fc8b1672b04";
+    version = "52c7d7e7a671454cc1c063a9ed3abd91d0908a36";
     src = fetchFromGitHub ({
       owner = "manateelazycat";
       repo = "lsp-bridge";
-      rev = "b74620039d5d5c3731196254ce909fc8b1672b04";
+      rev = "52c7d7e7a671454cc1c063a9ed3abd91d0908a36";
       fetchSubmodules = false;
-      sha256 = "sha256-kyuBdNMdZeDCxzJGYhv5zSZAWL6az0gNN7pwy4wAz/o=";
+      sha256 = "sha256-kicZByZyjPzVZX2RIUbxSW4OG47RPeomDlzNOCxvP1g=";
     });
-    date = "2023-02-05";
+    date = "2023-02-15";
   };
   wen = {
     pname = "wen";
