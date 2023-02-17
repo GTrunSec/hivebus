@@ -1,4 +1,8 @@
 # nvfetcher.toml
+[chatgpt-wrapper]
+src.git = "https://github.com/mmabrouk/chatgpt-wrapper"
+fetch.github = "mmabrouk/chatgpt-wrapper"
+
 [StevenBlack-hosts]
 src.git = "https://github.com/StevenBlack/hosts"
 fetch.github = "StevenBlack/hosts"

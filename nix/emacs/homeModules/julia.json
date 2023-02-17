@@ -3,10 +3,9 @@
   "languageId": "julia",
   "command": [
     "julia",
-    "--project=.",
-    "-e",
-    "using LanguageServer, LanguageServer.SymbolServer; runserver()",
-    "."
+    "--startup-file=no",
+    "--history-file=no",
+    "/home/guangtao/ghq/github.com/GTrunSec/hive/nix/emacs/homeModules/jl.jl"
   ],
   "settings": {}
 }

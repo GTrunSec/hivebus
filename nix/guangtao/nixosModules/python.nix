@@ -4,7 +4,7 @@
   ...
 }: let
   my-python-packages = (
-    pkgs.python3Override.withPackages (
+    pkgs.python3.withPackages (
       ps:
         with ps;
           [
@@ -53,7 +53,7 @@ in {
     poetry
     (
       let
-        wenPy = pkgs.python3Override.withPackages (
+        wenPy = pkgs.python3.withPackages (
           ps:
             with ps; [
               pygls
