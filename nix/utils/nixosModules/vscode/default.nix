@@ -28,8 +28,8 @@ in {
             rust-lang.rust-analyzer
           ]
           ++ optionals cfg'.bpmn [
-            bpmn-io.vs-code-bpmn-io
             redhat.vscode-extension-dmn-editor
+            redhat.vscode-extension-bpmn-editor
           ]
           ++ optionals cfg'.markdown [
             davidanson.vscode-markdownlint

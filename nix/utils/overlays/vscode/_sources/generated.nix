@@ -124,36 +124,25 @@
   };
   rust-analyzer = {
     pname = "rust-analyzer";
-    version = "0.4.1405";
+    version = "0.4.1408";
     src = fetchurl {
-      url = "https://rust-lang.gallery.vsassets.io/_apis/public/gallery/publisher/rust-lang/extension/rust-analyzer/0.4.1405/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage";
-      name = "rust-analyzer-0.4.1405.zip";
-      sha256 = "sha256-ATkOkoaQV1vr9ErNRkCrnTiku8NyTWASul9phBaz+uY=";
+      url = "https://rust-lang.gallery.vsassets.io/_apis/public/gallery/publisher/rust-lang/extension/rust-analyzer/0.4.1408/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage";
+      name = "rust-analyzer-0.4.1408.zip";
+      sha256 = "sha256-sacetNrPcR3uBFQaBpi0e2znwP38bsh92WUXM9rnEFk=";
     };
     name = "rust-analyzer";
     publisher = "rust-lang";
   };
   tokyo-night = {
     pname = "tokyo-night";
-    version = "0.9.6";
+    version = "0.9.7";
     src = fetchurl {
-      url = "https://enkia.gallery.vsassets.io/_apis/public/gallery/publisher/enkia/extension/tokyo-night/0.9.6/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage";
-      name = "tokyo-night-0.9.6.zip";
-      sha256 = "sha256-Vk6wIGMzWPpv+A4vnHWAYnxTFYQBpVYZNu1BRim/TN0=";
+      url = "https://enkia.gallery.vsassets.io/_apis/public/gallery/publisher/enkia/extension/tokyo-night/0.9.7/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage";
+      name = "tokyo-night-0.9.7.zip";
+      sha256 = "sha256-SLo+Vf4ttOhUjKP8UTJC2C01vduSkdutLFucqht++vg=";
     };
     name = "tokyo-night";
     publisher = "enkia";
-  };
-  vs-code-bpmn-io = {
-    pname = "vs-code-bpmn-io";
-    version = "0.14.0";
-    src = fetchurl {
-      url = "https://bpmn-io.gallery.vsassets.io/_apis/public/gallery/publisher/bpmn-io/extension/vs-code-bpmn-io/0.14.0/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage";
-      name = "vs-code-bpmn-io-0.14.0.zip";
-      sha256 = "sha256-803btmWe+TIookgbOFgiVkvVzqxjghmT4LuChNdOxps=";
-    };
-    name = "vs-code-bpmn-io";
-    publisher = "bpmn-io";
   };
   vscode-emacs-friendly = {
     pname = "vscode-emacs-friendly";
@@ -165,6 +154,17 @@
     };
     name = "vscode-emacs-friendly";
     publisher = "lfs";
+  };
+  vscode-extension-bpmn-editor = {
+    pname = "vscode-extension-bpmn-editor";
+    version = "0.26.0";
+    src = fetchurl {
+      url = "https://redhat.gallery.vsassets.io/_apis/public/gallery/publisher/redhat/extension/vscode-extension-bpmn-editor/0.26.0/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage";
+      name = "vscode-extension-bpmn-editor-0.26.0.zip";
+      sha256 = "sha256-42zaQCvlEZHo0Flmk/y33XnzDvXKSY/4pd+3oUb/EQ4=";
+    };
+    name = "vscode-extension-bpmn-editor";
+    publisher = "redhat";
   };
   vscode-extension-dmn-editor = {
     pname = "vscode-extension-dmn-editor";

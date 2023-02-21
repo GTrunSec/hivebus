@@ -26,6 +26,7 @@ in {
           nodejs_latest
           sqlite
           zeromq
+          xclip
           (
             pkgs.writeShellScriptBin "node16" ''
               ${lib.getExe pkgs.nodejs-16_x} "$@"

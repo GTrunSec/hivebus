@@ -523,9 +523,11 @@ FACE defaults to inheriting from default and highlight."
 
 
 #+begin_src emacs-lisp :tangle "config.el"
-(when (display-graphic-p)
-  (use-package blink-search))
+(use-package blink-search
+  :config
+  (add-hook 'blink-search-mode-hook (lambda () (meow-insert-mode 1))))
 #+end_src
+
 
 ** symbol overlay :search:
 
@@ -883,7 +885,7 @@ prepended to the element after the #+HEADER: tag."
 #+begin_src emacs-lisp :tangle "config.el"
 (use-package! consult-notes
   :hook
-  (org-roam-mode . consult-notes-org-roam-mode)
+  (org-mode . consult-notes-org-roam-mode)
   :commands (consult-notes
              consult-notes-search-in-all-notes
              consult-notes-org-roam-find-node
@@ -894,7 +896,7 @@ prepended to the element after the #+HEADER: tag."
   ;; Set notes dir(s), see below
   )
 
-#+end_src
+  #+end_src
 
 ** chatgpt
 
@@ -914,6 +916,17 @@ prepended to the element after the #+HEADER: tag."
 ;;     :side 'bottom :size .5 :ttl nil :quit t :modeline nil)
 ;;   :bind ("C-c q" . chatgpt-query))
 #+end_src
+
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! ox-clip
+  :recipe (:host github :repo "jkitchin/ox-clip"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! ox-clip)
+#+end_src
+
 
 * Programming
 
@@ -1123,6 +1136,33 @@ prepended to the element after the #+HEADER: tag."
       )))
 #+end_src
 
+** Nix
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! nix-mode
+  :config
+  (setq nix-nixfmt-bin "alejandra"))
+#+end_src
+
+
+* format-all
+
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! format-all)
+(package! language-id)
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! format-all
+  :config
+ ;;(add-hook! 'format-all-mode-hook 'format-all-ensure-formatter)
+ (prependq! format-all-default-formatters
+            '(("Haskell" ormolu)
+              ("Nix" alejandra)))
+ )
+
+#+end_src
 * Meow
 ** default
 #+begin_src emacs-lisp :tangle "config.el"
@@ -1257,6 +1297,7 @@ prepended to the element after the #+HEADER: tag."
 
 #+begin_src emacs-lisp :tangle "config.el"
 (map! "C-s" #'+vertico/search-symbol-at-point
+      "<f10>" #'blink-search
       ;; (:prefix-map ("f" . "file")
       ;;  :desc "Search File" "f" #'consult-find
       ;;  )

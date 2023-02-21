@@ -7,7 +7,7 @@
       cell.nixosModules.vscode
     ];
     programs.vscode.hiveProfiles = {
-      rust = true;
+      rust = false;
       julia = true;
       nickel = true;
       markdown = true;

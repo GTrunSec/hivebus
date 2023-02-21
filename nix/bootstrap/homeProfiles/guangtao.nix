@@ -15,6 +15,7 @@
       ".Rhistory"
       ".notdeft*"
       "eaf"
+      ".cache"
       ".org-src-babel"
       ".auctex-auto"
       "vast.db"

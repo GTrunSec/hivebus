@@ -8,3 +8,6 @@
 ** https://grahamc.com/blog/erase-your-darlings
 
 ** https://lantian.pub/article/modify-computer/nixos-impermanence.lantian/ :chinese:
+* Settings
+** paths :backup:
+- [[https://discourse.nixos.org/t/nixos-server-what-to-backup/25547/6]]

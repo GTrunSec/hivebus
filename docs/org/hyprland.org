@@ -3,7 +3,6 @@
 :END:
 #+title: Hyprland
 
-
 * hyprland.conf
 :PROPERTIES:
 :ID:       d05ca0f0-92e8-4ccd-9a69-8dc6a74a2043
@@ -97,9 +96,13 @@ exec-once = kanshi
 exec-once = fcitx5 -d
 exec-once = dropbox start
 exec-once = swaync
+#+end_src
+
+*** wallpaper
+
+#+begin_src conf :exports both
 exec-once = swww-random ~/ghq/github.com/GTrunSec/hive/resources/wallpaper/.attach
 #+end_src
-**
 
 ** misc
 
@@ -179,13 +182,13 @@ layout = dwindle # master|dwindle
 }
 #+end_src
 
-* hyprpaper.conf
+* hyprpaper.conf :deprecated:
 :PROPERTIES:
 :ID:       b8bbfe01-39c0-4889-8443-ca27e623a40e
 :header-args: :tangle ../../profiles/hyprland/hyprpaper.conf
 :END:
 
- #+begin_src conf :exports both
+ #+begin_src conf
 preload = /home/guangtao/ghq/github.com/GTrunSec/hive/resources/wallpaper/.attach/00/d885ed-3c8e-4c03-b325-52a807f9a3c7/20201219_162324george-turmanidze-10.jpg.jpeg
 wallpaper = DP-2,contain:/home/guangtao/ghq/github.com/GTrunSec/hive/resources/wallpaper/.attach/00/d885ed-3c8e-4c03-b325-52a807f9a3c7/20201219_162324george-turmanidze-10.jpg.jpeg
  #+end_src

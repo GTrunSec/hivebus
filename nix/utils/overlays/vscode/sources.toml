@@ -3,10 +3,10 @@ src.vsmarketplace = "redhat.vscode-extension-dmn-editor"
 fetch.vsmarketplace = "redhat.vscode-extension-dmn-editor"
 passthru = { publisher = "redhat", name = "vscode-extension-dmn-editor" }
 
-[vs-code-bpmn-io]
-src.vsmarketplace = "bpmn-io.vs-code-bpmn-io"
-fetch.vsmarketplace = "bpmn-io.vs-code-bpmn-io"
-passthru = { publisher = "bpmn-io", name = "vs-code-bpmn-io" }
+[vscode-extension-bpmn-editor]
+src.vsmarketplace = "redhat.vscode-extension-bpmn-editor"
+fetch.vsmarketplace = "redhat.vscode-extension-bpmn-editor"
+passthru = { publisher = "redhat", name = "vscode-extension-bpmn-editor" }
 
 [copilot]
 src.vsmarketplace = "GitHub.copilot"
