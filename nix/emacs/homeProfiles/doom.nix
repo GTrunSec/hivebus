@@ -11,7 +11,7 @@
 
   src = "${(std.incl self ["profiles/doom-emacs"])}/profiles/doom-emacs";
   onChange = ''
-    export PATH=/run/current-system/etc/profiles/per-user/$USER/bin:$PATH
+    export PATH=/run/current-system/etc/profiles/per-user/$USER/bin:/opt/homebrew/bin:$PATH
     $HOME/.emacs.d/bin/doom sync
   '';
 in {

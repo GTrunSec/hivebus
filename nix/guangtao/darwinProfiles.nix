@@ -9,4 +9,4 @@
     ]
     ++ inputs.cells.bootstrap.darwinSuites.default;
 }
-// inputs.cells.common.lib.rakeLeaves ./darwinProfiles
+// inputs.cells.common.lib.importRakeLeaves ./darwinProfiles {inherit inputs cell;}

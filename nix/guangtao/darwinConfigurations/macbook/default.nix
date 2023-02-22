@@ -16,11 +16,12 @@
     # );
   };
 in rec {
-  bee.system = "x86_64-darwin";
+  bee.system = "aarch64-darwin";
   bee.home = inputs.home;
   bee.pkgs = import inputs.nixos-22-11 {
-    system = "x86_64-darwin";
+    inherit (bee) system;
     config.allowUnfree = true;
+    config.allowBroken = true;
     overlays = cell.overlays.macbook;
   };
   imports =

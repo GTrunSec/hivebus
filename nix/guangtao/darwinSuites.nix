@@ -8,6 +8,7 @@ in {
   macbook = with darwinProfiles; [
     bootstrap
     homebrew
-    (cell.lib.mkHome "gtrun" "macbook" "zsh" "22.11")
+    yabai
+    (cell.lib.mkHome "guangtao" "macbook" "zsh" "22.11")
   ];
 }

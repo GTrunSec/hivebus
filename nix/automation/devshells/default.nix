@@ -19,7 +19,7 @@ in
       };
       imports = [
         std.std.devshellProfiles.default
-        inputs.cells.bootstrap.devshellProfiles.secureboot
+        # inputs.cells.bootstrap.devshellProfiles.secureboot
         "${extraModulesPath}/git/hooks.nix"
       ];
 
@@ -27,7 +27,7 @@ in
 
       commands = [
         (withCategory "hexagon" {package = cell.packages.colmena;})
-        (withCategory "hexagon" {package = inputs.nixos-generators.packages.${nixpkgs.system}.nixos-generate;})
+        #(withCategory "hexagon" {package = inputs.nixos-generators.packages.${nixpkgs.system}.nixos-generate;})
         (withCategory "hexagon" {package = inputs.arion.packages.arion;})
         (withCategory "secrets" {
           package =
