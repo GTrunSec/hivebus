@@ -10,8 +10,9 @@ in
   final: prev: {
     inherit
       (nixpkgs-master)
-      gnome-remote-desktop
       bibata-cursors
       zoom-us
+      brave
+      firefox
       ;
   }
