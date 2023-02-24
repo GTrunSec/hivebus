@@ -30,7 +30,7 @@ in {
   '';
 
   home.file.".doom.d/config.org" = {
-    source = src + "/doom.org";
+    source = src + "/config.org";
     inherit onChange;
   };
 }
