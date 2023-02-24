@@ -12,6 +12,9 @@
   homebrew.casks = [
     "font-fantasque-sans-mono"
     "wez/wezterm/wezterm-nightly"
+    "skim"
+    "grammarly-desktop"
+    "dropbox"
   ];
 
   homebrew.brews = [

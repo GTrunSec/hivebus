@@ -24,6 +24,9 @@ in
     ];
     macbook = [
       cell.overlays.default
+      cell.overlays.python
+      __inputs__.rust-overlay.overlays.default
+
       inputs.cells.emacs.overlays.emacs-darwin
     ];
     libvirtd = [];

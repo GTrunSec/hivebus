@@ -1,0 +1,4092 @@
+:PROPERTIES:
+:ID:       995c6482-f615-4319-b1b5-118d08629f7b
+:public:   true
+:END:
+#+title: GuangTao's Doom Emacs Config
+#+email: gtrunsec@hardenedlinux.org
+#+author: GuangTao
+ #+options: H:3 num:t toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t pri:t
+#+tags: GTD(G) writing(w) export(e) manage(m) graphical(g) nix(n)
+
+
+- [[HTTPS://github.com/hlissner/doom-emacs/blob/develop/docs/getting_started.org][doom-emacs/getting_started.org at develop · hlissner/doom-emacs]]
+- [[https://tecosaur.github.io/emacs-config/config.html][Doom Emacs Configuration]]
+- [[https://github.com/tecosaur/emacs-config/blob/master/config.org][emacs-config/config.org at master · tecosaur/emacs-config]]
+- https://github.com/zzamboni/dot-doom/blob/master/doom.org
+
+* Init.el
+
+#+begin_src emacs-lisp :tangle "init.el"
+;;; init.el -*- lexical-binding: t; -*-
+
+;; This file controls what Doom modules are enabled and what order they load
+;; in. Remember to run 'doom sync' after modifying it!
+
+;; NOTE Press 'SPC h d h' (or 'C-h d h' for non-vim users) to access Doom's
+;;      documentation. There you'll find a "Module Index" link where you'll find
+;;      a comprehensive list of Doom's modules and what flags they support.
+
+;; NOTE Move your cursor over a module's name (or its flags) and press 'K' (or
+;;      'C-c c k' for non-vim users) to view its documentation. This works on
+;;      flags as well (those symbols that start with a plus).
+;;
+;;      Alternatively, press 'gd' (or 'C-c c d') on a module to browse its
+;;      directory (for easy access to its source code).
+
+(doom! :input
+       chinese
+       ;;japanese
+       ;;layout            ; auie,ctsrnm is the superior home row
+
+       :completion
+       ;; (company
+       ;;  +childframe)    ; the ultimate code completion backend
+       ;;helm              ; the *other* search engine for love and life
+       ;;ido               ; the other *other* search engine...
+       ;;ivy               ; a search engine for love and life
+       vertico           ; the search engine of the future
+
+       :ui
+       ;;deft              ; notational velocity for Emacs
+       doom              ; what makes DOOM look the way it does
+       doom-dashboard    ; a nifty splash screen for Emacs
+       doom-quit         ; DOOM quit-message prompts when you quit Emacs
+       ;;(emoji +unicode)  ; 🙂
+       hl-todo           ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
+       ;;hydra
+       indent-guides     ; highlighted indent columns
+       ;;ligatures         ; ligatures and symbols to make your code pretty again
+       ;;minimap           ; show a map of the code on the side
+       modeline          ; snazzy, Atom-inspired modeline, plus API
+       ;;nav-flash         ; blink cursor line after big motions
+       ;;neotree           ; a project drawer, like NERDTree for vim
+       ophints           ; highlight the region an operation acts on
+       (popup +defaults)   ; tame sudden yet inevitable temporary windows
+       ;;tabs              ; a tab bar for Emacs
+       ;;treemacs          ; a project drawer, like neotree but cooler
+       ;;unicode           ; extended unicode support for various languages
+       vc-gutter         ; vcs diff in the fringe
+       vi-tilde-fringe   ; fringe tildes to mark beyond EOB
+       ;;window-select     ; visually switch windows
+       workspaces        ; tab emulation, persistence & separate workspaces
+       ;;zen               ; distraction-free coding or writing
+
+       :editor
+       ;;(evil +everywhere); come to the dark side, we have cookies
+       file-templates    ; auto-snippets for empty files
+       fold              ; (nigh) universal code folding
+       ;;(format +onsave)  ; automated prettiness
+       ;;god               ; run Emacs commands without modifier keys
+       ;;lispy             ; vim for lisp, for people who don't like vim
+       ;;multiple-cursors  ; editing in many places at once
+       ;;objed             ; text object editing for the innocent
+       ;;parinfer          ; turn lisp into python, sort of
+       ;;rotate-text       ; cycle region at point between text candidates
+       snippets          ; my elves. They type so I don't have to
+       ;;word-wrap         ; soft wrapping with language-aware indent
+
+       :emacs
+       dired             ; making dired pretty [functional]
+       electric          ; smarter, keyword-based electric-indent
+       ;;ibuffer         ; interactive buffer management
+       undo              ; persistent, smarter undo for your inevitable mistakes
+       vc                ; version-control and Emacs, sitting in a tree
+
+       :term
+       ;;eshell            ; the elisp shell that works everywhere
+       ;;shell             ; simple shell REPL for Emacs
+       ;;term              ; basic terminal emulator for Emacs
+       vterm             ; the best terminal emulation in Emacs
+
+       :checkers
+       syntax              ; tasing you for every semicolon you forget
+       ;;(spell +flyspell) ; tasing you for misspelling mispelling
+       ;;grammar           ; tasing grammar mistake every you make
+
+       :tools
+       ;;ansible
+       ;;debugger          ; FIXME stepping through code, to help you add bugs
+       direnv
+       ;;docker
+       ;;editorconfig      ; let someone else argue about tabs vs spaces
+       ;;ein               ; tame Jupyter notebooks with emacs
+       ;;(eval +overlay)     ; run code, run (also, repls)
+       ;;gist              ; interacting with github gists
+       lookup              ; navigate your code and its documentation
+       ;; (lsp
+       ;;  +eglot)
+       magit             ; a git porcelain for Emacs
+       ;;make              ; run make tasks from Emacs
+       ;;pass              ; password manager for nerds
+       pdf               ; pdf enhancements
+       ;;prodigy           ; FIXME managing external services & code builders
+       ;;rgb               ; creating color strings
+       ;;taskrunner        ; taskrunner for all your projects
+       terraform         ; infrastructure as code
+       ;;tmux              ; an API for interacting with tmux
+       ;;upload            ; map local to remote projects via ssh/ftp
+
+       :os
+       (:if IS-MAC macos)  ; improve compatibility with macOS
+       ;;tty               ; improve the terminal Emacs experience
+
+       :lang
+       ;;agda              ; types of types of types of types...
+       ;;beancount         ; mind the GAAP
+       ;;cc                ; C > C++ == 1
+       ;;clojure           ; java with a lisp
+       ;;common-lisp       ; if you've seen one lisp, you've seen them all
+       ;;coq               ; proofs-as-programs
+       ;;crystal           ; ruby at the speed of c
+       ;;csharp            ; unity, .NET, and mono shenanigans
+       ;;data              ; config/data formats
+       ;;(dart +flutter)   ; paint ui and not much else
+       ;;dhall
+       ;;elixir            ; erlang done right
+       ;;elm               ; care for a cup of TEA?
+       emacs-lisp        ; drown in parentheses
+       ;;erlang            ; an elegant language for a more civilized age
+       ;;ess               ; emacs speaks statistics
+       ;;factor
+       ;;faust             ; dsp, but you get to keep your soul
+       ;;fsharp            ; ML stands for Microsoft's Language
+       ;;fstar             ; (dependent) types and (monadic) effects and Z3
+       ;;gdscript          ; the language you waited for
+       ;;(go +lsp)         ; the hipster dialect
+       haskell              ; a language that's lazier than I am
+       ;;hy                ; readability of scheme w/ speed of python
+       ;;idris             ; a language you can depend on
+       json              ; At least it ain't XML
+       ;;(java +meghanada) ; the poster child for carpal tunnel syndrome
+       ;;javascript        ; all(hope(abandon(ye(who(enter(here))))))
+       julia              ; a better, faster MATLAB
+       ;;kotlin            ; a better, slicker Java(Script)
+       latex             ; writing papers in Emacs has never been so fun
+       ;;lean              ; for folks with too much to prove
+       ;;ledger            ; be audit you can be
+       ;;lua               ; one-based indices? one-based indices
+       markdown          ; writing docs for people to ignore
+       ;;nim               ; python + lisp at the speed of c
+       nix               ; I hereby declare "nix geht mehr!"
+       ;;ocaml             ; an objective camel
+       (org
+        +dragndrop
+        +journal
+        +jupyter
+        +roam2
+        +noter
+        ); organize your plain life in plain text
+       ;;php               ; perl's insecure younger brother
+       plantuml          ; diagrams for confusing people more
+       ;;purescript        ; javascript, but functional
+       python            ; beautiful is better than ugly
+       ;;qt                ; the 'cutest' gui framework ever
+       ;;racket            ; a DSL for DSLs
+       ;;raku              ; the artist formerly known as perl6
+       ;;rest              ; Emacs as a REST client
+       ;;rst               ; ReST in peace
+       ;;(ruby +rails)     ; 1.step {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
+       rust                ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
+       ;;scala             ; java, but good
+       ;;(scheme +guile)   ; a fully conniving family of lisps
+       sh                ; she sells {ba,z,fi}sh shells on the C xor
+       ;;sml
+       ;;solidity          ; do you need a blockchain? No.
+       ;;swift             ; who asked for emoji variables?
+       ;;terra             ; Earth and Moon in alignment for performance.
+       ;;web               ; the tubes
+       yaml              ; JSON, but readable
+       ;;zig               ; C, but simpler
+
+       :email
+       ;;(mu4e +org +gmail)
+       ;;notmuch
+       ;;(wanderlust +gmail)
+
+       :app
+       ;;calendar
+       ;;emms
+       ;;everywhere        ; *leave* Emacs!? You must be joking
+       ;;irc               ; how neckbeards socialize
+       ;;(rss +org)        ; emacs as an RSS reader
+       ;;twitter           ; twitter client https://twitter.com/vnought
+
+       :config
+       literate
+       (default +bindings +smartparens)
+       :private
+       spacemacs-default
+       my-org
+       my-code
+       )
+#+end_src
+
+* Config.el
+
+#+begin_src emacs-lisp :tangle "config.el"
+;;; config.el -*- lexical-binding: t; -*-
+(load! "show-parentheses.el")
+(load! "meow.el")
+#+end_src
+
+** Performance
+
+#+begin_src emacs-lisp :tangle "config.el"
+(setq gcmh-high-cons-threshold most-positive-fixnum)
+(setq max-specpdl-size 100000)
+#+end_src
+
+** Personal Information
+
+#+begin_src cemacs-lisp :tangle "config.el"
+(setq user-full-name "GuangTao Zhang"
+      user-mail-address "gtrunsec@hardenedlinux.org")
+#+end_src
+
+#+begin_src cemacs-lisp :tangle "config.el"
+;; (setq auth-sources '("~/.authinfo.gpg")
+;;       auth-source-cache-expiry nil) ; default is 7200 (2h)
+#+end_src
+** Global Setting
+
+#+begin_src emacs-lisp :tangle "config.el"
+;; (setq browse-url-browser-function 'browse-url-Chrome)
+;; https://emacs.stackexchange.com/questions/5603/how-to-quickly-copy-move-file-in-emacs-dired
+(add-hook 'dired-mode-hook (lambda () (dired-async-mode 1)))
+
+(defun gtrun/truncate-lines-hook ()
+  (setq-local truncate-lines nil)
+  )
+
+(add-hook! 'text-mode-hook 'gtrun/truncate-lines-hook)
+
+(setenv "XAPIAN_CJK_NGRAM" "1")
+(setenv "QT_DEBUG_PLUGINS" "1")
+(fset 'yes-or-no-p 'y-or-n-p)
+
+(setq plantuml-jar-path (expand-file-name "~/.config/guangtao-sources/plantuml"))
+#+end_src
+
+** Better Default Setting
+
+#+begin_src emacs-lisp :tangle "config.el"
+(setq-default 
+ dired-dwim-target t
+ history-length 1000
+ create-lockfiles nil
+ delete-by-moving-to-trash t                      ;; Delete files to trash
+ window-combination-resize t                      ;; take new window space from all other windows (not just current)
+ x-stretch-cursor t)                              ;; Stretch cursor to the glyph width
+
+(setq undo-limit 80000000                         ; Raise undo-limit to 80Mb
+      truncate-string-ellipsis "…"                ; Unicode ellispis are nicer than "...", and also save /precious/ space
+      password-cache-expiry nil                   ; I can trust my computers ... can't I?
+      scroll-margin 2)                            ; It's nice to maintain a little margin
+
+(global-subword-mode 1)                           ; Iterate through CamelCase words
+#+end_src
+
+#+results:
+: t
+
+** Auto Save Buffer
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! auto-save :recipe (:host github :repo "manateelazycat/auto-save"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(add-hook! 'before-save-hook 'font-lock-flush)
+
+(use-package! auto-save
+  :config
+  (auto-save-enable)
+  (setq auto-save-silent t)   ; quietly save
+  ;; after foraml-buffer
+  (setq auto-save-idle 5)
+  (setq auto-save-delete-trailing-whitespace nil)  ; automatically delete spaces at the end of the line when saving
+;;; custom predicates if you don't want auto save.
+;;; disable auto save mode when current filetype is an gpg file.
+  (setq auto-save-disable-predicates
+        '((lambda ()
+            (string-suffix-p
+             "gpg"
+             (file-name-extension (buffer-name)) t))))
+  )
+#+end_src
+
+** Abbrev
+- https://emacs.stackexchange.com/questions/45462/use-a-single-abbrev-table-for-multiple-modes/45476#45476
+#+begin_src emacs-lisp :tangle "config.el"
+(add-hook 'doom-first-buffer-hook
+          (defun +abbrev-file-name ()
+            (setq-default abbrev-mode t)
+            (setq abbrev-file-name (expand-file-name "abbrev.el" doom-private-dir))))
+#+end_src
+
+** Search Backend
+
+* Packages.el
+
+- [[https://github.com/jackkamm/undo-propose-el][jackkamm/undo-propose-el: Navigate the emacs undo history by staging undo's in a temporary buffer]]
+
+- [[https://github.com/Overdr0ne/sfs][GitHub - Overdr0ne/sfs: Search File System for Emacs]]
+
+#+begin_src emacs-lisp :tangle "packages.el"
+;;; packages.el -*- lexical-binding: t; -*-
+#+end_src
+
+** discover
+#+begin_src emacs-lisp :tangle "packages.el"
+;;; packages.el -*- lexical-binding: t; -*-
+(package! discover :recipe (:host github :repo "mickeynp/discover.el"))
+;; (package! berrys-theme)
+#+end_src
+** meow
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! meow :recipe (:host github :repo "DogLooksGood/meow"))
+#+end_src
+** helm-tramp
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! helm-tramp)
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! helm-tramp
+  :config
+  (setq tramp-default-method "sshx")
+  (setq make-backup-files nil)
+  (setq create-lockfiles nil)
+  (setq helm-tramp-custom-connections '(/sshx:gtrun@10.220.170.112:/home/gtrun
+                                        /sshx:gtrun@10.220.170.112:~/.config/guangtao
+                                        /sshx:admin@192.168.122.126:
+                                        /sshx:test@10.220.170.134:/home/test/))
+  )
+#+end_src
+
+#+results:
+: t
+** quarto
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! quarto-mode :recipe (:host github :repo "quarto-dev/quarto-emacs"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! quarto-mode
+  ;;:mode (("\\.Rmd" . poly-quarto-mode))
+  )
+#+end_src
+** Pinyin
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! pinyin-search)
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! pinyin-search)
+#+end_src
+
+** vlf
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! vlf)
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! vlf
+  :config
+  (require 'vlf-setup)
+  (custom-set-variables
+   '(vlf-application 'dont-ask))
+  )
+#+end_src
+
+** Hydra
+
+- https://github.com/abo-abo/hydra/wiki/Projectile
+
+** major-mode-hydra
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! major-mode-hydra :recipe (:host github
+                                    :repo "jerrypnz/major-mode-hydra.el"
+                                    :files ("*")
+                                    ))
+
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! major-mode-hydra
+  :config
+  (major-mode-hydra-define emacs-lisp-mode nil
+    ("Eval"
+     (("b" eval-buffer "buffer")
+      ("e" eval-defun "defun")
+      ("r" eval-region "region"))
+     "REPL"
+     (("I" ielm "ielm"))
+     "Test"
+     (("t" ert "prompt")
+      ("T" (ert t) "all")
+      ("F" (ert :failed) "failed"))
+     "Doc"
+     (("d" describe-foo-at-point "thing-at-pt")
+      ("f" describe-function "function")
+      ("v" describe-variable "variable")
+      ("i" info-lookup-symbol "info lookup"))))
+  :bind
+  ("M-SPC" . major-mode-hydra))
+#+end_src
+
+#+RESULTS:
+: major-mode-hydra
+
+
+** treesit-auto
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! treesit-auto :recipe (:host github
+                                    :repo "renzmann/treesit-auto"
+                                    ))
+
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! treesit-auto
+  :config
+  (global-treesit-auto-mode))
+#+end_src
+
+** imenu-list
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! imenu-list)
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! imenu-list
+  :config
+  (setq imenu-list-auto-resize t)
+  (setq imenu-list-focus-after-activation t)
+  (setq imenu-list-after-jump-hook nil)
+  (add-hook 'menu-list-after-jump-hook #'recenter-top-bottom)
+  )
+#+end_src
+
+** w3m
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! w3m)
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! w3m
+  :commands (w3m)
+  :config
+  (setq w3m-use-tab-line nil)
+  )
+#+end_src
+** undo-fu
+
+- [[https://gitlab.com/ideasman42/emacs-undo-fu-session][ideasman42 / emacs-undo-fu-session · GitLab]]
+- [[https://gitlab.com/ideasman42/emacs-undo-fu][ideasman42 / emacs-undo-fu · GitLab]]
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! undo-fu
+  :config
+  ;; Store more undo history to prevent loss of data
+  (setq undo-limit 400000
+        undo-strong-limit 3000000
+        undo-outer-limit 3000000)
+
+  (define-minor-mode undo-fu-mode
+    "Enables `undo-fu' for the current session."
+    :keymap (let ((map (make-sparse-keymap)))
+              (define-key map [remap undo] #'undo-fu-only-undo)
+              (define-key map [remap redo] #'undo-fu-only-redo)
+(define-key map (kbd "C-_")     #'undo-fu-only-undo)
+              (define-key map (kbd "M-_")     #'undo-fu-only-redo)
+              (define-key map (kbd "C-M-_")   #'undo-fu-only-redo-all)
+              (define-key map (kbd "C-x r u") #'undo-fu-session-save)
+              (define-key map (kbd "C-x r U") #'undo-fu-session-recover)
+              map)
+    :init-value nil
+    :global t)
+  )
+#+end_src
+
+** vundo
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! vundo :recipe (:host github :repo "casouri/vundo"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! vundo)
+#+end_src
+** color-rg
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! color-rg :recipe (:host github :repo "manateelazycat/color-rg"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! color-rg
+  :commands (color-rg-search-input color-rg-search-symbol
+                                   color-rg-search-input-in-project
+                                   )
+  :bind
+  (:map isearch-mode-map
+        ("M-s M-s" . isearch-toggle-color-rg))
+  )
+#+end_src
+** snails
+#+begin_src emacs-lisp :tangle "packages.el"
+;; (package! snails :recipe (:host github
+;;                           :repo "manateelazycat/snails"
+;;                           :files ("*.el")))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+;; (use-package! snails
+;;   :config
+;;   (setq snails-show-with-frame nil)
+;;   (define-key snails-mode-map [remap previous-line] #'snails-select-prev-item)
+;;   (define-key snails-mode-map [remap next-line] #'snails-select-next-item)
+;;   )
+#+end_src
+** iscroll
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! iscroll :recipe (:host github
+                           :repo "casouri/iscroll"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! iscroll
+  :config
+  (add-hook! 'org-mode-hook 'iscroll-mode)
+  )
+#+end_src
+** helm-rg
+:PROPERTIES:
+:ID:       132bd909-bf8d-40c7-8809-c50dc3226002
+:END:
+
+- [2021-01-08 Fri 17:49] <- [[id:ccfe887a-cb1b-4671-8d35-44d46f98b0ef][org-z]]
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! helm-rg)
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! helm-rg)
+#+end_src
+
+** fd-dired
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! fd-dired :recipe (:host github
+                            :repo "yqrashawn/fd-dired"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! fd-dired)
+#+end_src
+
+** find-dupes-dired
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! find-dupes-dired :recipe (:host github
+                                    :repo "ShuguangSun/find-dupes-dired"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! find-dupes-dired)
+#+end_src
+
+** dogears.el
+:PROPERTIES:
+:ID:       0808fd9c-9fb5-43a7-bb48-0edab111c0ae
+:END:
+
+- [2021-08-14 Sat 13:08] <- [[id:b03289e1-0024-474c-8284-918099c3a071][Buffer]]
+- https://github.com/alphapapa/dogears.el
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! dogears :recipe (:host github
+                           :repo "alphapapa/dogears.el"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! dogears
+  :hook (text-mode . dogears-mode)
+  :config
+  :bind (:map global-map
+              ("M-g d" . dogears-go)
+              ("M-g M-b" . dogears-back)
+              ("M-g M-f" . dogears-forward)
+              ("M-g M-d" . dogears-list)
+              ("M-g M-D" . dogears-sidebar)))
+#+end_src
+
+** consult-dir
+:PROPERTIES:
+:ID:       1849e2c7-d7d1-4a2c-a913-c4d34857d666
+:END:
+
+- [2021-08-16 Mon 00:20] <- [[id:1fe04d86-bcaa-4236-93b2-7eac1de6e05f][define global-set-key]]
+
+** efar
+:PROPERTIES:
+:ID:       c66ca163-7a10-4abe-b7fd-67616c94a03f
+:END:
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! efar :recipe (:host github :repo "suntsov/efar"))
+#+end_src
+
+** session-async.el
+
+- https://codeberg.org/FelipeLema/session-async.el
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! session-async :recipe (:host nil
+                                 :repo "https://codeberg.org/FelipeLema/session-async.el.git"
+                                 :files ("*")
+                                 )
+  )
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! session-async)
+#+end_src
+
+** dirvish
+
+- https://github.com/alexluigit/dirvish
+
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! dirvish :recipe (:host github
+                           :repo "alexluigit/dirvish"
+                           )
+  )
+#+end_src
+
+
+
+
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! dirvish
+  :config
+  ;; Override dired with dirvish globally
+  (dirvish-override-dired-mode)
+
+  ;; Load `dirvish-yank' command
+  ;; (require 'dirvish-yank)
+
+  ;; Enable file preview when narrowing files in minibuffer.
+  ;; This feature only support `vertico/selectrum' for now.
+  ;; (require 'dirvish-minibuffer-preview)
+  ;; (dirvish-minibuf-preview-mode)
+  :bind
+  (nil
+   :map dirvish-mode-map
+   ("SPC" . dirvish-show-history)
+   ;; need to require it first, see above
+   ;; ([remap dired-do-copy] . dirvish-yank)
+   ("o" . dirvish-other-buffer)))
+#+end_src
+
+** harpoon :bookmark:
+- https://github.com/otavioschwanck/harpoon.el
+** which-key
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! which-key
+  :config
+  (setq which-key-idle-delay 0.5)
+  (after! which-key
+    (pushnew!
+     which-key-replacement-alist
+     '(("" . "\\`+?evil[-:]?\\(?:a-\\)?\\(.*\\)") . (nil . "◂\\1"))
+     '(("\\`g s" . "\\`evilem--?motion-\\(.*\\)") . (nil . "◃\\1"))
+     ))
+  )
+#+end_src
+* dolist mode hooks
+:PROPERTIES:
+:ID:       c06624c2-29b5-4f83-868c-aa8dc8e012fd
+:END:
+
+- [2021-11-26 Fri 12:29] <- [[id:05534ff6-447b-4497-b170-5626edc8bacf][grammatical-edit]]
+- [2021-11-26 Fri 12:27] <- [[id:b7b76dc7-dbd9-42be-a22c-71eea6e12f7d][format-all]]
+
+#+begin_src emacs-lisp :tangle "config.el"
+(dolist (hook (list
+               'rustic-mode-hook
+               'python-mode-hook
+               'sh-mode-hook
+               'julia-mode-hook
+               'nix-mode-hook
+               'nickel-mode-hook
+               'haskell-mode-hook
+               'emacs-lisp-mode-hook
+               ))
+  ;;(add-hook hook 'format-all-mode)
+  (add-hook hook '(lambda ()
+                    (setq grammatical-edit-mode 1)))
+  )
+#+end_src
+
+* Autoload
+
+** +misc.el
+
+*** timer
+
+#+begin_src emacs-lisp :tangle "~/.doom.d/autoload/+misc.el"
+;;; ~/.doom.d/autoload/misc.el -*- lexical-binding: t; -*-
+(defvar current-date-time-format "%a %b %d %H:%M:%S %Z %Y"
+
+  "Format of date to insert with `insert-current-date-time' func
+See help of `format-time-string' for possible replacements")
+
+;;;###autoload
+(defun insert-current-date-time ()
+  "insert the current date and time into current buffer.
+Uses `current-date-time-format' for the formatting the date/time."
+  (interactive)
+  ;;(insert "==========\n")
+                                        ;       (insert (let () (comment-start)))
+  (insert (format-time-string current-date-time-format (current-time)))
+  )
+
+(defvar current-date-time-format-inactive "[%Y-%m-%d %a %H:%M]"
+
+  "Format of date to insert with `insert-current-date-time' func
+See help of `format-time-string' for possible replacements")
+
+;;;###autoload
+(defun insert-current-date-time-inactive
+    ()
+  "insert the current date and time into current buffer.
+Uses `current-date-time-format' for the formatting the date/time."
+  (interactive)
+  ;;(insert "==========\n")
+                                        ;       (insert (let () (comment-start)))
+  (insert (format-time-string current-date-time-format-inactive (current-time)))
+  ;;(insert "\n")
+  )
+
+(defvar current-date-time-format-active "<%Y-%m-%d %a %H:%M>"
+
+  "Format of date to insert with `insert-current-date-time' func
+See help of `format-time-string' for possible replacements")
+
+;;;###autoload
+(defun insert-current-date-time-active
+    ()
+  "insert the current date and time into current buffer.
+Uses `current-date-time-format' for the formatting the date/time."
+  (interactive)
+  ;;(insert "==========\n")
+                                        ;       (insert (let () (comment-start)))
+  (insert (format-time-string current-date-time-format-active (current-time)))
+  ;;(insert "\n")
+  )
+#+end_src
+
+*** default
+
+
+#+begin_src emacs-lisp :tangle "~/.doom.d/autoload/+default.el"
+;;; ~/.doom.d/autoload/+default.el -*- lexical-binding: t; -*-
+;;;###autoload
+(defun dir-locals-reload-for-current-buffer ()
+  "reload dir locals for the current buffer"
+  (interactive)
+  (let ((enable-local-variables :all))
+    (hack-dir-local-variables-non-file-buffer)))
+#+end_src
+
+
+** +org-mode.el
+
+*** [[https://github.com/alphapapa/unpackaged.el#org-return-dwim][alphapapa/unpackaged.el: A collection of useful Emacs Lisp code that isn't substantial enough to be packaged]]
+
+#+begin_src emacs-lisp :tangle "~/.doom.d/autoload/+org-mode.el"
+;;; ~/.doom.d/autoload/+org-mode.el -*- lexical-binding: t; -*-
+(defun unpackaged/org-element-descendant-of (type element)
+  "Return non-nil if ELEMENT is a descendant of TYPE.
+TYPE should be an element type, like `item' or `paragraph'.
+ELEMENT should be a list like that returned by `org-element-context'."
+  ;; MAYBE: Use `org-element-lineage'.
+  (when-let* ((parent (org-element-property :parent element)))
+    (or (eq type (car parent))
+        (unpackaged/org-element-descendant-of type parent))))
+
+;;;###autoload
+(defun unpackaged/org-fix-blank-lines (&optional prefix)
+  "Ensure that blank lines exist between headings and between headings and their contents.
+With prefix, operate on whole buffer. Ensures that blank lines
+exist after each headings's drawers."
+  (interactive "P")
+  (org-map-entries (lambda ()
+                     (org-with-wide-buffer
+                      ;; `org-map-entries' narrows the buffer, which prevents us from seeing
+                      ;; newlines before the current heading, so we do this part widened.
+                      (while (not (looking-back "\n\n" nil))
+                        ;; Insert blank lines before heading.
+                        (insert "\n")))
+                     (let ((end (org-entry-end-position)))
+                       ;; Insert blank lines before entry content
+                       (forward-line)
+                       (while (and (org-at-planning-p)
+                                   (< (point) (point-max)))
+                         ;; Skip planning lines
+                         (forward-line))
+                       (while (re-search-forward org-drawer-regexp end t)
+                         ;; Skip drawers. You might think that `org-at-drawer-p' would suffice, but
+                         ;; for some reason it doesn't work correctly when operating on hidden text.
+                         ;; This works, taken from `org-agenda-get-some-entry-text'.
+                         (re-search-forward "^[ \t]*:END:.*\n?" end t)
+                         (goto-char (match-end 0)))
+                       (unless (or (= (point) (point-max))
+                                   (org-at-heading-p)
+                                   (looking-at-p "\n"))
+                         (insert "\n"))))
+                   t (if prefix
+                         nil
+                       'tree)))
+
+
+;;;###autoload
+(defun unpackaged/org-return-dwim (&optional default)
+  "A helpful replacement for `org-return'.  With prefix, call `org-return'.
+
+On headings, move point to position after entry content.  In
+lists, insert a new item or end the list, with checkbox if
+appropriate.  In tables, insert a new row or end the table."
+  ;; Inspired by John Kitchin: http://kitchingroup.cheme.cmu.edu/blog/2017/04/09/A-better-return-in-org-mode/
+  (interactive "P")
+  (if default
+      (org-return)
+    (cond
+     ;; Act depending on context around point.
+
+     ;; NOTE: I prefer RET to not follow links, but by uncommenting this block, links will be
+     ;; followed.
+
+     ;; ((eq 'link (car (org-element-context)))
+     ;;  ;; Link: Open it.
+     ;;  (org-open-at-point-global))
+
+     ((org-at-heading-p)
+      ;; Heading: Move to position after entry content.
+      ;; NOTE: This is probably the most interesting feature of this function.
+      (let ((heading-start (org-entry-beginning-position)))
+        (goto-char (org-entry-end-position))
+        (cond ((and (org-at-heading-p)
+                    (= heading-start (org-entry-beginning-position)))
+               ;; Entry ends on its heading; add newline after
+               (end-of-line)
+               (insert "\n\n"))
+              (t
+               ;; Entry ends after its heading; back up
+               (forward-line -1)
+               (end-of-line)
+               (when (org-at-heading-p)
+                 ;; At the same heading
+                 (forward-line)
+                 (insert "\n")
+                 (forward-line -1))
+               ;; FIXME: looking-back is supposed to be called with more arguments.
+               (while (not (looking-back (rx (repeat 3 (seq (optional blank) "\n")))))
+                 (insert "\n"))
+               (forward-line -1)))))
+
+     ((org-at-item-checkbox-p)
+      ;; Checkbox: Insert new item with checkbox.
+      (org-insert-todo-heading nil))
+
+     ((org-in-item-p)
+      ;; Plain list.  Yes, this gets a little complicated...
+      (let ((context (org-element-context)))
+        (if (or (eq 'plain-list (car context))  ; First item in list
+                (and (eq 'item (car context))
+                     (not (eq (org-element-property :contents-begin context)
+                              (org-element-property :contents-end context))))
+                (unpackaged/org-element-descendant-of 'item context))  ; Element in list item, e.g. a link
+            ;; Non-empty item: Add new item.
+            (org-insert-item)
+          ;; Empty item: Close the list.
+          ;; TODO: Do this with org functions rather than operating on the text. Can't seem to find the right function.
+          (delete-region (line-beginning-position) (line-end-position))
+          (insert "\n"))))
+
+     ((when (fboundp 'org-inlinetask-in-task-p)
+        (org-inlinetask-in-task-p))
+      ;; Inline task: Don't insert a new heading.
+      (org-return))
+
+     ((org-at-table-p)
+      (cond ((save-excursion
+               (beginning-of-line)
+               ;; See `org-table-next-field'.
+               (cl-loop with end = (line-end-position)
+                        for cell = (org-element-table-cell-parser)
+                        always (equal (org-element-property :contents-begin cell)
+                                      (org-element-property :contents-end cell))
+                        while (re-search-forward "|" end t)))
+             ;; Empty row: end the table.
+             (delete-region (line-beginning-position) (line-end-position))
+             (org-return))
+            (t
+             ;; Non-empty row: call `org-return'.
+             (org-return))))
+     (t
+      ;; All other cases: call `org-return'.
+      (org-return)))))
+#+end_src
+
+
+*** [[https://github.com/alphapapa/unpackaged.el#sort-tree-by-multiple-methods-at-once][alphapapa/unpackaged.el: A collection of useful Emacs Lisp code that isn't substantial enough to be packaged]]
+
+#+begin_src emacs-lisp :tangle "~/.doom.d/autoload/+org-mode.el"
+;;;###autoload
+(defun unpackaged/org-sort-multi ()
+  "Call `org-sort' until \\[keyboard-quit] is pressed."
+  (interactive)
+  ;; Not sure if `with-local-quit' is necessary, but probably a good
+  ;; idea in case of recursive edit.
+  (with-local-quit
+    (cl-loop while (call-interactively #'org-sort))))
+#+end_src
+
+* Completion
+
+** Customize completion-at-point
+
+- [[https://with-emacs.com/posts/tutorials/customize-completion-at-point/][with-emacs · Customize completion-at-point]]
+
+#+begin_src emacs-lisp :tangle "config.el"
+;; First try to indent the current line, and if the line
+;; was already indented, then try `completion-at-point'
+(setq tab-always-indent 'complete)
+(setq completion-cycle-threshold 4)
+#+end_src
+
+#+RESULTS:
+: 4
+
+** company
+
+#+begin_src emacs-lisp :tangle "config.el"
+;; (after! company
+;;   (defun ora-company-number ()
+;;     "Forward to `company-complete-number'.
+;; Unless the number is potentially part of the candidate.
+;; In that case, insert the number."
+;;     (interactive)
+;;     (let* ((k (this-command-keys))
+;;            (re (concat "^" company-prefix k)))
+;;       (if (or (cl-find-if (lambda (s) (string-match re s))
+;;                           company-candidates)
+;;               (> (string-to-number k)
+;;                  (length company-candidates))
+;;               (looking-back "[0-9]+\\.[0-9]*" (line-beginning-position)))
+;;           (self-insert-command 1)
+;;         (company-complete-number
+;;          (if (equal k "0")
+;;              10
+;;            (string-to-number k))))))
+
+;;   (defun ora--company-good-prefix-p (orig-fn prefix)
+;;     (unless (and (stringp prefix) (string-match-p "\\`[0-9]+\\'" prefix))
+;;       (funcall orig-fn prefix)))
+;;   (advice-add 'company--good-prefix-p :around #'ora--company-good-prefix-p)
+
+;;   (let ((map company-active-map))
+;;                        (mapc (lambda (x) (define-key map (format "%d" x) 'ora-company-number))
+;;                              (number-sequence 0 9))
+;;                        (define-key map " " (lambda ()
+;;                                              (interactive)
+;;                                              (company-abort)
+;;                                              (self-insert-command 1)))
+;;                        (define-key map (kbd "<return>") nil))
+;;   )
+#+end_src
+
+#+RESULTS:
+
+** corfu
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! corfu :recipe (:host github :repo "minad/corfu" :files ("*.el" "extensions/*.el")))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! corfu
+  :custom
+  (corfu-separator ?\s)          ;; Orderless field separator
+  (corfu-preview-current nil)    ;; Disable current candidate preview
+  (corfu-auto t)
+  (corfu-cycle t)
+  :hook
+  (doom-first-buffer . global-corfu-mode)
+  :config
+  :bind (:map corfu-map
+              ("SPC" . corfu-insert-separator)
+              ("TAB" . corfu-next)
+              ([tab] . corfu-next)
+              ("S-TAB" . corfu-previous)
+              ([backtab] . corfu-previous))
+  )
+#+end_src
+
+#+RESULTS:
+: t
+
+#+begin_src emacs-lisp :tangle "packages.el"
+;; (package! corfu-info
+;;   :recipe (:host github :repo "minad/corfu" :files ("extensions/*")))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! corfu-info
+  :after corfu
+  :config
+  (require 'corfu-info)
+  (require 'corfu-indexed)
+  )
+#+end_src
+
+
+** corfu-terminal
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! corfu-terminal :recipe (:host nil :type git :repo "https://codeberg.org/akib/emacs-corfu-terminal.git" :files ("*.el")))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! corfu-terminal
+  :after popon
+  :config
+  (unless (display-graphic-p)
+    (corfu-terminal-mode +1))
+  )
+#+end_src
+
+#+RESULTS:
+: t
+
+** [[https://github.com/minad/corfu][kind-icon]]
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! kind-icon :recipe (:host github :repo "jdtsmith/kind-icon"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! kind-icon
+  :after corfu
+  :custom
+  (kind-icon-default-face 'corfu-default) ; to compute blended backgrounds correctly
+  :config
+  (add-to-list 'corfu-margin-formatters #'kind-icon-margin-formatter))
+#+end_src
+
+** orderless
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! orderless :recipe (:host github :repo "oantolin/orderless"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package orderless
+  :init
+  ;; Configure a custom style dispatcher (see the Consult wiki)
+  ;; (setq orderless-style-dispatchers '(+orderless-dispatch)
+  ;;       orderless-component-separator #'orderless-escapable-split-on-space)
+  (setq completion-styles '(orderless basic)
+        completion-category-defaults nil
+        completion-category-overrides '((file (styles . (partial-completion))))))
+#+end_src
+
+** selectrum
+#+begin_src emacs-lisp :tangle "packages.el"
+;; (package! selectrum)
+;; (package! selectrum-prescient)
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+;; (use-package! selectrum
+;;   :config
+;;   (selectrum-mode +1)
+;;   )
+;; (use-package! selectrum-prescient
+;;   :config
+;;   ;; to make sorting and filtering more intelligent
+;;   (selectrum-prescient-mode +1)
+;;   ;; to save your command history on disk, so the sorting gets more
+;;   ;; intelligent over time
+;;   ;;(prescient-persist-mode +1)
+;;   )
+#+end_src
+** [[https://github.com/minad/cape][Cape]]
+:PROPERTIES:
+:ID:       f16cc9cf-91fd-4b0b-a2bb-cf01b27464be
+:END:
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! cape :recipe (:host github :repo "minad/cape"
+                        :files ("*.el")))
+
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! cape
+  :after corfu
+  :init
+  ;; Add `completion-at-point-functions', used by `completion-at-point'.
+  (add-to-list 'completion-at-point-functions #'cape-file)
+  (add-to-list 'completion-at-point-functions #'cape-dabbrev)
+  (add-to-list 'completion-at-point-functions #'cape-keyword)
+  :bind (("C-c p p" . completion-at-point) ;; capf
+         ("C-c p t" . complete-tag)        ;; etags
+         ("C-c p d" . cape-dabbrev)        ;; or dabbrev-completion
+         ("C-c p h" . cape-history)
+         ("C-c p f" . cape-file)
+         ("C-c p k" . cape-keyword)
+         ("C-c p s" . cape-symbol)
+         ("C-c p a" . cape-abbrev)
+         ("C-c p i" . cape-ispell)
+         ("C-c p l" . cape-line)
+         ("C-c p w" . cape-dict)
+         ("C-c p \\" . cape-tex)
+         ("C-c p _" . cape-tex)
+         ("C-c p ^" . cape-tex)
+         ("C-c p &" . cape-sgml)
+         ("C-c p r" . cape-rfc1345))
+  )
+#+end_src
+
+** tabnine-capf
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! tabnine-capf :recipe (:host github :repo "50ways2sayhard/tabnine-capf"
+                                :files ("*.el" "*.sh")))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! tabnine-capf
+  :after cape
+  :hook (kill-emacs . tabnine-capf-kill-process)
+  :init
+  (add-to-list 'completion-at-point-functions #'tabnine-completion-at-point)
+  )
+#+end_src
+
+** copilot
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! copilot
+  :recipe (:host github :repo "zerolfx/copilot.el" :files ("*.el" "dist")))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! copilot
+  :config
+  (setq copilot-node-executable "node16")
+  :hook (prog-mode . copilot-mode)
+  :bind ((:map copilot-completion-map
+               ("C-e" . 'copilot-accept-completion)
+               ("TAB" . 'copilot-accept-completion-by-word)
+               ("<tab>" . 'copilot-accept-completion-by-word)
+               ;;("LEFT" . 'copilot-accept-completion)
+               )))
+#+end_src
+
+#+RESULTS:
+: copilot-accept-completion-by-word
+
+** Ordless
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! orderless)
+#+end_src
+
+
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! orderless
+  :config
+  (setq completion-styles '(orderless)
+        completion-category-defaults nil
+        completion-category-overrides '((file (styles . (partial-completion))))))
+#+end_src
+
+** vertico
+- https://github.com/minad/vertico
+
+*** disable case-sensitivity for file and buffer
+
+#+begin_src emacs-lisp :tangle "config.el"
+(setq read-file-name-completion-ignore-case t
+      read-buffer-completion-ignore-case t
+      completion-ignore-case t)
+#+end_src
+
+#+RESULTS:
+: t
+
+** Edition
+
+*** maple-iedit
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! maple-iedit :recipe (:host github :repo "honmaple/emacs-maple-iedit"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! maple-iedit
+  :commands (maple-iedit-match-all maple-iedit-match-next maple-iedit-match-previous)
+  :config
+  (delete-selection-mode t)
+  (setq maple-iedit-ignore-case t)
+  :bind (:map maple-iedit-mode-keymap
+              ("C-n" . maple-iedit-match-next)
+              ("C-m" . maple-iedit-match-previous)
+              ("<down>" . maple-iedit-match-next)
+              ("<up>" . maple-iedit-match-previous)
+              ("C-," . maple-iedit-skip-and-match-next)
+              ("C-." . maple-iedit-skip-and-match-previous)
+              ("<right>" . maple-iedit-skip-and-match-next)
+              ("<left>" . maple-iedit-skip-and-match-previous)
+              )
+
+  )
+(defhydra maple/iedit (:color blue)
+  "hydra maple-iedit"
+  ("n" maple-iedit-match-next "next")
+  ("t" maple-iedit-skip-and-match-next "skip and next")
+  ("T" maple-iedit-skip-and-match-previous "skip and previous")
+  ("p" maple-iedit-match-previous "prev"))
+#+end_src
+
+#+results:
+: maple/iedit/body
+
+
+
+*** highlight
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! highlight-indent-guides
+  :config
+  (setq highlight-indent-guides-method 'character)
+  (setq highlight-indent-guides-auto-enabled nil)
+  (set-face-background 'highlight-indent-guides-even-face "dimgray")
+  (set-face-foreground 'highlight-indent-guides-character-face "dimgray")
+  )
+#+end_src
+
+*** parentheses
+
+- [[https://with-emacs.com/posts/ui-hacks/show-matching-lines-when-parentheses-go-off-screen/][with-emacs · Show matching lines when parentheses go off-screen]]s
+
+- [[https://www.reddit.com/r/emacs/comments/bqyx6h/withemacs_show_matching_lines_when_parentheses_go/][(with-emacs · Show matching lines when parentheses go off-screen : emacs]]
+
+#+begin_src emacs-lisp :tangle "show-parentheses.el"
+;;; -*- lexical-binding: t; -*-
+;; we will call `blink-matching-open` ourselves...
+
+(remove-hook 'post-self-insert-hook
+             #'blink-paren-post-self-insert-function)
+;; this still needs to be set for `blink-matching-open` to work
+(setq blink-matching-paren 'show)
+
+(let ((ov nil)) ; keep track of the overlay
+  (advice-add
+   #'show-paren-function
+   :after
+   (defun show-paren--off-screen+ (&rest _args)
+     "Display matching line for off-screen paren."
+     (when (overlayp ov)
+       (delete-overlay ov))
+     ;; check if it's appropriate to show match info,
+     ;; see `blink-paren-post-self-insert-function'
+     (when (and (overlay-buffer show-paren--overlay)
+                (not (or cursor-in-echo-area
+                         executing-kbd-macro
+                         noninteractive
+                         (minibufferp)
+                         this-command))
+                (and (not (bobp))
+                     (memq (char-syntax (char-before)) '(?\) ?\$)))
+                (= 1 (logand 1 (- (point)
+                                  (save-excursion
+                                    (forward-char -1)
+                                    (skip-syntax-backward "/\\")
+                                    (point))))))
+       ;; rebind `minibuffer-message' called by
+       ;; `blink-matching-open' to handle the overlay display
+       (cl-letf (((symbol-function #'minibuffer-message)
+                  (lambda (msg &rest args)
+                    (let ((msg (apply #'format-message msg args)))
+                      (setq ov (display-line-overlay+
+                                (window-start) msg ))))))
+         (blink-matching-open))))))
+
+(defun display-line-overlay+ (pos str &optional face)
+  "Display line at POS as STR with FACE.
+
+FACE defaults to inheriting from default and highlight."
+  (let ((ol (save-excursion
+              (goto-char pos)
+              (make-overlay (line-beginning-position)
+                            (line-end-position)))))
+    (overlay-put ol 'display str)
+    (overlay-put ol 'face
+                 (or face '(:inherit default :inherit highlight)))
+    ol))
+
+(setq show-paren-style 'paren
+      show-paren-delay 0.03
+      show-paren-highlight-openparen t
+      show-paren-when-point-inside-paren nil
+      show-paren-when-point-in-periphery t)
+(show-paren-mode 1)
+#+end_src
+
+*** grammatical-edit
+:PROPERTIES:
+:ID:       05534ff6-447b-4497-b170-5626edc8bacf
+:END:
+- [2021-11-26 Fri 12:29] -> [[id:c06624c2-29b5-4f83-868c-aa8dc8e012fd][dolist mode hooks]]
+- [2021-11-26 Fri 12:54] <- [[id:4bfe18f0-70f6-4f5d-9188-01c19c7a6304][Tree Sitter]]
+#+begin_src emacs-lisp :tangle "packages.el"
+(when IS-LINUX
+  (package! grammatical-edit :recipe (:host github :repo "manateelazycat/grammatical-edit"))
+  )
+#+end_src
+- [2021-11-26 Fri 12:52] -> https://github.com/manateelazycat/grammatical-edit
+
+#+begin_src emacs-lisp :tangle "config.el"
+;; (when IS-LINUX
+;; (use-package! grammatical-edit
+;;   :config
+;;   (define-key grammatical-edit-mode-map (kbd "(") 'grammatical-edit-open-round)
+;;   (define-key grammatical-edit-mode-map (kbd "[") 'grammatical-edit-open-bracket)
+;;   (define-key grammatical-edit-mode-map (kbd "{") 'grammatical-edit-open-curly)
+;;   (define-key grammatical-edit-mode-map (kbd ")") 'grammatical-edit-close-round)
+;;   (define-key grammatical-edit-mode-map (kbd "]") 'grammatical-edit-close-bracket)
+;;   (define-key grammatical-edit-mode-map (kbd "}") 'grammatical-edit-close-curly)
+;;   (define-key grammatical-edit-mode-map (kbd "=") 'grammatical-edit-equal)
+
+;;   (define-key grammatical-edit-mode-map (kbd "%") 'grammatical-edit-match-paren)
+;;   (define-key grammatical-edit-mode-map (kbd "\"") 'grammatical-edit-double-quote)
+
+;;   (define-key grammatical-edit-mode-map (kbd "SPC") 'grammatical-edit-space)
+;;   (define-key grammatical-edit-mode-map (kbd "RET") 'grammatical-edit-newline)
+
+;;   (define-key grammatical-edit-mode-map (kbd "M-o") 'grammatical-edit-backward-delete)
+;;   (define-key grammatical-edit-mode-map (kbd "C-d") 'grammatical-edit-forward-delete)
+;;   (define-key grammatical-edit-mode-map (kbd "C-k") 'grammatical-edit-kill)
+
+;;   (define-key grammatical-edit-mode-map (kbd "M-\"") 'grammatical-edit-wrap-double-quote)
+;;   (define-key grammatical-edit-mode-map (kbd "M-{") 'grammatical-edit-wrap-curly)
+;;   (define-key grammatical-edit-mode-map (kbd "M-(") 'grammatical-edit-wrap-round)
+;;   (define-key grammatical-edit-mode-map (kbd "M-)") 'grammatical-edit-unwrap)
+
+;;   (define-key grammatical-edit-mode-map (kbd "M-<left>") 'drag-stuff-left)
+;;   (define-key grammatical-edit-mode-map (kbd "M-<right>") 'drag-stuff-right)
+
+;;   (define-key grammatical-edit-mode-map (kbd "M-n") 'grammatical-edit-jump-right)
+;;   (define-key grammatical-edit-mode-map (kbd "M-p") 'grammatical-edit-jump-left)
+;;   (define-key grammatical-edit-mode-map (kbd "M-:") 'grammatical-edit-jump-out-pair-and-newline)
+;;   )
+;; )
+#+end_src
+
+#+RESULTS:
+: t
+
+*** hungry-delete
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! hungry-delete)
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! hungry-delete
+  :config
+  (add-hook! 'after-init-hook #'global-hungry-delete-mode)
+  )
+#+end_src
+
+*** format-all
+:PROPERTIES:
+:ID:       b7b76dc7-dbd9-42be-a22c-71eea6e12f7d
+:END:
+- [2021-11-26 Fri 12:27] -> [[id:c06624c2-29b5-4f83-868c-aa8dc8e012fd][dolist mode hooks]]
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! format-all)
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! format-all
+  :config
+  ;;(add-hook! 'format-all-mode-hook 'format-all-ensure-formatter)
+  (prependq! format-all-default-formatters '(("Haskell" ormolu)
+                                             ;;("Shell" beautysh)
+                                             ))
+  )
+#+end_src
+
+#+results:
+: t
+
+*** Git blamer
+
+- https://github.com/Artawower/blamer.el
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! blamer :recipe (:host github :repo "artawower/blamer.el"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! blamer
+  :defer 20
+  :custom
+  (blamer-idle-time 0.3)
+  (blamer-min-offset 70)
+  :custom-face
+  (blamer-face ((t :foreground "#7a88cf"
+                   :background nil
+                   :height 140
+                   :italic t)))
+  :config
+  ;;(global-blamer-mode 1)
+  )
+#+end_src
+
+*** aggressive-ident
+
+#+begin_src emacs-lisp :tangle "packages.el"
+;;(package! aggressive-indent)
+#+end_src
+
+
+#+begin_src emacs-lisp :tangle "config.el"
+;;(use-package! aggressive-indent)
+#+end_src
+
+
+*** Align
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! electric-align :recipe (:host github :repo "zk-phi/electric-align"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! electric-align)
+#+end_src
+
+** Bookmarks/bm
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! bm)
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! bm
+  :demand t
+  :init
+  (setq bm-restore-repository-on-load t)
+  :bind
+  (:map bm-show-mode-map
+        ("j" . next-line)
+        ("k" . previous-line))
+  :config
+
+  (setq bm-cycle-all-buffers t
+        bm-highlight-style 'bm-highlight-only-fringe
+        bm-repository-size 1000)
+  (setq-default bm-buffer-persistence t)
+
+  (add-hook 'after-init-hook #'bm-repository-load)
+  (add-hook 'find-file-hooks #'bm-buffer-restore)
+  (add-hook 'after-rever-hook #'bm-buffer-restore)
+  (add-hook 'kill-buffer-hook #'bm-buffer-save)
+  (add-hook 'after-save-hook #'bm-buffer-save)
+  (add-hook 'kill-emacs-hook
+            (lambda ()
+              (bm-buffer-save-all)
+              (bm-repository-save)))
+  )
+#+end_src
+
+#+results:
+| (lambda nil (bm-buffer-save-all) (bm-repository-save)) | tramp-archive-cleanup-hash | amx-save-to-file | flycheck-global-teardown | save-place-kill-emacs-hook | recentf-save-list | recentf-cleanup | savehist-autosave | (closure (t) nil (bm-buffer-save-all) (bm-repository-save)) | fd-dired-cleanup | persp-kill-emacs-h | doom-cleanup-project-cache-h | lsp--global-teardown | bookmark-exit-hook-internal | reftex-kill-emacs-hook | transient-maybe-save-history | org-roam-db--close-all | org-id-locations-save | org-babel-remove-temporary-directory | doom-persist-scratch-buffers-h |
+
+
+** Scrolling
+
+*** scrollkeeper
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! scrollkeeper :recipe (:host github :repo "alphapapa/scrollkeeper.el"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+;; (use-package! fast-scroll
+;; :config
+;; (setq fast-scroll-throttle 0.5)
+;; (add-hook 'fast-scroll-start-hook (lambda () (flycheck-mode -1)))
+;; (add-hook 'fast-scroll-end-hook (lambda () (flycheck-mode 1)))
+;; (fast-scroll-config)
+;; (fast-scroll-mode 1)
+;; )
+(use-package! scrollkeeper
+  :config
+  (global-set-key [remap scroll-up-command] #'scrollkeeper-contents-up)
+  (global-set-key [remap scroll-down-command] #'scrollkeeper-contents-down)
+  )
+#+end_src
+
+
+** Templating
+*** yatemplate
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! yatemplate)
+#+end_src
+- [[https://github.com/mineo/yatemplate][mineo/yatemplate: Simple file templates for Emacs with YASnippet]]
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! yatemplate
+  :after yasnippet
+  :config
+  ;; Define template directory
+  (setq yatemplate-dir (concat doom-private-dir "modules/templates"))
+  ;; Coupling with auto-insert
+  (setq auto-insert-alist nil)
+  (yatemplate-fill-alist)
+  (add-hook 'find-file-hook 'auto-insert)
+  )
+#+end_src
+
+** [[https://github.com/ROCKTAKEY/grugru][ROCKTAKEY/grugru: Rotate text at point in Emacs.]]
+
+** popon
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! popon :recipe (:host nil :repo "https://codeberg.org/akib/emacs-popon.git"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package popon)
+#+end_src
+
+* Search Backend
+**  blink-search
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! blink-search :recipe (:host github :repo "manateelazycat/blink-search"
+                                :build (:not compile)
+                                :files ("*")))
+#+end_src
+
+
+#+begin_src emacs-lisp :tangle "config.el"
+(when (display-graphic-p)
+  (use-package! blink-search))
+#+end_src
+**  symbol-overlay
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! symbol-overlay)
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! symbol-overlay
+  :config
+  :bind (:map symbol-overlay-mode-map
+              ("M-i" . symbol-overlay-put)
+              ("M-N" . symbol-overlay-switch-forward)
+              ("M-P" . symbol-overlay-switch-backward)
+              ("M-n" . symbol-overlay-jump-next)
+              ("M-p" . symbol-overlay-jump-prev)
+              ("M-r" . symbol-overlay-query-replace)
+              ("M-R" . symbol-overlay-rename)))
+#+end_src
+
+#+RESULTS:
+: symbol-overlay-rename
+
+* Org Mode
+
+** Load Basic Config
+
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
+(load! "setting")
+#+end_src
+
+- Default
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
+(setq-default org-directory "~/ghq/github.com/GTrunSec/org-notes")
+(setq enable-local-variables :all)
+#+end_src
+
+#+results:
+: :all
+
+** Laod Default Org Packages
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
+
+#+end_src
+
+
+** Only Modes Or Files Seeting In Org-Mode
+
+#+begin_src emacs-lisp :tangle "config.el"
+(define-derived-mode only-file-to-org-mode org-mode "Org + only mode"
+  "Only modes for org file."
+  (add-hook! org-tanglesync-watch-mode :local #'org-tanglesync-mode)
+  )
+(add-to-list 'auto-mode-alist '("README-[^z-a]*\\.org\\'" . only-file-to-org-mode))
+#+end_src
+
+
+** Org Mode Map && After Org!
+:PROPERTIES:
+:ID:       e4386f66-eaeb-470f-9ea0-992e583a5909
+:END:
+- [2021-07-27 Tue 12:44] -> [[id:51647023-c013-40c4-83de-c2ba20e3a9c7][Org Mode Map => map!]]
+- [2021-07-27 Tue 13:07] -> [[id:26a87c3a-375b-4bfb-9520-845641ec1335][Org Mode Hydra Key Map]]
+
+
+- [[https://zzamboni.org/post/beautifying-org-mode-in-emacs/][zzamboni.org | Beautifying Org Mode in Emacs]]
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
+(after! org
+  (when IS-LINUX
+    (setq org-id-locations-file (concat org-directory "/cache/.linux-orgids"))
+    )
+
+  (when IS-MAC
+    (setq org-id-locations-file (concat org-directory "/cache/.mac-orgids"))
+    )
+
+  (setq org-src-fontify-natively t
+        org-startup-indented t ; Enable `org-indent-mode' by default
+        org-src-preserve-indentation t
+        org-src-tab-acts-natively t
+        org-src-window-setup 'current-window
+        org-clock-into-drawer t
+        org-log-into-drawer t
+        org-agenda-start-day "-1d"
+        org-agenda-span 2
+        org-agenda-time-leading-zero t
+        )
+
+  (setq org-time-clocksum-format '(:hours "%d" :require-hours t :minutes ":%02d" :require-minutes t))
+  (setq org-archive-location (concat "%s_archive_" (format-time-string "%Y" (current-time)) "::"))
+  ;; Removes clocked tasks with 0:00 duration
+  (setq org-clock-out-remove-zero-time-clocks t)
+  ;; Change task state to STARTED when clocking in
+  (setq org-clock-in-switch-to-state "DOING")
+
+  ;;Markdown
+  (eval-after-load "org"
+    '(require 'ox-md nil t))
+
+  ;;https://orgmode.org/worg/org-contrib/babel/examples/fontify-src-code-blocks.html
+  (defun org-only-show-headings ()
+    (interactive)
+    (org-content -1))
+  (setq org-download-timestamp "%Y%m%d_%H%M%S")
+  (setq org-plantuml-jar-path (expand-file-name "~/.config/guangtao-sources/plantuml"))
+  )
+#+end_src
+
+#+results:
+: org-babel-nix-command
+
+*** Org Mode Hook!
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
+(after! org
+  (add-hook! 'org-mode-hook 'auto-revert-mode)
+  (add-hook! 'dired-mode-hook 'org-download-enable)
+  (add-hook! 'org-mode-hook 'org-only-show-headings)
+  (add-hook! 'doom-init-ui-hook 'org-id-update-id-locations)
+  (add-hook! 'unpackaged/org-return-dwim 'unpackaged/org-fix-blank-lines)
+  )
+#+end_src
+
+** Org Starter
+
+#+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
+(package! org-starter)
+#+end_src
+- adding Braindump to org-agenda files
+  - [[https://superuser.com/questions/633746/loading-all-org-files-on-a-folder-to-agenda][emacs - Loading all org files on a folder to agenda - Super User]]
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
+(use-package! org-starter
+  :custom
+  ;; Enable external configuration files loaded from org-starter-path
+  (org-starter-load-config-files t)
+  :config
+  (org-starter-def "~/ghq/github.com/GTrunSec/org-notes"
+    :files
+    ("braindump/" :agenda t)
+
+    ("braindump/self/gtd.org"    :key "g" :refile (:maxlevel . 5))
+    ("braindump/self/notes.org"  :key "n" :refile (:maxlevel . 5 ))
+    ("braindump/self/Habit.org"  :key "h" :refile (:maxlevel . 5 ))
+
+    ("braindump/learning-music.org"      :agenda t :key "M" :refile (:maxlevel . 5 ))
+    ("braindump/guangtao-library.org" :key "b" :refile (:maxlevel . 5 ))
+    ("braindump/guangtao-feed.org"    :agenda t :key "f" :refile (:maxlevel . 5 ))
+    ;;
+    ("braindump/self/" :agenda t)
+    ("braindump/journals/" :agenda t)
+    )
+  (org-starter-def "~/ghq/github.com/GTrunSec/hive/profiles/doom-emacs/"
+    :files
+    ("config.org" :key "c" :refile (:maxlevel . 5))
+    )
+  ;; (org-starter-def "~/ghq/github.com/GTrunSec/hive/resources"
+  ;;   :files
+  ;;   ("profiles.org")
+  ;;   ("dotfiles/wallpaper/wallpaper.org" :agenda nil)
+  ;;   )
+  :commands org-starter-load-all-files-in-path
+  :hook
+  (after-init . org-starter-load-all-files-in-path)
+  :bind
+  (
+   ("C-c e" . org-starter-select-file))
+  ;; "C-c e" . org-starter-refile-by-key))
+  )
+#+end_src
+
+#+results:
+: org-starter-select-file
+
+** Org Attach
+
+*** org-attach-extra
+
+- https://github.com/lucasvreis/org-attach-extra
+
+#+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
+(package! org-attach-extra :recipe (:host github :repo "lucasvreis/org-attach-extra"
+                                    :files ("*.el")
+                                    ))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
+(use-package! org-attach-extra)
+#+end_src
+
+
+** Org Superstar
+
+#+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
+;;(package! org-superstar)
+#+end_src
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
+;; (use-package! org-superstar
+;;   :hook
+;;   (org-mode . org-superstar-mode)
+;;   :config
+;;   (setq org-superstar-headline-bullets-list '("☰" "☷" "☵" "☲"  "☳" "☴"  "☶"  "☱" ))
+;; )
+#+end_src
+
+** Org Modern :theme:
+
+- https://github.com/minad/org-modern
+
+#+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
+(package! org-modern :recipe (:host github :repo "minad/org-modern"
+                              :files ("*.el")
+                              ))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
+(use-package! org-modern
+  :config
+  ;; (add-hook 'org-mode-hook #'org-modern-mode)
+  ;; (add-hook 'org-agenda-finalize-hook #'org-modern-agenda)
+  :hook
+  (org-mode . org-modern-mode)
+  (org-agenda-finalize . org-modern-agenda)
+  :custom
+  (org-modern-hide-stars nil) ; adds extra indentation
+  )
+#+end_src
+
+*** org-modern-indent
+
+
+#+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
+(package! org-modern-indent :recipe (:host github :repo "jdtsmith/org-modern-indent"
+                                     :files ("*.el")
+                                     ))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
+(use-package! org-modern-indent
+  :hook
+  (org-indent-mode . org-modern-indent-mode)
+  )
+#+end_src
+
+
+
+** Org Ql
+:PROPERTIES:
+:ID:       13ea46d9-4bc3-49fd-b776-e0259d977b03
+:END:
+
+- [2021-01-08 Fri 17:49] <- [[id:ccfe887a-cb1b-4671-8d35-44d46f98b0ef][org-z]]
+- [[https://github.com/tpeacock19/org-ql-config][tpeacock19/org-ql-config]]
+#+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
+(package! org-ql :recipe (:host github :repo "alphapapa/org-ql"
+                          :files ("*.el")
+                          ))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
+(use-package! org-ql)
+#+end_src
+
+#+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
+(package! helm-org-rifle)
+#+end_src
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
+(use-package! helm-org-rifle)
+#+end_src
+
+** Zetteldesk
+
+#+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
+(package! zetteldesk :recipe (:host github :repo "Vidianos-Giannitsis/zetteldesk.el"
+                              :files ("*"))
+  )
+#+end_src
+
+#+begin_src emacs-lisp :tangle  "./modules/private/my-org/config.el"
+(use-package! zetteldesk
+  :after (org-roam major-mode-hydra)
+  :config
+  (require 'zetteldesk-kb)
+  (require 'zetteldesk-ref)
+  (require 'zetteldesk-info)
+  (require 'zetteldesk-remark)
+  (setq zetteldesk-kb-hydra-prefix (kbd "M-s s"))
+  (zetteldesk-mode)
+  (map! :prefix ("C-c z" . "zetteldesk")
+        :desc "Switch to zetteldesk buffer" "b" #'zetteldesk-switch-to-buffer
+        :desc "Find zetteldesk node"        "n" #'zetteldesk-node-find
+        :desc "Go to zetteldesk info node"  "I" #'zetteldesk-info-goto-node
+        (:prefix ("a" . "add")
+         :desc "Add node"                   "n" #'zetteldesk-add-node-to-desktop
+         :desc "Add node + backlinks"       "b" #'zetteldesk-add-backlinks-to-desktop
+         :desc "Add one POI/MOC backlink"   "p" #'zetteldesk-add-poi-or-moc-backlink-to-desktop
+         :desc "Add buffer"                 "a" #'zetteldesk-add-to-desktop
+         :desc "Add info node"              "i" #'zetteldesk-add-info-node-to-desktop)
+        (:prefix ("r" . "remove")
+         :desc "Remove node"                "n" #'zetteldesk-remove-node-from-desktop
+         :desc "Remove node + backlinks"    "b" #'zetteldesk-remove-backlinks-from-desktop
+         :desc "Remove buffer"              "r" #'zetteldesk-remove-from-desktop
+         :desc "Remove info node"           "i" #'zetteldesk-remove-info-node-from-desktop)
+        (:prefix ("i" . "insert")
+         :desc "Link to node + contents in *zetteldesk-scratch*"  "n" #'zetteldesk-insert-node-contents
+         :desc "Node contents in *zetteldesk-scratch*"            "N" #'zetteldesk-insert-node-contents-without-link
+         :desc "Link to node"                                     "i" #'zetteldesk-node-insert
+         :desc "Link to node - Menu sorted by backlinks"          "b" #'zetteldesk-node-insert-sort-backlinks
+         :desc "Links to all POIs/MOCs"                           "m" #'zetteldesk-node-insert-if-poi-or-moc
+         :desc "Link to PDF"                                      "p" #'zetteldesk-insert-link-to-pdf
+         :desc "Org file contents"                                "o" #'zetteldesk-insert-org-file-contents
+         :desc "Info node contents + link to context"             "I" #'zetteldesk-insert-info-contents)
+        :desc "Switch to *zetteldesk-scratch*"                    "s" #'zetteldesk-switch-to-scratch-buffer)
+  (map! :leader :prefix "n"
+        (:prefix ("z" . "zetteldesk")
+         :desc "Switch to zetteldesk buffer" "b" #'zetteldesk-switch-to-buffer
+         :desc "Find zetteldesk node"        "n" #'zetteldesk-node-find
+         :desc "Go to zetteldesk info node"  "I" #'zetteldesk-info-goto-node
+         (:prefix ("a" . "add")
+          :desc "Add node"                   "n" #'zetteldesk-add-node-to-desktop
+          :desc "Add node + backlinks"       "b" #'zetteldesk-add-backlinks-to-desktop
+          :desc "Add one POI/MOC backlink"   "p" #'zetteldesk-add-poi-or-moc-backlink-to-desktop
+          :desc "Add buffer"                 "a" #'zetteldesk-add-to-desktop
+          :desc "Add info node"              "i" #'zetteldesk-add-info-node-to-desktop)
+         (:prefix ("r" . "remove")
+          :desc "Remove node"                "n" #'zetteldesk-remove-node-from-desktop
+          :desc "Remove node + backlinks"    "b" #'zetteldesk-remove-backlinks-from-desktop
+          :desc "Remove buffer"              "r" #'zetteldesk-remove-from-desktop
+          :desc "Remove info node"           "i" #'zetteldesk-remove-info-node-from-desktop)
+         (:prefix ("i" . "insert")
+          :desc "Link to node + contents in *zetteldesk-scratch*"  "n" #'zetteldesk-insert-node-contents
+          :desc "Node contents in *zetteldesk-scratch*"            "N" #'zetteldesk-insert-node-contents-without-link
+          :desc "Link to node"                                     "i" #'zetteldesk-node-insert
+          :desc "Link to node - Menu sorted by backlinks"          "b" #'zetteldesk-node-insert-sort-backlinks
+          :desc "Links to all POIs/MOCs"                           "m" #'zetteldesk-node-insert-if-poi-or-moc
+          :desc "Link to PDF"                                      "p" #'zetteldesk-insert-link-to-pdf
+          :desc "Org file contents"                                "o" #'zetteldesk-insert-org-file-contents
+          :desc "Info node contents + link to context"             "I" #'
+          zetteldesk-insert-info-contents)
+         :desc "Switch to *zetteldesk-scratch*"                    "s" #'zetteldesk-switch-to-scratch-buffer)))
+#+end_src
+
+#+RESULTS:
+: t
+
+** Org Sync
+
+#+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
+(package! org-sync)
+#+end_src
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
+(use-package! org-sync)
+#+end_src
+
+#+results:
+: org-sync
+
+** consult-notes
+
+#+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
+(package! consult-notes :recipe (:host github :repo "mclear-tools/consult-notes"))
+#+end_src
+
+- https://github.com/mclear-tools/consult-notes
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
+(use-package! consult-notes
+  :commands (consult-notes
+             consult-notes-search-in-all-notes
+             consult-notes-org-roam-find-node
+             consult-notes-org-roam-find-node-relation)
+  :config
+  (setq consult-notes-sources '(("Org Braindump"  ?b  "~/Documents/org-notes/braindump"))) ;; Set notes dir(s), see below
+  (consult-notes-org-roam-mode)
+  )
+
+#+end_src
+
+#+RESULTS:
+: t
+
+
+** Org Book
+
+#+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
+(package! org-books :recipe (:host github :repo "lepisma/org-books"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
+(use-package! org-books
+  :config
+  (setq org-books-file "~/ghq/github.com/GTrunSec/org-notes/braindump/guangtao_library.org")
+  )
+#+end_src
+
+** GTD
+
+*** agenda knowledge
+
+**** [[http://doc.norang.ca/org-mode.html][Org Mode - Organize Your Life In Plain Text!]]
+:PROPERTIES:
+:ID:       a9083e79-5da7-4721-817d-6a19760e3800
+:END:
+:BACKLINKS:
+[2020-10-13 Tue 15:05] <- [[*[[https://www.nongnu.org/org-edna-el/#org2421cd7][Org Edna]]][Org Edna]]
+:END:
+
+**** Sexp Entries and the Fancy Diary Display
+
+- [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Sexp-Diary-Entries.html][https://www.gnu.org/software/emacs/manual/html_node/emacs/Sexp-Diary-Entries.html]]
+
+
+*** super-agenda
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/packages.el"
+(package! org-super-agenda)
+#+end_src
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
+(use-package! org-super-agenda
+  :config
+  (add-hook! 'after-init-hook 'org-super-agenda-mode)
+  (require 'org-habit)
+  (setq
+   org-agenda-skip-scheduled-if-done t
+   org-agenda-skip-deadline-if-done t
+   org-agenda-include-deadlines t
+   org-agenda-include-diary nil
+   org-agenda-block-separator nil
+   org-agenda-compact-blocks t
+   org-agenda-start-with-log-mode t)
+  )
+#+end_src
+
+
+*** org-todo-keywords
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
+(setq org-todo-keywords
+      '((sequence
+         "TODO(t)"  ; A task that needs doing & is ready to do
+         "PROJ(p)"  ; An ongoing project that cannot be completed in one step
+         "DOING(s)"  ; A task that is in progress
+         "⚑ WAITING(w)"  ; Something is holding up this task; or it is paused
+         "|"
+         "☟ NEXT(n)"
+         "✰ IMPORTANT(i)"
+         "DONE(d)"  ; Task successfully completed
+         "✘ CANCELED(c@)") ; Task was cancelled, aborted or is no longer applicable
+        (sequence
+         "✍ NOTE(N)"
+         "FIXME(f)"
+         "☕ BREAK(b)"
+         "❤ LOVE(l)"
+         "REVIEW(r)"
+         )) ; Task was completed
+      org-todo-keyword-faces
+      '(
+        ("TODO" . (:foreground "#ff39a3" :weight bold))
+        ("DOING"  . "orangered")
+        ("✘ CANCELED" . (:foreground "white" :background "#4d4d4d" :weight bold))
+        ("⚑ WAITING" . "pink")
+        ("☕ BREAK" . "gray")
+        ("❤ LOVE" . (:foreground "VioletRed4"
+                     ;; :background "#7A586A"
+                     :weight bold))
+        ("☟ NEXT" . (:foreground "DeepSkyBlue"
+                     ;; :background "#7A586A"
+                     :weight bold))
+        ("✰ IMPORTANT" . (:foreground "greenyellow"
+                          ;; :background "#7A586A"
+                          :weight bold))
+        ("DONE" . "#008080")
+        ("FIXME" . "IndianRed")
+        ))
+#+end_src
+
+#+results:
+: ((TODO :foreground #ff39a3 :weight bold) (DOING . orangered) (✘ CANCELED :foreground white :background #4d4d4d :weight bold) (⚑ WAITING . pink) (☕ BREAK . gray) (❤ LOVE :foreground VioletRed4 :weight bold) (☟ NEXT :foreground DeepSkyBlue :weight bold) (✰ IMPORTANT :foreground greenyellow :weight bold) (DONE . #008080) (FIXME . IndianRed))
+
+
+*** agenda-custom-setting
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
+(require 'org-super-agenda)
+(setq org-agenda-custom-commands
+      '(("z" "GtruN Agenda"
+         ((agenda "" ((org-agenda-span 2)
+                      (org-agenda-start-day "-1d")
+                      (org-super-agenda-groups
+                       '((:name "Today List"
+                          :time-grid t
+                          :date today
+                          :todo "DOING"
+                          :scheduled today
+                          :order 1)))))
+          (alltodo "" ((org-agenda-overriding-header "")
+                       (org-super-agenda-groups
+                        '((:name "Next to do"
+                           :priority>= "B"
+                           :order 2)
+                          (:name "Important"
+                           :todo "✰ Important"
+                           :order 6)
+                          (:name "Due Today"
+                           :deadline today
+                           :order 3)
+                          (:name "Due Soon"
+                           :deadline future
+                           :order 8)
+                          (:name "Overdue"
+                           :deadline past
+                           :order 20)
+                          (:name "Issues"
+                           :tag "Issue"
+                           :order 12)
+                          (:name "Projects"
+                           :tag "Project"
+                           :order 14)
+                          (:name "Emacs"
+                           :tag "Emacs"
+                           :order 13)
+                          (:name "Research"
+                           :tag "Research"
+                           :order 15)
+                          (:name "To read"
+                           :tag ("BOOK" "READ")
+                           :order 30)
+                          (:name "Waiting"
+                           :todo "WAITING"
+                           :order 18)
+                          (:name "trivial"
+                           :priority<= "C"
+                           :todo ("SOMEDAY")
+                           :order 90)
+                          (:discard (:tag ("Chore" "Routine" "Daily")))))))))
+
+        ("b" . "BOOK")
+
+        ("bb" "Search tags in todo, note, and archives"
+         search "+{:book\\|books:}")
+
+        ("bd" "BOOK TODO List"
+         search "+{^\\*+\\s-+\\(DOING\\|TODO\\|WAITING\\)\\s-} +{:book\\|books:}")
+
+        ("d" "ALL DONE OF TASKS"
+         search "+{^\\*+\\s-+\\(DONE\\|CANCELED\\)\\s-}")
+
+        ("i" "ALL DOING OF TASKS"
+         search "+{^\\*+\\s-+\\(DOING\\)\\s-}")
+        ))
+#+end_src
+
+#+RESULTS:
+: ((z GtruN Agenda ((agenda  ((org-agenda-span 2) (org-agenda-start-day -1d) (org-super-agenda-groups '((:name Today List :time-grid t :date today :todo DOING :scheduled today :order 1))))) (alltodo  ((org-agenda-overriding-header ) (org-super-agenda-groups '((:name Next to do :priority>= B :order 2) (:name Important :todo ✰ Important :order 6) (:name Due Today :deadline today :order 3) (:name Due Soon :deadline future :order 8) (:name Overdue :deadline past :order 20) (:name Issues :tag Issue :order 12) (:name Projects :tag Project :order 14) (:name Emacs :tag Emacs :order 13) (:name Research :tag Research :order 15) (:name To read :tag (BOOK READ) :order 30) (:name Waiting :todo WAITING :order 18) (:name trivial :priority<= C :todo (SOMEDAY) :order 90) (:discard (:tag (Chore Routine Daily))))))))) (b . BOOK) (bb Search tags in todo, note, and archives search +{:book\|books:}) (bd BOOK TODO List search +{^\*+\s-+\(DOING\|TODO\|WAITING\)\s-} +{:book\|books:}) (d ALL DONE OF TASKS search +{^\*+\s-+\(DONE\|CANCELED\)\s-}) (i ALL DOING OF TASKS search +{^\*+\s-+\(DOING\)\s-}))
+
+
+*** ✰ IMPORTANT [[https://www.nongnu.org/org-edna-el/#org2421cd7][Org Edna]]
+:PROPERTIES:
+:ID:       629570ef-ecd4-494f-a3b5-1fb10aeef227
+:END:
+:RELATED:
+[2020-10-13 Tue 15:05] -> [[id:a9083e79-5da7-4721-817d-6a19760e3800][Org Mode - Organize Your Life In Plain Text!]]
+:END:
+
+- native-compiler-error
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/packages.el"
+(package! org-edna :recipe (:build (:not compile)))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
+(use-package! org-edna
+  :config
+  (add-hook! 'after-init-hook 'org-edna-mode)
+  )
+#+end_src
+
+
+*** org-wild-notifier
+
+- [[https://github.com/akhramov/org-wild-notifier.el][akhramov/org-wild-notifier.el: Alert notifications for org-agenda]]
+#+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
+(package! org-wild-notifier)
+#+end_src
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
+(use-package! org-wild-notifier
+  :defer t
+  :config
+  (add-hook! 'after-init-hook 'org-wild-notifier-mode)
+  (setq ;;org-wild-notifier-alert-time 15
+   alert-default-style (if IS-MAC 'osx-notifier 'libnotify)))
+#+end_src
+
+
+*** TODO [[https://github.com/takaxp/org-onit][takaxp/org-onit: Easy org-clock-in and org-clock-out]]
+
+
+*** TODO [[https://github.com/Trevoke/org-gtd.el][Trevoke/org-gtd.el: A package for using GTD using org-mode (beta)]] :GTD:
+
+** Org Babel
+
+- [doc] [[https://orgmode.org/manual/Results-of-Evaluation.html][Results of Evaluation (The Org Manual)]]
+
+- [[https://org-babel.readthedocs.io/en/latest/header-args/][Header arguments - Org Babel reference card]]
+
+- [[http://kitchingroup.cheme.cmu.edu/blog/2015/01/04/Redirecting-stderr-in-org-mode-shell-blocks/][Redirecting stderr in org-mode shell blocks]]
+
+- [[https://necromuralist.github.io/posts/org-babel-cheat-sheet/][Org-Babel Cheat Sheet | The Cloistered Monkey]]
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
+(after! ob-async
+  (setq ob-async-no-async-languages-alist '("ipython"
+                                            "ein-python"
+                                            "ein-rust"
+                                            "ein-julia"
+                                            "ein-haskell"
+                                            ))
+  )
+
+;;[[https://stackoverflow.com/questions/22668112/how-to-evaluate-all-code-blocks-when-exporting-in-emacs-org-mode][How to evaluate all code blocks when exporting in emacs org-mode - Stack Overflow]]
+(setq org-confirm-babel-evaluate nil)
+(setq org-export-use-babel nil)
+
+(setq org-babel-C++-compiler 'clang++)
+(setq org-babel-C-compiler 'clang)
+#+end_src
+
+#+results:
+: clang
+
+
+** Org Publish
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/setting.el"
+;;; setting.el -*- lexical-binding: t; -*-
+(setq org-publish-project-alist
+      '(
+        ("init"
+         :base-directory "~/.config/guangtao/dotfiles/doom-emacs"
+         :publishing-function org-html-publish-to-html
+         :publishing-directory "~/Documents/my-blog/public/custom"
+         )
+        ))
+#+end_src
+
+
+** Org Crypt
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
+;; 當被加密的部份要存入硬碟時，自動加密回去
+;; 設定要加密的 tag 標籤為 secret
+(setq org-crypt-tag-matcher "secret")
+
+;; 避免 secret 這個 tag 被子項目繼承 造成重複加密
+;; (但是子項目還是會被加密喔)
+(setq org-tags-exclude-from-inheritance (quote ("secret")))
+
+;; 用於加密的 GPG 金鑰
+;; 可以設定任何 ID 或是設成 nil 來使用對稱式加密 (symmetric encryption)
+(setq org-crypt-key nil)
+#+end_src
+
+#+results:
+
+** Org Protocol
+
+- [[https://www.diegoberrocal.com/blog/2015/08/19/org-protocol/][Using org-capture with org-protocol be like - Diego Berrocal]]
+
+- [[https://github.com/alphapapa/org-protocol-capture-html][alphapapa/org-protocol-capture-html: Capture HTML from the browser selection into Emacs as org-mode content]]
+
+** Org Properties
+
+- [[https://emacs.stackexchange.com/questions/7607/export-properties-blocks-with-org-mode][Export :PROPERTIES: blocks with org-mode? - Emacs Stack Exchange]]
+#+begin_src emacs-lisp :tangle "config.el"
+(setq org-export-with-broken-links t)
+#+end_src
+
+#+results:
+: t
+
+
+** Org Timestramp
+
+*** export
+
+- org-export-with-planning ~#+OPTIONS: p:t~
+
+** Org Roam
+
+- [[https://github.com/nobiot/Zero-to-Emacs-and-Org-roam][nobiot/Zero-to-Emacs-and-Org-roam: Step by step guide from zero to installing and setting up Emacs and Org-roam on Windows 10]]
+- [[https://www.orgroam.com/manual/][Top (Org-roam User Manual)]]
+
+*** idea
+
+**** ✍ NOTE [[https://github.com/tilmanrassy/emacs-treeview][tilmanrassy/emacs-treeview: Abstract Emacs Lisp framework for tree navigation]]
+
+easy way to display org-ref with tree view instead of org-mode ?
+
+*** org-roam
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/packages.el"
+(unpin! org-roam);;
+;;(package! org-roam :pin "8c3c216191314ac674a9753836402032b3d33266")
+#+end_src
+
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
+(use-package! org-roam
+  :config
+  (setq org-roam-directory (concat org-directory "/braindump"))
+  )
+;;  (setq org-roam-index-file "~/Documents/org-notes/braindump/pages/contents.org")
+;;https://github.com/zaeph/.emacs.d/blob/0f4bf9a500ef6397b93c41cb51602bea9ab9a4c3/init.el#L3804
+;; [[https://copingmechanism.com/2020/keeping-org-roam-daily-notes-in-a-separate-folder/][Keeping Org-roam Daily Notes in a separate folder – Coping Mechanism]]
+;; (setq org-roam-dailies-capture-templates '(("d" "daily" org-roam-capture--get-point) ""
+;;                                             :immediate-finish t
+;;                                             :file-name "dailies/%<%Y-%m-%d>-${slug}"
+;;                                             :head "#+TITLE: %<%Y-%m-%d>-${slug}\n#+created: %u\n#+last_modified: %U\n\n")))
+;;)
+#+end_src
+
+#+results:
+: t
+
+
+
+*** org-roam-server
+
+- [[https://github.com/org-roam/org-roam-server][org-roam/org-roam-server: A Web Application to Visualize the Org-Roam Database]]
+
+#+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
+;;(package! org-roam-server)
+#+end_src
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
+;; (use-package! org-roam-server
+;;   :config
+;;   (setq org-roam-server-port 8081
+;;         org-roam-server-export-inline-images t
+;;         org-roam-server-authenticate nil
+;;         org-roam-server-network-poll t
+;;         org-roam-server-network-arrows nil
+;;         org-roam-server-network-label-truncate t
+;;         org-roam-server-network-label-truncate-length 60
+;;         org-roam-server-network-label-wrap-length 20))
+#+end_src
+
+
+*** org-roam-bibtex
+
+#+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
+;;(package! org-roam-bibtex)
+#+end_src
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
+;; (use-package! org-roam-bibtex
+;;   :config
+;;   (add-hook 'org-mode-hook 'org-roam-bibtex-mode)
+;;   :bind (:map org-roam-bibtex-mode-map
+;;               ("C-c n a" . orb-note-actions)
+;;               )
+;;   )
+#+end_src
+
+
+*** org-ref
+
+#+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
+(package! org-ref)
+#+end_src
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
+(use-package! org-ref
+  :after org
+  :config
+  (setq org-ref-default-bibliography '("~/Documents/org-notes/braindump/bibliography/myBibliography.bib"))
+  (setq bibtex-completion-bibliography "~/Documents/org-notes/braindump/bibliography/myBibliography.bib")
+  )
+#+end_src
+
+
+*** org-templates
+:PROPERTIES:
+:ID:       d7e94dca-ca07-4b65-ac10-517ac8e551f1
+:END:
+
+#+begin_src emacs-lisp :tangle  "./modules/private/my-org/config.el"
+;; (defun org-roam-dailies-capture-today ()
+;;   "Capture a note into the daily note for today."
+;;   (interactive)
+;;   (let ((org-roam-capture-templates org-roam-dailies-capture-templates)
+;;         (org-roam-capture--info (list (cons 'time (current-time))))
+;;         (org-roam-capture--context 'dailies))
+;;     (org-roam--capture)))
+
+;; (setq org-capture-templates '(("n" "Note" entry (function org-roam-dailies-capture-today)
+;;                                  "* %?\n")))
+#+end_src
+
+** Org Journal
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
+(use-package! org-journal
+  :config
+  (setq org-journal-dir "~/Documents/org-notes/braindump/journals")
+  (setq org-journal-file-format "%Y_%m_%d.org")
+  )
+#+end_src
+
+** Org Brain
+
+#+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
+(package! org-brain :recipe (:build (:not compile)))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
+(use-package! org-brain
+  :config
+  (setq org-brain-visualize-default-choices 'all
+        org-brain-title-max-length 24
+        org-brain-include-file-entries nil
+        org-brain-file-entries-use-title nil)
+  (setq org-brain-path "~/Documents/org-notes/braindump")
+  )
+#+end_src
+
+** Ob Mermaid
+
+- [[https://github.com/arnm/ob-mermaid][GitHub - arnm/ob-mermaid: Generate mermaid diagrams within Emacs org-mode babel]]
+#+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
+(package! ob-mermaid)
+#+end_src
+
+#+begin_src emacs-lisp :tangle  "./modules/private/my-org/config.el"
+(use-package! ob-mermaid
+  :config
+  (setq ob-mermaid-cli-path "~/.nix-profile/bin/mmdc")
+  )
+#+end_src
+
+** Org ID
+:PROPERTIES:
+:ID:       11c28ecd-d192-49b8-9af0-0a949e7a28d3
+:END:
+
+- https://zzamboni.org/post/how-to-easily-create-and-use-human-readable-ids-in-org-mode-and-doom-emacs/
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
+(after! counsel
+  (setq counsel-outline-display-style 'title))
+
+(after! org-id
+  ;; Do not create ID if a CUSTOM_ID exists
+  (setq org-id-link-to-org-use-id 'create-if-interactive-and-no-custom-id))
+
+(defun zz/make-id-for-title (title)
+  "Return an ID based on TITLE."
+  (let* ((new-id (replace-regexp-in-string "[^[:alnum:]]" "-" (downcase title))))
+    new-id))
+
+(defun zz/org-custom-id-create ()
+  "Create and store CUSTOM_ID for current heading."
+  (let* ((title (or (nth 4 (org-heading-components)) ""))
+         (new-id (zz/make-id-for-title title)))
+    (org-entry-put nil "CUSTOM_ID" new-id)
+    (org-id-add-location new-id (buffer-file-name (buffer-base-buffer)))
+    new-id))
+
+(defun zz/org-custom-id-get-create (&optional where force)
+  "Get or create CUSTOM_ID for heading at WHERE.
+
+If FORCE is t, always recreate the property."
+  (org-with-point-at where
+    (let ((old-id (org-entry-get nil "CUSTOM_ID")))
+      ;; If CUSTOM_ID exists and FORCE is false, return it
+      (if (and (not force) old-id (stringp old-id))
+          old-id
+        ;; otherwise, create it
+        (zz/org-custom-id-create)))))
+
+;; Now override counsel-org-link-action
+(after! counsel
+  (defun counsel-org-link-action (x)
+    "Insert a link to X.
+
+X is expected to be a cons of the form (title . point), as passed
+by `counsel-org-link'.
+
+If X does not have a CUSTOM_ID, create it based on the headline
+title."
+    (let* ((id (zz/org-custom-id-get-create (cdr x))))
+      (org-insert-link nil (concat "#" id) (car x)))))
+#+end_src
+
+
+** Org Spacer :edit:
+
+- [[https://github.com/dustinlacewell/org-spacer.el][dustinlacewell/org-spacer.el: Enforce the number of blank lines between elements in an org-mode document]]
+
+#+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
+(package! org-spacer.el :recipe (:host github :repo "dustinlacewell/org-spacer.el"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
+;; (use-package! org-spacer
+;;   :config
+;;   ;; (add-hook 'org-mode-hook
+;;   ;;           (lambda () (add-hook 'before-save-hook
+;;   ;;                                'org-spacer-enforce nil 'make-it-local)))
+;;   )
+#+end_src
+
+
+** org density.el :summary:statistic:
+
+- [[https://github.com/mtekman/org-density.el][mtekman/org-density.el: Examine the density of org headings]]
+
+#+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
+(package! org-treeusage :recipe (:host github :repo "mtekman/org-treeusage.el"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
+(use-package! org-treeusage
+  :config
+  (define-key org-mode-map (kbd "C-c d") 'org-treeusage-mode)
+  )
+#+end_src
+
+
+** Org Format
+
+*** org-link-type
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/setting.el"
+;; (defun endless/export-audio-link (path desc format)
+;;   "Export org audio links to hmtl."
+;;   (cl-case format
+;;     (html (format
+;;        "<audio preload=\"auto\"> <source src=\"https://www.gtrun.org/music/%s\">%s</audio>"
+;;        path (or desc "")))
+
+;;     ;; README: hugo music file path
+;;     (md (format
+;;      "<audio class=\"wp-audio-shortcode\"  loop=\"1\"  preload=\"auto\" style=\"width: 100%%;\" controls> <source src=\"https://www.gtrun.org/music/%s\">%s</audio>"
+;;      path (or desc "")))
+;;     (latex (format "(HOW DO I EXPORT AUDIO TO LATEX? \"%s\")" path))))
+
+;; (after! org
+;;   (org-add-link-type "audio" #'ignore #'endless/export-audio-link)
+;;   ;;(setq org-download-timestamp "%Y%m%d_%H%M%S")
+;; )
+#+end_src
+
+*** [[https://github.com/ianxm/emacs-scrum][ianxm/emacs-scrum: dynamic scrum report generation for org-mode buffers]]
+
+
+** Org Super Links
+:PROPERTIES:
+:ID:       1761cf4f-5d3a-4e22-adb1-6b1e4114830b
+:END:
+
+- [[https://github.com/toshism/org-super-links][toshism/org-super-links: Package to create links with auto backlinks]]
+
+#+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
+(package! org-super-links :recipe (:host github
+                                   :repo "toshism/org-super-links"
+                                   :files ("*.el")
+                                   ))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
+(use-package! org-super-links
+  :config
+  (defun org-super-links-backlink-prefix-timestamp ()
+    "Return the default prefix string for a backlink.
+Inactive timestamp formatted according to `org-time-stamp-formats' and
+a separator ' <- '."
+    (let* ((time-format (substring (cdr org-time-stamp-formats) 1 -1))
+	   (time-stamp (format-time-string time-format (current-time))))
+      (format " - [%s] <- "
+	      time-stamp)))
+
+  (defun org-super-links-link-prefix-timestamp ()
+    "Return the default prefix string for a backlink.
+Inactive timestamp formatted according to `org-time-stamp-formats' and
+a separator ' -> '."
+    (let* ((time-format (substring (cdr org-time-stamp-formats) 1 -1))
+	   (time-stamp (format-time-string time-format (current-time))))
+      (format " - [%s] -> "
+	      time-stamp)))
+
+  (defun org-super-links-quick-insert-inline-link ()
+    "Insert inline link regardless of variable `org-super-links-related-into-drawer' value."
+    (interactive)
+    ;; how to handle prefix here?
+    (let ((org-super-links-related-into-drawer nil)
+	  (org-super-links-link-prefix 'org-super-links-link-prefix-timestamp))
+      (org-super-links-link)))
+
+  (defun org-super-links-quick-insert-drawer-link ()
+    "Insert link into drawer regardless of variable `org-super-links-related-into-drawer' value."
+    (interactive)
+    ;; how to handle prefix here?
+    (let ((org-super-links-related-into-drawer (or org-super-links-related-into-drawer nil))
+	  (org-super-links-link-prefix 'org-super-links-backlink-prefix-timestamp))
+      (org-super-links-link)))
+
+  (setq org-id-link-to-org-use-id
+        'create-if-interactive-and-no-custom-id)
+
+  (setq org-super-links-related-into-drawer nil
+        org-super-links-backlink-into-drawer nil
+        org-super-links-link-prefix 'org-super-links-link-prefix-timestamp)
+  )
+#+end_src
+
+
+** Org Noter Plus
+
+#+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
+(package! org-noter-plus :recipe (:host github :repo "yuchen-lea/org-noter-plus"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
+(use-package! org-noter-plus
+  :commands (org-noter-plus--follow-nov-link)
+  :config
+  (setq org-noter-plus-image-dir "~/Dropbox/org-notes/braindump/.attach")
+  )
+(after! nov
+  (org-link-set-parameters "nov"
+                           ;; Replace the default nov link to work better with org-noter
+                           :follow 'org-noter-plus--follow-nov-link)
+  )
+#+end_src
+
+** Org Ipynb
+
+
+#+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
+;;(package! ox-ipynb :recipe (:host github :repo "jkitchin/ox-ipynb"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
+;;(use-package! ox-ipynb)
+#+end_src
+
+
+** Org Appear
+
+
+#+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
+;;(package! org-appear :recipe (:host github :repo "awth13/org-appear"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
+;; (use-package! org-appear
+;;   :config
+;;   (add-hook 'org-mode-hook 'org-appear-mode)
+;; )
+#+end_src
+
+
+
+** Org Html Theme
+
+
+#+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
+;; (package! org-html-themify :recipe (:host github :repo "DogLooksGood/org-html-themify"
+;;                                     :files ("*.el" "*.js" "*.css")))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
+;; (use-package! org-html-themify
+;;   :hook (org-mode . org-html-themify-mode)
+;;   :custom
+;;   (org-html-themify-themes
+;;    '((dark . doom-one)
+;;      (light . doom-one)))
+;;   )
+#+end_src
+
+** Org Clones
+
+1.
+
+   [[https://github.com/legalnonsense/org-clones][legalnonsense/org-clones: Prototype for method of cloning orgmore headers]]
+
+** Org Tables
+
+#+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
+(package! valign :recipe (:host github :repo "casouri/valign"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
+(use-package! valign
+  :hook (org-mode . valign-mode)
+  )
+#+end_src
+
+
+*** Org remark
+#+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
+(package! org-remark :recipe (:host github :repo "nobiot/org-remark"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
+(use-package! org-remark
+  :init
+  (require 'org-remark-global-tracking)
+  :hook (org-mode . org-remark-global-tracking-mode)
+  )
+#+end_src
+
+** [[https://github.com/stardiviner/org-link-beautify][stardiviner/org-link-beautify: Beautify org links with colors and icons.]]
+
+#+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
+;; (package! org-link-beautify :recipe (:host github
+;;                              :repo "stardiviner/org-link-beautify"
+;;                              ))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
+;; (use-package! org-link-beautify
+;;   :config
+;;   (add-hook! 'org-mode-hook 'org-link-beautify-mode)
+;;   )
+#+end_src
+
+
+** TODO [[https://github.com/marcIhm/org-working-set][marcIhm/org-working-set: Manage a working-set of org-nodes]] :manage:
+
+#+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
+(package! org-working-set
+  )
+#+end_src
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
+(use-package! org-working-set)
+#+end_src
+
+** [[https://github.com/mtekman/org-tanglesync.el][mtekman/org-tanglesync.el: A package to pull external changes into an org-mode source block if that block is tangled to an external file]]
+
+#+begin_src emacs-lisp :tangle  "./modules/private/my-org/packages.el"
+(package! org-tanglesync)
+#+end_src
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
+(use-package! org-tanglesync
+  :bind
+  (( "C-c M-i" . org-tanglesync-process-buffer-interactive)
+   ( "C-c M-a" . org-tanglesync-process-buffer-automatic))
+  )
+#+end_src
+
+
+** TODO [[https://github.com/casouri/valign][casouri/valign: Pixel-perfect visual alignment for Org and Markdown tables.]]
+
+** TODO [[https://github.com/lepisma/org-krita][lepisma/org-krita: Krita sketches in Org]]
+
+** [[https://github.com/alphapapa/org-graph-view][alphapapa/org-graph-view: View Org buffers as a clickable, graphical mind-map]]
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/packages.el"
+;; (package! org-graph-view :recipe (:host github :repo "alphapapa/org-graph-view"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
+;;(use-package! org-graph-view)
+#+end_src
+
+
+** [[https://github.com/the-humanities/org-mind-map][the-humanities/org-mind-map: This is an emacs package that creates graphviz directed graphs.]]
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/packages.el"
+(package! org-mind-map :recipe (:host github :repo "the-humanities/org-mind-map"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-org/config.el"
+(use-package! org-mind-map
+  :init
+  (require 'ox-org)
+  :config
+  (setq org-mind-map-engine "circo")
+  )
+#+end_src
+
+#+results:
+: t
+
+
+** Org Parser
+
+- [[http://ergoemacs.org/emacs/elisp_parse_org_mode.html][Elisp: Parse Org Mode]]
+
+* Langs
+
+** Initialize packages
+
+*** Loading instructions
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-code/packages.el"
+;;; modules/private/my-code/packages/packages.el -*- lexical-binding: t; -*-
+#+end_src
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
+;;; config..el -*- lexical-binding: t; -*-
+#+end_src
+
+
+
+** Latex
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
+(load! "my-latex")
+#+end_src
+
+*** auctex
+
+*** Chinese Latex
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-code/my-latex.el"
+(after! latex
+  (setq org-latex-pdf-process '("latexmk -xelatex -quiet -shell-escape -f %f"))
+  (add-to-list 'org-latex-classes
+               '("elegantpaper"
+                 "\\documentclass[lang=cn]{elegantpaper}
+                 [NO-DEFAULT-PACKAGES]
+                 [PACKAGES]
+                 [EXTRA]"
+                 ("\\section{%s}" . "\\section*{%s}")
+                 ("\\subsection{%s}" . "\\subsection*{%s}")
+                 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+                 ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                 ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+  (setq org-latex-listings 'minted)
+  (add-to-list 'org-latex-packages-alist '("" "minted")))
+#+end_src
+
+
+*** Org Latex Instant Preview
+
+#+begin_src emacs-lisp :tangle  "./modules/private/my-code/packages.el"
+(package! org-latex-impatient :recipe (:host github :repo "yangsheng6810/org-latex-impatient"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle  "./modules/private/my-code/my-latex.el"
+(use-package org-latex-impatient
+  ;;:hook (org-mode . org-latex-instant-preview-mode)
+  :config
+  (add-hook 'org-latex-impatient-mode-hook (lambda () (awesome-tab-mode -1)))
+
+  (when IS-LINUX
+    (setq org-latex-impatient-tex2svg-bin "/run/current-system/sw/bin/tex2svg")
+    (setq org-latex-impatient-scale 10.0)
+    )
+
+  (when IS-MAC
+    (setq org-latex-impatient-tex2svg-bin
+          "~/.nix-profile/bin/tex2svg")
+    (setq org-latex-impatient-scale 5.0)
+    )
+  )
+#+end_src
+
+** Haskell
+
+#+begin_src emacs-lisp :tangle "config.el"
+(setq haskell-mode-local-vars-hook nil)
+#+end_src
+** Lsp Mode
+#+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
+;; (use-package! lsp-mode
+;;   :config
+;;   (add-hook 'terraform-mode-hook #'lsp)
+;;   (add-to-list 'lsp-language-id-configuration '(nickel-mode . "nickel"))
+;;   ;; (lsp-register-client
+;;   ;;  (make-lsp-client :new-connection (lsp-stdio-connection '("rnix-lsp"))
+;;   ;;                   :major-modes '(nix-mode)
+;;   ;;                   :server-id 'nix))
+;;   (lsp-register-client
+;;    (make-lsp-client :new-connection (lsp-stdio-connection '("nls"))
+;;                     :activation-fn (lsp-activate-on "nickel")
+;;                     :server-id 'nls))
+;;   )
+#+end_src
+
+#+results:
+
+** lsp-bridge
+:PROPERTIES:
+:ID:       4d5ec6f7-2008-458b-a1c9-cbcde1a2a913
+:END:
+#+begin_src emacs-lisp :tangle "packages.el"
+;;(package! lsp-bridge :recipe (:host github :repo "manateelazycat/lsp-bridge" :files ("*.el" "*.py" "core/*.py" "langserver/*.json" "acm/*")))
+(package! lsp-bridge :recipe (:local-repo "~/.config/guangtao-sources/lsp-bridge" :files ("*.el" "*.py" "core" "langserver" "acm")
+                                          ))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! lsp-bridge
+  :config
+  (require 'lsp-bridge-jdtls)
+  (global-lsp-bridge-mode)
+  (setq lsp-bridge-flash-line-delay 1)
+  (setq lsp-bridge-ref-flash-line-delay 1)
+  (setq lsp-bridge-python-command "/run/current-system/sw/bin/python")
+  (add-hook 'lsp-bridge-mode-hook (lambda () (corfu-mode -1)))
+  (setq acm-enable-tabnine-helper t)
+  (push '((nickel-mode nickel-ts-mode) . "nls") lsp-bridge-single-lang-server-mode-list)
+  (setq lsp-bridge-org-babel-lang-list '("bash" "haskell" "python" "latex" "jupyter-python"))
+  )
+#+end_src
+
+#+RESULTS:
+: t
+
+
+#+begin_src emacs-lisp :tangle "config.el"
+(unless (display-graphic-p)
+  (after! acm
+    (use-package! acm-terminal
+      :load-path "~/.config/guangtao-sources/acm-terminal"
+      )))
+#+end_src
+
+** Poly Mode
+
+- [[https://github.com/ShuguangSun/ess-view-data][ShuguangSun/ess-view-data: View data support for ESS]]
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(unpin! polymode)
+#+end_src
+
+
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
+(use-package! polymode
+  :config
+  (add-hook 'org-brain-visualize-mode-hook #'org-brain-polymode)
+  )
+#+end_src
+
+*** Poly Mode Markdown
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! poly-markdown :recipe (:build (:not compile)))
+#+end_src
+
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
+(use-package! poly-markdown
+  :config
+  (add-to-list 'auto-mode-alist '("\\.Rmd" . poly-markdown-mode))
+  )
+#+end_src
+
+** Nickel
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(when IS-LINUX
+  (package! nickel-mode
+    :recipe (:local-repo "~/ghq/github.com/GTrunSec/nickel-mode"
+                         ))
+  )
+#+end_src
+
+
+#+begin_src emacs-lisp :tangle "config.el"
+(when IS-LINUX
+  (use-package! nickel-mode
+    :config
+    (add-hook 'nickel-mode-hook #'electric-align-mode)
+    )
+  )
+#+end_src
+
+** Elisp
+
+*** TODO [[https://github.com/doublep/eldev][doublep/eldev: Elisp Development Tool]]
+*** TODO [[https://github.com/emacs-elsa/Elsa][emacs-elsa/Elsa: Emacs Lisp Static Analyzer]]
+
+*** [[https://github.com/twlz0ne/elpl][twlz0ne/elpl: Provides a simple interface to evaluating Emacs Lisp expressions but without contaminating current Emacs.]]
+
+** Julia
+
+*** [[https://github.com/gcv/julia-snail][julia-snail: An Emacs development environment for Julia]]
+
+*** eglot-julia
+#+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
+;; (use-package! eglot-jl
+;;   :config
+;;   (setq eglot-jl-language-server-project "~/.julia/environments/v1.7")
+;; )
+#+end_src
+
+#+RESULTS:
+: t
+
+
+
+*** [[https://github.com/gcv/julia-snail][gcv/julia-snail: An Emacs development environment for Julia]]
+#+begin_src emacs-lisp :tangle "./modules/private/my-code/packages.el"
+(package! julia-snail :recipe (:host github
+                               :repo "gcv/julia-snail"
+                               :files ("*")
+                               ))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
+(use-package! julia-snail
+  :config
+  :requires vterm
+  :hook (julia-mode . julia-snail-mode)
+  )
+#+end_src
+
+*** Julia config
+
+#+begin_src emacs-lisp :tangle "config.el"
+(add-hook 'ob-async-pre-execute-src-block-hook
+          '(lambda ()
+             (setq inferior-julia-program-name "julia")))
+#+end_src
+
+*** ob-julia-vterm
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-code/packages.el"
+(package! ob-julia-vterm :recipe (:host github :repo "shg/ob-julia-vterm.el"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle ./modules/private/my-code/config.el
+(use-package! ob-julia-vterm
+  :config
+  (add-to-list 'org-babel-load-languages '(julia-vterm . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  (after! org
+    (defalias 'org-babel-execute:julia 'org-babel-execute:julia-vterm)
+    (defalias 'org-babel-variable-assignments:julia 'org-babel-variable-assignments:julia-vterm)))
+#+end_src
+
+
+
+*** julia formatter
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-code/packages.el"
+(package! julia-formatter :recipe (:host nil
+                                   :repo "https://codeberg.org/FelipeLema/julia-formatter.el.git"
+                                   :files ("*")
+                                   )
+  )
+#+end_src
+
+- Pkg.add("JuliaFormatter")
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
+;; (use-package! julia-formatter
+;;   :config
+;;   ;;(julia-formatter-setup-aggressive-hooks)
+;;   (add-hook 'julia-mode-hook #'julia-formatter--ensure-server)
+;;   (add-hook 'julia-mode-hook #'julia-formatter-mode)
+;;   )
+#+end_src
+
+#+RESULTS:
+: julia-formatter
+
+** Nushell
+
+- [2022-12-12 Mon 11:14] -> https://github.com/azzamsa/emacs-nushell
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-code/packages.el"
+(package! nushell-mode :recipe (:host github :repo "azzamsa/emacs-nushell"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
+(use-package! nushell-mode)
+#+end_src
+
+
+** Python
+
+*** lsp
+#+begin_src emacs-lisp :tangle "./modules/private/my-code/packages.el"
+#+end_src
+
+*** jupyter
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-code/packages.el"
+(package! jupyter  :recipe (:host github :repo "GTrunSec/emacs-jupyter"
+                                  :branch "ignore-warning"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
+(use-package! jupyter)
+#+end_src
+
+** Nox
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-code/packages.el"
+;;(package! nox :recipe (:host github :repo "manateelazycat/nox"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
+;; (use-package! nox
+;;   :config
+;;   (add-to-list 'nox-server-programs '(haskell-mode . ("ghcide" "--lsp")))
+;; (dolist (hook (list
+;;                'js-mode-hook
+;;                'rust-mode-hook
+;;                'python-mode-hook
+;;                'ruby-mode-hook
+;;                'java-mode-hook
+;;                'sh-mode-hook
+;;                'php-mode-hook
+;;                'c-mode-common-hook
+;;                'c-mode-hook
+;;                'c++-mode-hook
+;;                'haskell-mode-hook
+;;                ))
+;;   (add-hook hook '(lambda () (nox-ensure))))
+;; )
+#+end_src
+
+** CUE
+
+- [2021-11-16 Tue 13:41] -> https://github.com/russell/cue-mode
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-code/packages.el"
+(package! cue-mode :recipe (:host github :repo "russell/cue-mode"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
+(use-package! cue-mode)
+#+end_src
+
+** Zeek Mode
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-code/packages.el"
+(package! zeek-mode :recipe (:host github :repo "zeek/emacs-zeek-mode"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
+(use-package! zeek-mode
+  :config
+  (setq default-tab-width 4)
+  (add-hook 'zeek-mode-hook #'doom/toggle-line-numbers)
+  (add-hook 'zeek-mode-hook #'highlight-indent-guides-mode)
+  )
+#+end_src
+** Nix Mode
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
+(use-package! nix-mode
+  :config
+  (setq nix-nixfmt-bin "alejandra")
+  (setq-hook! 'nix-mode-hook company-idle-delay t)
+  :init
+  ;; https://github.com/aakropotkin/doomconf/blob/70f083942df203ae618892bdb4d5d4a749bad102/config.el#L170
+  (defun org-babel-execute:nix (body params)  ;; FIXME: params
+  "Execute a block of Template code with org-babel. This function is called
+by `org-babel-execute-src-block'"
+  (message "executing Nix source block")
+  (let* ((tmp-src-file (org-babel-temp-file "nix-src-" ".nix"))
+          ;(processed-params (org-babel-process-params params))
+          (coding-system-for-read 'utf-8)
+          (coding-system-for-write 'utf-8))
+    (with-temp-file tmp-src-file (insert body))
+    (let ((results (org-babel-eval
+                    (format "%s eval -f %s"
+                            org-babel-nix-command
+                            (org-babel-process-file-name tmp-src-file))
+                    "")))
+      (if results
+          (org-babel-read (org-babel-trim results) t)
+        (message "fuck")))))
+
+  (after! org
+    (defvar org-babel-nix-command "nix")
+    )
+  )
+#+end_src
+
+#+RESULTS:
+: t
+
+** separedit.el
+#+begin_src emacs-lisp :tangle "./modules/private/my-code/packages.el"
+(package! separedit :recipe (:host github :repo "twlz0ne/separedit.el"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
+;;
+(use-package! separedit
+  :config
+  (define-key prog-mode-map        (kbd "C-x '") #'separedit)
+  (define-key minibuffer-local-map (kbd "C-x '") #'separedit)
+  (define-key org-src-mode-map     (kbd "C-x '") #'separedit)
+  )
+#+end_src
+
+** Justfile
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-code/packages.el"
+(package! justl :recipe (:host github :repo "psibi/justl.el"))
+(package! just-mode :recipe (:host github :repo "psibi/just-mode.el" :branch "format-feature"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
+(use-package! just-mode)
+(use-package! justl
+  :custom
+  (justl-executable "/run/current-system/sw/bin/just")
+  (justl-recipe-width 25)
+  )
+#+end_src
+
+#+RESULTS:
+: justl
+
+** Rust
+
+#+begin_src emacs-lisp :tangle "./modules/private/my-code/config.el"
+(set-company-backend! 'rustic-mode '(company-files
+                                     company-yasnippet
+                                     company-capf
+                                     )
+                      )
+#+end_src
+
+** default
+
+#+begin_src emacs-lisp :tangle yes
+(after! rustic
+  (setq rustic-indent-offset 4)
+  )
+#+end_src
+
+#+RESULTS:
+: 4
+
+* Visualization
+
+** Buffer
+:PROPERTIES:
+:ID:       b03289e1-0024-474c-8284-918099c3a071
+:END:
+- [2021-08-14 Sat 13:08] -> [[id:0808fd9c-9fb5-43a7-bb48-0edab111c0ae][dogears.el]]
+*** Parenthesis
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! rainbow-delimiters
+  :config
+  (custom-set-faces
+   '(rainbow-delimiters-mismatched-face ((t (:foreground "white" :background "red" :weight bold))))
+   '(rainbow-delimiters-unmatched-face ((t (:foreground "white" :background "red" :weight bold))))
+
+   ;; show parents (in case of rainbow failing !)
+   '(show-paren-match ((t (:foreground "white" :background "green" :weight bold))))
+   '(show-paren-mismatch ((t (:foreground "white" :background "red" :weight bold)))))
+  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+  ;; highlight brackets
+  )
+#+end_src
+
+*** eysbrowse
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! eyebrowse)
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! eyebrowse
+  :hook (after-init . eyebrowse-mode)
+  :config
+  (define-key eyebrowse-mode-map (kbd "M-1") 'eyebrowse-switch-to-window-config-1)
+  (define-key eyebrowse-mode-map (kbd "M-2") 'eyebrowse-switch-to-window-config-2)
+  (define-key eyebrowse-mode-map (kbd "M-3") 'eyebrowse-switch-to-window-config-3)
+  (define-key eyebrowse-mode-map (kbd "M-4") 'eyebrowse-switch-to-window-config-4)
+  (define-key eyebrowse-mode-map (kbd "M-5") 'eyebrowse-switch-to-window-config-5)
+  (setq eyebrowse-new-workspace t)
+  )
+#+end_src
+*** vertico-posframe
+- [2021-10-24 Sun 23:00] -> https://github.com/tumashu/vertico-posframe
+
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! vertico-posframe :recipe (:host github :repo "tumashu/vertico-posframe"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(when IS-LINUX
+  (use-package! vertico-posframe
+    :config
+    (when (display-graphic-p)
+      (vertico-posframe-mode 1)
+      )
+    (setq vertico-posframe-parameters
+          '((left-fringe . 8)
+            (right-fringe . 8)))
+    )
+  )
+#+end_src
+
+** Window
+
+#+begin_src emacs-lisp :tangle "config.el"
+(setq display-line-numbers-type 'relative)
+
+(setq doom-fallback-buffer-name "► Doom"
+      +doom-dashboard-name "► Doom")
+#+end_src
+
+*** tab-bar
+
+#+begin_src emacs-lisp :tangle "config.el"
+;;(add-hook 'dired-mode-hook (lambda () (tab-bar-mode 1)))
+(tab-bar-mode t)
+#+end_src
+
+#+RESULTS:
+: t
+
+*** Dimming Unused Windows
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! dimmer)
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! dimmer
+  :config (dimmer-mode))
+#+end_src
+
+*** beacon
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! beacon)
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! beacon
+  :diminish
+  :config (setq beacon-color "#666600")
+  :hook   ((org-mode text-mode) . beacon-mode))
+#+end_src
+
+*** Flashing when something goes wrong —no blinking
+
+#+begin_src emacs-lisp :tangle "config.el"
+(setq visible-bell 1)
+#+end_src
+
+*** golden-ratio
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! golden-ratio
+  :disabled
+  :diminish golden-ratio-mode
+  :init (golden-ratio-mode 1))
+#+end_src
+
+*** ace-window
+
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! ace-window)
+#+end_src
+
+#+RESULTS:
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package ace-window
+  :bind (("C-x o" . ace-window))
+  :config
+  (setq aw-keys '(?a ?o ?e ?u ?h ?t ?n ?s)))
+#+end_src
+
+
+** Themes
+
+#+begin_src emacs-lisp :tangle "config.el"
+(when (not (display-graphic-p))
+  (setq doom-theme 'doom-city-lights)
+  )
+;; (remove-hook 'window-setup-hook #'doom-init-theme-h)
+;; (add-hook 'after-init-hook #'doom-init-theme-h 'append)
+;; (delq! t custom-theme-load-path)
+#+end_src
+
+
+*** [[https://github.com/vbuzin/berrys-theme][vbuzin/berrys-theme: A light, clean and elegant Emacs theme]]
+
+#+begin_src emacs-lisp :tangle yes
+;; (use-package! berrys-theme
+;;   :config
+;;   (load-theme 'berrys t)
+
+;;   :config ;; for good measure and clarity
+;;   (setq-default cursor-type '(bar . 2))
+;;   (setq-default line-spacing 2))
+#+end_src
+
+*** [[https://github.com/rougier/elegant-emacs][rougier/elegant-emacs: A very minimal but elegant emacs (I think)]]
+
+** Hydra Posframe
+
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! hydra-posframe :recipe (:host github :repo "Ladicle/hydra-posframe"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! hydra-posframe
+  :config
+  (when (display-graphic-p)
+    (add-hook! 'after-init-hook 'hydra-posframe-enable)
+    )
+  )
+#+end_src
+
+** Writeroom Or Writegood
+
+- [[https://github.com/bnbeckwith/writegood-mode][bnbeckwith/writegood-mode: Minor mode for Emacs to improve English writing]]
+
+- [[https://github.com/joostkremers/writeroom-mode][joostkremers/writeroom-mode: Writeroom-mode: distraction-free writing for Emacs.]]
+
+- [[https://github.com/rnkn/olivetti][rnkn/olivetti: Emacs minor mode for a nice writing environment]]
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! writeroom-mode)
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! writeroom-mode
+  :hook
+  (org-mode . writeroom-mode)
+  (w3m-mode . writeroom-mode)
+  (markdown-mode . writeroom-mode)
+  :config
+  (advice-add 'text-scale-adjust :after
+              #'visual-fill-column-adjust)
+
+  ;;https://github.com/joostkremers/writeroom-mode#fullscreen-effect
+  (setq writeroom-fullscreen-effect 'maximized)
+  (setq writeroom-width 75)
+  )
+#+end_src
+
+#+RESULTS:
+| writeroom-mode | doom--setq-fill-nobreak-predicate-for-markdown-mode-h | +lookup--init-markdown-mode-handlers-h |
+
+#+begin_src emacs-lisp :tangle "config.el"
+;; (use-package! writegood-mode
+;;   ;; Load this whenver I'm composing prose.
+;;   ;;:hook (text-mode org-mode)
+;;   ;; Don't show me the “Wg” marker in the mode line
+;;   :diminish
+;;   ;; Some additional weasel words.
+;;   :config
+;;   (--map (push it writegood-weasel-words)
+;;          '("some" "simple" "simply" "easy" "often" "easily" "probably"
+;;            "clearly"               ;; Is the premise undeniably true?
+;;            "experience shows"      ;; Whose? What kind? How does it do so?
+;;            "may have"              ;; It may also have not!
+;;            "it turns out that")))  ;; How does it turn out so?
+;;            ;; ↯ What is the evidence of highighted phrase? ↯
+#+end_src
+
+** Grip Mode
+
+1. [[https://github.com/seagle0128/grip-mode][seagle0128/grip-mode: Instant Github-flavored Markdown/Org preview using grip]]
+
+** Windown Manager
+
+1. [[https://github.com/nex3/perspective-el][nex3/perspective-el: Perspectives for Emacs.]]
+
+** [[https://github.com/alphapapa/burly.el][alphapapa/burly.el: Save and restore frames and windows with their buffers in Emacs]]
+
+** [[https://github.com/ashton314/emacs-writer][ashton314/emacs-writer: An elegant Emacs setup optimized for non-technical writers]]
+* Chinese
+
+** Helm Pinyin
+
+#+begin_src emacs-lisp :tangle "packages.el"
+;; (package! helm-pinyin :recipe (:host github :repo "twlz0ne/helm-pinyin"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+;; (use-package! helm-pinyin
+;;   :hook
+;;   (after-init . turn-on-helm-pinyin)
+;;   )
+#+end_src
+
+** 让 vertico, selectrum 等补全框架，通过 orderless 支持拼音搜索候选项功能。
+
+#+begin_src emacs-lisp :tangle "config.el"
+(defun my-orderless-regexp (orig_func component)
+  (let ((result (funcall orig_func component)))
+    (pyim-cregexp-build result)))
+
+(advice-add 'orderless-regexp :around #'my-orderless-regexp)
+#+end_src
+
+
+* Minor Mode And Major Mode
+
+** [[https://github.com/rnkn/binder][rnkn/binder: Emacs global minor mode facilitating multi-file writing projects]]
+
+** [[https://github.com/jerrypnz/major-mode-hydra.el][jerrypnz/major-mode-hydra.el: Spacemacs-esque major mode leader key powered by Hydra]]
+
+* Writing
+
+** Grammarly
+
+#+begin_src emacs-lisp :tangle "packages.el"
+;;(package! flycheck-grammarly :recipe (:host github :repo "jcs-elpa/flycheck-grammarly"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+;;(use-package! flycheck-grammarly)
+#+end_src
+
+** [[https://github.com/arnm/ob-mermaid][arnm/ob-mermaid: Generate mermaid diagrams within Emacs org-mode babel]]
+
+** TODO [[https://github.com/zzkt/smog][zzkt/smog: Analyse the writing style, word use and readability of prose in Emacs.]] :writing:
+
+**
+
+** TODO [[https://github.com/rnkn/binder][rnkn/binder: Emacs global minor mode facilitating multi-file writing projects]]
+
+* Misc
+
+** Emacs Music
+
+*** [[https://github.com/SpringHan/netease-cloud-music.el][SpringHan/netease-cloud-music.el: A netease music client for emacs.]]
+
+* set popup rules
+
+#+begin_src emacs-lisp :tangle "config.el"
+;; (custom-set-faces
+;;   '(awesome-tab-close-selected((t ( :foreground "DarkGray"))))
+;;   )
+
+(set-popup-rule! "^\\*org-graph-view" :side 'right :size 70 :quit nil :select t :ttl 0)
+
+(set-popup-rule! "^\\*julia" :side 'right :size 45 :quit nil :select nil :ttl 0)
+
+(set-popup-rule! "^\\*Org Src"
+  :side 'bottom :size 0.7 :quit nil :select nil :ttl 0)
+
+(set-popup-rule! "^\\*Ilist"
+  :side 'right :size 35 :quit nil :select nil :ttl 0)
+
+(after! org
+  (set-popup-rule! "^\\*Org tags" :size 0.5))
+
+(after! helm
+  (set-popup-rule! "^\\*helm" :size 0.5))
+
+(after! maple-explorer-imenu
+  (set-popup-rule! "^\\*maple-explorer-imenu"
+    :side 'right :size 35 :quit nil :select nil :ttl 0)
+  )
+#+end_src
+
+#+results:
+
+* Warning
+
+#+begin_src emacs-lisp :tangle "config.el"
+(add-to-list 'warning-suppress-types '(yasnippet backquote-change))
+#+end_src
+
+#+results:
+| yasnippet | backquote-change |
+| :warning  |                  |
+
+* Fonts
+
+** Chinese Font
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! cnfonts)
+#+end_src
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! cnfonts)
+#+end_src
+
+* Unload Packages & Unpin Packages
+
+** Disabled Packages
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(disable-packages! company-go)
+(disable-packages! lsp-python-ms)
+(disable-packages! racer)
+#+end_src
+
+** Unpin Packages
+#+begin_src emacs-lisp :tangle "packages.el"
+(unpin! nix-mode)
+(unpin! org-journal)
+;;(unpin! lsp-mode)
+#+end_src
+
+** Pinned Packages
+
+#+begin_src emacs-lisp :tangle "packages.el"
+;;https://github.com/hlissner/doom-emacs/issues/5637
+;;(package! xref :pin "a82f459b37b31546bf274388baf8aca79e9c30d9")
+;;(package! helm :pin "d5e9fbc8ab3339d0d19f1e6649f0aceda129f468")
+#+end_src
+
+* Linux & MacOS
+
+#+begin_src emacs-lisp :tangle "config.el"
+(when IS-LINUX
+  (load! "linux.el")
+  )
+(when IS-MAC
+  (load! "macos.el")
+  )
+#+end_src
+
+** Linux only
+:PROPERTIES:
+:ID:       67346cde-f31f-420f-9e1e-c46f3c176d27
+:END:
+
+- cursor
+
+#+begin_src emacs-lisp :tangle "linux.el"
+(setq-default cursor-type 'box)
+(blink-cursor-mode -1)
+(set-cursor-color "IndianRed3")
+#+end_src
+
+
+- bookmark
+
+#+begin_src emacs-lisp :tangle "linux.el"
+(setq bm-repository-file (concat doom-private-dir "etc/bm-linux-data"))
+(setq bookmark-default-file
+      (concat doom-private-dir "etc/bookmark-linux-default.el"))
+(bookmark-load bookmark-default-file t)
+#+end_src
+
+- variables
+
+#+begin_src emacs-lisp :tangle "linux.el"
+(setq python-shell-interpreter "python")
+(setq eaf-python-command "python")
+
+(setq browse-url-generic-program "brave")
+
+(when (not window-system)
+  (xterm-mouse-mode 1)
+  )
+
+(setq org-roam-db-location "~/.emacs.d/.local/cache/org-roam.db")
+(setq org-crypt-key "24945FE0DBD04F4C045025F96F92B3E8F942D425")
+#+end_src
+
+
+- emacs-ng
+
+#+begin_src emacs-lisp :tangle "linux.el"
+(setq ng-straight-bootstrap-at-startup t)
+#+end_src
+
+*** eaf
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(when IS-LINUX
+  (package! epc :recipe (:build (:not compile)))
+  (package! eaf :recipe (:host github
+                         :repo "manateelazycat/emacs-application-framework"
+                         :files ("*")
+                         :build (:not compile)))
+  )
+#+end_src
+
+
+#+begin_src emacs-lisp :tangle "config.el"
+(when IS-LINUX
+  (when (display-graphic-p)
+    (use-package! eaf
+      :if (eq system-type 'gnu/linux)
+      :init
+      (add-to-list 'load-path  "~/.emacs.d/.local/straight/repos/emacs-application-framework/app/markdown-previewer")
+      :custom
+      ;; See https://github.com/emacs-eaf/emacs-application-framework/wiki/Customization
+      (eaf-browser-continue-where-left-off t)
+      (eaf-browser-enable-adblocker t)
+      (browse-url-browser-function 'eaf-open-browser)
+      :config
+      (setq eaf-webengine-default-zoom 2.0)
+      ;;(eaf-bind-key scroll_up "C-n" eaf-pdf-viewer-keybinding)
+      ;;(eaf-bind-key scroll_down "C-p" eaf-pdf-viewer-keybinding)
+      )
+    (use-package! epc)
+    )
+  )
+#+end_src
+
+*** grab-x-link :nix:
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! grab-x-link
+  :if (eq system-type 'gnu/linux)
+  )
+#+end_src
+
+*** Font Setting
+
+#+begin_src emacs-lisp :tangle "linux.el"
+(set-face-attribute
+ 'default nil
+ :font (font-spec :name "-PfEd-Fantasque Sans Mono-bold-italic-normal-*-*-*-*-*-m-0-iso10646-1"
+                  :weight 'normal
+                  :slant 'normal
+                  :size 12.0))
+
+(when (display-graphic-p)
+  (dolist (charset '(kana han cjk-misc bopomofo))
+    (set-fontset-font (frame-parameter nil 'font) charset
+                      (font-spec :family "Weibei SC" :size 55)))
+  )
+#+end_src
+*** Mode Map -> Linux
+
+**** Org Mode Map
+
+#+begin_src emacs-lisp :tangle "linux.el"
+(map! :map org-mode-map
+      "C-c l" 'grab-x-link
+      )
+#+end_src
+** MacOS
+*** Default Settings
+- cursor
+
+  #+begin_src emacs-lisp :tangle "macos.el"
+(setq-default cursor-type 'box)
+(blink-cursor-mode -1)
+(set-cursor-color "yellow1")
+  #+end_src
+
+  - bookmark
+
+#+begin_src emacs-lisp :tangle "macos.el"
+(setq bookmark-default-file
+      (concat doom-private-dir "etc/bookmark-macos-default.el"))
+(bookmark-load bookmark-default-file t)
+(setq bm-repository-file (concat doom-private-dir "etc/bm-macos-data"))
+#+end_src
+
+- variables
+
+#+begin_src emacs-lisp :tangle "macos.el"
+;;(setq insert-directory-program "/usr/local/bin/gls")
+(setq org-roam-db-location "~/.emacs.d/.local/cache/org-roam-macos.db")
+(setq ispell-program-name "ispell")
+#+end_src
+
+#+RESULTS:
+: ispell
+
+*** Mode Map -> MacOS
+
+**** Org Mode Map
+
+#+begin_src emacs-lisp :tangle "macos.el"
+(map! :map org-mode-map
+      "C-c l" 'org-mac-link-get-link
+      )
+#+end_src
+
+#+RESULTS:
+
+*** Fonts Setting
+
+#+begin_src emacs-lisp :tangle "macos.el"
+(set-face-attribute
+ 'default nil
+ :font (font-spec :name "-*-Fantasque Sans Mono-normal-normal-normal-*-*-*-*-*-m-0-iso10646-1"
+                  :weight 'normal
+                  :slant 'normal
+                  :size 25.0))
+(dolist (charset '(kana han symbol cjk-misc bopomofo))
+  (set-fontset-font
+   (frame-parameter nil 'font)
+   charset
+   (font-spec :name "-*-STFangsong-normal-normal-normal-*-*-*-*-*-p-0-iso10646-1"
+              :weight 'normal
+              :slant 'normal
+              :size 24.5)))
+#+end_src
+
+** Macos Use Packages
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(when IS-MAC
+  (package! exec-path-from-shell)
+  (package! org-mac-link :recipe (:host gitlab :repo "aimebertrand/org-mac-link"))
+  )
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+;;; my-macos.el -*- lexical-binding: t; -*-
+(when IS-MAC
+  (use-package! org-mac-link)
+  (use-package! exec-path-from-shell
+    :config
+    (when (memq window-system '(mac ns x))
+      (exec-path-from-shell-initialize))
+    )
+  (define-key! awesome-tab-mode-map
+    "s-1" #'awesome-tab-select-visible-tab
+    "s-2" #'awesome-tab-select-visible-tab
+    "s-3" #'awesome-tab-select-visible-tab
+    "s-4" #'awesome-tab-select-visible-tab
+    "s-5" #'awesome-tab-select-visible-tab
+    "s-6" #'awesome-tab-select-visible-tab
+    "s-7" #'awesome-tab-select-visible-tab
+    "s-8" #'awesome-tab-select-visible-tab
+    "s-9" #'awesome-tab-select-visible-tab
+    )
+  )
+#+end_src
+* Bugs
+* Meow
+- [2021-12-05 Sun 18:05] -> https://www.youtube.com/watch?v=HhuAlAcWWeU
+- [[https://github.com/DogLooksGood/meow][DogLooksGood/meow: modular Emacs on wish]]
+
+** use-package with meow
+#+begin_src emacs-lisp :tangle "meow.el"
+;;; meow.el -*- lexical-binding: t; -*-
+(use-package! meow
+  ;; If you set `use-package-always-defer' to t
+  ;; :demand nil
+  :init
+  (meow-global-mode 1)
+  :config
+  ;; meow-setup is your custom function, see below
+  ;; If you want relative line number in NORMAL state(for display-line-numbers-mode)
+  (meow-setup-line-number)
+  ;; If you need setup indicator, see `meow-indicator' for customizing by hand.
+  (meow-setup-indicator)
+#+end_src
+
+** meow setup keys
+
+#+begin_src emacs-lisp :tangle "meow.el"
+(defun meow-setup ()
+  (setq meow-cheatsheet-layout meow-cheatsheet-layout-dvorak)
+  (meow-leader-define-key
+   '("1" . meow-digit-argument)
+   '("2" . meow-digit-argument)
+   '("3" . meow-digit-argument)
+   '("4" . meow-digit-argument)
+   '("5" . meow-digit-argument)
+   '("6" . meow-digit-argument)
+   '("7" . meow-digit-argument)
+   '("8" . meow-digit-argument)
+   '("9" . meow-digit-argument)
+   '("0" . meow-digit-argument))
+  (meow-normal-define-key
+   '("0" . meow-expand-0)
+   '("9" . meow-expand-9)
+   '("8" . meow-expand-8)
+   '("7" . meow-expand-7)
+   '("6" . meow-expand-6)
+   '("5" . meow-expand-5)
+   '("4" . meow-expand-4)
+   '("3" . meow-expand-3)
+   '("2" . meow-expand-2)
+   '("1" . meow-expand-1)
+   '("-" . negative-argument)
+   '(";" . meow-reverse)
+   '("," . meow-inner-of-thing)
+   '("." . meow-bounds-of-thing)
+   '("<" . meow-beginning-of-thing)
+   '(">" . meow-end-of-thing)
+   '("a" . meow-append)
+   '("A" . meow-open-below)
+   '("b" . meow-back-word)
+   '("B" . meow-back-symbol)
+   '("c" . meow-change)
+   '("C" . meow-change-save)
+   '("d" . meow-delete)
+   '("e" . meow-line)
+   '("E" . meow-kmacro-lines)
+   '("f" . meow-find)
+   '("F" . meow-find-expand)
+   '("g" . meow-keyboard-quit)
+   '("G" . meow-goto-line)
+   '("h" . meow-left)
+   '("H" . meow-left-expand)
+   '("i" . meow-insert)
+   '("I" . meow-open-above)
+   '("j" . meow-join)
+   '("J" . delete-indentation)
+   '("k" . meow-kill)
+   '("l" . meow-till)
+   '("L" . meow-till-expand)
+   '("m" . meow-mark-word)
+   '("M" . meow-mark-symbol)
+   '("n" . meow-next)
+   '("N" . meow-next-expand)
+   '("o" . meow-block)
+   '("O" . meow-block-expand)
+   '("p" . meow-prev)
+   '("P" . meow-prev-expand)
+   '("q" . meow-quit)
+   '("Q" . +popup/quit-window)
+   '("r" . meow-replace)
+   '("R" . meow-replace-save)
+   '("s" . meow-search)
+   '("S" . meow-pop-search)
+   '("t" . meow-right-expand)
+   '("u" . undo-fu-only-undo)
+   '("U" . undo-fu-only-redo)
+   '("v" . meow-visit)
+   '("w" . meow-next-word)
+   '("W" . meow-next-symbol)
+   '("x" . meow-save)
+   '("X" . meow-clipboard-save)
+   '("y" . meow-yank)
+   '("Y" . meow-clipboard-yank)
+   '("z" . meow-pop-selection)
+   '("&" . meow-query-replace)
+   '("%" . meow-query-replace-regexp)
+   '("<escape>" . meow-last-buffer)))
+(meow-setup)
+#+end_src
+
+** Meow Define Leader Key
+
+#+begin_src emacs-lisp :tangle "meow.el"
+(meow-leader-define-key
+ '("df" . fd-dired)
+ '("r" . consult-recent-file )
+ '("f" . +vertico/find-file-in)
+ '("F" . consult-find)
+ '("da" . consult-ripgrep)
+ '("dd" . meow-M-x)
+ '("ti" . insert-current-date-time-inactive)
+ '("ta" . insert-current-date-time-active)
+ '("tc" . insert-current-date-time)
+ '("bs" . bookmark-set)
+ '("bm" . bookmark-bmenu-list)
+ '("bt" . bm-toggle)
+ '("bb" . switch-to-buffer)
+ '("bw" . +vertico/switch-workspace-buffer)
+ ;; '("jr" . helm-register)
+ ;; '("js" . point-to-register)
+ )
+#+end_src
+
+#+RESULTS:
+
+
+** Define global-set-key
+:PROPERTIES:
+:ID:       1fe04d86-bcaa-4236-93b2-7eac1de6e05f
+:END:
+- [2021-08-16 Mon 00:20] -> [[id:1849e2c7-d7d1-4a2c-a913-c4d34857d666][consult-dir]]
+
+#+begin_src emacs-lisp :tangle "meow.el"
+(global-set-key (kbd "<f2>") 'hydra/org-roam/body)
+(global-set-key (kbd "<f4>") 'org-starter-find-file-by-key)
+(global-set-key (kbd "<f5>") 'org-agenda)
+(global-set-key (kbd "C-s") '+vertico/search-symbol-at-point)
+(global-set-key (kbd "<f9>") 'save-buffer)
+;;(global-set-key (kbd "C-c s") 'doom/save-and-kill-buffer)
+(global-set-key (kbd "C-c s a") 'consult-ripgrep)
+(global-set-key (kbd "C-x g") 'magit-status)
+#+end_src
+
+** Meeow Mode State List
+
+#+begin_src emacs-lisp :tangle "meow.el"
+(add-to-list 'meow-mode-state-list '(zeek-mode . normal))
+(add-to-list 'meow-mode-state-list '(notdeft-mode . normal))
+(add-hook 'notdeft-mode-hook (lambda () (meow-insert-mode 1)))
+#+end_src
+
+#+RESULTS:
+| meow-insert-mode | meow-insert | t |
+
+** remap global keys
+
+#+begin_src emacs-lisp :tangle "meow.el"
+(global-set-key [remap list-buffers] #'+ivy/switch-buffer)
+#+END_SRC
+
+** advice-add [[https://github.com/DogLooksGood/meow/blob/master/meow-shims.el#L86-L115][meow/meow-shims.el at master · DogLooksGood/meow]]
+** Setting map! keys in specific mode
+*** Dired Mode map => map!
+#+begin_src emacs-lisp :tangle "meow.el"
+(map! :map dired-mode-map
+      "-" 'vinegar/up-directory
+      "/" 'vinegar/dired-diff
+      "," 'xah-open-in-external-app
+      "R" 'dired-async-do-rename
+      "C" 'dired-async-do-copy
+      "H" 'dired-async-do-hardlink
+      "S" 'dired-async-do-symlink
+      )
+#+end_src
+
+#+RESULTS:
+
+*** Org Mode Map => map!
+:PROPERTIES:
+:ID:       51647023-c013-40c4-83de-c2ba20e3a9c7
+:END:
+
+- [2021-07-27 Tue 12:44] <- [[id:e4386f66-eaeb-470f-9ea0-992e583a5909][Org Mode Map && After Org! settings]]
+
+
+#+begin_src emacs-lisp :tangle "meow.el"
+(map! :map org-mode-map
+      "C-c ;" #'org-time-stamp-inactive
+      "RET"   #'unpackaged/org-return-dwim
+      "C-c m"   #'completion-at-point
+      )
+#+end_src
+
+#+RESULTS:
+
+** Org Mode Hydra Key Map
+:PROPERTIES:
+:ID:       26a87c3a-375b-4bfb-9520-845641ec1335
+:END:
+
+- [2021-07-27 Tue 13:07] <- [[id:e4386f66-eaeb-470f-9ea0-992e583a5909][Org Mode Map && After Org! settings]]
+
+#+begin_src emacs-lisp :tangle "meow.el"
+(defhydra hydra/org-roam (:columns 4 :hint nil)
+  "Org Roam Hydra"
+  ("f" org-roam-node-find "Node Find")
+  ("n" org-roam-ref-find "Ref Find")
+  ("i" org-roam-node-insert "Node Insert")
+  ("b" org-roam-buffer-display-dedicated "Buffer Display")
+  ("a" org-roam-alias-add "Alias Add")
+  ("y" org-roam-db-sync "DB Sync")
+  ("r" revert-buffer "Revert buffer")
+
+  ("w" org-id-get-create "Id Create")
+  ("." org-super-links-insert-link "SL Insert")
+  ("," org-super-links-store-link "Link Store")
+  (";" org-super-links-quick-insert-inline-link "SL Inline Insert")
+  ("'" org-super-links-quick-insert-drawer-link "SL Drawer Insert")
+
+  ("c" nil "cancel")
+  )
+#+end_src
+
+#+RESULTS:
+: hydra/org-roam/body
+
+** end line of meow setting
+#+begin_src emacs-lisp :tangle "meow.el"
+;; test includes
+)
+#+end_src
+* [[https://github.com/r0man/docopt.el][r0man/docopt.el: A Docopt implementation in Emacs Lisp.]]
+
+* Cache
+
+- [[https://github.com/bzg/dotemacs/blob/master/emacs.org][dotemacs/emacs.org at master · bzg/dotemacs]]
+
+- [[http://irfu.cea.fr/Pisp/vianney.lebouteiller/emacs.html][Everything with Emacs]]
+
+- [[https://github.com/munen/emacs.d/blob/master/configuration.org][emacs.d/configuration.org  atmaster · munen/]]
+
+- [[https://github.com/dfeich/emacs-course-and-config/blob/master/init.el][emacs-course-and-config/init.el at master · dfeich/emacs-course-and-config]]
+
+- [[https://github.com/freetonik/emacs-dotfiles/blob/master/init.el][emacs-dotfiles/init.el at master · freetonik/emacs-dotfiles]]
+
+- [[https://github.com/MatthewZMD/.emacs.d][MatthewZMD/.emacs.d: M-EMACS, a full-feature GNU Emacs configuration distribution]]
+
+  - Zettelkasten
+
+  - [[https://github.com/walseb/QualityEmacsConfig][walseb/QualityEmacsConfig]]

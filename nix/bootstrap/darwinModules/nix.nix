@@ -16,7 +16,8 @@ in {
       extra-platforms = l.mkIf isAarch64 ["x86_64-darwin" "aarch64-darwin"];
     };
     extraOptions = ''
-      auto-optimise-store = true
+      # https://github.com/NixOS/nix/issues/7273
+      auto-optimise-store = false
       # auto-allocate-uids = true
       experimental-features = nix-command flakes recursive-nix
     '';
