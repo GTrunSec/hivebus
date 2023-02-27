@@ -63,15 +63,15 @@
       (
         mkIf pkgs.stdenv.isDarwin {
           programs.zsh.sessionVariables = {
-            PATH = "/run/current-system/sw/bin:/run/current-system/etc/profiles/per-user/$USER/bin:/usr/bin:/opt/homebrew/bin";
             TMUX_TMPDIR = "$HOME/.config/.";
             LANG = "en_US.UTF-8";
             export = "LC_ALL=en_US.UTF-8";
             GNUPGHOME = "$HOME/.gnupg";
-            #nix-paths
             NIX_PATH = "nixpkgs=${pkgs.path}";
           };
-          programs.zsh.initExtra = '''';
+          programs.zsh.initExtra = ''
+            export PATH=/run/current-system/sw/bin:/run/current-system/etc/profiles/per-user/$USER/bin:/opt/homebrew/bin:$PATH
+          '';
         }
       )
     ];
