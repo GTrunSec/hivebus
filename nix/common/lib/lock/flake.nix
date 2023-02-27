@@ -1,6 +1,6 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/2c74fcd6c5fc14a61de158fb796243543f46b217";
+    nixpkgs.url = "github:NixOS/nixpkgs/f1ffcf798e93b169321106a4aef79526a2b4bd0a";
   };
 
   inputs = {
@@ -49,6 +49,10 @@
 
     ragenix.url = "github:yaxitech/ragenix";
     ragenix.inputs.nixpkgs.follows = "nixpkgs";
+    ragenix.inputs.agenix.follows = "agenix";
+
+    agenix.url = "github:ryantm/agenix";
+    agenix.inputs.nixpkgs.follows = "nixpkgs";
 
     vault-secrets.url = "github:gtrunsec/vault-secrets";
     vault-secrets.inputs.nixpkgs.follows = "nixpkgs";
