@@ -73,7 +73,7 @@ in {
       )
     ]
     ++ lib.optionals pkgs.stdenv.isLinux [
-      promnesia
-      orgparse
+      # promnesia
+      # orgparse
     ];
 }

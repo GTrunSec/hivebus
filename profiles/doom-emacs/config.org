@@ -362,25 +362,8 @@
 
 ** chinese
 
-*** pinyinlib 让 vertico, selectrum 等补全框架，通过 orderless 支持拼音搜索候选项功能。
+*** DONE pinyinlib 让 vertico, selectrum 等补全框架，通过 orderless 支持拼音搜索候选项功能。 :doom:
 
-#+begin_src emacs-lisp :tangle "config.el"
-(defun eh-orderless-regexp (orig_func component)
-  (let ((result (funcall orig_func component)))
-    (pyim-cregexp-build result)))
-
-(advice-add 'orderless-regexp :around #'eh-orderless-regexp)
-;; avy + pyim cregexp
-;; (defun my-avy--regex-candidates (fun regex &optional beg end pred group)
-;;   (let ((regex (pyim-cregexp-build regex)))
-;;     (funcall fun regex beg end pred group)))
-;; (advice-add 'avy--regex-candidates :around
-;;             #'my-avy--regex-candidates)
-;; (setq ivy-re-builders-alist
-;;       '((t . pyim-cregexp-ivy)))
-#+end_src
-
-#+RESULTS:
 
 ** parentheses :ui:
 
