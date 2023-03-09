@@ -3,7 +3,7 @@
   cell,
 }: let
   inherit (inputs) nixpkgs std self;
-  inherit (inputs.cells-lab.common.lib) callFlake;
+  inherit (inputs.std-ext.common.lib) callFlake;
 
   l = nixpkgs.lib // builtins;
 
@@ -22,7 +22,7 @@
     ragenix.inputs.nixpkgs = "nixos";
   };
 in
-  inputs.cells-lab.inputs.xnlib.lib.digga
+  inputs.std-ext.lib.digga
   // {
     inherit __inputs__;
 

@@ -2,7 +2,7 @@
   inputs,
   cell,
 }: let
-  inherit (inputs.cells-lab.writers.lib) writeShellApplication;
+  inherit (inputs.std-ext.writers.lib) writeShellApplication;
 
   inherit (inputs) nixpkgs;
   l = inputs.nixpkgs.lib // builtins;

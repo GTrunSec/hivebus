@@ -9,8 +9,9 @@
     std.inputs.microvm.follows = "microvm";
     dmerge.follows = "std/dmerge";
 
-    cells-lab.url = "github:gtrunsec/cells-lab";
-    cells-lab.inputs.std.follows = "std";
+    std-ext.url = "github:gtrunsec/std-ext";
+    std-ext.inputs.std.follows = "std";
+    std-data-collection.follows = "std-ext/std-data-collection";
   };
 
   # tools

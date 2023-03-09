@@ -6,7 +6,7 @@
   pkgs,
   ...
 }: let
-  inherit (inputs.cells-lab.writers.lib) writeShellApplication;
+  inherit (inputs.std-ext.writers.lib) writeShellApplication;
   nixgl = writeShellApplication {
     name = "nixgl";
     runtimeEnv = {

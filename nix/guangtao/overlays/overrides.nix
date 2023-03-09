@@ -15,4 +15,5 @@ in
       brave
       firefox
       ;
+    python3Override = nixpkgs-master.python3;
   }

@@ -1,5 +1,5 @@
 let
-  inherit (inputs.cells-lab.writers.lib) writeShellApplication;
+  inherit (inputs.std-ext.writers.lib) writeShellApplication;
   l = inputs.nixpkgs.lib // builtins;
 in {
 }

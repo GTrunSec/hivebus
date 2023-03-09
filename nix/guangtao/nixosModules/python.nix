@@ -4,7 +4,7 @@
   ...
 }: let
   my-python-packages = (
-    pkgs.python3.withPackages (
+    pkgs.python3Override.withPackages (
       ps:
         with ps;
           [
@@ -34,6 +34,9 @@
             # jupyterlab
             pdftotext
             pypinyin
+            openai
+            sexpdata
+            six
           ]
           ++ lib.optional pkgs.stdenv.isLinux [
             pyqt6
@@ -50,27 +53,6 @@ in {
       my-python-packages
       nodePackages.pyright
       poetry
-      (
-        let
-          wenPy = pkgs.python3.withPackages (
-            ps:
-              with ps; [
-                pygls
-                pypinyin
-                jieba
-              ]
-          );
-          wenEnv = pkgs.runCommand "wenEnv" {} ''
-            mkdir -p $out/completion
-            cp -r ${pkgs.guangtao-sources.GodTian_Pinyin.src}/* $out/completion
-            cp -r ${pkgs.guangtao-sources.wen.src}/* $out/
-            cd $out/completion && ${lib.getExe pkgs.git} apply ../0001-for-py3.patch
-          '';
-        in
-          pkgs.writeShellScriptBin "wenls" ''
-            ${wenPy}/bin/python3 ${wenEnv}/server.py
-          ''
-      )
     ]
     ++ lib.optionals pkgs.stdenv.isLinux [
       # promnesia

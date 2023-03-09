@@ -713,6 +713,21 @@ FACE defaults to inheriting from default and highlight."
   )
 #+end_src
 
+
+
+** mind-wave :chatgpt:
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! mind-wave :recipe (:host github :repo "manateelazycat/mind-wave"
+                                   :files ("*")
+                                   ))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! mind-wave)
+#+end_src
+
+
 * Org
 
 ** default
@@ -1002,7 +1017,7 @@ prepended to the element after the #+HEADER: tag."
                  'c++-mode-hook
                  'java-mode-hook
                  'haskell-mode-hook
-                 'emacs-lisp-mode-hook
+                 ;;'emacs-lisp-mode-hook
                  'lisp-interaction-mode-hook
                  'lisp-mode-hook
                  'maxima-mode-hook
@@ -1024,7 +1039,6 @@ prepended to the element after the #+HEADER: tag."
                  'swift-mode-hook
                  'minibuffer-inactive-mode-hook
                  'typescript-mode-hook
-
                  'c-ts-mode-hook
                  'c++-ts-mode-hook
                  'cmake-ts-mode-hook
@@ -1120,7 +1134,7 @@ prepended to the element after the #+HEADER: tag."
       )))
 #+end_src
 
-** Nix
+** nix
 
 #+begin_src emacs-lisp :tangle "config.el"
 (use-package! nix-mode
@@ -1128,6 +1142,22 @@ prepended to the element after the #+HEADER: tag."
   (setq nix-nixfmt-bin "alejandra"))
 #+end_src
 
+
+** treesit
+
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! treesit
+  :custom
+  (push '(css-mode . css-ts-mode) major-mode-remap-alist)
+  (push '(javascript-mode . js-ts-mode) major-mode-remap-alist)
+  (push '(js-mode . js-ts-mode) major-mode-remap-alist)
+  (push '(js-json-mode . json-ts-mode) major-mode-remap-alist)
+  (push '(python-mode . python-ts-mode) major-mode-remap-alist))
+#+end_src
+
+#+RESULTS:
+: treesit
 
 * format-all
 
@@ -1289,3 +1319,15 @@ prepended to the element after the #+HEADER: tag."
 #+end_src
 
 #+RESULTS:
+
+------ User ------
+hello
+
+------ User ------
+hello
+
+------ User ------
+what is emacs
+
+------ User ------
+do you know english?

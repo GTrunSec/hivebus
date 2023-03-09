@@ -13,7 +13,6 @@ in
       ...
     }: {
       name = "Apis Mellifera";
-      std.docs.enable = false;
       git.hooks = {
         enable = true;
       };
