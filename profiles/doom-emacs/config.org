@@ -727,6 +727,8 @@ FACE defaults to inheriting from default and highlight."
 (use-package! mind-wave)
 #+end_src
 
+#+RESULTS:
+
 
 * Org
 
@@ -815,12 +817,11 @@ prepended to the element after the #+HEADER: tag."
      )))
 #+end_src
 
-** theme
+** org-modern :theme:
 
 #+begin_src emacs-lisp :tangle  "packages.el"
 (package! org-modern :recipe (:host github :repo "minad/org-modern"
-                              :files ("*.el")
-                              ))
+                              :files ("*.el")))
 #+end_src
 
 #+begin_src emacs-lisp :tangle "config.el"
@@ -831,6 +832,17 @@ prepended to the element after the #+HEADER: tag."
   :custom
   (org-modern-hide-stars nil) ; adds extra indentation
   )
+#+end_src
+
+*** org-modern-indent :indent:
+#+begin_src emacs-lisp :tangle  "packages.el"
+(package! org-modern-indent :recipe (:host github :repo "jdtsmith/org-modern-indent"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! org-modern-indent
+  :config
+  (add-hook 'org-mode-hook #'org-modern-indent-mode 90))
 #+end_src
 
 ** org-roam :roam:

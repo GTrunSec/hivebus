@@ -16,4 +16,8 @@ in
     inherit (__inputs__.nickel.packages) nickel;
 
     inherit (__inputs__.nil.packages) nil;
+
+    mind-wave = final.poetry2nix.mkPoetryEnv {
+      projectDir = ../packages/mind-wave;
+    };
   }

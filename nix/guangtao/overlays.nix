@@ -14,6 +14,7 @@ in
 
       __inputs__.rust-overlay.overlays.default
       __inputs__.nixpkgs-wayland.overlays.default
+      __inputs__.poetry2nix.overlay
 
       inputs.cells.emacs.overlays.emacs-overlay
 

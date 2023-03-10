@@ -53,6 +53,9 @@ in {
       my-python-packages
       nodePackages.pyright
       poetry
+      (pkgs.writeScriptBin "py" ''
+        ${pkgs.mind-wave}/bin/python3 "$@"
+      '')
     ]
     ++ lib.optionals pkgs.stdenv.isLinux [
       # promnesia
