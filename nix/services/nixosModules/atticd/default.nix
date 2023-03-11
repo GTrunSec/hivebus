@@ -40,15 +40,16 @@ in {
         };
       }
     )
-    (lib.mkIf cfg'.psql.enable {
+    (lib.mkIf cfg'.psql {
+      services.postgresql.enable = true;
       services.postgresql.ensureDatabases = [
-        "attic"
+        "atticd"
       ];
       services.postgresql.ensureUsers = [
         {
-          name = "attic";
+          name = "atticd";
           ensurePermissions = {
-            "DATABASE attic" = "ALL PRIVILEGES";
+            "DATABASE atticd" = "ALL PRIVILEGES";
           };
         }
       ];

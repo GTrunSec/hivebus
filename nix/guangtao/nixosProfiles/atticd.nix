@@ -13,9 +13,10 @@
         age.secrets.attic-cert.file = ../secretProfiles/attic-cert.age;
         services.atticd = {
           credentialsFile = config.age.secrets."attic-cert".path;
+
           settings = {
             listen = "[::1]:57448";
-            database = lib.mkForce {};
+            database.url = "postgresql:///atticd";
             allowed-hosts = ["attic.zhangguangtao.org"];
             api-endpoint = "https://attic.zhangguangtao.org";
             storage = {
