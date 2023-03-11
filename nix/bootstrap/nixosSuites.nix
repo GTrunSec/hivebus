@@ -15,4 +15,14 @@
       inputs.cells.bootstrap.nixosModules.systemd-boot
     ]
     ++ default;
+
+  cloud = [
+    {
+      boot.cleanTmpDir = true;
+      zramSwap.enable = true;
+    }
+    cell.nixosModules.openssh
+    cell.nixosModules.nix
+    cell.nixosModules.services
+  ];
 }

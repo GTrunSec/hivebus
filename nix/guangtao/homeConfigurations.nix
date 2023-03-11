@@ -26,8 +26,18 @@
     home = rec {
       homeDirectory = "/home/${username}";
       stateVersion = cell.nixosConfigurations.macbook.bee.pkgs.lib.trivial.release;
-      username = "gtrun";
+      username = "guangtao";
     };
     imports = cell.homeSuites.macbook;
+  };
+
+  vultr = {
+    inherit (cell.nixosConfigurations.vultr) bee;
+    home = rec {
+      homeDirectory = "/home/${username}";
+      stateVersion = cell.nixosConfigurations.vultr.bee.pkgs.lib.trivial.release;
+      username = "admin";
+    };
+    imports = [];
   };
 }

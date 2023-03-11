@@ -464,6 +464,17 @@ FACE defaults to inheriting from default and highlight."
 #+end_src
 
 
+** electric-align :indent:align:
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! electric-align :recipe (:host github :repo "zk-phi/electric-align"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! electric-align)
+#+end_src
+
+
 * Packages
 
 ** jupyter :jupyter:
@@ -1170,6 +1181,27 @@ prepended to the element after the #+HEADER: tag."
 
 #+RESULTS:
 : treesit
+
+
+** nickel
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(when IS-LINUX
+  (package! nickel-mode
+    :recipe (:local-repo "~/ghq/github.com/GTrunSec/nickel-mode"
+                         ))
+  )
+#+end_src
+
+
+#+begin_src emacs-lisp :tangle "config.el"
+(when IS-LINUX
+  (use-package! nickel-mode
+    :config
+    (add-hook 'nickel-mode-hook #'electric-align-mode)
+    )
+  )
+#+end_src
 
 * format-all
 

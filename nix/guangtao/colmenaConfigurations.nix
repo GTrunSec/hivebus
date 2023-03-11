@@ -21,4 +21,14 @@ in {
     };
     inherit (cell.nixosConfigurations.libvirtd_1) bee imports;
   };
+  vultr = {
+    deployment = {
+      targetHost = "149.28.65.143";
+      targetPort = 22;
+      targetUser = "root";
+      # sshOPTS
+      # sshOptions = ["-o" "UserKnownHostsFile=/dev/null" "-o" "StrictHostKeyChecking=no"];
+    };
+    inherit (cell.nixosConfigurations.vultr) bee imports;
+  };
 }

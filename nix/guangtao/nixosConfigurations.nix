@@ -18,4 +18,21 @@ in {
 
   # libvirtd machines
   libvirtd_1 = import ./nixosConfigurations/libvirtd_1 {inherit inputs cell;};
+
+  vultr = {
+    bee.system = "x86_64-linux";
+    bee.home = inputs.home;
+    bee.pkgs = import inputs.nixos {
+      inherit (inputs.nixpkgs) system;
+      overlays = [];
+    };
+    imports =
+      [
+        ./nixosConfigurations/vultr/hardware-configuration.nix
+        {
+          networking.hostName = "vultr";
+        }
+      ]
+      ++ cell.nixosSuites.vultr;
+  };
 }

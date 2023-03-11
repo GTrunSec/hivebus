@@ -34,4 +34,15 @@ in {
       cell.userProfiles.root
       (cell.lib.mkHome "admin" "libvirtd_1" "zsh" "22.11")
     ];
+
+  vultr = with nixosProfiles;
+    inputs.cells.bootstrap.nixosSuites.cloud
+    ++ [
+      inputs.cells.secrets.nixosProfiles.age
+      cell.nixosProfiles.atticd.vultr
+    ]
+    ++ [
+      cell.userProfiles.root
+      (cell.lib.mkHome "admin" "vultr" "zsh" "22.11")
+    ];
 }
