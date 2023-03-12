@@ -19,7 +19,7 @@
           credentialsFile = config.age.secrets."attic-cert".path;
           settings = {
             listen = "[::1]:57448";
-            database.url = "postgresql:///atticd";
+            database.url = "postgresql:///attic?host=/run/postgresql";
             allowed-hosts = ["attic.zhangguangtao.org"];
             api-endpoint = "https://attic.zhangguangtao.org";
             storage = {
