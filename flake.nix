@@ -12,11 +12,17 @@
     std-ext.url = "github:gtrunsec/std-ext";
     std-ext.inputs.std.follows = "std";
     std-data-collection.follows = "std-ext/std-data-collection";
-  };
 
+    hive.url = "github:divnix/hive";
+  };
+  inputs.hive.inputs = {
+    nixos-generators.follows = "nixos-generators";
+    colmena.follows = "colmena";
+    disko.follows = "disko";
+  };
   # tools
   inputs = {
-    nix-filter.url = "github:/numtide/nix-filter";
+    nix-filter.url = "github:numtide/nix-filter";
     nixos-generators.url = "github:nix-community/nixos-generators";
     nixos-hardware.url = "github:nixos/nixos-hardware";
     disko.url = "github:nix-community/disko";
@@ -127,18 +133,22 @@
     }
     {
       devShells = inputs.std.harvest inputs.self ["automation" "devshells"];
-      lib = (inputs.std.harvest inputs.self ["_QUEEN" "lib"]).x86_64-linux;
+      lib =
+        (inputs.std.harvest inputs.self ["_QUEEN" "lib"]).x86_64-linux
+        // {
+          inherit (inputs.hive) collect;
+        };
       overlays = (inputs.std.harvest inputs.self ["guangtao" "overlays"]).x86_64-linux;
       packages = inputs.std.harvest inputs.self [["guangtao" "packages"]];
     }
     # soil - the first (and only) layer implements adapters for tooling
     {
       # tools
-      colmenaHive = self.lib.colmenaHive "colmenaConfigurations" self;
-      nixosConfigurations = self.lib.nixosConfigurations "nixosConfigurations" self;
-      homeConfigurations = self.lib.homeConfigurations "homeConfigurations" self;
+      colmenaHive = inputs.hive.collect self "colmenaConfigurations";
+      nixosConfigurations = inputs.hive.collect self "nixosConfigurations";
+      homeConfigurations = inputs.hive.collect self "homeConfigurations";
       darwinConfigurations = self.lib.darwinConfigurations "darwinConfigurations" self;
-      diskoConfigurations = self.lib.diskoConfigurations "diskoConfigurations" self;
+      diskoConfigurations = inputs.hive.collect self "diskoConfigurations";
     };
   # --- Flake Local Nix Configuration ----------------------------
   nixConfig = {

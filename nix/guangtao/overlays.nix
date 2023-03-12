@@ -31,5 +31,7 @@ in
       inputs.cells.emacs.overlays.emacs-darwin
     ];
     libvirtd = [];
+
+    vultr = [cell.overlays.default];
   }
   // inputs.cells.common.lib.importRakeLeaves ./overlays {inherit inputs cell;}

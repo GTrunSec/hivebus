@@ -3,17 +3,19 @@
   cell,
 }: {
   vultr = {
+    lib,
+    config,
+    pkgs,
+    ...
+  }: let
+    inherit (config.networking) hostName;
+  in {
     imports = [
       inputs.cells.services.nixosProfiles.atticd.default
-      ({
-        lib,
-        config,
-        ...
-      }: {
-        age.secrets.attic-cert.file = ../secretProfiles/attic-cert.age;
+      {
+        age.secrets.attic-cert.file = pkgs.lib.age.file "attic-cert.age";
         services.atticd = {
           credentialsFile = config.age.secrets."attic-cert".path;
-
           settings = {
             listen = "[::1]:57448";
             database.url = "postgresql:///atticd";
@@ -27,17 +29,7 @@
             };
           };
         };
-        services.caddy.virtualHosts."attic.zhangguangtao.org" = {
-          useACMEHost = "zhangguangtao.org";
-          logFormat = lib.mkForce "";
-          extraConfig = ''
-            import baseConfig
-            reverse_proxy http://[::1]:57448 {
-              trusted_proxies private_ranges
-            }
-          '';
-        };
-      })
+      }
     ];
     services.atticd.hiveProfiles = {
       psql = true;

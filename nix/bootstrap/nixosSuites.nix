@@ -20,6 +20,7 @@
     {
       boot.cleanTmpDir = true;
       zramSwap.enable = true;
+      documentation.enable = false;
     }
     cell.nixosModules.openssh
     cell.nixosModules.nix

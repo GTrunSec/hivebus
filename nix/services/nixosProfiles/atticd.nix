@@ -7,6 +7,7 @@ in {
   default = {
     imports = [
       cell.nixosModules.atticd
+      # __inputs__.attic.nixosModules.atticd
       ({
         pkgs,
         lib,

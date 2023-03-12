@@ -27,4 +27,14 @@ in {
   };
 
   nixConfig = inputs.cells.bootstrap.lib.nixConfig.guangtao;
+
+  mkHomeConfig = host: user: {
+    inherit (cell.darwinConfigurations.${host}) bee;
+    home = rec {
+      homeDirectory = "/home/${username}";
+      stateVersion = cell.nixosConfigurations.${host}.bee.pkgs.lib.trivial.release;
+      username = user;
+    };
+    imports = cell.homeSuites.${host};
+  };
 }

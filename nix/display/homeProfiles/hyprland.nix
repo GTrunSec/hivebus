@@ -7,7 +7,7 @@
   l = inputs.nixpkgs.lib // builtins;
 
   src = "${(std.incl self ["profiles/hyprland"])}/profiles/hyprland";
-in rec {
+in {
   default = {
     imports = [
       __inputs__.hyprland.homeManagerModules.default
@@ -30,7 +30,7 @@ in rec {
   };
 
   guangtao = {
-    imports = [
+    imports = with cell.homeProfiles.hyprland; [
       default
       wallpaper
       packages
@@ -51,7 +51,6 @@ in rec {
       hiveProfiles = {
         nvidia = true;
         autoLogin = true;
-        shell = "zsh";
       };
     };
   };

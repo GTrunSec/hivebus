@@ -31,7 +31,7 @@ in
         };
       })
       (mkIf cfg'.autoLogin {
-        programs.${cfg'.shell} = {
+        programs.zsh = {
           loginExtra = ''
             # If running from tty1 start hyprland
             if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then

@@ -15,11 +15,6 @@ with lib; {
             default = "hyprland";
             description = "Name of the user";
           };
-          shell = mkOption {
-            type = types.str;
-            default = "zsh";
-            description = "Shell of the profile";
-          };
         };
       };
     };

@@ -6,11 +6,11 @@
 in {
   guangtao = [
     homeProfiles.hyprland.guangtao
-    homeProfiles.hyprpaper.guangtao
-    homeProfiles.kanshi.guangtao
-    homeProfiles.rofi-wayland.guangtao
-    homeProfiles.eww.guangtao
-    homeProfiles.waybar.guangtao
+    # homeProfiles.hyprpaper.guangtao
+    # homeProfiles.kanshi.guangtao
+    # homeProfiles.rofi-wayland.guangtao
+    # homeProfiles.eww.guangtao
+    # homeProfiles.waybar.guangtao
 
     homeModules.gtk
     homeModules.qt

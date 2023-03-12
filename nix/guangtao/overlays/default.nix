@@ -20,4 +20,8 @@ in
     mind-wave = final.poetry2nix.mkPoetryEnv {
       projectDir = ../packages/mind-wave;
     };
+
+    lib = prev.lib.extend (lself: lsuper: {
+      age.file = file: lsuper.path.append ../secretProfiles file;
+    });
   }

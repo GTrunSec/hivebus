@@ -20,5 +20,7 @@ in {
     ]
     ++ inputs.cells.utils.homeSuites.mathematical;
 
-  libvirtd = homeProfiles.default;
+  libvirtd_1 = homeProfiles.default;
+
+  vultr = [];
 }

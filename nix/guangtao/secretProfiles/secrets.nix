@@ -14,4 +14,5 @@ in {
     ]
     ++ common;
   "attic-cert.age".publicKeys = common ++ cloud;
+  "acme-cloudflare.age".publicKeys = common ++ cloud;
 }

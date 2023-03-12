@@ -24,7 +24,7 @@ in {
     bee.home = inputs.home;
     bee.pkgs = import inputs.nixos {
       inherit (inputs.nixpkgs) system;
-      overlays = [];
+      overlays = cell.overlays.vultr;
     };
     imports =
       [
