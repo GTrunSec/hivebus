@@ -153,7 +153,7 @@
       colmenaHive = hive.collect self "colmenaConfigurations";
       nixosConfigurations = hive.collect self "nixosConfigurations";
       homeConfigurations = hive.collect self "homeConfigurations";
-      darwinConfigurations = hive.collect self "darwinConfigurations" ;
+      darwinConfigurations = hive.collect self "darwinConfigurations";
       diskoConfigurations = hive.collect self "diskoConfigurations";
     };
   # --- Flake Local Nix Configuration ----------------------------

@@ -28,13 +28,29 @@ in {
     recommendedTlsSettings = true;
     recommendedOptimisation = true;
     recommendedGzipSettings = true;
-
-    virtualHosts."${hostName}.*" = {
-      default = true;
-      forceSSL = true;
-      useACMEHost = "zhangguangtao.org";
-      serverAliases = ["localhost.*"];
+    virtualHosts = {
+      "attic.zhangguangtao.org" = {
+        # enableACME = true;
+        useACMEHost = "zhangguangtao.org";
+        forceSSL = true;
+        http3 = false;
+        http2 = false;
+        kTLS = true;
+        extraConfig = ''
+          client_header_buffer_size 64k;
+        '';
+        locations."/" = {
+          proxyPass = "http://[::1]:57448";
+          recommendedProxySettings = true;
+        };
+      };
     };
+    # virtualHosts."${hostName}.*" = {
+    #   default = true;
+    #   forceSSL = true;
+    #   useACMEHost = "zhangguangtao.org";
+    #   serverAliases = ["localhost.*"];
+    # };
   };
   users.users.nginx.extraGroups = [config.users.groups.acme.name];
   # services.caddy = {
