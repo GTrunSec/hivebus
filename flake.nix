@@ -67,6 +67,7 @@
     self,
     std,
     nixpkgs,
+    hive,
     ...
   } @ inputs:
     std.growOn {
@@ -80,7 +81,8 @@
 
       cellsFrom = ./nix;
 
-      cellBlocks = with std.blockTypes; [
+      cellBlocks = with std.blockTypes;
+      with hive.blockTypes; [
         # modules implement
         (functions "nixosModules")
         (functions "darwinModules")
@@ -104,11 +106,12 @@
         (functions "homeSuites")
 
         # configurations can be deployed
-        (data "colmenaConfigurations")
-        (data "homeConfigurations")
-        (data "nixosConfigurations")
+        colmenaConfigurations
+        homeConfigurations
+        nixosConfigurations
+        diskoConfigurations
         (data "darwinConfigurations")
-        (data "diskoConfigurations")
+
         (arion "arionConfigurations")
         (microvms "microvms")
 
@@ -136,7 +139,7 @@
       lib =
         (inputs.std.harvest inputs.self ["_QUEEN" "lib"]).x86_64-linux
         // {
-          inherit (inputs.hive) collect;
+          inherit (hive) collect;
         };
       overlays = (inputs.std.harvest inputs.self ["guangtao" "overlays"]).x86_64-linux;
       packages = inputs.std.harvest inputs.self [["guangtao" "packages"]];
@@ -144,11 +147,11 @@
     # soil - the first (and only) layer implements adapters for tooling
     {
       # tools
-      colmenaHive = inputs.hive.collect self "colmenaConfigurations";
-      nixosConfigurations = inputs.hive.collect self "nixosConfigurations";
-      homeConfigurations = inputs.hive.collect self "homeConfigurations";
+      colmenaHive = hive.collect self "colmenaConfigurations";
+      nixosConfigurations = hive.collect self "nixosConfigurations";
+      homeConfigurations = hive.collect self "homeConfigurations";
       darwinConfigurations = self.lib.darwinConfigurations "darwinConfigurations" self;
-      diskoConfigurations = inputs.hive.collect self "diskoConfigurations";
+      diskoConfigurations = hive.collect self "diskoConfigurations";
     };
   # --- Flake Local Nix Configuration ----------------------------
   nixConfig = {
