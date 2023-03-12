@@ -1,7 +1,11 @@
-{config, ...}: let
+{
+  config,
+  pkgs,
+  ...
+}: let
   inherit (config.networking) hostName;
 in {
-  age.secrets.acme-cloudflare.file = ../secretProfiles/acme-cloudflare.age;
+  age.secrets.acme-cloudflare.file = pkgs.lib.age.file "acme-cloudflare.age";
 
   security.acme = {
     acceptTerms = true;
@@ -33,7 +37,6 @@ in {
     };
   };
   users.users.nginx.extraGroups = [config.users.groups.acme.name];
-
   # services.caddy = {
   #   enable = true;
   #   extraConfig = ''

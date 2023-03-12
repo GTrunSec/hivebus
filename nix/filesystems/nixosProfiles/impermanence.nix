@@ -10,7 +10,7 @@
         "/root"
       ];
       files = [
-        "/etc/machine-id"
+        # "/etc/machine-id"
       ];
     };
   };

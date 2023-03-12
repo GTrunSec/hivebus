@@ -135,14 +135,16 @@
       ];
     }
     {
-      devShells = inputs.std.harvest inputs.self ["automation" "devshells"];
+      devShells = std.harvest inputs.self ["automation" "devshells"];
       lib =
-        (inputs.std.harvest inputs.self ["_QUEEN" "lib"]).x86_64-linux
+        (std.harvest inputs.self ["_QUEEN" "lib"]).x86_64-linux
         // {
           inherit (hive) collect;
         };
-      overlays = (inputs.std.harvest inputs.self ["guangtao" "overlays"]).x86_64-linux;
-      packages = inputs.std.harvest inputs.self [["guangtao" "packages"]];
+      overlays = {
+        guangtao = (std.harvest inputs.self ["guangtao" "overlays"]).x86_64-linux;
+      };
+      packages = std.harvest inputs.self [["guangtao" "packages"]];
     }
     # soil - the first (and only) layer implements adapters for tooling
     {
