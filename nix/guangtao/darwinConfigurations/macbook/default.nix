@@ -18,6 +18,7 @@
 in rec {
   bee.system = "aarch64-darwin";
   bee.home = inputs.home;
+  bee.darwin = inputs.darwin;
   bee.pkgs = import inputs.nixos-22-11 {
     inherit (bee) system;
     config.allowUnfree = true;
@@ -27,12 +28,6 @@ in rec {
   imports =
     [
       init
-    ]
-    ++ [
-      {
-        home-manager.useGlobalPkgs = true;
-        home-manager.useUserPackages = true;
-      }
     ]
     ++ cell.darwinSuites.macbook;
 }

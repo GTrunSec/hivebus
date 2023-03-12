@@ -344,15 +344,16 @@
         "paisano": "paisano"
       },
       "locked": {
-        "lastModified": 1678573710,
-        "narHash": "sha256-cbDYM7q8C5uEtlVT0ks2fj0aFhe4Cl8zreF67MaoIHU=",
+        "lastModified": 1678593755,
+        "narHash": "sha256-q0wEcyDyImzR72p7Tt+mPLNZZPPRzoPCtazpcA2l2fk=",
         "owner": "divnix",
         "repo": "hive",
-        "rev": "fc952a5c7f37bf49f9f6f344f378ed4080d3518f",
+        "rev": "7b4cf7da0a135a1c4f519d4921976aaffe8c077a",
         "type": "github"
       },
       "original": {
         "owner": "divnix",
+        "ref": "pull/4/head",
         "repo": "hive",
         "type": "github"
       }

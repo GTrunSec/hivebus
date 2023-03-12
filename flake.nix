@@ -13,7 +13,8 @@
     std-ext.inputs.std.follows = "std";
     std-data-collection.follows = "std-ext/std-data-collection";
 
-    hive.url = "github:divnix/hive";
+    hive.url = "github:divnix/hive?ref=pull/4/head";
+    # hive.url = "/home/guangtao/ghq/github.com/divnix/hive";
   };
   inputs.hive.inputs = {
     nixos-generators.follows = "nixos-generators";
@@ -152,7 +153,7 @@
       colmenaHive = hive.collect self "colmenaConfigurations";
       nixosConfigurations = hive.collect self "nixosConfigurations";
       homeConfigurations = hive.collect self "homeConfigurations";
-      darwinConfigurations = self.lib.darwinConfigurations "darwinConfigurations" self;
+      darwinConfigurations = hive.collect self "darwinConfigurations" ;
       diskoConfigurations = hive.collect self "diskoConfigurations";
     };
   # --- Flake Local Nix Configuration ----------------------------

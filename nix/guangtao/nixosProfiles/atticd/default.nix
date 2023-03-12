@@ -12,6 +12,7 @@
   in {
     imports = [
       inputs.cells.services.nixosProfiles.atticd.default
+      ./acme.nix
       {
         age.secrets.attic-cert.file = pkgs.lib.age.file "attic-cert.age";
         services.atticd = {

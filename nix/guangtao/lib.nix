@@ -26,7 +26,8 @@ in {
       ];
   };
 
-  nixConfig = inputs.cells.bootstrap.lib.nixConfig.guangtao;
+  # nixConfig = inputs.cells.bootstrap.lib.nixConfig.guangtao;
+  nixConfig = {};
 
   mkHomeConfig = host: user: {
     inherit (cell.darwinConfigurations.${host}) bee;

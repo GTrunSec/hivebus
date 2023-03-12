@@ -26,6 +26,7 @@ in
     macbook = [
       cell.overlays.default
       cell.overlays.python
+      cell.overlays.overrides
       __inputs__.rust-overlay.overlays.default
 
       inputs.cells.emacs.overlays.emacs-darwin
