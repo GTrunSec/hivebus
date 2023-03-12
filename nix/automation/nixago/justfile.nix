@@ -36,13 +36,13 @@ in
       args = ["action"];
       description = "Colmena build Guangtao Home Machine";
       content = ''
-        colmena {{action}} --on guangtao-o-desktop
+        colmena {{action}} --on guangtao-desktop
       '';
     };
     libvirtd_1 = {
       description = "Colmena build Guangtao Libvirtd Machine";
       content = ''
-        colmena build --on guangtao-o-libvirtd_1
+        colmena build --on guangtao-libvirtd_1
       '';
     };
     age = {

@@ -18,7 +18,7 @@ darwin-build machine:
 
 # Colmena build Guangtao Home Machine
 desktop action:
-    colmena {{ action }} --on guangtao-o-desktop
+    colmena {{ action }} --on guangtao-desktop
 
 # Formats all changed source files
 fmt:
@@ -26,7 +26,7 @@ fmt:
 
 # Colmena build Guangtao Libvirtd Machine
 libvirtd_1:
-    colmena build --on guangtao-o-libvirtd_1
+    colmena build --on guangtao-libvirtd_1
 
 # update sources with nvfetcher
 nvfetcher path:

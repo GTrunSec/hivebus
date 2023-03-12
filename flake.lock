@@ -1050,11 +1050,11 @@
         "std-data-collection": "std-data-collection"
       },
       "locked": {
-        "lastModified": 1678339143,
-        "narHash": "sha256-+7dudpnn9Syzfvrh7aGMjpklmz1IPr5YaZEPECxD8l4=",
+        "lastModified": 1678660504,
+        "narHash": "sha256-qMWO9xNqqvlw8UuRsy1Waffu2MYmGmergeaKEVS+omE=",
         "owner": "gtrunsec",
         "repo": "std-ext",
-        "rev": "7e97a261ffa30b1377f8e57ae7688650112d71cb",
+        "rev": "0e7308f8a00cfe6bcd701b3649fda89f0403413c",
         "type": "github"
       },
       "original": {

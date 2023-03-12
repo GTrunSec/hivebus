@@ -30,7 +30,8 @@ in {
     recommendedGzipSettings = true;
     virtualHosts = {
       "attic.zhangguangtao.org" = {
-        enableACME = true;
+        # enableACME = true;
+        useACMEHost = "zhangguangtao.org";
         forceSSL = true;
         http3 = false;
         http2 = false;
