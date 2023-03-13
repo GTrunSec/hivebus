@@ -1,0 +1,13 @@
+#+TITLE: chatgpt-web
+#+AUTHOR: GuangTao Zhang
+#+EMAIL: gtrunsec@hardenedlinux.org
+#+DATE: 2023-03-13 Mon 04:09
+
+
+
+* nginx
+
+#+begin_src sh :async :exports both :results output
+nix-shell -p apacheHttpd
+htpasswd -c cache.password <user>
+#+end_src
