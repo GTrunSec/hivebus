@@ -12,7 +12,7 @@
   in {
     "nvfetcher-${x}" = {
       content = ''
-        nix develop github:GTrunSec/cells-lab#update --refresh --command nvfetcher-update nix/guangtao/packages/${x'}/sources.toml
+        nix develop github:GTrunSec/std-ext#update --refresh --command nvfetcher-update nix/guangtao/packages/${x'}/sources.toml
       '';
       description = "update ${x} toolchain with nvfetcher";
     };
@@ -29,7 +29,7 @@ in
       description = "update sources with nvfetcher";
       args = ["path"];
       content = ''
-        nix develop github:GTrunSec/cells-lab#update --refresh --command nvfetcher-update {{path}}/sources.toml
+        nix develop github:GTrunSec/std-ext#update --refresh --command nvfetcher-update {{path}}/sources.toml
       '';
     };
     desktop = {
@@ -70,7 +70,7 @@ in
       args = ["cell"];
       description = "update packages via nvfetcher";
       content = ''
-        nix develop github:GTrunSec/cells-lab#devShells.x86_64-linux.update --refresh --command nvfetcher-update nix/{{cell}}/packages/sources.toml
+        nix develop github:GTrunSec/std-ext#devShells.x86_64-linux.update --refresh --command nvfetcher-update nix/{{cell}}/packages/sources.toml
       '';
     };
   }

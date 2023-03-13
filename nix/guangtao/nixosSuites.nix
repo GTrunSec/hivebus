@@ -40,6 +40,7 @@ in {
     ++ [
       inputs.cells.secrets.nixosProfiles.age
       cell.nixosProfiles.atticd.vultr
+      cell.nixosModules.chatgpt-web
     ]
     ++ [
       cell.userProfiles.root

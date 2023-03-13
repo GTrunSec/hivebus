@@ -16,7 +16,7 @@
     std.url = "github:divnix/std";
     std.inputs.nixpkgs.follows = "nixpkgs";
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    cells-lab.url = "github:gtrunsec/cells-lab";
+    std-ext.url = "github:gtrunsec/std-ext";
   };
 
   # tools

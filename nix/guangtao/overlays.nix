@@ -33,6 +33,10 @@ in
     ];
     libvirtd = [];
 
-    vultr = [cell.overlays.default];
+    vultr = [
+      cell.overlays.default
+      __inputs__.nixpkgs-hardenedlinux.go.overlays.default
+      __inputs__.nixpkgs-hardenedlinux.common.lib.__inputs__.gomod2nix.overlays.default
+    ];
   }
   // inputs.cells.common.lib.importRakeLeaves ./overlays {inherit inputs cell;}

@@ -15,4 +15,6 @@ in {
     ++ common;
   "attic-cert.age".publicKeys = common ++ cloud;
   "acme-cloudflare.age".publicKeys = common ++ cloud;
+  "chatgpt-web.age".publicKeys = common ++ cloud;
+  "chatgpt-web-passwd.age".publicKeys = common ++ cloud;
 }

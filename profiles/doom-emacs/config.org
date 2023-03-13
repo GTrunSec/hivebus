@@ -735,10 +735,12 @@ FACE defaults to inheriting from default and highlight."
 #+end_src
 
 #+begin_src emacs-lisp :tangle "config.el"
-(use-package! mind-wave)
+(use-package! mind-wave
+  :hook (mind-wave-chat-mode . visual-fill-column-mode))
 #+end_src
 
-#+RESULTS:
+
+** visual-fill-column :fill:visual:
 
 
 * Org
@@ -1171,16 +1173,13 @@ prepended to the element after the #+HEADER: tag."
 
 #+begin_src emacs-lisp :tangle "config.el"
 (use-package! treesit
-  :custom
+  :init
   (push '(css-mode . css-ts-mode) major-mode-remap-alist)
   (push '(javascript-mode . js-ts-mode) major-mode-remap-alist)
   (push '(js-mode . js-ts-mode) major-mode-remap-alist)
   (push '(js-json-mode . json-ts-mode) major-mode-remap-alist)
   (push '(python-mode . python-ts-mode) major-mode-remap-alist))
 #+end_src
-
-#+RESULTS:
-: treesit
 
 
 ** nickel

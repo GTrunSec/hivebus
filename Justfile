@@ -30,16 +30,16 @@ libvirtd_1:
 
 # update sources with nvfetcher
 nvfetcher path:
-    nix develop github:GTrunSec/cells-lab#update --refresh --command nvfetcher-update {{ path }}/sources.toml
+    nix develop github:GTrunSec/std-ext#update --refresh --command nvfetcher-update {{ path }}/sources.toml
 
 # update default toolchain with nvfetcher
 nvfetcher-default:
-    nix develop github:GTrunSec/cells-lab#update --refresh --command nvfetcher-update nix/guangtao/packages/./sources.toml
+    nix develop github:GTrunSec/std-ext#update --refresh --command nvfetcher-update nix/guangtao/packages/./sources.toml
 
 # update emacs toolchain with nvfetcher
 nvfetcher-emacs:
-    nix develop github:GTrunSec/cells-lab#update --refresh --command nvfetcher-update nix/guangtao/packages/emacs/sources.toml
+    nix develop github:GTrunSec/std-ext#update --refresh --command nvfetcher-update nix/guangtao/packages/emacs/sources.toml
 
 # update packages via nvfetcher
 nvfetcher-update cell:
-    nix develop github:GTrunSec/cells-lab#devShells.x86_64-linux.update --refresh --command nvfetcher-update nix/{{ cell }}/packages/sources.toml
+    nix develop github:GTrunSec/std-ext#devShells.x86_64-linux.update --refresh --command nvfetcher-update nix/{{ cell }}/packages/sources.toml

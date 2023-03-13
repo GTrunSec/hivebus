@@ -161,7 +161,7 @@
 ./flake.nix:5:5:property:std.url
 ./flake.nix:6:5:property:std.inputs.nixpkgs.follows
 ./flake.nix:7:5:property:nixpkgs.url
-./flake.nix:8:5:property:cells-lab.url
+./flake.nix:8:5:property:std-ext.url
 ./flake.nix:12:3:property:inputs
 ./flake.nix:13:5:property:nixos-generators.url
 ./flake.nix:17:3:property:inputs

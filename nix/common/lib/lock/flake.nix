@@ -85,6 +85,9 @@
 
     attic.url = "github:zhaofengli/attic";
     attic.inputs.nixpkgs.follows = "nixpkgs";
+
+    nixpkgs-hardenedlinux.url = "github:hardenedlinux/nixpkgs-hardenedlinux";
+    nixpkgs-hardenedlinux.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {self, ...}: {};

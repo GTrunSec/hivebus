@@ -3,51 +3,39 @@
 {
   HPI = {
     pname = "HPI";
-    version = "0.3.20230209";
+    version = "0.3.20230221";
     src = fetchurl {
-      url = "https://pypi.io/packages/source/H/HPI/HPI-0.3.20230209.tar.gz";
-      sha256 = "sha256-lSAj8UDOgaefqerxneRYpu0nezMg2K4eR5zkfU0mVjk=";
+      url = "https://pypi.io/packages/source/H/HPI/HPI-0.3.20230221.tar.gz";
+      sha256 = "sha256-xZbpipGGz7mWjw46+/YJr5mXkMonyOwC5qtU6Nt+Mp4=";
     };
   };
   StevenBlack-hosts = {
     pname = "StevenBlack-hosts";
-    version = "543acefaf78eb06f9f99cac0b6b6b1f6d09f4f50";
+    version = "618a6dfa7e47129cec3fe4d5ef2d3937804f7cb3";
     src = fetchFromGitHub ({
       owner = "StevenBlack";
       repo = "hosts";
-      rev = "543acefaf78eb06f9f99cac0b6b6b1f6d09f4f50";
+      rev = "618a6dfa7e47129cec3fe4d5ef2d3937804f7cb3";
       fetchSubmodules = false;
-      sha256 = "sha256-Afpvl/UnyyY0doqJJkli6Pg+tQYm69gU6cPSyht3YhQ=";
+      sha256 = "sha256-UARPP46L+11HTeh3uvuFfb3JadShMIgiZR9mJCh9bmw=";
     });
-    date = "2023-02-16";
+    date = "2023-03-10";
   };
   adguardhome = {
     pname = "adguardhome";
-    version = "v0.107.24";
+    version = "v0.107.26";
     src = fetchurl {
-      url = "https://github.com/AdguardTeam/AdGuardHome/releases/download/v0.107.24/AdGuardHome_linux_amd64.tar.gz";
-      sha256 = "sha256-cQMKUL5RT+CJiCwXnOPc9o0AwDmo0Z6X8L8TjWTKwpY=";
+      url = "https://github.com/AdguardTeam/AdGuardHome/releases/download/v0.107.26/AdGuardHome_linux_amd64.tar.gz";
+      sha256 = "sha256-Ai6QzmNrALHKxJIX5gx5GQiLlcpKRuT+ALxN0PDJQ9E=";
     };
   };
   brave = {
     pname = "brave";
-    version = "1.48.164";
+    version = "1.49.120";
     src = fetchurl {
-      url = "https://github.com/brave/brave-browser/releases/download/v1.48.164/brave-browser_1.48.164_amd64.deb";
-      sha256 = "sha256-aZqxMx1hbk5vkVMETsoSvn5cgc9jYUeMWfRwCN5s/c0=";
+      url = "https://github.com/brave/brave-browser/releases/download/v1.49.120/brave-browser_1.49.120_amd64.deb";
+      sha256 = "sha256-KSu6HaNKc7uVY1rSyzU+VZSE2dbIOOrsUx1RYKnz8yU=";
     };
-  };
-  chatgpt-wrapper = {
-    pname = "chatgpt-wrapper";
-    version = "7c3f073ea0fa19d438bc46c923fd2463f1580c0f";
-    src = fetchFromGitHub ({
-      owner = "mmabrouk";
-      repo = "chatgpt-wrapper";
-      rev = "7c3f073ea0fa19d438bc46c923fd2463f1580c0f";
-      fetchSubmodules = false;
-      sha256 = "sha256-yR9SZuuQN2gFiLNNiqycA3FBI8bmJ2P7LjwAWXpX4Mc=";
-    });
-    date = "2023-02-16";
   };
   chord = {
     pname = "chord";
@@ -75,18 +63,18 @@
   };
   logseq = {
     pname = "logseq";
-    version = "0.8.17";
+    version = "0.8.18";
     src = fetchurl {
-      url = "https://github.com/logseq/logseq/releases/download/0.8.17/logseq-linux-x64-0.8.17.AppImage";
-      sha256 = "sha256-z7v59wXvSIDC7f4IMT8bblPgn+3+J54XqIPzXqWDses=";
+      url = "https://github.com/logseq/logseq/releases/download/0.8.18/logseq-linux-x64-0.8.18.AppImage";
+      sha256 = "sha256-tD7uNSgcGMPyiA/HfOOZs3NRbWTrds0AdEXTaHYfUjk=";
     };
   };
   logseq-darwin = {
     pname = "logseq-darwin";
-    version = "0.8.17";
+    version = "0.8.18";
     src = fetchurl {
-      url = "https://github.com/logseq/logseq/releases/download/0.8.17/logseq-darwin-x64-0.8.17.dmg";
-      sha256 = "sha256-5ghhbTbPGxV/z/N8kqQXlm4WIMETGAAd0gKTnFOW6P8=";
+      url = "https://github.com/logseq/logseq/releases/download/0.8.18/logseq-darwin-x64-0.8.18.dmg";
+      sha256 = "sha256-NL1/MeYfQhLaS2bFDjC5TUKKIATBE5WDXQiEvcLXWhY=";
     };
   };
   magnetw = {
@@ -115,31 +103,31 @@
   };
   promnesia = {
     pname = "promnesia";
-    version = "c52cdde324651773b0119ae77fa45113fa1814e5";
+    version = "c4a7b47e198a3822dd540968c5a8e6b95ab51b53";
     src = fetchFromGitHub ({
       owner = "karlicoss";
       repo = "promnesia";
-      rev = "c52cdde324651773b0119ae77fa45113fa1814e5";
+      rev = "c4a7b47e198a3822dd540968c5a8e6b95ab51b53";
       fetchSubmodules = false;
-      sha256 = "sha256-Of7Tfcgu891S04wria+fwggm59mMsZsCYE0r5Gs0Kz0=";
+      sha256 = "sha256-QMqvqspuqkyIsz05aA1xObT0tKaJmbts3Cn3O9rlQ1k=";
     });
-    date = "2023-02-13";
+    date = "2023-03-01";
   };
   spaceship-prompt = {
     pname = "spaceship-prompt";
-    version = "695f4d63ae2f0fecc6d006947f8acc374b2697a0";
+    version = "aa5887fa2c07f3beaefd52cd6004108f612d1d8d";
     src = fetchFromGitHub ({
       owner = "spaceship-prompt";
       repo = "spaceship-prompt";
-      rev = "695f4d63ae2f0fecc6d006947f8acc374b2697a0";
+      rev = "aa5887fa2c07f3beaefd52cd6004108f612d1d8d";
       fetchSubmodules = false;
-      sha256 = "sha256-9vBqTVkXfoIGcIe2DcGwSqe/5w+NoMcbDOftSnHbgrc=";
+      sha256 = "sha256-uFmGld5paCLNnE9yWgBLtthEBfwwMzlGCJFX6KqGJdw=";
     });
-    date = "2023-02-09";
+    date = "2023-03-08";
   };
   wezterm-appimage = {
     pname = "wezterm-appimage";
-    version = "02-16-2023";
+    version = "03-13-2023";
     src = fetchurl {
       url = "https://github.com/wez/wezterm/releases/download/nightly/WezTerm-nightly-Ubuntu18.04.AppImage";
       sha256 = "sha256-pXvURQjmmE653mkQMGCzH+gZUMv1T6f3/lRxaQaqAvQ=";
