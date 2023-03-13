@@ -6,9 +6,9 @@
   src = pkgs.nixpkgs-hardenedlinux-go-sources.chatgpt-web.src.outPath;
 in {
   age.secrets.chatgpt-web.file = pkgs.lib.age.file "chatgpt-web.age";
-  age.secrets.chatgpt-web.mode = "777";
+  age.secrets.chatgpt-web.mode = "0444";
   age.secrets.chatgpt-web-passwd.file = pkgs.lib.age.file "chatgpt-web-passwd.age";
-  age.secrets.chatgpt-web-passwd.mode = "777";
+  age.secrets.chatgpt-web-passwd.mode = "0444";
 
   services.nginx = {
     enable = true;
