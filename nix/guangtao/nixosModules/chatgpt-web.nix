@@ -3,12 +3,11 @@
   config,
   ...
 }: let
-  src = pkgs.nixpkgs-hardenedlinux-go-sources.chatgpt-web.src.outPath;
 in {
   age.secrets.chatgpt-web.file = pkgs.lib.age.file "chatgpt-web.age";
-  age.secrets.chatgpt-web.mode = "0444";
+  age.secrets.chatgpt-web.mode = "444";
   age.secrets.chatgpt-web-passwd.file = pkgs.lib.age.file "chatgpt-web-passwd.age";
-  age.secrets.chatgpt-web-passwd.mode = "0444";
+  age.secrets.chatgpt-web-passwd.mode = "444";
 
   services.nginx = {
     enable = true;
@@ -29,7 +28,7 @@ in {
           sub_filter_once off;
         '';
         locations."/" = {
-          proxyPass = "http://127.0.0.1:57445";
+          proxyPass = "http://127.0.0.1:3002";
           recommendedProxySettings = true;
         };
       };
@@ -39,20 +38,23 @@ in {
     description = "chatgpt-web";
     wantedBy = ["network.target"];
     preStart = ''
-      ln -sfT ${src}/resources /var/lib/chatgpt-web/resources
-      ln -sfT ${src}/static /var/lib/chatgpt-web/static
-      cp -rf ${config.age.secrets."chatgpt-web".path} /var/lib/chatgpt-web/config.json
+      cp -rf --no-preserve=mode,ownership ${pkgs.chatgpt-web}/* /var/lib/chatgpt-web/
+      cp -rf ${config.age.secrets."chatgpt-web".path} /var/lib/chatgpt-web/.env
+    '';
+    script = ''
+      export PATH=${pkgs.lib.makeBinPath [
+        pkgs.nodejs.pkgs.pnpm
+        pkgs.nodejs
+        pkgs.vite
+      ]}:/run/current-system/sw/bin:$PATH
+      pnpm run prod
     '';
     serviceConfig = {
-      ExecStart = ''
-        ${pkgs.chatgpt-web}/bin/chatgpt-web
-      '';
+      Type = "simple";
       ReadWritePaths = "/var/lib/chatgpt-web";
       ProtectSystem = "strict";
       DynamicUser = true;
       Restart = "always";
-      DevicePolicy = "closed";
-      NoNewPrivileges = true;
       WorkingDirectory = "/var/lib/chatgpt-web";
       StateDirectory = "chatgpt-web";
     };
