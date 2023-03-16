@@ -734,14 +734,14 @@ FACE defaults to inheriting from default and highlight."
                                    ))
 #+end_src
 
+
 #+begin_src emacs-lisp :tangle "config.el"
 (use-package! mind-wave
+  :commands (mind-wave-chat-mode)
   :hook (mind-wave-chat-mode . visual-fill-column-mode))
 #+end_src
 
-
 ** visual-fill-column :fill:visual:
-
 
 * Org
 
