@@ -10,7 +10,10 @@
       inputs.cells.utils.nixosProfiles.vscode.guangtao
       languageServers
       ({pkgs, ...}: {
-        environment.systemPackages = with pkgs; [nickel];
+        environment.systemPackages = with pkgs; [
+          nickel
+          gptcommit
+        ];
       })
     ];
   };

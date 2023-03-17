@@ -17,6 +17,11 @@ in
 
     inherit (__inputs__.nil.packages) nil;
 
+    inherit
+      (__inputs__.nixpkgs-hardenedlinux.packages)
+      gptcommit
+      ;
+
     mind-wave = final.poetry2nix.mkPoetryEnv {
       projectDir = ../packages/mind-wave;
     };
