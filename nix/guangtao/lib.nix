@@ -30,7 +30,10 @@ in {
   nixConfig = {};
 
   mkHomeConfig = host: user: {
-    inherit (cell.darwinConfigurations.${host}) bee;
+    bee =
+      if nixpkgs.stdenv.isDarwin
+      then cell.darwinConfigurations.${host}.bee
+      else cell.nixosConfigurations.${host}.bee;
     home = rec {
       homeDirectory = "/home/${username}";
       stateVersion = cell.nixosConfigurations.${host}.bee.pkgs.lib.trivial.release;

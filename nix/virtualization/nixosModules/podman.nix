@@ -7,5 +7,6 @@
   environment.systemPackages = with pkgs; [
     docker-client
     docker-compose
+    podman-tui
   ];
 }

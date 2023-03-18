@@ -6,23 +6,22 @@
   inherit (inputs.cells.common.lib) __inputs__;
 in
   {
-    desktop =
-      [
-        cell.overlays.default
-        cell.overlays.python
-        cell.overlays.overrides
-        inputs.nur.overlay
+    desktop = [
+      cell.overlays.default
+      cell.overlays.python
+      cell.overlays.overrides
+      inputs.nur.overlay
 
-        __inputs__.rust-overlay.overlays.default
-        __inputs__.nixpkgs-wayland.overlays.default
-        __inputs__.poetry2nix.overlay
+      __inputs__.rust-overlay.overlays.default
+      __inputs__.nixpkgs-wayland.overlays.default
+      __inputs__.poetry2nix.overlay
 
-        inputs.cells.emacs.overlays.emacs-overlay
+      inputs.cells.emacs.overlays.emacs-overlay
 
-        inputs.cells.utils.overlays.vscode
-        inputs.cells.utils.overlays.vscode-extensions
-        __inputs__.julia2nix.overlays.default
-      ];
+      inputs.cells.utils.overlays.vscode
+      inputs.cells.utils.overlays.vscode-extensions
+      __inputs__.julia2nix.overlays.default
+    ];
 
     macbook = [
       cell.overlays.default
