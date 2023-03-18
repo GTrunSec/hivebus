@@ -481,10 +481,8 @@ FACE defaults to inheriting from default and highlight."
 
 #+begin_src emacs-lisp :tangle "packages.el"
 (package! jupyter
-  :pin "1ced935b80c91b51ca532c3883180ac1d1c764c0"
-  :recipe (:host github :repo "GTrunSec/emacs-jupyter"
+  :recipe (:host github :repo "nnicandro/emacs-jupyter"
                  ))
-
 #+end_src
 
 
@@ -1065,6 +1063,8 @@ prepended to the element after the #+HEADER: tag."
 #+begin_src emacs-lisp :tangle "config.el"
 (use-package! fingertip
   :config
+  (add-hook 'python-mode-hook #'python-ts-mode)
+
   (dolist (hook (list
                  'c-mode-common-hook
                  'c-mode-hook
