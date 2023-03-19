@@ -41,4 +41,17 @@ in {
     };
     imports = cell.homeSuites.${host};
   };
+  a =
+    l.foldl' (
+      acc: e:
+        if l.elem e.name acc.visited
+        then acc
+        else {
+          visited = acc.visited ++ [e.name];
+          result = acc.result ++ [e];
+        }
+    ) {
+      visited = [];
+      result = [];
+    };
 }
