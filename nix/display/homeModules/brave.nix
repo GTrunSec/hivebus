@@ -1,11 +1,11 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     ((brave.override {
-        vulkanSupport = true;
         commandLineArgs = [
           "--enable-wayland-ime"
           "--ozone-platform=wayland"
           "--enable-features=UseOzonePlatform"
+          "--enable-features=Vulkan"
           # "--use-gl=egl"
         ];
       })
