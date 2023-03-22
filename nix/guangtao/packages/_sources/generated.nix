@@ -11,15 +11,15 @@
   };
   StevenBlack-hosts = {
     pname = "StevenBlack-hosts";
-    version = "618a6dfa7e47129cec3fe4d5ef2d3937804f7cb3";
+    version = "3887abb4598958122a0df03b3f098c523564abba";
     src = fetchFromGitHub ({
       owner = "StevenBlack";
       repo = "hosts";
-      rev = "618a6dfa7e47129cec3fe4d5ef2d3937804f7cb3";
+      rev = "3887abb4598958122a0df03b3f098c523564abba";
       fetchSubmodules = false;
-      sha256 = "sha256-UARPP46L+11HTeh3uvuFfb3JadShMIgiZR9mJCh9bmw=";
+      sha256 = "sha256-HoNX57lCoIr36B/7HMuazWSWeAPPfWY1oZf6dXnxYIE=";
     });
-    date = "2023-03-10";
+    date = "2023-03-21";
   };
   adguardhome = {
     pname = "adguardhome";
@@ -124,21 +124,5 @@
       sha256 = "sha256-uFmGld5paCLNnE9yWgBLtthEBfwwMzlGCJFX6KqGJdw=";
     });
     date = "2023-03-08";
-  };
-  wezterm-appimage = {
-    pname = "wezterm-appimage";
-    version = "03-13-2023";
-    src = fetchurl {
-      url = "https://github.com/wez/wezterm/releases/download/nightly/WezTerm-nightly-Ubuntu18.04.AppImage";
-      sha256 = "sha256-pXvURQjmmE653mkQMGCzH+gZUMv1T6f3/lRxaQaqAvQ=";
-    };
-  };
-  wezterm-darwin = {
-    pname = "wezterm-darwin";
-    version = "date +%m-%d-%Y";
-    src = fetchurl {
-      url = "https://github.com/wez/wezterm/releases/download/nightly/WezTerm-macos-nightly.zip";
-      sha256 = "sha256-nObfSq1fTG7iu8/t3D3qJvem8Ho292oQhH92L7w+Fu4=";
-    };
   };
 }

@@ -16,7 +16,7 @@
     },
     "StevenBlack-hosts": {
         "cargoLocks": null,
-        "date": "2023-03-10",
+        "date": "2023-03-21",
         "extract": null,
         "name": "StevenBlack-hosts",
         "passthru": null,
@@ -28,11 +28,11 @@
             "name": null,
             "owner": "StevenBlack",
             "repo": "hosts",
-            "rev": "618a6dfa7e47129cec3fe4d5ef2d3937804f7cb3",
-            "sha256": "sha256-UARPP46L+11HTeh3uvuFfb3JadShMIgiZR9mJCh9bmw=",
+            "rev": "3887abb4598958122a0df03b3f098c523564abba",
+            "sha256": "sha256-HoNX57lCoIr36B/7HMuazWSWeAPPfWY1oZf6dXnxYIE=",
             "type": "github"
         },
-        "version": "618a6dfa7e47129cec3fe4d5ef2d3937804f7cb3"
+        "version": "3887abb4598958122a0df03b3f098c523564abba"
     },
     "adguardhome": {
         "cargoLocks": null,
@@ -223,35 +223,5 @@
             "type": "github"
         },
         "version": "aa5887fa2c07f3beaefd52cd6004108f612d1d8d"
-    },
-    "wezterm-appimage": {
-        "cargoLocks": null,
-        "date": null,
-        "extract": null,
-        "name": "wezterm-appimage",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "name": null,
-            "sha256": "sha256-pXvURQjmmE653mkQMGCzH+gZUMv1T6f3/lRxaQaqAvQ=",
-            "type": "url",
-            "url": "https://github.com/wez/wezterm/releases/download/nightly/WezTerm-nightly-Ubuntu18.04.AppImage"
-        },
-        "version": "03-13-2023"
-    },
-    "wezterm-darwin": {
-        "cargoLocks": null,
-        "date": null,
-        "extract": null,
-        "name": "wezterm-darwin",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "name": null,
-            "sha256": "sha256-nObfSq1fTG7iu8/t3D3qJvem8Ho292oQhH92L7w+Fu4=",
-            "type": "url",
-            "url": "https://github.com/wez/wezterm/releases/download/nightly/WezTerm-macos-nightly.zip"
-        },
-        "version": "date +%m-%d-%Y"
     }
 }
