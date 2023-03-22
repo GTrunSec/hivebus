@@ -1,0 +1,21 @@
+:PROPERTIES:
+:ID:       36ffec1b-50c7-4fc0-9e55-9a417b7de628
+:END:
+#+TITLE: cloudflare
+#+AUTHOR: GuangTao Zhang
+#+EMAIL: gtrunsec@hardenedlinux.org
+#+DATE: 2023-03-12 Sun 00:59
+
+
+* config
+
+
+
+
+* [[https://github.com/cloudflare/terraform-provider-cloudflare/tree/master/examples][terraform-provider-cloudflare/examples at master · cloudflare/terraform-provider-cloudflare]] :terraform:config:
+
+** [[https://developers.cloudflare.com/terraform/additional-configurations/waf-managed-rulesets/][Configure WAF Managed Rules with Terraform · Cloudflare Terraform docs 🔊]]
+
+** Examples
+
+*** [[https://github.com/quantum-sec/package-cloudflare/blob/master/modules/cloudflare-zone/main.tf][package-cloudflare/main.tf at master · quantum-sec/package-cloudflare · GitHub]]

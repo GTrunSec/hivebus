@@ -13,7 +13,7 @@
 in {
   # credit: https://github.com/montchr/dotfield/blob/dd5e577d91b1af7f13909f5dc4343717a718ff02/darwin/profiles/core/default.nix
   homebrew = {
-    enable = true;
+    enable = true;  
     # onActivation.cleanup = "zap";
     onActivation.upgrade = true;
     # Use the nix-darwin brewfile when invoking `brew bundle` imperatively.

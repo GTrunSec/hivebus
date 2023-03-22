@@ -1,0 +1,22 @@
+:PROPERTIES:
+:ID:       730ccec5-8dc2-46fe-83c8-a7abab14a6ab
+:END:
+#+TITLE: ssh
+#+AUTHOR: GuangTao Zhang
+#+EMAIL: gtrunsec@hardenedlinux.org
+#+DATE: 2023-03-12 Sun 00:47
+
+
+
+
+
+#+begin_src nix :results output
+
+#+end_src
+
+
+
+* store keys
+** [[https://github.com/maxgoedjen/secretive][maxgoedjen/secretive: Store SSH keys in the Secure Enclave 🔊]] :macos:
+
+** [[https://github.com/tpm2-software/tpm2-pkcs11/blob/master/docs/SSH.md][tpm2-pkcs11/SSH.md at master · tpm2-software/tpm2-pkcs11 · GitHub 🔊]] :tpm:
