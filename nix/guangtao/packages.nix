@@ -9,7 +9,7 @@ in {
     promnesia
     orgparse
     material-symbols
-    chatgpt-wrapper
+    # chatgpt-wrapper
     mind-wave
     ;
 }

@@ -22,7 +22,7 @@
     ragenix.inputs.nixpkgs = "nixos";
   };
 in
-  inputs.std-ext.lib.lib.digga
+  inputs.std-ext.lib.digga
   // {
     inherit __inputs__;
 

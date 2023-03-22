@@ -56,6 +56,8 @@
 
     vault-secrets.url = "github:gtrunsec/vault-secrets";
     vault-secrets.inputs.nixpkgs.follows = "nixpkgs";
+
+    impermanence.url = "github:nix-community/impermanence";
   };
 
   inputs = {
@@ -69,6 +71,7 @@
 
     devos-ext-lib.url = "github:divnix/devos-ext-lib/?ref=refs/pull/8/head";
     devos-ext-lib.inputs.nixpkgs.follows = "nixpkgs";
+
   };
   # Orchestration
   inputs = {
@@ -88,6 +91,8 @@
 
     nixpkgs-hardenedlinux.url = "github:hardenedlinux/nixpkgs-hardenedlinux";
     nixpkgs-hardenedlinux.inputs.nixpkgs.follows = "nixpkgs";
+
+
   };
 
   outputs = {self, ...}: {};

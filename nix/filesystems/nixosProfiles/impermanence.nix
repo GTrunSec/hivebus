@@ -1,9 +1,11 @@
 {
   inputs,
   cell,
-}: rec {
+}: let
+  inherit (inputs.cells.common.lib) __inputs__;
+in rec {
   default = {
-    imports = [inputs.impermanence.nixosModules.impermanence];
+    imports = [__inputs__.impermanence.nixosModules.impermanence];
     environment.persistence."/persist" = {
       directories = [
         "/var"
