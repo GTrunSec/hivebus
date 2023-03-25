@@ -3,7 +3,7 @@
   config,
   ...
 }: let
-  src = pkgs.nixpkgs-hardenedlinux-go-sources.go-chatgpt-web.src.outPath;
+  src = pkgs.nixpkgs-hardenedlinux-sources.go-chatgpt-web.src.outPath;
 in {
   age.secrets.chatgpt-web.file = pkgs.lib.age.file "chatgpt-web.age";
   age.secrets.chatgpt-web.mode = "0444";

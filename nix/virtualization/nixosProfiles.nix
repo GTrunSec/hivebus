@@ -10,6 +10,7 @@
     ];
     users.extraUsers."guangtao".extraGroups = ["podman"];
     services.dockerRegistry.storagePath = "/DATABASE-4TB//docker-registry";
+
     virtualisation.podman.enableNvidia = true;
   };
 }

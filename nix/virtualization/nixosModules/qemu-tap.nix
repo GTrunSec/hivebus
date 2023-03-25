@@ -9,7 +9,7 @@
   };
 
   networking.interfaces.tap0 = {
-    virtualOwner = "john";
+    virtualOwner = "guangtao";
     virtual = true;
     virtualType = "tap";
     useDHCP = true;
