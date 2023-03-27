@@ -38,7 +38,7 @@ $mod1 = CTRL_SHIFT
 bind = $mod, Return, exec, alacritty
 bind = $mod, B, exec, brave
 bind = $mod, D, exec, pkill rofi || ~/.config/rofi/launcher.sh
-bind = $mod, R, exec, ksnip -c
+bind = $mod, R, exec, XCURSOR_SIZE=100 grimshot copy area
 bind = $mod1, T, exec, swaync-client -t -sw
 #+end_src
 

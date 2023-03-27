@@ -74,5 +74,11 @@
           '';
         }
       )
+      (
+        mkIf pkgs.stdenv.isLinux {
+          programs.zsh.shellAliases = {
+          };
+        }
+      )
     ];
 }
