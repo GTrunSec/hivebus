@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
+    onlyoffice-bin
     tdesktop
     (mkWaylandApp zoom-us "zoom-us" ["--enable-features=UseOzonePlatform" "--ozone-platform=wayland"])
     slack

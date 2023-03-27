@@ -1,16 +1,17 @@
-{
-  inputs,
-  cell,
-}: let
+{ inputs
+, cell
+,
+}:
+let
   inherit (cell.lib) nixpkgs;
-in {
+in
+{
   inherit
     (nixpkgs)
     promnesia
     orgparse
     material-symbols
     # chatgpt-wrapper
-    
     mind-wave
     ;
 }

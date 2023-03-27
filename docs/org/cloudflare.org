@@ -9,9 +9,6 @@
 
 * config
 
-
-
-
 * [[https://github.com/cloudflare/terraform-provider-cloudflare/tree/master/examples][terraform-provider-cloudflare/examples at master · cloudflare/terraform-provider-cloudflare]] :terraform:config:
 
 ** [[https://developers.cloudflare.com/terraform/additional-configurations/waf-managed-rulesets/][Configure WAF Managed Rules with Terraform · Cloudflare Terraform docs 🔊]]

@@ -745,6 +745,21 @@ FACE defaults to inheriting from default and highlight."
   )
 #+end_src
 
+** jinx :spellCheck:
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! jinx :recipe (:host github :repo "minad/jinx"
+                              :files ("*.el" "*.c")))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! jinx
+  :config
+  (dolist (hook '(text-mode-hook prog-mode-hook conf-mode-hook
+                  org-mode-hook ))
+    (add-hook hook #'jinx-mode)))
+#+end_src
+
 
 * Org
 

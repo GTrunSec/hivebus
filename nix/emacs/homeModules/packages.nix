@@ -27,6 +27,7 @@ in {
           sqlite
           zeromq
           xclip
+          enchant2
           (
             pkgs.writeShellScriptBin "node16" ''
               ${lib.getExe pkgs.nodejs-16_x} "$@"

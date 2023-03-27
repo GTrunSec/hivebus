@@ -14,6 +14,7 @@ in
       zoom-us
       brave
       firefox
+      onlyoffice-bin
       ;
     python3Override = nixpkgs-master.python3;
   }

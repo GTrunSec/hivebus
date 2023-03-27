@@ -15,7 +15,7 @@
     default.imports =
       [
         inputs.cells.hardware.nixosModules.opengl
-        cell.nixosProfiles.nixgl
+        # cell.nixosProfiles.nixgl
         # gtk modules
         cell.nixosProfiles.dfconf
         cell.nixosModules.fonts
