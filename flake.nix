@@ -135,7 +135,10 @@
       ];
     }
     {
-      devShells = std.harvest inputs.self ["automation" "devshells"];
+      devShells = std.harvest inputs.self [
+        ["automation" "devshells"]
+        ["emacs" "devshells"]
+      ];
       lib =
         (std.harvest inputs.self ["_QUEEN" "lib"]).x86_64-linux
         // {
@@ -145,7 +148,7 @@
         guangtao = (std.harvest inputs.self ["guangtao" "overlays"]).x86_64-linux;
       };
       packages = std.harvest inputs.self [["guangtao" "packages"]];
-      apps = std.harvest inputs.self [["emacs" "apps"]];
+      # apps = std.harvest inputs.self [["emacs" "apps"]];
     }
     # soil - the first (and only) layer implements adapters for tooling
     {
