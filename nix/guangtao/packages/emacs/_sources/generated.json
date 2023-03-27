@@ -39,9 +39,29 @@
         },
         "version": "321e05fc0398a6159925b858f46608ea07ef269e"
     },
+    "jinx": {
+        "cargoLocks": null,
+        "date": "2023-03-27",
+        "extract": null,
+        "name": "jinx",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "minad",
+            "repo": "jinx",
+            "rev": "68b579d715c4be5a255852130b9009151fb0c41e",
+            "sha256": "sha256-vnS7I+p06rzdHHiEfaB5fiD0YKdtfhglcj8qb6D4E18=",
+            "type": "github"
+        },
+        "version": "68b579d715c4be5a255852130b9009151fb0c41e"
+    },
     "lsp-bridge": {
         "cargoLocks": null,
-        "date": "2023-03-21",
+        "date": "2023-03-27",
         "extract": null,
         "name": "lsp-bridge",
         "passthru": null,
@@ -53,30 +73,10 @@
             "name": null,
             "owner": "manateelazycat",
             "repo": "lsp-bridge",
-            "rev": "32bd062c4b41892e29a1f7bfebf07d778181540c",
-            "sha256": "sha256-f6NLq3kYSK9EdxqyKbCAA27/bN/wB2zHtvJaxEliOL8=",
+            "rev": "aecfafdd14507ea27eb15096494157cd4941e106",
+            "sha256": "sha256-PaApT/yCqmcOsncBgPMNYKYK4mFym/dWaTcjrf5WNVU=",
             "type": "github"
         },
-        "version": "32bd062c4b41892e29a1f7bfebf07d778181540c"
-    },
-    "wen": {
-        "cargoLocks": null,
-        "date": "2022-09-18",
-        "extract": null,
-        "name": "wen",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "metaescape",
-            "repo": "Wen",
-            "rev": "50a9afbe6499077f97ebb52f40d051930df640e8",
-            "sha256": "sha256-5Y4u6XmX9qVCQMb6/SfwtYGzH79VlGM32tI7EFGhzVg=",
-            "type": "github"
-        },
-        "version": "50a9afbe6499077f97ebb52f40d051930df640e8"
+        "version": "aecfafdd14507ea27eb15096494157cd4941e106"
     }
 }

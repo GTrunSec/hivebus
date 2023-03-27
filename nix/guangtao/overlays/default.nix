@@ -2,7 +2,7 @@
   inputs,
   cell,
 }: let
-  inherit (inputs.cells.common.lib) __inputs__;
+  inherit (inputs.cells.common.lib) __inputs__ __utils__;
 in
   final: prev: {
     guangtao-sources =
@@ -44,6 +44,11 @@ in
     mind-wave = final.poetry2nix.mkPoetryEnv {
       projectDir = ../packages/mind-wave;
     };
+
+    # slurp = prev.slurp.overrideAttrs (_: {
+    #   name = "slurp-PR-95";
+    #   src = __utils__.slurp;
+    # });
 
     lib = prev.lib.extend (lself: lsuper: {
       age.file = file: lsuper.path.append ../secretProfiles file;

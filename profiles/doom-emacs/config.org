@@ -748,17 +748,24 @@ FACE defaults to inheriting from default and highlight."
 ** jinx :spellCheck:
 
 #+begin_src emacs-lisp :tangle "packages.el"
-(package! jinx :recipe (:host github :repo "minad/jinx"
-                              :files ("*.el" "*.c")))
+(package! jinx :recipe (:local-repo
+                              "~/.config/guangtao-sources/jinx"
+                              ;;:host github :repo "minad/jinx"
+                              :files ("*")))
 #+end_src
 
 #+begin_src emacs-lisp :tangle "config.el"
 (use-package! jinx
   :config
+  (setq jinx-languages '("en_US"))
+  (add-to-list 'jinx-exclude-regexps '(t "\\cc")) ;; chinese
   (dolist (hook '(text-mode-hook prog-mode-hook conf-mode-hook
                   org-mode-hook ))
     (add-hook hook #'jinx-mode)))
 #+end_src
+
+#+RESULTS:
+: t
 
 
 * Org

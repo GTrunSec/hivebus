@@ -6,9 +6,9 @@ fetch.github = "twlz0ne/acm-terminal"
 src.git = "https://github.com/manateelazycat/lsp-bridge"
 fetch.github = "manateelazycat/lsp-bridge"
 
-[wen]
-src.git = "https://github.com/metaescape/Wen"
-fetch.github = "metaescape/Wen"
+[jinx]
+src.git = "https://github.com/minad/jinx"
+fetch.github = "minad/jinx"
 
 [GodTian_Pinyin]
 src.git = "https://github.com/whatbeg/GodTian_Pinyin"

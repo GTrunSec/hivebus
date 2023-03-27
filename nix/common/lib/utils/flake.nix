@@ -22,6 +22,11 @@
       url = "github:catppuccin/wezterm";
       flake = false;
     };
+
+    slurp = {
+      url = "github:emersion/slurp?ref=pull/95/head";
+      flake = false;
+    };
   };
 
   outputs = {self, ...}: {};

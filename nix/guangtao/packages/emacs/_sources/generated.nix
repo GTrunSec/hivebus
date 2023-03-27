@@ -25,28 +25,28 @@
     });
     date = "2023-02-15";
   };
+  jinx = {
+    pname = "jinx";
+    version = "68b579d715c4be5a255852130b9009151fb0c41e";
+    src = fetchFromGitHub ({
+      owner = "minad";
+      repo = "jinx";
+      rev = "68b579d715c4be5a255852130b9009151fb0c41e";
+      fetchSubmodules = false;
+      sha256 = "sha256-vnS7I+p06rzdHHiEfaB5fiD0YKdtfhglcj8qb6D4E18=";
+    });
+    date = "2023-03-27";
+  };
   lsp-bridge = {
     pname = "lsp-bridge";
-    version = "32bd062c4b41892e29a1f7bfebf07d778181540c";
+    version = "aecfafdd14507ea27eb15096494157cd4941e106";
     src = fetchFromGitHub ({
       owner = "manateelazycat";
       repo = "lsp-bridge";
-      rev = "32bd062c4b41892e29a1f7bfebf07d778181540c";
+      rev = "aecfafdd14507ea27eb15096494157cd4941e106";
       fetchSubmodules = false;
-      sha256 = "sha256-f6NLq3kYSK9EdxqyKbCAA27/bN/wB2zHtvJaxEliOL8=";
+      sha256 = "sha256-PaApT/yCqmcOsncBgPMNYKYK4mFym/dWaTcjrf5WNVU=";
     });
-    date = "2023-03-21";
-  };
-  wen = {
-    pname = "wen";
-    version = "50a9afbe6499077f97ebb52f40d051930df640e8";
-    src = fetchFromGitHub ({
-      owner = "metaescape";
-      repo = "Wen";
-      rev = "50a9afbe6499077f97ebb52f40d051930df640e8";
-      fetchSubmodules = false;
-      sha256 = "sha256-5Y4u6XmX9qVCQMb6/SfwtYGzH79VlGM32tI7EFGhzVg=";
-    });
-    date = "2022-09-18";
+    date = "2023-03-27";
   };
 }

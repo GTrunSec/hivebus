@@ -13,11 +13,28 @@
       cp ${./nls.json} $out/langserver/nls.json
       cp ${./julia.json} $out/langserver/julia.json
     '';
+  jinx = let
+    src = pkgs.guangtao-sources.jinx.src;
+  in
+    pkgs.runCommand "jinx" {
+      buildInputs = with pkgs; [
+        (config.programs.emacs.package or pkgs.emacs)
+        enchant2
+        gcc
+      ];
+    } ''
+      mkdir -p $out
+      cp -r ${src}/* .
+      cc -O2 -Wall -Wextra -fPIC -shared -Wl,--no-as-needed \
+      -I${pkgs.enchant2.dev}/include/enchant-2 -lenchant-2 -o jinx-mod.so jinx-mod.c
+      cp -r * $out
+    '';
 in {
   config = with lib;
     mkMerge [
       {
         home.file.".config/guangtao-sources/lsp-bridge".source = lsp-bridge;
+        home.file.".config/guangtao-sources/jinx".source = jinx;
         home.file.".config/guangtao-sources/acm-terminal".source = pkgs.guangtao-sources.acm-terminal.src;
         home.file.".config/guangtao-sources/plantuml".source = pkgs.plantuml;
       }
@@ -28,6 +45,7 @@ in {
           zeromq
           xclip
           enchant2
+          # for copilot
           (
             pkgs.writeShellScriptBin "node16" ''
               ${lib.getExe pkgs.nodejs-16_x} "$@"

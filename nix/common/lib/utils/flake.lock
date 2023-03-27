@@ -86,7 +86,25 @@
         "catppuccin-gitui": "catppuccin-gitui",
         "catppuccin-hyprland": "catppuccin-hyprland",
         "catppuccin-waybar": "catppuccin-waybar",
-        "catppuccin-wezterm": "catppuccin-wezterm"
+        "catppuccin-wezterm": "catppuccin-wezterm",
+        "slurp": "slurp"
+      }
+    },
+    "slurp": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1643703709,
+        "narHash": "sha256-FmLOgl5X+VirzSLF2x17+yeva27mnXkuBeurOTzIhNg=",
+        "owner": "emersion",
+        "repo": "slurp",
+        "rev": "7d2d77450f2a60f093a6aa607d91336ecad6bf78",
+        "type": "github"
+      },
+      "original": {
+        "owner": "emersion",
+        "ref": "pull/95/head",
+        "repo": "slurp",
+        "type": "github"
       }
     }
   },
