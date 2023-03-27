@@ -119,6 +119,7 @@
 
         # jobs can be run
         (runnables "entrypoints")
+        (functions "apps")
 
         # lib holds shared knowledge made code
         (functions "lib")
@@ -144,6 +145,7 @@
         guangtao = (std.harvest inputs.self ["guangtao" "overlays"]).x86_64-linux;
       };
       packages = std.harvest inputs.self [["guangtao" "packages"]];
+      apps = std.harvest inputs.self [["emacs" "apps"]];
     }
     # soil - the first (and only) layer implements adapters for tooling
     {
