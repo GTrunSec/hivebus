@@ -8,16 +8,36 @@
         ]
       },
       "locked": {
-        "lastModified": 1677453742,
-        "narHash": "sha256-/DNOThcCGz21Met/aMhm7NGqughtpxQzrlAqTuq+YZQ=",
+        "lastModified": 1677969766,
+        "narHash": "sha256-AIp/ZYZMNLDZR/H7iiAlaGpu4lcXsVt9JQpBlf43HRY=",
         "owner": "ryantm",
         "repo": "agenix",
-        "rev": "4828951d9d05accd244bf8c24706f046b485aceb",
+        "rev": "03b51fe8e459a946c4b88dcfb6446e45efb2c24e",
         "type": "github"
       },
       "original": {
         "owner": "ryantm",
         "repo": "agenix",
+        "type": "github"
+      }
+    },
+    "agenix-rekey": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1679928542,
+        "narHash": "sha256-6ql2P9ULb4wKI5hBn94ck/zqXswJ/O5XtLS5rmnXe3k=",
+        "owner": "oddlama",
+        "repo": "agenix-rekey",
+        "rev": "46a38999c4dc009ef2ec759344cbe19ccf4b7b95",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oddlama",
+        "repo": "agenix-rekey",
         "type": "github"
       }
     },
@@ -2006,11 +2026,11 @@
     },
     "nixpkgs-stable_4": {
       "locked": {
-        "lastModified": 1677367679,
-        "narHash": "sha256-pOMXi7F9tcHls06Qv+7XCPASTJeXu47Jhd0Pk9du8T4=",
+        "lastModified": 1678582009,
+        "narHash": "sha256-J8QzUOOv3/y97q19pGOz28gLC3lAUy1c4bWpsi5D460=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "ea736343e4d4a052e023d54b23334cf685de479c",
+        "rev": "c34fc09c77172c4189df4594a0749e25a23cdd9b",
         "type": "github"
       },
       "original": {
@@ -2639,11 +2659,11 @@
         "rust-overlay": "rust-overlay_6"
       },
       "locked": {
-        "lastModified": 1676788289,
-        "narHash": "sha256-NKTS9x20FH4yaH7x7KFvEzoM8KMW2xKkmSZ1v5qABwA=",
+        "lastModified": 1677625082,
+        "narHash": "sha256-62xmRPfjZgDn8AgEhb6eRoJrTxGeM8HfhfF+PkJokok=",
         "owner": "yaxitech",
         "repo": "ragenix",
-        "rev": "31f6c2e8b41e69498ca465cad6fce3ad2351d433",
+        "rev": "6f2dacf3d6af36228a8fad3b136990a6b6dfe30b",
         "type": "github"
       },
       "original": {
@@ -2655,6 +2675,7 @@
     "root": {
       "inputs": {
         "agenix": "agenix",
+        "agenix-rekey": "agenix-rekey",
         "attic": "attic",
         "devos-ext-lib": "devos-ext-lib",
         "emacs-darwin": "emacs-darwin",
@@ -2863,15 +2884,16 @@
         "nixpkgs-stable": "nixpkgs-stable_4"
       },
       "locked": {
-        "lastModified": 1677381477,
-        "narHash": "sha256-NLzWgll+Q0Af8gI1ha34OHt7Y1GtOMYhCWQWV9LXE9Y=",
+        "lastModified": 1679583964,
+        "narHash": "sha256-pos02NlyQpYhA48ofQv/XEds4Cf32h8Vh2Ty6wSrMuQ=",
         "owner": "Mic92",
         "repo": "sops-nix",
-        "rev": "83fe25c8019db8216f5c6ffc65b394707784b4f3",
+        "rev": "bae4d463977b3a2d772b0f5fd07180ea1a57a736",
         "type": "github"
       },
       "original": {
         "owner": "Mic92",
+        "ref": "pull/299/head",
         "repo": "sops-nix",
         "type": "github"
       }

@@ -1,0 +1,11 @@
+:PROPERTIES:
+:ID:       1943dfb0-d774-4fc5-8122-c46a106f1975
+:END:
+#+TITLE: nixos-install
+#+AUTHOR: GuangTao Zhang
+#+EMAIL: gtrunsec@hardenedlinux.org
+#+DATE: 2023-03-28 Tue 00:50
+
+
+
+* https://github.com/numtide/nixos-anywhere :install:nixos:init:

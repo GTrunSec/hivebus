@@ -4,8 +4,8 @@
   ...
 }: let
   ordering = lib.concatStringsSep "," ((lib.optionals pkgs.stdenv.isDarwin [
-    "AppleSpell"
-  ])
+      "AppleSpell"
+    ])
     ++ [
       # run `enchant-lsmod-2` to see the list of available dictionaries
       "aspell"

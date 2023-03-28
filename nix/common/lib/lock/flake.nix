@@ -44,7 +44,7 @@
   };
 
   inputs = {
-    sops-nix.url = "github:Mic92/sops-nix";
+    sops-nix.url = "github:Mic92/sops-nix?ref=pull/299/head"; # sops-template
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
 
     ragenix.url = "github:yaxitech/ragenix";
@@ -53,6 +53,9 @@
 
     agenix.url = "github:ryantm/agenix";
     agenix.inputs.nixpkgs.follows = "nixpkgs";
+
+    agenix-rekey.url = "github:oddlama/agenix-rekey";
+    agenix-rekey.inputs.nixpkgs.follows = "nixpkgs";
 
     vault-secrets.url = "github:gtrunsec/vault-secrets";
     vault-secrets.inputs.nixpkgs.follows = "nixpkgs";

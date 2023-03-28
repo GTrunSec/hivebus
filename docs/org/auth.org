@@ -1,0 +1,15 @@
+:PROPERTIES:
+:ID:       cd028f78-7dc1-4325-afc7-00d917c138ff
+:END:
+#+TITLE: authorization
+#+AUTHOR: GuangTao Zhang
+#+EMAIL: gtrunsec@hardenedlinux.org
+#+DATE: 2023-03-28 Tue 00:48
+
+
+* KeyClock
+
+
+* SSH
+
+** [[id:16cebc40-afd4-42d7-be25-2fb9cbd2fd5f][age]]
