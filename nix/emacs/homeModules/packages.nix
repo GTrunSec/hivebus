@@ -20,14 +20,15 @@
       buildInputs = with pkgs; [
         (config.programs.emacs.package or pkgs.emacs)
         enchant2
-        clang
+        gcc
       ];
     } ''
       mkdir -p $out
       cp -r ${src}/* .
-      clang -O2 -Wall -Wextra -fPIC -shared -Wl \
-      ${if pkgs.stdenv.isDarwin then "-I${pkgs.enchant2.dev}/include/enchant-2 -lenchant-2 -o jinx-mod.dylib jinx-mod.c"
-      else "-I${pkgs.enchant2.dev}/include/enchant-2 -lenchant-2 -o jinx-mod.so jinx-mod.c"}
+      cc -I. -O2 -Wall -Wextra -fPIC -shared \
+      -I${pkgs.enchant2.dev}/include/enchant-2 -lenchant-2 \
+      ${if pkgs.stdenv.isDarwin then "-o jinx-mod.dylib jinx-mod.c"
+      else "-o jinx-mod.so jinx-mod.c"}
       cp -r * $out
     '';
 in {
