@@ -754,6 +754,16 @@ FACE defaults to inheriting from default and highlight."
                               :files ("*")))
 #+end_src
 
+- to show the list of available dictionaries
+#+begin_src sh
+enchant-lsmod-2
+#+end_src
+
+#+RESULTS:
+| aspell   | (Aspell   | Provider) |
+| hspell   | (Hspell   | Provider) |
+| hunspell | (Hunspell | Provider) |
+
 #+begin_src emacs-lisp :tangle "config.el"
 (use-package! jinx
   :config

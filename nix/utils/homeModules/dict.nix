@@ -7,9 +7,10 @@
     "AppleSpell"
   ])
     ++ [
+      # run `enchant-lsmod-2` to see the list of available dictionaries
       "aspell"
       "hunspell"
-      "nuspell"
+      "hspell"
     ]);
 in {
   home.file.".config/enchant/enenchant.ordering".source = pkgs.writeText "enenchant.ordering" ''

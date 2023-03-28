@@ -25,10 +25,11 @@
     } ''
       mkdir -p $out
       cp -r ${src}/* .
-      cc -I. -O2 -Wall -Wextra -fPIC -shared \
-      -I${pkgs.enchant2.dev}/include/enchant-2 -lenchant-2 \
-      ${if pkgs.stdenv.isDarwin then "-o jinx-mod.dylib jinx-mod.c"
-      else "-o jinx-mod.so jinx-mod.c"}
+      ${lib.optionalString pkgs.stdenv.isLinux ''
+        cc -I. -O2 -Wall -Wextra -fPIC -shared \
+        -I${pkgs.enchant2.dev}/include/enchant-2 -lenchant-2 \
+        -o jinx-mod.so jinx-mod.c
+      ''}
       cp -r * $out
     '';
 in {
@@ -40,13 +41,15 @@ in {
         home.file.".config/guangtao-sources/acm-terminal".source = pkgs.guangtao-sources.acm-terminal.src;
         home.file.".config/guangtao-sources/plantuml".source = pkgs.plantuml;
       }
+      (mkIf pkgs.stdenv.isLinux {
+        home.packages = with pkgs; [enchant2];
+      })
       {
         home.packages = with pkgs; [
           nodejs_latest
           sqlite
           zeromq
           xclip
-          enchant2
           # for copilot
           (
             pkgs.writeShellScriptBin "node16" ''
