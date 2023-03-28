@@ -755,7 +755,8 @@ FACE defaults to inheriting from default and highlight."
 #+end_src
 
 - to show the list of available dictionaries
-#+begin_src sh
+
+#+begin_src sh :tangle no
 enchant-lsmod-2
 #+end_src
 
@@ -1430,17 +1431,3 @@ prepended to the element after the #+HEADER: tag."
       ;;  )
       )
 #+end_src
-
-#+RESULTS:
-
------- User ------
-hello
-
------- User ------
-hello
-
------- User ------
-what is emacs
-
------- User ------
-do you know english?
