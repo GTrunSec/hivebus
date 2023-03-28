@@ -1,6 +1,17 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: let
+  ordering = lib.concatStringsSep "," ((lib.optionals pkgs.stdenv.isDarwin ["AppleSpell"])
+    ++ [
+      "aspell"
+      "hunspell"
+      "nuspell"
+    ]);
+in {
   home.file.".config/enchant/enenchant.ordering".source = pkgs.writeText "enenchant.ordering" ''
-    *:aspell,hunspell,nuspell
+    *:${ordering}
   '';
   home.packages = with pkgs; [
     (

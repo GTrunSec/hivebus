@@ -17,6 +17,7 @@ in {
     ++ emacs
     ++ terminal
     ++ [
+      inputs.cells.utils.homeModules.dict
     ]
     ++ inputs.cells.utils.homeSuites.mathematical;
 
