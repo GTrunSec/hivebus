@@ -748,10 +748,16 @@ FACE defaults to inheriting from default and highlight."
 ** jinx :spellCheck:
 
 #+begin_src emacs-lisp :tangle "packages.el"
+(when IS-LINUX
 (package! jinx :recipe (:local-repo
                               "~/.config/guangtao-sources/jinx"
                               ;;:host github :repo "minad/jinx"
                               :files ("*")))
+)
+(when IS-MAC
+(package! jinx :recipe (:host github :repo "minad/jinx"
+                        :files ("*")))
+)
 #+end_src
 
 - to show the list of available dictionaries
