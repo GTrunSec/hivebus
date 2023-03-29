@@ -785,6 +785,20 @@ enchant-lsmod-2
 : t
 
 
+** vlf :file:large:
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! vlf)
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! vlf
+  :config
+  (require 'vlf-setup)
+  (custom-set-variables
+   '(vlf-application 'dont-ask))
+  )
+#+end_src
+
 * Org
 
 ** package :latex:
@@ -1278,6 +1292,21 @@ prepended to the element after the #+HEADER: tag."
     )
   )
 #+end_src
+
+** Nushell
+
+- [2022-12-12 Mon 11:14] -> https://github.com/azzamsa/emacs-nushell
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! nu-mode :recipe (:host github :repo "eggcaker/nu-mode"
+                                 :files ("*.el")
+        ))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! nu-mode)
+#+end_src
+
 
 * format-all
 
