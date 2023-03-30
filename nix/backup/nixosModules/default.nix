@@ -1,3 +1,0 @@
-{
-  btrbk = ./btrbk.nix;
-}
