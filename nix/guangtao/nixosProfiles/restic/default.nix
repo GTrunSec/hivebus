@@ -2,22 +2,16 @@
   inputs,
   cell,
 }: {
-  desktop = {
+  desktop = {config, ...}: {
     imports = [inputs.cells.backup.nixosModules.restic];
     services.restic.server = {
       enable = true;
+      prometheus = config.services.prometheus.enable;
       dataDir = "/DATABASE-4TB/restic";
-      appendOnly = true; # Prunes are done server-side, clients only add snapshots
+      appendOnly = true;
       listenAddress = "127.0.0.1:6053";
       extraFlags = [
-        # No need for HTTP authenticatio for now
         "--no-auth"
-        # Use HTTPS
-        # "--tls"
-        # "--tls-cert"
-        # "${sslCertDir}/cert.pem"
-        # "--tls-key"
-        # "${sslCertDir}/key.pem"
       ];
     };
   };

@@ -42,5 +42,9 @@
   networking.imports = [
     inputs.cells.networking.nixosProfiles.nat
   ];
+
+  monitoring.imports = [
+    # prometheus
+  ];
 }
 // inputs.cells.common.lib.importRakeLeaves ./nixosProfiles {inherit cell inputs;}

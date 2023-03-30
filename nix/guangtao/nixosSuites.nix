@@ -15,6 +15,7 @@ in {
       virtualization
       coding.desktop
       restic.desktop
+      prometheus.desktop
     ]
     ++ [
       desktop
@@ -35,7 +36,6 @@ in {
       cell.userProfiles.root
       (cell.lib.mkHome "admin" "libvirtd_1" "zsh" "22.11")
     ];
-
 
   vultr = with nixosProfiles;
     inputs.cells.bootstrap.nixosSuites.cloud
