@@ -6,8 +6,6 @@
 #+EMAIL: gtrunsec@hardenedlinux.org
 #+DATE: 2023-03-28 Tue 00:46
 
-
-
 * nixosModules
 
 ** https://github.com/oddlama/agenix-rekey :nix:

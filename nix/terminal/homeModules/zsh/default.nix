@@ -45,7 +45,11 @@
             # si = "pactl set-default-sink (pacmd list-sinks | awk \\\'/name:.*pci/{if (a != \"\") print a;} {a=$NF}\\\')";
           };
 
-          initExtraBeforeCompInit = builtins.readFile ./compinit-setopt.zsh;
+          initExtraBeforeCompInit =
+            lib.optionalString pkgs.stdenv.isDarwin ''
+              export PATH=/run/current-system/sw/bin:/run/current-system/etc/profiles/per-user/$USER/bin:/opt/homebrew/bin:/bin/:/usr/bin:$PATH
+            ''
+            + builtins.readFile ./compinit-setopt.zsh;
 
           initExtra =
             builtins.readFile ./zshrc.zsh
@@ -69,9 +73,6 @@
             GNUPGHOME = "$HOME/.gnupg";
             NIX_PATH = "nixpkgs=${pkgs.path}";
           };
-          programs.zsh.initExtra = ''
-            export PATH=/run/current-system/sw/bin:/run/current-system/etc/profiles/per-user/$USER/bin:/opt/homebrew/bin:$PATH
-          '';
         }
       )
       (

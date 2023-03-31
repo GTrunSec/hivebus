@@ -19,7 +19,7 @@ in rec {
   bee.system = "aarch64-darwin";
   bee.home = inputs.home;
   bee.darwin = inputs.darwin;
-  bee.pkgs = import inputs.nixos-22-11 {
+  bee.pkgs = import inputs.nixos {
     inherit (bee) system;
     config.allowUnfree = true;
     config.allowBroken = true;
