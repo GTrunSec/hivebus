@@ -6,8 +6,8 @@
     imports = [
       cell.nixosModules.libvirtd
       cell.nixosModules.libvirtd-packages
-      # cell.nixosModules.podman
-      cell.nixosModules.docker
+      cell.nixosModules.podman
+      # cell.nixosModules.docker
       cell.nixosModules.test-container-nvidia
       ({
         config,
@@ -15,11 +15,14 @@
         pkgs,
         ...
       }: {
+        # virtualisation.docker.enable = false;
+
         users.users."guangtao" = {
           extraGroups =
             []
             ++ lib.optionals config.virtualisation.docker.enable ["docker"]
-            ++ lib.optionals config.virtualisation.podman.enable ["podman"];
+            ++ lib.optionals config.virtualisation.podman.enable ["podman"]
+            ++ lib.optionals config.virtualisation.libvirtd.enable ["libvirtd"];
         };
         home-manager.users."guangtao" = {
           xdg.configFile = let

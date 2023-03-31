@@ -16,6 +16,7 @@ in
       firefox
       onlyoffice-bin
       # darwin packages
+      
       ;
 
     yabai = nixpkgs-master.yabai.overrideAttrs (old: rec {

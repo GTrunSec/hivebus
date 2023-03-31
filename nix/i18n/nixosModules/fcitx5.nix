@@ -4,6 +4,9 @@
   ...
 }: {
   i18n = {
+    inputMethod = {
+      enabled = "fcitx5";
+    };
     inputMethod.fcitx5 = {
       # fcitx.engines = with pkgs.fcitx-engines; [cloudpinyin rime];
       addons = with pkgs; [

@@ -11,7 +11,6 @@ in {
     extraGroups = [
       "wheel"
       "audio"
-      "libvirtd"
       "video"
     ];
     inherit (cell.secretProfiles.guangtao) openssh;

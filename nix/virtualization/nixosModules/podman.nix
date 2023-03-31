@@ -4,15 +4,17 @@
   lib,
   ...
 }: {
-  virtualisation.docker.enable = false;
-  virtualisation.podman.enable = true;
-  virtualisation.podman.dockerSocket.enable = true;
-
-  virtualisation.podman.defaultNetwork.settings.dns_enabled = true;
+  virtualisation.podman = {
+    enable = true;
+    dockerCompat = true;
+    autoPrune.enable = true;
+    dockerSocket.enable = true;
+    defaultNetwork.settings.dns_enabled = true;
+  };
 
   environment.systemPackages = with pkgs; [
     docker-client
-    docker-compose
+    podman-compose
     podman-tui
   ];
 }
