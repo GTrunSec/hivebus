@@ -11,8 +11,9 @@
         };
         services.xserver.displayManager.sddm.enable = true;
       }
-      (mkIf config.hardware.video.hidpi.enable {
+      # (mkIf config.hardware.video.hidpi.enable
+      {
         services.xserver.displayManager.sddm.enableHidpi = true;
-      })
+      }
     ];
 }

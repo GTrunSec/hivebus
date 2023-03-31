@@ -4,10 +4,14 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
-    docker
     docker-compose
   ];
 
-  virtualisation.docker.enable = true;
-  users.groups.docker.members = [defaultUser];
+  virtualisation.docker = {
+    enable = true;
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
+  };
 }

@@ -18,6 +18,7 @@ in {
           users.users.${user} = {
             shell = pkgs."${shell}";
           };
+          programs.${shell}.enable = true;
         })
       ]
       ++ l.optionals (shell == "zsh") [{environment.pathsToLink = ["/share/zsh"];}]

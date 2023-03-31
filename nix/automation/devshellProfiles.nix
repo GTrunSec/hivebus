@@ -7,17 +7,20 @@
 
   terraform-providers-bin = __inputs__.terraform-providers.legacyPackages.providers;
 
-  terraform = nixpkgs.terraform.withPlugins (p: [
-    terraform-providers-bin.hashicorp.nomad
-    terraform-providers-bin.dmacvicar.libvirt
-    terraform-providers-bin.hashicorp.aws
-    terraform-providers-bin.hashicorp.template
-    terraform-providers-bin.cloudflare.cloudflare
-  ]);
+  terraform-with-plugins =
+    nixpkgs.terraform.withPlugins
+    (p: nixpkgs.lib.attrValues (providers p));
+
+  providers = p: {
+    inherit (terraform-providers-bin.hashicorp) nomad aws template;
+    inherit (terraform-providers-bin.dmacvicar) libvirt;
+    inherit (terraform-providers-bin.carlpett) sops;
+    inherit (terraform-providers-bin.cloudflare) cloudflare;
+  };
 in {
   terraform = {
     commands = [
-      {package = terraform;}
+      {package = terraform-with-plugins // {meta.name = "terraform";};}
     ];
   };
 }

@@ -21,7 +21,8 @@
           fontspec
           euenc
           latexmk
-          elegantpaper
+          # elegantpaper
+          
           ;
       }
     )

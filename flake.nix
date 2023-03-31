@@ -49,7 +49,9 @@
     darwin.inputs.nixpkgs.follows = "nixpkgs";
 
     nixos.follows = "nixos-unstable";
-    nixos-unstable.url = "github:nixos/nixpkgs/nixos-unstable-small";
+    # nixos-unstable.url = "github:nixos/nixpkgs/nixos-unstable-small";
+    nixos-unstable.url = "github:GTrunSec/nixpkgs/container-toolkit";
+
     nixos-22-11.url = "github:nixos/nixpkgs/release-22.11";
 
     home-22-11.url = "github:nix-community/home-manager/release-22.11";

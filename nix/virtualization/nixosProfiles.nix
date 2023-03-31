@@ -6,7 +6,8 @@
     imports = [
       cell.nixosModules.libvirtd
       cell.nixosModules.libvirtd-packages
-      cell.nixosModules.podman
+      # cell.nixosModules.podman
+      cell.nixosModules.docker
       cell.nixosModules.test-container-nvidia
       ({
         config,
@@ -25,7 +26,7 @@
             podmanEnabled = config.virtualisation.podman.enable;
             podmanNvidiaEnabled = podmanEnabled && config.virtualisation.podman.enableNvidia;
           in
-            lib.optionalAttrs podmanNvidiaEnabled {
+            lib.optionalAttrs (podmanNvidiaEnabled || config.virtualisation.docker.enableNvidia) {
               "nvidia-container-runtime/config.toml".source = "${pkgs.nvidia-podman}/etc/nvidia-container-runtime/config.toml";
             };
         };

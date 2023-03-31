@@ -1,3 +1,3 @@
 {
-  hardware.video.hidpi.enable = true;
+  # hardware.video.hidpi.enable = true;
 }
