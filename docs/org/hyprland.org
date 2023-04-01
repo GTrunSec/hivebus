@@ -3,7 +3,7 @@
 :END:
 #+title: Hyprland
 
-#+BEGIN_SRC dotsk :results file :file attach/hyprland.svg :exports both
+#+BEGIN_SRC dotsk :file attach/hyprland.svg
 digraph G {
 a -> b
 }

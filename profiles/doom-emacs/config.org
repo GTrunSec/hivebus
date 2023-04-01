@@ -1138,8 +1138,14 @@ prepended to the element after the #+HEADER: tag."
   "Return an error because Dot does not support sessions."
   (error "Dot does not support sessions"))
 
+;; Support org-mode, when adding a code block for dotsk, use this mode
+(with-eval-after-load 'org-src
+  (defvar org-src-lang-modes)
+  (add-to-list 'org-src-lang-modes  '("dotsk" . graphviz-dot)))
+
 (provide 'dotsk)
 #+end_src
+
 
 
 * Programming
@@ -1415,6 +1421,18 @@ prepended to the element after the #+HEADER: tag."
 
 #+begin_src emacs-lisp :tangle "config.el"
 (use-package! nu-mode)
+#+end_src
+
+
+** graphviz-dot-mode :graphviz:
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! graphviz-dot-mode :recipe (:host github :repo     "ppareit/graphviz-dot-mode"
+                                 :files ("*.el")
+        ))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! graphviz-dot-mode)
 #+end_src
 
 
