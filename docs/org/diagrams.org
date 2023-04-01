@@ -18,7 +18,6 @@ digraph G {
 
   subgraph cluster_0 {
     style=filled;
-    color=lightgrey;
     node [style=filled,color=pink];
     a0 -> a1 -> a2 -> a3;
     label = "*process #1*";
@@ -30,7 +29,6 @@ digraph G {
     b0 -> b1 -> b2 -> b3;
     label = "*process #2*";
     fontsize = 20;
-    color=blue
   }
   start -> a0;
   start -> b0;
@@ -47,3 +45,140 @@ digraph G {
 
 #+RESULTS:
 [[file:attach/diagrams-dotsk.svg]]
+
+
+#+begin_src dotsk :file attach/diagram-test.svg :exports both
+digraph {
+      bgcolor=transparent;
+    0 [ label = "DateTime (Scalar)" ]
+    1 [ label = "Character (Interface extension)\l\l[Boolean, Character]" ]
+    2 [ label = "Human (Object)\l\l[Character, Episode, Float, FriendsConnection, ID, Int, LengthUnit, Starship, String]" ]
+    3 [ label = "Droid (Object)\l\l[Character, Episode, FriendsConnection, ID, Int, String]" ]
+    4 [ label = "FriendsConnection (Object)\l\l[Character, FriendsEdge, Int, PageInfo]" ]
+    5 [ label = "FriendsEdge (Object)\l\l[Character, ID]" ]
+    6 [ label = "PageInfo (Object)\l\l[Boolean, ID, test]" ]
+    7 [ label = "Review (Object)\l\l[DateTime, Episode, Int, String, test]" ]
+    8 [ label = "Orphan (Object)\l\l[ID]" ]
+    9 [ label = "ColorInput (InputObject extension)\l\l[ColorInput, Int]" ]
+    10 [ label = "Episode (Enum extension)\l\l[Episode]" ]
+    11 [ label = "deprecated (Directive)\l\l[String]" ]
+    12 [ label = "DateTime (Scalar extension)\l\l[DateTime, test]" ]
+    13 [ label = "SearchResult (Union extension)\l\l[Ewok, SearchResult]" ]
+    14 [ label = "test (Directive)\l\l[Letter]" ]
+    15 [ label = "Episode (Enum)\l\l[deprecated, test]" ]
+    16 [ label = "LengthUnit (Enum)" ]
+    17 [ label = "Starship (Object extension)\l\l[Boolean, Starship]" ]
+    18 [ label = "Query (Object)\l\l[Character, Droid, Episode, Human, ID, Review, SearchResult, Starship, String]" ]
+    19 [ label = "Mutation (Object)\l\l[Episode, Review, ReviewInput]" ]
+    20 [ label = "Subscription (Object)\l\l[Episode, Review]" ]
+    21 [ label = "schema (Schema)\l\l[Mutation, Query, Subscription]" ]
+    22 [ label = "ReviewInput (InputObject)\l\l[ColorInput, Int, ReviewInput, String]" ]
+    23 [ label = "ColorInput (InputObject)\l\l[ColorInput, deprecated, Int, test]" ]
+    24 [ label = "Letter (Enum)" ]
+    25 [ label = "Starship (Object)\l\l[deprecated, Float, ID, LengthUnit, String]" ]
+    26 [ label = "Character (Interface)\l\l[Bool, Character, deprecated, Episode, FriendsConnection, ID, Int, String, test]" ]
+    27 [ label = "SearchResult (Union)\l\l[Droid, Human, Starship, test]" ]
+    13 -> 27 [ ]
+    14 -> 6 [ ]
+    26 -> 4 [ ]
+    5 -> 4 [ ]
+    6 -> 4 [ ]
+    11 -> 25 [ ]
+    16 -> 25 [ ]
+    26 -> 26 [ ]
+    11 -> 26 [ ]
+    15 -> 26 [ ]
+    4 -> 26 [ ]
+    14 -> 26 [ ]
+    26 -> 3 [ ]
+    15 -> 3 [ ]
+    4 -> 3 [ ]
+    17 -> 25 [ ]
+    15 -> 20 [ ]
+    7 -> 20 [ ]
+    19 -> 21 [ ]
+    18 -> 21 [ ]
+    20 -> 21 [ ]
+    9 -> 23 [ ]
+    26 -> 18 [ ]
+    3 -> 18 [ ]
+    15 -> 18 [ ]
+    2 -> 18 [ ]
+    7 -> 18 [ ]
+    27 -> 18 [ ]
+    25 -> 18 [ ]
+    26 -> 2 [ ]
+    15 -> 2 [ ]
+    4 -> 2 [ ]
+    16 -> 2 [ ]
+    25 -> 2 [ ]
+    1 -> 26 [ ]
+    15 -> 19 [ ]
+    7 -> 19 [ ]
+    22 -> 19 [ ]
+    23 -> 22 [ ]
+    22 -> 22 [ ]
+    23 -> 23 [ ]
+    11 -> 23 [ ]
+    14 -> 23 [ ]
+    24 -> 14 [ ]
+    12 -> 0 [ ]
+    12 -> 14 [ ]
+    11 -> 15 [ ]
+    14 -> 15 [ ]
+    10 -> 15 [ ]
+    0 -> 7 [ ]
+    15 -> 7 [ ]
+    14 -> 7 [ ]
+    26 -> 5 [ ]
+    3 -> 27 [ ]
+    2 -> 27 [ ]
+    25 -> 27 [ ]
+    14 -> 27 [ ]
+}
+#+end_src
+
+#+RESULTS:
+[[file:attach/diagram-test.svg]]
+
+#+begin_src dotsk :file attach/diagram-paserTree.svg :exports both
+##"I made a program to generate dot files representing the LR(0) state graph along with computed LALR(1) lookahead for an arbitrary context-free grammar, to make the diagrams I used in this article: http://blog.lab49.com/archives/2471. The program also highlights errant nodes in red if the grammar would produce a shift/reduce or reduce/reduce conflict -- you may be able to go to http://kthielen.dnsalias.com:8082/ to produce a graph more to your liking". Contributed by Kalani Thielen.
+
+##Command to get the layout: "dot -Gsize=10,15 -Tpng thisfile > thisfile.png"
+
+digraph g {
+  bgcolor=transparent;
+  fontname="Helvetica,Arial,sans-serif"
+  node [fontname="Helvetica,Arial,sans-serif"]
+  edge [fontname="Helvetica,Arial,sans-serif"]
+  graph [fontsize=30 labelloc="t" label="" splines=true overlap=false rankdir = "LR"];
+  ratio = auto;
+  "state0" [ style = "filled, bold" penwidth = 5 fillcolor = "white" fontname = "Courier New" shape = "Mrecord" label =<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr><td bgcolor="black" align="center" colspan="2"><font color="white">State #0</font></td></tr><tr><td align="left" port="r0">&#40;0&#41; s -&gt; &bull;e $ </td></tr><tr><td align="left" port="r1">&#40;1&#41; e -&gt; &bull;l '=' r </td></tr><tr><td align="left" port="r2">&#40;2&#41; e -&gt; &bull;r </td></tr><tr><td align="left" port="r3">&#40;3&#41; l -&gt; &bull;'*' r </td></tr><tr><td align="left" port="r4">&#40;4&#41; l -&gt; &bull;'n' </td></tr><tr><td align="left" port="r5">&#40;5&#41; r -&gt; &bull;l </td></tr></table>> ];
+  "state1" [ style = "filled" penwidth = 1 fillcolor = "white" fontname = "Courier New" shape = "Mrecord" label =<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr><td bgcolor="black" align="center" colspan="2"><font color="white">State #1</font></td></tr><tr><td align="left" port="r3">&#40;3&#41; l -&gt; &bull;'*' r </td></tr><tr><td align="left" port="r3">&#40;3&#41; l -&gt; '*' &bull;r </td></tr><tr><td align="left" port="r4">&#40;4&#41; l -&gt; &bull;'n' </td></tr><tr><td align="left" port="r5">&#40;5&#41; r -&gt; &bull;l </td></tr></table>> ];
+  "state2" [ style = "filled" penwidth = 1 fillcolor = "white" fontname = "Courier New" shape = "Mrecord" label =<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr><td bgcolor="black" align="center" colspan="2"><font color="white">State #2</font></td></tr><tr><td align="left" port="r4">&#40;4&#41; l -&gt; 'n' &bull;</td><td bgcolor="grey" align="right">=$</td></tr></table>> ];
+  "state3" [ style = "filled" penwidth = 1 fillcolor = "white" fontname = "Courier New" shape = "Mrecord" label =<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr><td bgcolor="black" align="center" colspan="2"><font color="white">State #3</font></td></tr><tr><td align="left" port="r5">&#40;5&#41; r -&gt; l &bull;</td><td bgcolor="grey" align="right">=$</td></tr></table>> ];
+  "state4" [ style = "filled" penwidth = 1 fillcolor = "white" fontname = "Courier New" shape = "Mrecord" label =<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr><td bgcolor="black" align="center" colspan="2"><font color="white">State #4</font></td></tr><tr><td align="left" port="r3">&#40;3&#41; l -&gt; '*' r &bull;</td><td bgcolor="grey" align="right">=$</td></tr></table>> ];
+  "state5" [ style = "filled" penwidth = 1 fillcolor = "black" fontname = "Courier New" shape = "Mrecord" label =<<table border="0" cellborder="0" cellpadding="3" bgcolor="black"><tr><td bgcolor="black" align="center" colspan="2"><font color="white">State #5</font></td></tr><tr><td align="left" port="r0"><font color="white">&#40;0&#41; s -&gt; e &bull;$ </font></td></tr></table>> ];
+  "state6" [ style = "filled" penwidth = 1 fillcolor = "white" fontname = "Courier New" shape = "Mrecord" label =<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr><td bgcolor="black" align="center" colspan="2"><font color="white">State #6</font></td></tr><tr><td align="left" port="r1">&#40;1&#41; e -&gt; l &bull;'=' r </td></tr><tr><td align="left" port="r5">&#40;5&#41; r -&gt; l &bull;</td><td bgcolor="grey" align="right">$</td></tr></table>> ];
+  "state7" [ style = "filled" penwidth = 1 fillcolor = "white" fontname = "Courier New" shape = "Mrecord" label =<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr><td bgcolor="black" align="center" colspan="2"><font color="white">State #7</font></td></tr><tr><td align="left" port="r1">&#40;1&#41; e -&gt; l '=' &bull;r </td></tr><tr><td align="left" port="r3">&#40;3&#41; l -&gt; &bull;'*' r </td></tr><tr><td align="left" port="r4">&#40;4&#41; l -&gt; &bull;'n' </td></tr><tr><td align="left" port="r5">&#40;5&#41; r -&gt; &bull;l </td></tr></table>> ];
+  "state8" [ style = "filled" penwidth = 1 fillcolor = "white" fontname = "Courier New" shape = "Mrecord" label =<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr><td bgcolor="black" align="center" colspan="2"><font color="white">State #8</font></td></tr><tr><td align="left" port="r1">&#40;1&#41; e -&gt; l '=' r &bull;</td><td bgcolor="grey" align="right">$</td></tr></table>> ];
+  "state9" [ style = "filled" penwidth = 1 fillcolor = "white" fontname = "Courier New" shape = "Mrecord" label =<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr><td bgcolor="black" align="center" colspan="2"><font color="black">State #9</font></td></tr><tr><td align="left" port="r2">&#40;2&#41; e -&gt; r &bull;</td><td bgcolor="grey" align="right">$</td></tr></table>> ];
+  state0 -> state5 [ penwidth = 5 fontsize = 28 fontcolor = "black" label = "e" ];
+  state0 -> state6 [ penwidth = 5 fontsize = 28 fontcolor = "black" label = "l" ];
+  state0 -> state9 [ penwidth = 5 fontsize = 28 fontcolor = "black" label = "r" ];
+  state0 -> state1 [ penwidth = 1 fontsize = 14 fontcolor = "grey28" label = "'*'" ];
+  state0 -> state2 [ penwidth = 1 fontsize = 14 fontcolor = "grey28" label = "'n'" ];
+  state1 -> state1 [ penwidth = 1 fontsize = 14 fontcolor = "grey28" label = "'*'" ];
+  state1 -> state4 [ penwidth = 5 fontsize = 28 fontcolor = "black" label = "r" ];
+  state1 -> state2 [ penwidth = 1 fontsize = 14 fontcolor = "grey28" label = "'n'" ];
+  state1 -> state3 [ penwidth = 5 fontsize = 28 fontcolor = "black" label = "l" ];
+  state6 -> state7 [ penwidth = 1 fontsize = 14 fontcolor = "grey28" label = "'='" ];
+  state7 -> state8 [ penwidth = 5 fontsize = 28 fontcolor = "black" label = "r" ];
+  state7 -> state1 [ penwidth = 1 fontsize = 14 fontcolor = "grey28" label = "'*'" ];
+  state7 -> state2 [ penwidth = 1 fontsize = 14 fontcolor = "grey28" label = "'n'" ];
+  state7 -> state3 [ penwidth = 5 fontsize = 28 fontcolor = "black" label = "l" ];
+}
+#+end_src
+
+#+RESULTS:
+[[file:attach/diagram-paserTree.svg]]
