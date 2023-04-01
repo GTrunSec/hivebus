@@ -3,6 +3,15 @@
 :END:
 #+title: Hyprland
 
+#+BEGIN_SRC dotsk :file ./attach/hyprland.svg
+digraph G {
+a -> b
+}
+#+END_SRC
+
+#+RESULTS:
+[[file:./attch/hyprland.svg]]
+
 * hyprland.conf
 :PROPERTIES:
 :ID:       d05ca0f0-92e8-4ccd-9a69-8dc6a74a2043

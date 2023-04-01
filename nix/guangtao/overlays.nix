@@ -10,6 +10,7 @@ in
       cell.overlays.default
       cell.overlays.python
       cell.overlays.overrides
+      cell.overlays.nodePackages
       inputs.nur.overlay
 
       __inputs__.rust-overlay.overlays.default

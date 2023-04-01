@@ -10,7 +10,7 @@ in {
     orgparse
     material-symbols
     # chatgpt-wrapper
-    
+
     mind-wave
     ;
 }

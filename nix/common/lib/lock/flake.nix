@@ -44,10 +44,13 @@
   };
 
   inputs = {
+    flake-utils.follows = "ragenix/flake-utils";
+
     sops-nix.url = "github:Mic92/sops-nix?ref=pull/299/head"; # sops-template
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
 
     ragenix.url = "github:yaxitech/ragenix";
+
     ragenix.inputs.nixpkgs.follows = "nixpkgs";
     ragenix.inputs.agenix.follows = "agenix";
 
@@ -59,6 +62,10 @@
 
     vault-secrets.url = "github:gtrunsec/vault-secrets";
     vault-secrets.inputs.nixpkgs.follows = "nixpkgs";
+
+    resign.url = "github:NickCao/resign";
+    resign.inputs.nixpkgs.follows = "nixpkgs";
+    resign.inputs.flake-utils.follows = "flake-utils";
 
     impermanence.url = "github:nix-community/impermanence";
   };

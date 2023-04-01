@@ -27,6 +27,16 @@
       url = "github:emersion/slurp?ref=pull/95/head";
       flake = false;
     };
+
+    nu-scripts = {
+      url = "github:nushell/nu_scripts";
+      flake = false;
+    };
+
+    sketchviz = {
+      url = "github:gpotter2/sketchviz";
+      flake = false;
+    };
   };
 
   outputs = {self, ...}: {};

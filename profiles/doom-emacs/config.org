@@ -805,31 +805,31 @@ enchant-lsmod-2
 
 - https://emacs-china.org/t/org-mode-latex-improved-latex-preview/23742/15?u=gtrunsec
 #+begin_src emacs-lisp :tangle "packages.el"
-(package! org :recipe
-  (:host nil :repo "https://git.tecosaur.net/mirrors/org-mode.git" :remote "mirror" :fork
-         (:host nil :repo "https://git.tecosaur.net/tec/org-mode.git" :branch "dev" :remote "tecosaur")
-         :files
-         (:defaults "etc")
-         :build t :pre-build
-         (with-temp-file "org-version.el"
-           (require 'lisp-mnt)
-           (let
-               ((version
-                 (with-temp-buffer
-                   (insert-file-contents "lisp/org.el")
-                   (lm-header "version")))
-                (git-version
-                 (string-trim
-                  (with-temp-buffer
-                    (call-process "git" nil t nil "rev-parse" "--short" "HEAD")
-                    (buffer-string)))))
-             (insert
-              (format "(defun org-release () \"The release version of Org.\" %S)\n" version)
-              (format "(defun org-git-version () \"The truncate git commit hash of Org mode.\" %S)\n" git-version)
-              "(provide 'org-version)\n"))))
-  :pin nil)
+;; (package! org :recipe
+;;   (:host nil :repo "https://git.tecosaur.net/mirrors/org-mode.git" :remote "mirror" :fork
+;;          (:host nil :repo "https://git.tecosaur.net/tec/org-mode.git" :branch "dev" :remote "tecosaur")
+;;          :files
+;;          (:defaults "etc")
+;;          :build t :pre-build
+;;          (with-temp-file "org-version.el"
+;;            (require 'lisp-mnt)
+;;            (let
+;;                ((version
+;;                  (with-temp-buffer
+;;                    (insert-file-contents "lisp/org.el")
+;;                    (lm-header "version")))
+;;                 (git-version
+;;                  (string-trim
+;;                   (with-temp-buffer
+;;                     (call-process "git" nil t nil "rev-parse" "--short" "HEAD")
+;;                     (buffer-string)))))
+;;              (insert
+;;               (format "(defun org-release () \"The release version of Org.\" %S)\n" version)
+;;               (format "(defun org-git-version () \"The truncate git commit hash of Org mode.\" %S)\n" git-version)
+;;               "(provide 'org-version)\n"))))
+;;   :pin nil)
 
-(unpin! org)
+;; (unpin! org)
 #+end_src
 ** default
 
@@ -1028,6 +1028,8 @@ prepended to the element after the #+HEADER: tag."
 #+end_src
 
 
+** ox-clip :copy:formatter:
+
 #+begin_src emacs-lisp :tangle "packages.el"
 (package! ox-clip
   :recipe (:host github :repo "jkitchin/ox-clip"))
@@ -1035,6 +1037,108 @@ prepended to the element after the #+HEADER: tag."
 
 #+begin_src emacs-lisp :tangle "config.el"
 (use-package! ox-clip)
+#+end_src
+
+** dotask
+
+#+begin_src emacs-lisp :tangle "config.el"
+(load! "+dotsk.el")
+#+end_src
+
+
++ copyright & sources:
+ - https://emacs-china.org/t/dot/23800/2
+ - https://medium.com/@zeruhur/making-sketchy-diagrams-on-your-local-machine-903d13e20a13
+
+#+begin_src emacs-lisp :tangle "+dotsk.el"
+;;; dotsk.el --- Babel Functions for dot            -*- lexical-binding: t; -*-
+
+;; Copyright (C) 2009-2022 Free Software Foundation, Inc.
+
+;; Author: Eric Schulte
+;; Maintainer: Justin Abrahms <justin@abrah.ms>
+;; Keywords: literate programming, reproducible research
+;; URL: https://orgmode.org
+
+;; This file is part of GNU Emacs.
+
+;; GNU Emacs is free software: you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation, either version 3 of the License, or
+;; (at your option) any later version.
+
+;; GNU Emacs is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs.  If not, see <https://www.gnu.org/licenses/>.
+
+;;; Commentary:
+
+;; Org-Babel support for evaluating dot source code.
+;;
+;; For information on dot see https://www.graphviz.org/
+;;
+;; This differs from most standard languages in that
+;;
+;; 1) there is no such thing as a "session" in dot
+;;
+;; 2) we are generally only going to return results of type "file"
+;;
+;; 3) we are adding the "file" and "cmdline" header arguments
+;;
+;; 4) there are no variables (at least for now)
+
+;;; Code:
+
+(require 'org-macs)
+(org-assert-version)
+(defvar org-babel-default-header-args:dotsk
+  '((:results . "file") (:exports . "results"))
+  "Default arguments to use when evaluating a dot source block.")
+
+(defun org-babel-expand-body:dotsk (body params)
+  "Expand BODY according to PARAMS, return the expanded body."
+  (let ((vars (org-babel--get-vars params)))
+    (mapc
+     (lambda (pair)
+       (let ((name (symbol-name (car pair)))
+	     (value (cdr pair)))
+	 (setq body
+	       (replace-regexp-in-string
+		(concat "$" (regexp-quote name))
+		(if (stringp value) value (format "%S" value))
+		body
+		t
+		t))))
+     vars)
+    body))
+
+(defun org-babel-execute:dotsk (body params)
+  " This function is called by `org-babel-execute-src-block'."
+  (let* ((out-file (cdr (or (assq :file params)
+			    (error "You need to specify a :file parameter"))))
+	 (cmdline (or (cdr (assq :cmdline params))))
+	 (cmd (or (cdr (assq :cmd params)) (concat "dotsk " doom-user-dir "static/sketchviz/sketch.js")))
+	 (coding-system-for-read 'utf-8) ;use utf-8 with sub-processes
+	 (coding-system-for-write 'utf-8)
+	 (in-file (org-babel-temp-file "dotsk-")))
+    (with-temp-file in-file
+      (insert (org-babel-expand-body:dotsk body params)))
+    (org-babel-eval
+     (concat cmd
+	     " " (org-babel-process-file-name in-file)
+	     " " cmdline
+	     " " (org-babel-process-file-name out-file)) "")
+    nil)) ;; signal that output has already been written to file
+
+(defun org-babel-prep-session:dotsk (_session _params)
+  "Return an error because Dot does not support sessions."
+  (error "Dot does not support sessions"))
+
+(provide 'dotsk)
 #+end_src
 
 
@@ -1122,6 +1226,9 @@ prepended to the element after the #+HEADER: tag."
 (use-package! fingertip
   :config
   (add-hook 'python-mode-hook #'python-ts-mode)
+  (add-hook 'json-mode-hook #'json-ts-mode)
+  (add-hook 'yaml-mode-hook #'yaml-ts-mode)
+  (add-hook 'sh-mode-hook #'bash-ts-mode)
 
   (dolist (hook (list
                  'c-mode-common-hook
@@ -1196,6 +1303,9 @@ prepended to the element after the #+HEADER: tag."
   (define-key fingertip-mode-map (kbd "C-j") 'fingertip-jump-up)
   )
   #+end_src
+
+  #+RESULTS:
+  : t
 
 ** lsp-bridge :lsp:
 

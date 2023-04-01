@@ -80,6 +80,22 @@
         "type": "github"
       }
     },
+    "nu-scripts": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1680284366,
+        "narHash": "sha256-UUpRDDCRT5N6b4SoV3AmGmdbynJw8rcysDzzOuOjYpo=",
+        "owner": "nushell",
+        "repo": "nu_scripts",
+        "rev": "7b6fa05907b3fc1f7b63b1a02653d04582a6d0ab",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nushell",
+        "repo": "nu_scripts",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "catppuccin-bat": "catppuccin-bat",
@@ -87,7 +103,25 @@
         "catppuccin-hyprland": "catppuccin-hyprland",
         "catppuccin-waybar": "catppuccin-waybar",
         "catppuccin-wezterm": "catppuccin-wezterm",
+        "nu-scripts": "nu-scripts",
+        "sketchviz": "sketchviz",
         "slurp": "slurp"
+      }
+    },
+    "sketchviz": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1642541547,
+        "narHash": "sha256-J0yrfOqlnX9Qt1FetXxNfxsPx648H0zFUanxCtxJVqA=",
+        "owner": "gpotter2",
+        "repo": "sketchviz",
+        "rev": "790744cb47a2a390b6a39e35331bd2d1cd289204",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gpotter2",
+        "repo": "sketchviz",
+        "type": "github"
       }
     },
     "slurp": {

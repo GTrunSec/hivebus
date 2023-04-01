@@ -2672,6 +2672,29 @@
         "type": "github"
       }
     },
+    "resign": {
+      "inputs": {
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1679214374,
+        "narHash": "sha256-YjFvCWX7zw2uy/mizGROw/AmEyGnCfO+enm0pC8jTQo=",
+        "owner": "NickCao",
+        "repo": "resign",
+        "rev": "1d5c8df3c3bcb7c50bf4bf0971bb170f897dd7fb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NickCao",
+        "repo": "resign",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "agenix": "agenix",
@@ -2681,6 +2704,10 @@
         "emacs-darwin": "emacs-darwin",
         "emacs-overlay": "emacs-overlay",
         "eww": "eww",
+        "flake-utils": [
+          "ragenix",
+          "flake-utils"
+        ],
         "hyprland": "hyprland",
         "hyprpaper": "hyprpaper",
         "hyprwm-contrib": "hyprwm-contrib",
@@ -2696,6 +2723,7 @@
         "nomad-driver": "nomad-driver",
         "poetry2nix": "poetry2nix",
         "ragenix": "ragenix",
+        "resign": "resign",
         "rust-overlay": "rust-overlay_7",
         "sops-nix": "sops-nix",
         "vault-secrets": "vault-secrets"
