@@ -10,7 +10,7 @@ a -> b
 #+END_SRC
 
 #+RESULTS:
-[[file:./attch/hyprland.svg]]
+[[file:./attach/hyprland.svg]]
 
 * hyprland.conf
 :PROPERTIES:
