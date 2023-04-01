@@ -3,14 +3,14 @@
 :END:
 #+title: Hyprland
 
-#+BEGIN_SRC dotsk :file ./attach/hyprland.svg
+#+BEGIN_SRC dotsk :results file :file attach/hyprland.svg :exports both
 digraph G {
 a -> b
 }
 #+END_SRC
 
 #+RESULTS:
-[[file:./attach/hyprland.svg]]
+[[file:attach/hyprland.svg]]
 
 * hyprland.conf
 :PROPERTIES:
