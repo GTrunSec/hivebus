@@ -28,6 +28,7 @@ in
       cell.overlays.default
       cell.overlays.python
       cell.overlays.overrides
+      cell.overlays.nodePackages
       __inputs__.rust-overlay.overlays.default
 
       inputs.cells.emacs.overlays.emacs-darwin

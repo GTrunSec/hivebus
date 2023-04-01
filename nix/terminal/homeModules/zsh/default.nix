@@ -72,6 +72,8 @@
             export = "LC_ALL=en_US.UTF-8";
             GNUPGHOME = "$HOME/.gnupg";
             NIX_PATH = "nixpkgs=${pkgs.path}";
+            # FIXME: emacs can not get the path correctly
+            SHELL = "/bin/bash";
           };
         }
       )

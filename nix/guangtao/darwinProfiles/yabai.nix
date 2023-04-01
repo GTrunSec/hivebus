@@ -39,6 +39,12 @@
     mouse_action1                move           \
     mouse_action2                resize         \
     mouse_drop_action            swap
+
+    yabai -m space 3 --label browser
+    yabai -m rule --add label="Brave" app="^Brave$" space=browser
+
+    yabai -m space 2 --label editor
+    yabai -m rule --add label="Emacs" app="^Emacs$" space=editor
   '';
   services.skhd.enable = true;
   services.skhd.skhdConfig = builtins.readFile ./skhd;

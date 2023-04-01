@@ -73,5 +73,12 @@ in
         nix develop github:GTrunSec/std-ext#devShells.x86_64-linux.update --refresh --command nvfetcher-update nix/{{cell}}/packages/sources.toml
       '';
     };
+    node2nix-update = {
+      description = "update packages via nvfetcher";
+      content = ''
+        cd $PRJ_ROOT/nix/guangtao/packages/my-node-packages
+        sh ./upgrade.sh.sh
+      '';
+    };
   }
   // nvfetcher-sources
