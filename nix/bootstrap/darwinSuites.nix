@@ -8,5 +8,6 @@ in {
     nix
     homebrew
     base
+    cell.nixosModules.base
   ];
 }
