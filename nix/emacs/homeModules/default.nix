@@ -4,7 +4,11 @@
   config,
   ...
 }: let
-  defaultTreeSitterPlugins = with pkgs.tree-sitter-grammars; [
+  treeSitterPlugins = with pkgs.tree-sitter-grammars; [
+    tree-sitter-nickel
+    tree-sitter-nix
+    tree-sitter-markdown
+
     tree-sitter-bash
     tree-sitter-c
     tree-sitter-c-sharp
@@ -47,22 +51,21 @@
 
   tree-sitter-grammars =
     pkgs.runCommandCC "tree-sitter-grammars" {}
-    (lib.concatStringsSep "\n" (["mkdir -p $out/lib"] ++ (map linkCmd defaultTreeSitterPlugins)));
+    (lib.concatStringsSep "\n" (["mkdir -p $out/lib"] ++ (map linkCmd treeSitterPlugins)));
 in {
   config = with lib;
     mkMerge [
       (mkIf pkgs.stdenv.isLinux {
         programs.emacs = {
           enable = true;
-          package = pkgs.emacsPgtk;
+          package = pkgs.emacsPgtk.override {
+            inherit treeSitterPlugins;
+          };
           extraPackages = epkgs:
             with epkgs; [
               vterm
               grab-x-link
             ];
-          # package = pkgs.emacsGit.overrideAttrs (old: {
-          #   plugins = old.plugins ++ (p: with p; [tree-sitter-nix tree-sttier-nickel]);
-          # });
         };
         services.emacs.client.enable = true;
       })
