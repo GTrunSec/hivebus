@@ -13,7 +13,7 @@ in
 
     material-symbols = prev.callPackage ../packages/material-symbols.nix {};
 
-    inherit (__inputs__.nickel.packages) nickel;
+    inherit (__inputs__.nickel.packages) nickel lsp-nls;
 
     inherit (__inputs__.nil.packages) nil;
 

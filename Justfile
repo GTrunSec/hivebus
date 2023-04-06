@@ -28,6 +28,10 @@ fmt:
 libvirtd_1:
     colmena build --on guangtao-libvirtd_1
 
+# update packages via nvfetcher
+node2nix-update:
+    cd $PRJ_ROOT/nix/guangtao/packages/my-node-packages && sh ./upgrade.sh
+
 # update sources with nvfetcher
 nvfetcher path:
     nix develop github:GTrunSec/std-ext#update --refresh --command nvfetcher-update {{ path }}/sources.toml

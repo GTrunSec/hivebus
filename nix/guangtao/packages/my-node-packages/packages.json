@@ -1,4 +1,1 @@
-[
-  "roughjs",
-  "jsdom"
-]
+["roughjs", "jsdom"]

@@ -1,5 +1,4 @@
 {config, ...}: {
-  system.stateVersion = config.system.nixos.version;
   services.openssh = {
     enable = true;
     settings = {

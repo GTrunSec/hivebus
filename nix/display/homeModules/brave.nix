@@ -5,7 +5,7 @@
           "--enable-wayland-ime"
           "--ozone-platform=wayland"
           "--enable-features=UseOzonePlatform"
-          "--enable-unsafe-webgpu"
+          # "--enable-unsafe-webgpu"
           # "--use-gl=egl"
         ];
       })

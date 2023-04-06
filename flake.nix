@@ -13,7 +13,7 @@
     std-ext.inputs.std.follows = "std";
     std-data-collection.follows = "std-ext/std-data-collection";
 
-    hive.url = "github:divnix/hive?ref=pull/4/head";
+    hive.url = "github:divnix/hive";
     # hive.url = "/home/guangtao/ghq/github.com/divnix/hive";
   };
   inputs.hive.inputs = {
@@ -49,8 +49,8 @@
     darwin.inputs.nixpkgs.follows = "nixpkgs";
 
     nixos.follows = "nixos-unstable";
-    # nixos-unstable.url = "github:nixos/nixpkgs/nixos-unstable-small";
-    nixos-unstable.url = "github:GTrunSec/nixpkgs/container-toolkit";
+    nixos-unstable.url = "github:nixos/nixpkgs/nixos-unstable-small";
+    # nixos-unstable.url = "github:GTrunSec/nixpkgs/container-toolkit";
 
     nixos-22-11.url = "github:nixos/nixpkgs/release-22.11";
 

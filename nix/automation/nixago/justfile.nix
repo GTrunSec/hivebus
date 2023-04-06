@@ -76,8 +76,7 @@ in
     node2nix-update = {
       description = "update packages via nvfetcher";
       content = ''
-        cd $PRJ_ROOT/nix/guangtao/packages/my-node-packages
-        sh ./upgrade.sh.sh
+        cd $PRJ_ROOT/nix/guangtao/packages/my-node-packages && sh ./upgrade.sh
       '';
     };
   }

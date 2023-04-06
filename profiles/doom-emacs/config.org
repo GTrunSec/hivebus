@@ -1377,12 +1377,36 @@ prepended to the element after the #+HEADER: tag."
 #+begin_src emacs-lisp :tangle "config.el"
 (use-package! treesit
   :init
-  (push '(css-mode . css-ts-mode) major-mode-remap-alist)
-  (push '(javascript-mode . js-ts-mode) major-mode-remap-alist)
-  (push '(js-mode . js-ts-mode) major-mode-remap-alist)
-  (push '(sh-mode . bash-ts-mode) major-mode-remap-alist)
-  (push '(js-json-mode . json-ts-mode) major-mode-remap-alist)
-  (push '(python-mode . python-ts-mode) major-mode-remap-alist))
+ ;;copyright: https://github.com/manateelazycat/lazycat-emacs/blob/master/site-lisp/config/init-treesit.el#L134
+  (setq major-mode-remap-alist
+        '((c-mode          . c-ts-mode)
+          (c++-mode        . c++-ts-mode)
+          (cmake-mode      . cmake-ts-mode)
+          (conf-toml-mode  . toml-ts-mode)
+          (css-mode        . css-ts-mode)
+          (js-mode         . js-ts-mode)
+          (js-json-mode    . json-ts-mode)
+          (python-mode     . python-ts-mode)
+          (sh-mode         . bash-ts-mode)
+          (typescript-mode . typescript-ts-mode)
+          (rust-mode       . rust-ts-mode)
+          ))
+  (add-hook 'markdown-mode-hook #'(lambda () (treesit-parser-create 'markdown)))
+
+  (add-hook 'web-mode-hook #'(lambda ()
+                             (let ((file-name (buffer-file-name)))
+                               (when file-name
+                                 (treesit-parser-create
+                                  (pcase (file-name-extension file-name)
+                                    ("vue" 'vue)
+                                    ("html" 'html))))
+                               )))
+
+(add-hook 'emacs-lisp-mode-hook #'(lambda () (treesit-parser-create 'elisp)))
+(add-hook 'ielm-mode-hook #'(lambda () (treesit-parser-create 'elisp)))
+(add-hook 'json-mode-hook #'(lambda () (treesit-parser-create 'json)))
+(add-hook 'go-mode-hook #'(lambda () (treesit-parser-create 'go)))
+  )
 #+end_src
 
 #+RESULTS:
@@ -1392,20 +1416,19 @@ prepended to the element after the #+HEADER: tag."
 ** nickel
 
 #+begin_src emacs-lisp :tangle "packages.el"
-(when IS-LINUX
-  (package! nickel-mode
-    :recipe (:local-repo "~/ghq/github.com/GTrunSec/nickel-mode"
-                         ))
-  )
+(package! nickel-mode
+  :recipe (;;:local-repo "~/ghq/github.com/GTrunSec/nickel-mode"
+           :host github
+           :repo "purcell/nickel-mode"
+           :branch "misc-fixes"
+           ))
 #+end_src
 
 
 #+begin_src emacs-lisp :tangle "config.el"
-(when IS-LINUX
-  (use-package! nickel-mode
-    :config
-    (add-hook 'nickel-mode-hook #'electric-align-mode)
-    )
+(use-package! nickel-mode
+  :config
+  (add-hook 'nickel-mode-hook #'electric-align-mode)
   )
 #+end_src
 
