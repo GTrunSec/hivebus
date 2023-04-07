@@ -17,4 +17,5 @@ in {
   "acme-cloudflare.age".publicKeys = common ++ cloud;
   "chatgpt-web.age".publicKeys = common ++ cloud;
   "chatgpt-web-passwd.age".publicKeys = common ++ cloud;
+  "chatgpt-yak.age".publicKeys = common ++ cloud;
 }

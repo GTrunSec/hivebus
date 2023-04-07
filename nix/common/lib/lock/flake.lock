@@ -2026,11 +2026,11 @@
         "std-ext": "std-ext_2"
       },
       "locked": {
-        "lastModified": 1680749201,
-        "narHash": "sha256-PusdRfjaYCiM5B6zu/DrcFjCCw3CHE1pIwyV3xtucms=",
+        "lastModified": 1680844847,
+        "narHash": "sha256-lrtuZb3YhYsjdzWFOWXYsNqB8O5fF1SyiTdyW0QLyoI=",
         "owner": "hardenedlinux",
         "repo": "nixpkgs-hardenedlinux",
-        "rev": "7d103753468eb5ced3f676f8c3694ce64dcae0fc",
+        "rev": "0f8ed08520fa0eabb5f80e4bfa957bc8458464d2",
         "type": "github"
       },
       "original": {
