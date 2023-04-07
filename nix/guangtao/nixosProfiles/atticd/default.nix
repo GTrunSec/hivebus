@@ -21,7 +21,7 @@
             listen = "[::1]:57448";
             database.url = "postgresql:///attic?host=/run/postgresql";
             allowed-hosts = ["attic.zhangguangtao.org"];
-            api-endpoint = "https://attic.zhangguangtao.org";
+            api-endpoint = "https://attic.zhangguangtao.org/";
             storage = {
               type = "s3";
               region = "us-west-004";

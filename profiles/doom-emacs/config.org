@@ -1313,6 +1313,25 @@ prepended to the element after the #+HEADER: tag."
   #+RESULTS:
   : t
 
+
+
+** typst-mode :typst:mathematic:
+
+- https://github.com/manateelazycat/fingertip
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! typst-mode :recipe (:host github :repo "Ziqi-Yang/typst-mode.el"
+                             ;;:build (:not compile)
+                             :files ("*.el")))
+#+end_src
+
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! typst-mode
+  :config
+  )
+  #+end_src
+
+
 ** lsp-bridge :lsp:
 
 #+begin_src emacs-lisp :tangle "config.el"
@@ -1350,7 +1369,7 @@ prepended to the element after the #+HEADER: tag."
 #+end_src
 
 
-** acm terminal
+** lsp-acm :terminal:
 
 
 #+begin_src emacs-lisp :tangle "config.el"

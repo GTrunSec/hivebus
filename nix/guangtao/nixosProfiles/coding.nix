@@ -13,6 +13,7 @@
         environment.systemPackages = with pkgs; [
           nickel
           lsp-nls
+          typst-dev
           gptcommit
         ];
       })

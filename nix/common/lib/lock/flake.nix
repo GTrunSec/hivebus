@@ -1,6 +1,6 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/f1ffcf798e93b169321106a4aef79526a2b4bd0a";
+    nixpkgs.url = "github:NixOS/nixpkgs/cfb43ad7b941d9c3606fb35d91228da7ebddbfc5";
   };
 
   inputs = {
@@ -13,13 +13,10 @@
   inputs = {
     hyprland.url = "github:hyprwm/Hyprland";
     hyprwm-contrib.url = "github:hyprwm/contrib";
-    hyprpaper.url = "github:hyprwm/hyprpaper";
-    hyprpaper.inputs.nixpkgs.follows = "nixpkgs";
 
     eww = {
       url = "github:elkowar/eww";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.rust-overlay.follows = "rust-overlay";
     };
     # hyprland.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -71,6 +68,9 @@
   };
 
   inputs = {
+    typst.url = "github:typst/typst";
+    typst.inputs.nixpkgs.follows = "nixpkgs";
+
     nickel.url = "github:tweag/nickel";
     nickel.inputs.nixpkgs.follows = "nixpkgs";
 
