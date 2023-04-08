@@ -2,7 +2,7 @@
   inputs,
   cell,
 }: {pkgs, ...}: {
-  services.yabai.enable = true;
+  services.yabai.enable = false;
   services.yabai.extraConfig = ''
     yabai -m config  \
     mouse_follows_focus          off            \

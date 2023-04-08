@@ -18,9 +18,13 @@
       "skim"
       "grammarly-desktop"
       "dropbox"
+      # skhd is not working on 13.3
+      "amethyst"
     ]
     ++ [
       "secretive"
+      # Chinese inputs
+      "squirrel"
     ];
 
   homebrew.brews =

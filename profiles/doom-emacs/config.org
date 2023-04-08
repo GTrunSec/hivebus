@@ -1438,8 +1438,7 @@ prepended to the element after the #+HEADER: tag."
 (package! nickel-mode
   :recipe (;;:local-repo "~/ghq/github.com/GTrunSec/nickel-mode"
            :host github
-           :repo "purcell/nickel-mode"
-           :branch "misc-fixes"
+           :repo "nickel-lang/nickel-mode"
            ))
 #+end_src
 
