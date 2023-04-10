@@ -20,6 +20,9 @@ in {
       auto-optimise-store = false
       # auto-allocate-uids = true
       experimental-features = nix-command flakes recursive-nix
+      sandbox = false
+      # https://plutus-community.readthedocs.io/en/latest/#Environment/Build/Mac_M1/
+      extra-sandbox-paths = /System/Library/Frameworks /System/Library/PrivateFrameworks /usr/lib /private/tmp /private/var/tmp /usr/bin/env
     '';
   };
   services.nix-daemon.enable = true;

@@ -767,21 +767,17 @@ enchant-lsmod-2
 #+end_src
 
 #+RESULTS:
-| aspell   | (Aspell   | Provider) |
-| hspell   | (Hspell   | Provider) |
-| hunspell | (Hunspell | Provider) |
 
 #+begin_src emacs-lisp :tangle "config.el"
+(when IS-LINUX
 (use-package! jinx
   :config
   (add-to-list 'jinx-exclude-regexps '(t "\\cc")) ;; chinese
   (dolist (hook '(text-mode-hook prog-mode-hook conf-mode-hook
                   org-mode-hook ))
     (add-hook hook #'jinx-mode)))
+)
 #+end_src
-
-#+RESULTS:
-: t
 
 
 ** vlf :file:large:
@@ -795,6 +791,26 @@ enchant-lsmod-2
   (require 'vlf-setup)
   (custom-set-variables
    '(vlf-application 'dont-ask))
+  )
+#+end_src
+
+** [[https://github.com/xenodium/chatgpt-shell][xenodium/chatgpt-shell: ChatGPT and DALL-E Emacs shells + Org babel 🦄 + a shell maker for other providers]]
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! chatgpt-shell :recipe (:host github :repo "xenodium/chatgpt-shell"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! chatgpt-shell
+  :init
+  (require 'dall-e-shell)
+  (require 'ob-chatgpt-shell)
+  (require 'ob-dall-e-shell)
+  :config
+  (require 'f)
+  (setq chatgpt-shell-openai-key (substring (f-read-text
+                                  (concat doom-cache-dir
+                                          "/mind-wave/chatgpt_api_key.txt") 'utf-8) 0 -1))
   )
 #+end_src
 
