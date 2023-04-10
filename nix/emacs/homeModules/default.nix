@@ -11,6 +11,7 @@
 
     tree-sitter-bash
     tree-sitter-c
+    tree-sitter-elisp
     tree-sitter-c-sharp
     tree-sitter-cmake
     tree-sitter-cpp
@@ -69,7 +70,7 @@ in {
         };
         services.emacs.client.enable = true;
       })
-      (mkIf pkgs.stdenv.isDarwin {
+      ({
         home.activation.linkEmacsTreeSitter = config.lib.dag.entryAfter ["writeBoundary"] ''
           ln -sfT ${tree-sitter-grammars}/lib $HOME/.emacs.d/.local/cache/tree-sitter
         '';

@@ -774,7 +774,6 @@ enchant-lsmod-2
 #+begin_src emacs-lisp :tangle "config.el"
 (use-package! jinx
   :config
-  (setq jinx-languages '("en_US"))
   (add-to-list 'jinx-exclude-regexps '(t "\\cc")) ;; chinese
   (dolist (hook '(text-mode-hook prog-mode-hook conf-mode-hook
                   org-mode-hook ))
@@ -1334,6 +1333,17 @@ prepended to the element after the #+HEADER: tag."
 
 ** lsp-bridge :lsp:
 
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! posframe)
+(package! popon)
+(package! lsp-bridge :recipe (:local-repo
+                              "~/.config/guangtao-sources/lsp-bridge"
+                              :files ("*.el" "*.py" "core" "langserver" "acm")
+                              ))
+#+end_src
+
+
 #+begin_src emacs-lisp :tangle "config.el"
 (use-package lsp-bridge
   :init
@@ -1357,16 +1367,6 @@ prepended to the element after the #+HEADER: tag."
   )
 #+end_src
 
-
-
-#+begin_src emacs-lisp :tangle "packages.el"
-(package! posframe)
-(package! popon)
-(package! lsp-bridge :recipe (:local-repo
-                              "~/.config/guangtao-sources/lsp-bridge"
-                              :files ("*.el" "*.py" "core" "langserver" "acm")
-                              ))
-#+end_src
 
 
 ** lsp-acm :terminal:
