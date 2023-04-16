@@ -18,4 +18,5 @@ in {
   "chatgpt-web.age".publicKeys = common ++ cloud;
   "chatgpt-web-passwd.age".publicKeys = common ++ cloud;
   "chatgpt-yak.age".publicKeys = common ++ cloud;
+  "v2ray-vmess.age".publicKeys = common ++ cloud;
 }
