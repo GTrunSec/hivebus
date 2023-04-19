@@ -1631,11 +1631,11 @@
         "topiary": "topiary"
       },
       "locked": {
-        "lastModified": 1680886605,
-        "narHash": "sha256-iVWjA+F3HEBXVbal8TH9Awx3HsgYltKuPgfEnu2QoQU=",
+        "lastModified": 1681824289,
+        "narHash": "sha256-HNJA8nVU5DQ1IXxjgdr4V99khIQ91b92ad7CeJGNsx4=",
         "owner": "tweag",
         "repo": "nickel",
-        "rev": "d723a3721c6b0fe9c4b856e889bb7211d6136665",
+        "rev": "96dedc985dfe4c1e6f25ed92da2ca6914bd70778",
         "type": "github"
       },
       "original": {
@@ -1651,11 +1651,11 @@
         "rust-overlay": "rust-overlay_8"
       },
       "locked": {
-        "lastModified": 1680544266,
-        "narHash": "sha256-d/TusDXmIo8IT5DNRA21lN+nOVSER8atIx9TJteR6LQ=",
+        "lastModified": 1681412802,
+        "narHash": "sha256-IcEala6vFQ7SFNOPCeXBh9Jbl8nL2QOtLmO7RbDsBbo=",
         "owner": "oxalica",
         "repo": "nil",
-        "rev": "56a1fa87b98a9508920f4b0ab8fe36d5b54b2362",
+        "rev": "1d5bc81023c21b22cfbea06a8b4b82963c01b941",
         "type": "github"
       },
       "original": {
@@ -2025,11 +2025,11 @@
         "std-ext": "std-ext_2"
       },
       "locked": {
-        "lastModified": 1680844847,
-        "narHash": "sha256-lrtuZb3YhYsjdzWFOWXYsNqB8O5fF1SyiTdyW0QLyoI=",
+        "lastModified": 1681519218,
+        "narHash": "sha256-OypwRXOGg8Ja0cKplEaSeRqOh6Gg/LB8NlSqqXhFw3M=",
         "owner": "hardenedlinux",
         "repo": "nixpkgs-hardenedlinux",
-        "rev": "0f8ed08520fa0eabb5f80e4bfa957bc8458464d2",
+        "rev": "78cc31b00d28561a40fdee2429c5a0cf967cc04a",
         "type": "github"
       },
       "original": {

@@ -25,6 +25,7 @@
       nodePackages.typescript-language-server
       shellcheck
       yaml-language-server
+      typst-lsp
     ];
   };
 }

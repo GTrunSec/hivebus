@@ -10,6 +10,7 @@
     tree-sitter-markdown
 
     tree-sitter-bash
+    tree-sitter-julia
     tree-sitter-c
     tree-sitter-elisp
     tree-sitter-c-sharp

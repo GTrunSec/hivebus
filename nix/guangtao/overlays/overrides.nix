@@ -15,9 +15,9 @@ in
       brave
       firefox
       onlyoffice-bin
+      typst-lsp
       # darwin packages
-      
-      ;
+    ;
 
     yabai = nixpkgs-master.yabai.overrideAttrs (old: rec {
       version = "5.0.3";

@@ -43,6 +43,7 @@ in {
       inputs.cells.secrets.nixosProfiles.age
       cell.nixosModules.chatgpt-web
       cell.nixosModules.chatgpt-web-yak
+      cell.nixosModules.v2ray
       atticd.vultr
     ]
     ++ [

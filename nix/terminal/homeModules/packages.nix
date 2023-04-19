@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
+    tree # modern ls
     just
     alejandra # nix formatter
     bottom # more modern top / htop
