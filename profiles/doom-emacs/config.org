@@ -846,6 +846,8 @@ enchant-lsmod-2
 
 ;; (unpin! org)
 #+end_src
+
+
 ** default
 
 #+begin_src emacs-lisp :tangle "config.el"
@@ -923,13 +925,19 @@ prepended to the element after the #+HEADER: tag."
      ("w" (hot-expand "<s" "powershell") "powershell")
      ("r" (hot-expand "<s" "ruby") "ruby")
      ("S" (hot-expand "<s" "sh") "sh")
-     ("g" (hot-expand "<s" "go :imports '\(\"fmt\"\)") "golang"))
+     ("gs" (hot-expand "<s" "chatgpt-shell") "text")
+     ("gl" (hot-expand "<s" "go :imports '\(\"fmt\"\)") "golang"))
     "Misc"
     (("u" (hot-expand "<s" "plantuml :file CHANGE.png") "plantuml")
      ("Y" (hot-expand "<s" "ipython :session :exports both :results raw drawer\n$0") "ipython")
      ;; ("<" self-insert-command "ins")
      )))
 #+end_src
+
+#+RESULTS:
+: major-mode-hydras/org-mode/body
+
+
 
 ** org-modern :theme:
 
