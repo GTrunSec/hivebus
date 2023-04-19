@@ -1631,11 +1631,11 @@
         "topiary": "topiary"
       },
       "locked": {
-        "lastModified": 1680886605,
-        "narHash": "sha256-iVWjA+F3HEBXVbal8TH9Awx3HsgYltKuPgfEnu2QoQU=",
+        "lastModified": 1681824289,
+        "narHash": "sha256-HNJA8nVU5DQ1IXxjgdr4V99khIQ91b92ad7CeJGNsx4=",
         "owner": "tweag",
         "repo": "nickel",
-        "rev": "d723a3721c6b0fe9c4b856e889bb7211d6136665",
+        "rev": "96dedc985dfe4c1e6f25ed92da2ca6914bd70778",
         "type": "github"
       },
       "original": {

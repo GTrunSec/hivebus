@@ -13,7 +13,7 @@
 
   Channels = Flake.pkgs.${builtins.currentSystem} or <nixpkgs>;
 
-  LoadFlake = path: builtins.getFlake (toString path);
+  LoadFlake = builtins.getFlake (toString flakePath);
 in {
   inherit
     Channels
