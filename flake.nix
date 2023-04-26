@@ -49,6 +49,7 @@
     darwin.inputs.nixpkgs.follows = "nixpkgs";
 
     nixos.follows = "nixos-unstable";
+    darwin-unstable.url = "github:nixos/nixpkgs/nixos-unstable-small";
     nixos-unstable.url = "github:nixos/nixpkgs/nixos-unstable-small";
 
     nixos-22-11.url = "github:nixos/nixpkgs/release-22.11";

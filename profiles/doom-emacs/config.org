@@ -6,6 +6,9 @@
 #+author: GuangTao Zhang
 #+header-args:emacs-lisp: :dir ~/.doom.d
 
+
+
+
 * init.el
 :PROPERTIES:
 :ID:       4f9d417d-66b2-457e-9cf2-9b53f23d6aa1
@@ -1527,7 +1530,6 @@ prepended to the element after the #+HEADER: tag."
 
 * format-all
 
-
 #+begin_src emacs-lisp :tangle "packages.el"
 (package! format-all)
 (package! language-id)
@@ -1683,3 +1685,6 @@ prepended to the element after the #+HEADER: tag."
       ;;  )
       )
 #+end_src
+* Tracking the pro configs
+** [[https://tecosaur.github.io/emacs-config/#org-pkg-statement][Doom Emacs Configuration]] :doom:
+

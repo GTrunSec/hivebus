@@ -1,0 +1,8 @@
+#+TITLE: colors
+#+AUTHOR: GuangTao Zhang
+#+EMAIL: gtrunsec@hardenedlinux.org
+#+DATE: 2023-04-19 Wed 18:28
+
+
+
+* [[https://github.com/danth/stylix][danth/stylix: System-wide colorscheming and typography for NixOS]] :nixos:
