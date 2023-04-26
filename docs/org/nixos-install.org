@@ -8,4 +8,12 @@
 
 
 
-* https://github.com/numtide/nixos-anywhere :install:nixos:init:
+* Projects
+
+** https://github.com/numtide/nixos-anywhere :install:nixos:init:
+
+* Blogs
+
+** [[https://galowicz.de/2023/04/05/single-command-server-bootstrap/][Single-Command Server Bootstrapping]] :disko:
+
+

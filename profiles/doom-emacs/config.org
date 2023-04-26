@@ -1413,9 +1413,10 @@ prepended to the element after the #+HEADER: tag."
   ;; (add-hook 'lsp-bridge-mode-hook '(lambda () (company-mode -1)
   ;;                                   ))
   (push '((nickel-mode nickel-ts-mode) . "nls") lsp-bridge-single-lang-server-mode-list)
+
+  (setq acm-candidate-match-function 'orderless-flex)
   )
 #+end_src
-
 
 
 ** lsp-acm :terminal:
