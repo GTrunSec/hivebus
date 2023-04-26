@@ -35,7 +35,7 @@ in rec {
       homeProfiles.wezterm.default # disabled on linux
       homeProfiles.alacritty.guangtao
       homeProfiles.bat.catppuccin-mocha
-      # homeProfiles.navi.guangtao
+      homeProfiles.navi.guangtao
     ]
     ++ default;
 }

@@ -16,6 +16,7 @@ in
       firefox
       onlyoffice-bin
       typst-lsp
+      navi
       # darwin packages
     ;
 

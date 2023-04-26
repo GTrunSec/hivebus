@@ -1279,6 +1279,7 @@ prepended to the element after the #+HEADER: tag."
   (add-hook 'python-mode-hook #'python-ts-mode)
   (add-hook 'json-mode-hook #'json-ts-mode)
   (add-hook 'yaml-mode-hook #'yaml-ts-mode)
+  (add-hook 'rust-mode-hook #'rust-ts-mode)
   (add-hook 'sh-mode-hook #'bash-ts-mode)
 
   (dolist (hook (list
@@ -1492,8 +1493,10 @@ prepended to the element after the #+HEADER: tag."
 (use-package! nickel-mode
   :config
   (add-hook 'nickel-mode-hook #'electric-align-mode)
+  (add-hook 'nickel-mode-hook #'lsp-bridge-mode)
   )
 #+end_src
+
 
 ** Nushell
 
