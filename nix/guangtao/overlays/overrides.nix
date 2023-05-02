@@ -18,7 +18,8 @@ in
       typst-lsp
       navi
       # darwin packages
-    ;
+      
+      ;
 
     yabai = nixpkgs-master.yabai.overrideAttrs (old: rec {
       version = "5.0.3";

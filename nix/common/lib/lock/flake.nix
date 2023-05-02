@@ -81,6 +81,12 @@
 
     devos-ext-lib.url = "github:divnix/devos-ext-lib/?ref=refs/pull/8/head";
     devos-ext-lib.inputs.nixpkgs.follows = "nixpkgs";
+
+    namaka.url = "github:nix-community/namaka";
+    namaka.inputs.nixpkgs.follows = "nixpkgs";
+
+    nix-init.url = "github:nix-community/nix-init";
+    # nix-init.inputs.nixpkgs.follows = "nixpkgs";
   };
   # Orchestration
   inputs = {

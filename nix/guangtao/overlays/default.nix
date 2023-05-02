@@ -41,6 +41,10 @@ in
       gptcommit
       ;
 
+    nix-init = __inputs__.nix-init.packages.default;
+
+    namaka = __inputs__.namaka.packages.default;
+
     mind-wave = final.poetry2nix.mkPoetryEnv {
       projectDir = ../packages/mind-wave;
     };

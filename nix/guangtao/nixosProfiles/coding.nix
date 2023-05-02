@@ -11,6 +11,8 @@
       languageServers
       ({pkgs, ...}: {
         environment.systemPackages = with pkgs; [
+          namaka
+          nix-init
           nickel
           lsp-nls
           typst-dev

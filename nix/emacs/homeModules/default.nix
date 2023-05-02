@@ -71,7 +71,7 @@ in {
         };
         services.emacs.client.enable = true;
       })
-      ({
+      {
         home.activation.linkEmacsTreeSitter = config.lib.dag.entryAfter ["writeBoundary"] ''
           ln -sfT ${tree-sitter-grammars}/lib $HOME/.emacs.d/.local/cache/tree-sitter
         '';
@@ -79,6 +79,6 @@ in {
         # home.packages = [
         #   pkgs.emacs
         # ];
-      })
+      }
     ];
 }
