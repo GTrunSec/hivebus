@@ -14,7 +14,11 @@
     std-data-collection.follows = "std-ext/std-data-collection";
 
     hive.url = "github:divnix/hive";
+    hive.inputs.haumea.follows = "flops/haumea";
     # hive.url = "/home/guangtao/ghq/github.com/divnix/hive";
+    flops.url = "github:gtrunsec/flops";
+    flops.inputs.nixpkgs.follows = "nixpkgs";
+    haumea.follows = "flops/haumea";
   };
   inputs.hive.inputs = {
     nixos-generators.follows = "nixos-generators";

@@ -2,13 +2,13 @@
   inputs,
   cell,
 }: let
-  inherit (inputs) nixpkgs std self;
+  inherit (inputs) nixpkgs haumea;
   inherit (inputs.std-ext.common.lib) callFlake;
 
   l = nixpkgs.lib // builtins;
 
   # __inputs__ = callFlake "${(std.incl self ["lock"])}/lock" {
-  __inputs__ = callFlake ./lib/lock {
+  __inputs__ = callFlake ./lib/__lock {
     nixpkgs.locked = inputs.nixpkgs.sourceInfo;
     nixos.locked =
       inputs.nixos-22-11.sourceInfo
@@ -22,11 +22,15 @@
     ragenix.inputs.nixpkgs = "nixos";
   };
 in
-  inputs.std-ext.lib.digga
+  haumea.lib.load {
+    src = ./lib;
+    inputs = removeAttrs inputs ["self"];
+  }
+  // inputs.std-ext.lib.digga
   // {
     inherit __inputs__;
 
-    __utils__ = callFlake ./lib/utils {};
+    __utils__ = callFlake ./lib/__utils {};
 
     importRakeLeaves = path: args:
       l.mapAttrs (_: v:
