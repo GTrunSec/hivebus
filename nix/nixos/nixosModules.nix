@@ -1,7 +1,13 @@
 {
   inputs,
   cell,
-}:
-(inputs.cells.common.lib.loadNixOS ./nixosModules {inherit inputs cell;}).addInputs {
-  pkgs' = inputs.nixpkgs;
+}: {
+  default =
+    (inputs.cells.common.lib.loadNixOS (inputs.self + "/nixos/modules") {
+      inherit inputs cell;
+      lib = inputs.nixpkgs.lib;
+    })
+      .addInputs {
+        pkgs' = inputs.nixpkgs;
+      };
 }

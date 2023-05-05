@@ -95,6 +95,8 @@
         (functions "devshellModules")
 
         # profiles activate
+        (functions "profiles")
+        (functions "modules")
         (functions "nixosProfiles")
         (functions "darwinProfiles")
         (functions "hardwareProfiles")
