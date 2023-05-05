@@ -1,6 +1,4 @@
-{
-  lib
-}: {
+{lib}: {
   config = with lib;
     mkMerge [
       {

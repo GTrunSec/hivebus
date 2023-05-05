@@ -1,11 +1,14 @@
-{flops, haumea}: let
+{
+  flops,
+  haumea,
+}: let
   inherit (flops.lib) configs;
 in
   src: inputs:
-   configs.haumea.setInit
+    configs.haumea.setInit
     {
       src = src;
-      inherit inputs;
+      inputs = removeAttrs inputs ["self"];
       transformer = with haumea.lib.transformers; [
         liftDefault
         (hoistLists "_imports" "imports")

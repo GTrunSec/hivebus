@@ -49,7 +49,7 @@ in {
     imports = [
       ({...} @ args:
         (((pops.default.setInitRecipes {
-              nixos.default = inputs.cells.nixos.nixosModules.default;
+              nixos.default = inputs.cells.nixos.modules.default;
             })
             .addArgsExtender {nixos.default = args;})
           .addExporters [

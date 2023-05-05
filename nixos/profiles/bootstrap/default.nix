@@ -1,11 +1,10 @@
 {
   lib,
   config,
+  pkgs',
 }:
-with lib; {
-  config = mkIf config.hive.bootstrap (mkMerge [
-    (mkIf pkgs.stdenv.isLinux {
-      system.stateVersion = config.system.nixos.version;
-    })
-  ]);
-}
+with lib; (mkMerge [
+  (mkIf pkgs'.stdenv.isLinux {
+    system.stateVersion = config.system.nixos.version;
+  })
+])
