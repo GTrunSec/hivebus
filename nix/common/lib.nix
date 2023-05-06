@@ -16,8 +16,6 @@
     (flops.lib.flake.pops.default.setInitInputs ./lib/__utils)
     .setSystem
     nixpkgs.system;
-
-  noSysInputs = flops.lib.callFlake inputs.self {};
 in
   haumea.lib.load {
     src = ./lib;
@@ -25,13 +23,11 @@ in
   }
   // inputs.std-ext.lib.digga
   // {
-    inherit callInputs callUtils noSysInputs;
+    inherit callInputs callUtils;
 
-    __inputs__ =
-      (callInputs.addInputsOverride {
-        nixpkgs = noSysInputs.nixpkgs;
-      })
-      .outputsForInputsCompat;
+    __inputs__ = (callInputs.addInputsOverride {
+      nixpkgs = callInputs.sysInputs.nixpkgs;
+    }).outputsForInputsCompat;
 
     __utils__ = (callUtils.addInputsOverride {}).outputsForInputsCompat;
 

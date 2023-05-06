@@ -477,11 +477,11 @@
         "yants": "yants_2"
       },
       "locked": {
-        "lastModified": 1683409815,
-        "narHash": "sha256-zhYCV/euYjEI8cF3RwmEVWnL0TpItiBtzfxKfdLpAf0=",
+        "lastModified": 1683411685,
+        "narHash": "sha256-Iyxvks6G0OzJdaqHvvKXDZ6WF+NuzbAW9ma9GtQUYos=",
         "owner": "gtrunsec",
         "repo": "flops",
-        "rev": "39a48b61e4719790ef3783e7af2bc3c2fb666dcd",
+        "rev": "57f0dd01abdd5754dcf7b43288c426c2310b4485",
         "type": "github"
       },
       "original": {
