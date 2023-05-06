@@ -1731,11 +1731,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1682901328,
-        "narHash": "sha256-kJ1KlR3834tMv9UhkRtVr8tbNVM9Y356lmbw0e4xR0Y=",
+        "lastModified": 1683306913,
+        "narHash": "sha256-2jUrtfyhiwrwpY1q9lcOgK17Edx2KqldyK0yW1FRjLU=",
         "owner": "nix-community",
         "repo": "namaka",
-        "rev": "fc99be98e4d584fefa0476729fbdc5889e33bfc4",
+        "rev": "f825835ce7025b1e39257223cfd925031c8ad64e",
         "type": "github"
       },
       "original": {
@@ -1896,11 +1896,11 @@
         "nixpkgs": "nixpkgs_8"
       },
       "locked": {
-        "lastModified": 1682810031,
-        "narHash": "sha256-QxGPBGCCjbQ1QbJNoW0dwQS/srwQ0hBR424zmcqdjI8=",
+        "lastModified": 1683330597,
+        "narHash": "sha256-RmVMFI18fpYMo6nrgKsuhZytHZPGEuvX0vjhXuFqQ7c=",
         "owner": "nix-community",
         "repo": "nix-init",
-        "rev": "1cb33734b209ea436ee986898c82dd8727cdabbe",
+        "rev": "9042eccd1d09f285ff3ff9468bf4faa3f4c0fbe7",
         "type": "github"
       },
       "original": {
@@ -2171,11 +2171,11 @@
         "std-ext": "std-ext_2"
       },
       "locked": {
-        "lastModified": 1682728680,
-        "narHash": "sha256-2+p8DNBaqXA779aF/uN/EBQzr9NgzIj8ISVb7wcxBtU=",
+        "lastModified": 1683333409,
+        "narHash": "sha256-EJRIFws5peyYRE3gsO/aKIxeQe8K/XDl5Mb76PSZfag=",
         "owner": "hardenedlinux",
         "repo": "nixpkgs-hardenedlinux",
-        "rev": "c74e0239d567030708b772dec155fef4b24f3fb4",
+        "rev": "c5d274eacaed2072ad363255cc157b76464fb971",
         "type": "github"
       },
       "original": {
@@ -2624,6 +2624,21 @@
         "type": "github"
       }
     },
+    "nur": {
+      "locked": {
+        "lastModified": 1683401891,
+        "narHash": "sha256-6NprhPP1LsCFBXnQSTO073YknpW/l10gkhrgUdqHSQA=",
+        "owner": "nix-community",
+        "repo": "NUR",
+        "rev": "5e4ea83c7afd24f3902a3ce70e2468f34257614e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "NUR",
+        "type": "github"
+      }
+    },
     "org-roam-book-template": {
       "inputs": {
         "cortex": "cortex",
@@ -3010,6 +3025,7 @@
         "nixpkgs-hardenedlinux": "nixpkgs-hardenedlinux",
         "nixpkgs-wayland": "nixpkgs-wayland",
         "nomad-driver": "nomad-driver",
+        "nur": "nur",
         "poetry2nix": "poetry2nix",
         "ragenix": "ragenix",
         "resign": "resign",

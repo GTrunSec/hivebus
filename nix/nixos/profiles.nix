@@ -8,6 +8,7 @@
       inherit cell;
       inputs = removeAttrs inputs ["self"];
       lib = inputs.nixpkgs.lib;
+      pkgs' = inputs.nixpkgs;
     };
   };
 }

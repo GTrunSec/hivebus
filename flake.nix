@@ -17,7 +17,6 @@
     hive.inputs.haumea.follows = "flops/haumea";
     # hive.url = "/home/guangtao/ghq/github.com/divnix/hive";
     flops.url = "github:gtrunsec/flops";
-    flops.inputs.nixpkgs.follows = "nixpkgs";
     haumea.follows = "flops/haumea";
   };
   inputs.hive.inputs = {
@@ -40,8 +39,6 @@
 
     arion.url = "github:hercules-ci/arion";
     arion.inputs.nixpkgs.follows = "nixpkgs";
-
-    nur.url = "github:nix-community/NUR";
   };
 
   # nixpkgs & home-manager

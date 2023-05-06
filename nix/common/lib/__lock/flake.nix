@@ -8,6 +8,8 @@
     emacs-overlay.inputs.nixpkgs.follows = "nixpkgs";
 
     emacs-darwin.url = "github:cmacrae/emacs";
+
+    nur.url = "github:nix-community/NUR";
   };
 
   inputs = {

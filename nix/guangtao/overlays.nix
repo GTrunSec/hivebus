@@ -11,7 +11,7 @@ in
       cell.overlays.python
       cell.overlays.overrides
       cell.overlays.nodePackages
-      inputs.nur.overlay
+      __inputs__.nur.overlay
 
       __inputs__.rust-overlay.overlays.default
       __inputs__.nixpkgs-wayland.overlays.default

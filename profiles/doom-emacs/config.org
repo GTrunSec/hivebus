@@ -466,6 +466,12 @@ FACE defaults to inheriting from default and highlight."
   )
 #+end_src
 
+** vundo :undo:
+- https://github.com/casouri/vundo
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(unpin! vundo)
+#+end_src
 
 ** electric-align :indent:align:
 

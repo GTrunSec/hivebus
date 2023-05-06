@@ -2,25 +2,22 @@
   inputs,
   cell,
 }: let
-  inherit (inputs) nixpkgs haumea;
-  inherit (inputs.std-ext.common.lib) callFlake;
+  inherit (inputs) nixpkgs haumea flops;
 
   l = nixpkgs.lib // builtins;
 
   # __inputs__ = callFlake "${(std.incl self ["lock"])}/lock" {
-  __inputs__ = callFlake ./lib/__lock {
-    nixpkgs.locked = inputs.nixpkgs.sourceInfo;
-    nixos.locked =
-      inputs.nixos-22-11.sourceInfo
-      // {
-        type = "github";
-        owner = "NixOS";
-        repo = "nixpkgs";
-      };
+  callInputs =
+    (flops.lib.flake.pops.default.setInitInputs ./lib/__lock)
+    .setSystem
+    nixpkgs.system;
 
-    sops-nix.inputs.nixpkgs = "nixos";
-    ragenix.inputs.nixpkgs = "nixos";
-  };
+  callUtils =
+    (flops.lib.flake.pops.default.setInitInputs ./lib/__utils)
+    .setSystem
+    nixpkgs.system;
+
+  noSysInputs = flops.lib.callFlake inputs.self {};
 in
   haumea.lib.load {
     src = ./lib;
@@ -28,9 +25,15 @@ in
   }
   // inputs.std-ext.lib.digga
   // {
-    inherit __inputs__;
+    inherit callInputs callUtils noSysInputs;
 
-    __utils__ = callFlake ./lib/__utils {};
+    __inputs__ =
+      (callInputs.addInputsOverride {
+        nixpkgs = noSysInputs.nixpkgs;
+      })
+      .outputsForInputsCompat;
+
+    __utils__ = (callUtils.addInputsOverride {}).outputsForInputsCompat;
 
     importRakeLeaves = path: args:
       l.mapAttrs (_: v:

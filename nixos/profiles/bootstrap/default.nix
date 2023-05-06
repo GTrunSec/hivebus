@@ -1,10 +1,13 @@
 {
   lib,
   config,
-  pkgs',
+  pkgs,
 }:
 with lib; (mkMerge [
-  (mkIf pkgs'.stdenv.isLinux {
+  {
+    services.openssh.enable = true;
+  }
+  (mkIf pkgs.stdenv.isLinux {
     system.stateVersion = config.system.nixos.version;
   })
 ])

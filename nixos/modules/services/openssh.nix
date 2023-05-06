@@ -1,6 +1,5 @@
 {
   # copyright: https://github.com/numtide/srvos/blob/main/nixos/common/openssh.nix
-  enable = true;
   settings = {
     KbdInteractiveAuthentication = false;
     X11Forwarding = false;
