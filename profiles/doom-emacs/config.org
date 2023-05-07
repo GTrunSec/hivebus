@@ -1648,6 +1648,7 @@ prepended to the element after the #+HEADER: tag."
    '("bt" . bm-toggle)
    '("bb" . switch-to-buffer)
    '("bw" . +vertico/switch-workspace-buffer)
+
    ;; '("jr" . helm-register)
    ;; '("js" . point-to-register)
    '("?" . meow-cheatsheet)
@@ -1687,11 +1688,15 @@ prepended to the element after the #+HEADER: tag."
 #+begin_src emacs-lisp :tangle "config.el"
 (map! "C-s" #'+vertico/search-symbol-at-point
       "<f10>" #'blink-search
+      "C-c p f" #'blink-search
       ;; (:prefix-map ("f" . "file")
       ;;  :desc "Search File" "f" #'consult-find
       ;;  )
       )
 #+end_src
+
+#+RESULTS:
+
 * Tracking the pro configs
 ** [[https://tecosaur.github.io/emacs-config/#org-pkg-statement][Doom Emacs Configuration]] :doom:
 

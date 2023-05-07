@@ -1,6 +1,6 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/cfb43ad7b941d9c3606fb35d91228da7ebddbfc5";
+    nixpkgs.url = "github:NixOS/nixpkgs/0b6445b611472740f02eae9015150c07c5373340";
   };
 
   inputs = {
@@ -54,7 +54,7 @@
     ragenix.inputs.agenix.follows = "agenix";
 
     agenix.url = "github:ryantm/agenix";
-    agenix.inputs.nixpkgs.follows = "nixpkgs";
+    # agenix.inputs.nixpkgs.follows = "nixpkgs";
 
     agenix-rekey.url = "github:oddlama/agenix-rekey";
     agenix-rekey.inputs.nixpkgs.follows = "nixpkgs";
