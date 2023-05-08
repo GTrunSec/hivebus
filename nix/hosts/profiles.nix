@@ -1,8 +1,8 @@
 {
-  hive = {
+  flops.config.hive = {
     bootstrap = {
-      enable = true;
       minimal = true;
+      systemd-boot = true;
     };
   };
 }

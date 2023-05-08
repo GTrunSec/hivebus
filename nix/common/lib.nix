@@ -18,7 +18,7 @@
     nixpkgs.system;
 
   callMainInputs =
-    (flops.lib.flake.pops.default.setInitInputs inputs.self.outPath)
+    (flops.lib.flake.pops.default.setInitInputs inputs.self)
     .setSystem
     nixpkgs.system;
 in

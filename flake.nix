@@ -16,6 +16,7 @@
     hive.url = "github:divnix/hive";
     hive.inputs.haumea.follows = "flops/haumea";
     # hive.url = "/home/guangtao/ghq/github.com/divnix/hive";
+    # flops.url = "/home/guangtao/ghq/github.com/GTrunSec/flops";
     flops.url = "github:gtrunsec/flops";
     haumea.follows = "flops/haumea";
   };
@@ -63,6 +64,7 @@
   };
 
   # individual inputs
+  # use callInputs instead, for the subflake
   inputs = {};
 
   outputs = {
