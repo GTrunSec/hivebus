@@ -2,8 +2,6 @@
   inputs,
   cell,
 }: let
-  inherit (inputs.flops.lib.configs) pops;
-  inherit (inputs.flops.inputs) POP;
   l = inputs.nixpkgs.lib // builtins;
   exports = cell.pops.exports.nixos;
 in {
@@ -20,7 +18,7 @@ in {
       (l.attrValues exports.profiles.default.bootstrap)
       # (l.attrValues exports.profiles.default.<category>)
       exports.modules.default
-      # exports.modules.flops
+      exports.modules.flops
 
       # load the custom settings
       cell.profiles.flops
