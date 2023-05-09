@@ -1,4 +1,5 @@
 {
+  enable = true;
   # copyright: https://github.com/numtide/srvos/blob/main/nixos/common/openssh.nix
   settings = {
     KbdInteractiveAuthentication = false;

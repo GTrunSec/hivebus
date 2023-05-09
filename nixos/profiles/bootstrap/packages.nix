@@ -1,4 +1,4 @@
-_: {
+{inputs}: {
   config,
   lib,
   pkgs,
@@ -29,9 +29,9 @@ in {
             pkgs.writeShellScriptBin "nrepl" ''
               export PATH=${pkgs.coreutils}/bin:${pkgs.nixUnstable}/bin:$PATH
               if [ -z "$1" ]; then
-                 nix repl --argstr host "$HOST" --argstr flakePath "$PRJ_ROOT" ${./nrepl.nix}
+                 nix repl --argstr host "$HOST" --argstr flakePath "$PRJ_ROOT" ${import ./__repl.nix inputs}
                else
-                 nix repl --argstr host "$HOST" --argstr flakePath $(readlink -f $1 | sed 's|/flake.nix||') ${./nrepl.nix}
+                 nix repl --argstr host "$HOST" --argstr flakePath $(readlink -f $1 | sed 's|/flake.nix||') ${import ./__repl.nix inputs}
                fi
             ''
           )

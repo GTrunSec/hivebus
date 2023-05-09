@@ -6,11 +6,11 @@
 
 # edit the key age with ragenix
 age cell file:
-    ragenix --edit ./nix/{{ cell }}/secretProfiles/{{ file }} --rules ./nix/{{ cell }}/secretProfiles/secrets.nix
+    ragenix --edit ./cells/{{ cell }}/secretProfiles/{{ file }} --rules ./cells/{{ cell }}/secretProfiles/secrets.nix
 
 # re-age key with ragenix
 age-rekey cell:
-    ragenix --rules ./nix/{{ cell }}/secretProfiles/secrets.nix --rekey
+    ragenix --rules ./cells/{{ cell }}/secretProfiles/secrets.nix --rekey
 
 # build darwin machine
 darwin-build machine:
@@ -30,7 +30,7 @@ libvirtd_1:
 
 # update packages via nvfetcher
 node2nix-update:
-    cd $PRJ_ROOT/nix/guangtao/packages/my-node-packages && sh ./upgrade.sh
+    cd $PRJ_ROOT/cells/guangtao/packages/my-node-packages && sh ./upgrade.sh
 
 # update sources with nvfetcher
 nvfetcher path:
@@ -46,4 +46,4 @@ nvfetcher-emacs:
 
 # update packages via nvfetcher
 nvfetcher-update cell:
-    nix develop github:GTrunSec/std-ext#devShells.x86_64-linux.update --refresh --command nvfetcher-update nix/{{ cell }}/packages/sources.toml
+    nix develop github:GTrunSec/std-ext#devShells.x86_64-linux.update --refresh --command nvfetcher-update ./cells/{{ cell }}/packages/sources.toml

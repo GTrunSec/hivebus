@@ -49,14 +49,14 @@ in
       args = ["cell" "file"];
       description = "edit the key age with ragenix";
       content = ''
-        ragenix --edit ./nix/{{cell}}/secretProfiles/{{file}} --rules ./nix/{{cell}}/secretProfiles/secrets.nix
+        ragenix --edit ./cells/{{cell}}/secretProfiles/{{file}} --rules ./cells/{{cell}}/secretProfiles/secrets.nix
       '';
     };
     age-rekey = {
       args = ["cell"];
       description = "re-age key with ragenix";
       content = ''
-        ragenix --rules ./nix/{{cell}}/secretProfiles/secrets.nix --rekey
+        ragenix --rules ./cells/{{cell}}/secretProfiles/secrets.nix --rekey
       '';
     };
     darwin-build = {
@@ -70,13 +70,13 @@ in
       args = ["cell"];
       description = "update packages via nvfetcher";
       content = ''
-        nix develop github:GTrunSec/std-ext#devShells.x86_64-linux.update --refresh --command nvfetcher-update nix/{{cell}}/packages/sources.toml
+        nix develop github:GTrunSec/std-ext#devShells.x86_64-linux.update --refresh --command nvfetcher-update ./cells/{{cell}}/packages/sources.toml
       '';
     };
     node2nix-update = {
       description = "update packages via nvfetcher";
       content = ''
-        cd $PRJ_ROOT/nix/guangtao/packages/my-node-packages && sh ./upgrade.sh
+        cd $PRJ_ROOT/cells/guangtao/packages/my-node-packages && sh ./upgrade.sh
       '';
     };
   }

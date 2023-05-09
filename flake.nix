@@ -83,7 +83,7 @@
         "x86_64-linux"
       ];
 
-      cellsFrom = ./nix;
+      cellsFrom = ./cells;
 
       cellBlocks = with std.blockTypes;
       with hive.blockTypes; [
@@ -96,6 +96,7 @@
         # profiles activate
         (functions "profiles")
         (functions "modules")
+        (functions "pops")
         (functions "nixosProfiles")
         (functions "darwinProfiles")
         (functions "hardwareProfiles")
