@@ -3,17 +3,17 @@
   cell,
 }: let
   l = inputs.nixpkgs.lib // builtins;
-  nixpkgs = inputs.nixpkgs.appendOverlays ([] ++ cell.overlays.desktop);
+  inherit (inputs) nixpkgs;
+  # nixpkgs = inputs.nixpkgs.appendOverlays ([] ++ cell.overlays.desktop);
 in {
-  inherit nixpkgs;
-
-  mkHome = user: host: shell: version: {
+  # inherit nixpkgs;
+  mkHome = user: host: shell: {
     imports =
       [
         ({pkgs, ...}: {
           home-manager.users.${user} = {
             inherit (cell.homeConfigurations."${host}") imports;
-            home.stateVersion = version;
+            home.stateVersion = cell.nixosConfigurations.${host}.bee.pkgs.lib.trivial.release;
           };
           users.users.${user} = {
             shell = pkgs."${shell}";
@@ -23,7 +23,7 @@ in {
       ]
       ++ l.optionals (shell == "zsh") [{environment.pathsToLink = ["/share/zsh"];}]
       ++ l.optionals nixpkgs.stdenv.isLinux [
-        cell.userProfiles.${user}
+        inputs.cells.users.userProfiles.${user}
       ];
   };
 
@@ -40,6 +40,6 @@ in {
       stateVersion = cell.nixosConfigurations.${host}.bee.pkgs.lib.trivial.release;
       username = user;
     };
-    imports = cell.homeSuites.${host};
+    imports = l.flatten cell.homeSuites.${host};
   };
 }

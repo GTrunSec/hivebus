@@ -19,10 +19,9 @@ in {
       # load the default/common nixosConfiguraitons
       (l.attrValues exports.nixosProfiles.default.bootstrap)
       # (l.attrValues exports.profiles.default.<category>)
-      exports.nixosModules.default
-
+      exports.flops
+      (cell.lib.mkHome "guangtao" "flops" "zsh")
       # load the custom settings
-      exports.nixosModules.flops
     ];
   };
 }
