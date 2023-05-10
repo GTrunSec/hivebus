@@ -3,7 +3,7 @@
   cell,
 }: {
   default =
-    (inputs.cells.common.lib.loadNixOS (inputs.self + "/nixos/modules") {
+    (inputs.cells.common.lib.loadNixOS (inputs.self + "/nixos/nixosModules") {
       inherit inputs cell;
     })
     .addInputs {
