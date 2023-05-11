@@ -14,9 +14,9 @@
           namaka
           nix-init
           nickel
-          lsp-nls
+          # lsp-nls
           typst-dev
-          gptcommit
+          # gptcommit
         ];
       })
     ];

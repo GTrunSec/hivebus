@@ -13,15 +13,8 @@ in {
     bee.pkgs = import inputs.nixos {
       inherit system;
       config.allowUnfree = true;
-      overlays = [];
+      overlays = l.flatten exports.flops.overlays;
     };
-    imports = l.flatten [
-      # load the default/common nixosConfiguraitons
-      (l.attrValues exports.nixosProfiles.default.bootstrap)
-      # (l.attrValues exports.profiles.default.<category>)
-      exports.flops
-      (cell.lib.mkHome "guangtao" "flops" "zsh")
-      # load the custom settings
-    ];
+    imports = l.flatten exports.flops.imports;
   };
 }

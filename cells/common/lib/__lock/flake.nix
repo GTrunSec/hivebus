@@ -77,7 +77,7 @@
     typst.inputs.nixpkgs.follows = "nixpkgs";
 
     nickel.url = "github:tweag/nickel";
-    nickel.inputs.nixpkgs.follows = "nixpkgs";
+    # nickel.inputs.nixpkgs.follows = "nixpkgs";
 
     rust-overlay.url = "github:oxalica/rust-overlay";
     rust-overlay.inputs.nixpkgs.follows = "nixpkgs";
@@ -110,7 +110,7 @@
     attic.inputs.nixpkgs.follows = "nixpkgs";
 
     nixpkgs-hardenedlinux.url = "github:hardenedlinux/nixpkgs-hardenedlinux";
-    nixpkgs-hardenedlinux.inputs.nixpkgs.follows = "nixpkgs";
+    # nixpkgs-hardenedlinux.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {self, ...}: {};

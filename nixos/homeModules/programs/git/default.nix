@@ -7,8 +7,8 @@
         default = true;
         description = "Whether to Enable default profile";
       };
-      haskell = lib.kEnableOption (lib.mdDoc "Whether to Enable Haskell Profile");
-      gpg = lib.kEnableOption (lib.mdDoc "Whether to Enable GPG Profile");
+      haskell = lib.mkEnableOption (lib.mdDoc "Whether to Enable Haskell Profile");
+      gpg = lib.mkEnableOption (lib.mdDoc "Whether to Enable GPG Profile");
     };
   };
 }

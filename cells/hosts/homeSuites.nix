@@ -3,8 +3,7 @@
   cell,
 }: let
   l = inputs.nixpkgs.lib // builtins;
-  inherit (cell.pops) exports;
-  inherit (exports.homeProfiles) preset;
+  inherit (inputs.cells.nixos.pops) exports;
 in {
   flops = [
     exports.homeModules.default
