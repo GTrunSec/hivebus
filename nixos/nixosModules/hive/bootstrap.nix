@@ -1,5 +1,5 @@
-_: {lib, ...}: {
-  options.hive.bootstrap = with lib; {
+{lib}: {
+  _options = with lib; {
     minimal = mkOption {
       type = types.bool;
       default = true;

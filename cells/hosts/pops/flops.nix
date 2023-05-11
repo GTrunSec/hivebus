@@ -10,9 +10,8 @@
   inherit (inputs.cells.nixos.pops) exports;
 in {
   imports = [
-    nixosModules.flops
-    (self'.recipes.nixosModules.flops.outputsForTarget "nixosModules")
 
+    nixosModules.flops
     (cell.lib.mkHome "guangtao" "flops" "zsh")
 
     self.nixosSuites
@@ -21,7 +20,10 @@ in {
   overlays = overlays.flops;
 
   nixosSuites = [
-    (l.attrValues exports.nixosProfiles.bootstrap)
+    exports.nixosModules.default
+    (l.attrValues exports.nixosProfiles.preset.bootstrap)
+    exports.nixosProfiles.preset.virtualisation.docker
+    exports.nixosProfiles.preset.virtualisation.libvirtd
   ];
 
   homeSuites = [

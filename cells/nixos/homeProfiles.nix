@@ -5,7 +5,7 @@
   inherit (inputs) haumea flops;
 in
   flops.lib.configs.haumea.setInit {
-    src = ./homeProfiles;
+    src = inputs.self + "/nixos/homeProfiles";
     inputs = {
       inherit cell;
       inputs = removeAttrs inputs ["self"];
