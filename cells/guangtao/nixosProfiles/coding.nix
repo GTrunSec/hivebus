@@ -17,6 +17,7 @@
           lsp-nls
           typst-dev
           gptcommit
+          d2
         ];
       })
     ];

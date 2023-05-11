@@ -803,6 +803,25 @@ enchant-lsmod-2
   )
 #+end_src
 
+
+** d2-mode :d2:diagrams:
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! d2-mode)
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! d2-mode)
+#+end_src
+*** ob-d2 :d2:diagrams:orgmode:
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! ob-d2)
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! ob-d2)
+#+end_src
+
+
 ** [[https://github.com/xenodium/chatgpt-shell][xenodium/chatgpt-shell: ChatGPT and DALL-E Emacs shells + Org babel 🦄 + a shell maker for other providers]]
 
 #+begin_src emacs-lisp :tangle "packages.el"

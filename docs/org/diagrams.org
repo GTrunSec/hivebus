@@ -5,6 +5,23 @@
 
 
 
+
+* d2
+
+#+BEGIN_SRC d2 :file hello.png
+x -> y: hello world
+#+END_SRC
+
+#+RESULTS:
+[[file:hello.png]]
+
+#+BEGIN_SRC d2 :file flags.png
+High Mem Instance -> EC2 <- High CPU Instance: Hosted By
+#+END_SRC
+
+#+RESULTS:
+[[file:flags.png]]
+
 * dotsk
 #+begin_src dotsk :file attach/diagrams-dotsk.svg :exports both
 # http://www.graphviz.org/content/cluster
