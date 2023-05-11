@@ -32,7 +32,7 @@ in
 
     __inputs__ =
       (callInputs.addInputsOverride {
-        nixpkgs = callMainInputs.sysInputs.nixos;
+        # nixpkgs = callMainInputs.sysInputs.nixos;
       })
       .outputsForInputsCompat;
 

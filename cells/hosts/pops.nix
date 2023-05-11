@@ -18,7 +18,7 @@ in ((pops.default.setInitRecipes {
       exports = rec {
         flops = {
           imports = [
-            inputs.cells.nixos.pops.exports.nixosModules.default
+            nixosModules.flops
             (self.recipes.nixosModules.flops.outputsForTarget "nixosModules")
 
             cell.nixosSuites.flops
