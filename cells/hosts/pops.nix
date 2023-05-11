@@ -4,6 +4,7 @@
 }: let
   inherit (inputs.flops.lib.configs) pops;
   inherit (inputs.flops.inputs) POP;
+  inherit (inputs) haumea;
 
   l = inputs.nixpkgs.lib // builtins;
 in ((pops.default.setInitRecipes {
@@ -15,21 +16,23 @@ in ((pops.default.setInitRecipes {
   })
   .addExporters [
     (POP.lib.extendPop pops.exporter (self: super: {
-      exports = rec {
-        flops = {
-          imports = [
-            nixosModules.flops
-            (self.recipes.nixosModules.flops.outputsForTarget "nixosModules")
-
-            cell.nixosSuites.flops
-            (cell.lib.mkHome "guangtao" "flops" "zsh")
-          ];
-          overlays = overlays.flops;
-        };
-        overlays = self.recipes.overlays.outputsForTarget "default";
+      exports = let
         nixosModules = {
           flops = self.recipes.nixosModules.flops.outputsForTarget "nixosModules";
         };
-      };
+        overlays = self.recipes.overlays.outputsForTarget "default";
+      in
+        (haumea.lib.load {
+          src = ./pops;
+          inputs = {
+            inherit cell;
+            inputs = removeAttrs inputs ["self"];
+            inherit nixosModules overlays;
+            self' = self;
+          };
+        })
+        // {
+          inherit nixosModules overlays;
+        };
     }))
   ])

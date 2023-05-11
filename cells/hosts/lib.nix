@@ -40,6 +40,6 @@ in {
       stateVersion = cell.nixosConfigurations.${host}.bee.pkgs.lib.trivial.release;
       username = user;
     };
-    imports = l.flatten cell.homeSuites.${host};
+    imports = l.flatten cell.pops.exports.${host}.homeSuites;
   };
 }
