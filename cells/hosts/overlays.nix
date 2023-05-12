@@ -3,7 +3,7 @@ inputs.flops.lib.configs.haumea.setInit {
   inputs = {
     inherit cell;
     inputs = removeAttrs inputs ["self"];
-    exports = inputs.cells.nixos.pops.exports.overlays;
+    exports = inputs.cells.nixos.pops.exports;
     inherit (inputs.cells.common.lib) __inputs__ __utils__;
   };
 }

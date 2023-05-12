@@ -2,11 +2,8 @@
   inputs,
   cell,
 }: {
-  flops =
-    (inputs.cells.common.lib.loadNixOS ./nixosModules/flops {
-      inherit inputs cell;
-    })
-    .addInputs {
-      pkgs' = inputs.nixpkgs;
-    };
+  flops = inputs.cells.common.lib.loadNixOS ./nixosModules/flops {
+    inherit inputs cell;
+    pkgs' = inputs.nixpkgs;
+  };
 }

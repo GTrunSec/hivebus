@@ -15,7 +15,7 @@ x -> y: hello world
 #+RESULTS:
 [[file:hello.png]]
 
-#+BEGIN_SRC d2 :file flags.png
+#+BEGIN_SRC d2 :file flags.png :flags -t 101 -s
 High Mem Instance -> EC2 <- High CPU Instance: Hosted By
 #+END_SRC
 

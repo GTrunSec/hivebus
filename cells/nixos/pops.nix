@@ -8,6 +8,7 @@ in ((pops.default.setInitRecipes {
     overlays = cell.overlays;
     nixosModules = cell.nixosModules;
     nixosProfiles = cell.nixosProfiles;
+    darwinProfiles = cell.darwinProfiles;
     homeProfiles = cell.homeProfiles;
     homeModules = cell.homeModules;
   })
@@ -16,6 +17,7 @@ in ((pops.default.setInitRecipes {
       exports = {
         overlays = self.recipes.overlays.outputsForTarget "default";
 
+        darwinProfiles = self.recipes.darwinProfiles.outputsForTarget "default";
         nixosProfiles = self.recipes.nixosProfiles.outputsForTarget "default";
         homeProfiles = self.recipes.homeProfiles.outputsForTarget "default";
 

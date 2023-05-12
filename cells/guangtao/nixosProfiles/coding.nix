@@ -10,6 +10,7 @@
       inputs.cells.utils.nixosProfiles.vscode.guangtao
       languageServers
       ({pkgs, ...}: {
+    # environment.variables.PLAYWRIGHT_BROWSERS_PATH = pkgs.playwright-driver.browsers.outPath;
         environment.systemPackages = with pkgs; [
           namaka
           nix-init
@@ -18,6 +19,9 @@
           typst-dev
           gptcommit
           d2
+          # pkgs.playwright-driver.browsers
+          playwright
+          dolphin
         ];
       })
     ];
