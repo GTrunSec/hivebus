@@ -7,9 +7,10 @@ _: {pkgs, ...}: {
       nix-path = ["nixpkgs=${pkgs.path}"];
       allowed-users = ["@wheel"];
       trusted-users = ["root" "@wheel"];
-      auto-optimise-store = true;
+      # auto-optimise-store = true;
       system-features = ["nixos-test" "benchmark" "big-parallel" "kvm"];
       builders-use-substitutes = true;
+      sandbox = true;
       keep-derivations = true;
       auto-allocate-uids = true;
       use-cgroups = true;

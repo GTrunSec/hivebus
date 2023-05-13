@@ -17,23 +17,18 @@ in ((pops.default.setInitRecipes {
   })
   .addExporters [
     (POP.lib.extendPop pops.exporter (self: super: {
-      exports = let
-        nixosModules = {
-          flops = self.recipes.nixosModules.flops.outputsForTarget "nixosModules";
-        };
-        overlays = self.recipes.overlays.outputsForTarget "default";
-      in
+      exports =
         (haumea.lib.load {
           src = ./pops;
           inputs = {
             inherit cell;
             inputs = removeAttrs inputs ["self"];
-            inherit nixosModules overlays;
             self' = self;
           };
         })
         // {
-          inherit nixosModules overlays;
+          nixosModules = l.mapAttrs (_: v: v.outputsForTarget "nixosModules") self.recipes.nixosModules;
+          overlays = self.recipes.overlays.outputsForTarget "default";
         };
     }))
   ])

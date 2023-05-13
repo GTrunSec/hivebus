@@ -1,8 +1,6 @@
 {
   self',
-  overlays,
   cell,
-  nixosModules,
   inputs,
   self,
 }: let
@@ -16,7 +14,7 @@ in {
     self.darwinSuites
   ];
 
-  overlays = overlays.macbook;
+  overlays = self'.exports.overlays.macbook;
 
   darwinSuites = [
     # exports.darwinModules.default

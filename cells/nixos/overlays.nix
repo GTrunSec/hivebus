@@ -3,5 +3,6 @@
   inputs = {
     inherit cell;
     inputs = removeAttrs inputs ["self"];
+    secretsPath = with inputs; "${(std.incl self ["secrets"])}/secrets";
   };
 })

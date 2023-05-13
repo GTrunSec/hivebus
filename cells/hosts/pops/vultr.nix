@@ -8,26 +8,19 @@
   inherit (inputs.cells.nixos.pops) exports;
 in {
   imports = [
-
-    self'.exports.nixosModules.flops
-    (cell.lib.mkHome "guangtao" "flops" "zsh")
-
+    self'.exports.nixosModules.vultr
     self.nixosSuites
+    inputs.cells.users.userProfiles.root
   ];
 
-  overlays = self'.exports.overlays.flops;
+  overlays = self'.exports.overlays.vultr;
 
   nixosSuites = [
     exports.nixosModules.default
     (l.attrValues exports.nixosProfiles.preset.bootstrap)
-    exports.nixosProfiles.preset.virtualisation.docker
-    exports.nixosProfiles.preset.virtualisation.libvirtd
 
     exports.nixosProfiles.preset.secrets.age
   ];
 
-  homeSuites = [
-    exports.homeModules.default
-    exports.homeProfiles.shell.default
-  ];
+  opensshKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIz+2YjcxpmNnUwaf3pwxot0T4eiG80t34ihyfUkWZiq root@nixos-cloud";
 }
