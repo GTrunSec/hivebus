@@ -1,14 +1,15 @@
+:PROPERTIES:
+:ID: d2e14fe2-8e51-4eb0-9cc8-6e4cf627f1a2
+:header-args: :noweb tangle :comments noweb
+:END:
 #+TITLE: diagrams
 #+AUTHOR: GuangTao Zhang
 #+EMAIL: gtrunsec@hardenedlinux.org
 #+DATE: 2023-04-01 Sat 01:46
 
-
-
-
 * d2
 
-#+BEGIN_SRC d2 :file kubernetes_on_premise.png :flags --theme 200 :exports both
+#+BEGIN_SRC d2 :file kubernetes_on_premise.png :flags --theme 200 :tangle ./kubernetes_on_premise.d2
 #!/usr/bin/env d2 --theme 200
 #
 #  Author: Hari Sekhon
@@ -42,7 +43,7 @@ title: {
 classes: {
   network: {
     #icon: https://icons.terrastruct.com/essentials%2F092-network.svg
-    #icon: https://diagrams.mingrammer.com/img/resources/onprem/network/haproxy.png
+        #icon: https://diagrams.mingrammer.com/img/resources/onprem/network/haproxy.png
     icon: https://diagrams.mingrammer.com/img/resources/gcp/network/routes.png
     shape: image
   }
@@ -87,7 +88,7 @@ user_network: Network {class: network}
 user_network -> lb1
 user_network -> lb2
 # lb1 -- lb2: VRRP
-
+# d2: 2 ends here
 lb1: {class: load_balancer}
 lb2: {class: load_balancer}
 
@@ -138,8 +139,6 @@ storage2: {class: storage}
 
 #+RESULTS:
 [[file:kubernetes_on_premise.png]]
-
-
 
 #+BEGIN_SRC d2 :file hello.png
 x -> y: hello world

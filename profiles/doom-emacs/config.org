@@ -549,7 +549,7 @@ FACE defaults to inheriting from default and highlight."
 #+begin_src emacs-lisp :tangle "config.el"
 (use-package! iscroll
   :diminish
-  :hook (image-mode . iscroll-mode)
+  :hook (org-mode . iscroll-mode)
   :config
   (global-set-key [remap scroll-up-command] #'iscroll-up)
   (global-set-key [remap scroll-down-command] #'iscroll-down)
@@ -810,8 +810,12 @@ enchant-lsmod-2
 #+end_src
 
 #+begin_src emacs-lisp :tangle "config.el"
-(use-package! d2-mode)
+(use-package! d2-mode
+  :config
+  (add-to-list 'auto-mode-alist (cons "\\.d2\\'" 'd2-mode)))
 #+end_src
+
+
 *** ob-d2 :d2:diagrams:orgmode:
 #+begin_src emacs-lisp :tangle "packages.el"
 (package! ob-d2)

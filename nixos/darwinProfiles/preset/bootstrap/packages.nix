@@ -13,6 +13,8 @@ _: {
           wget
           curl
           unzip
+          fd
+          ripgrep
           gzip
           nixpkgs-fmt
           clang
