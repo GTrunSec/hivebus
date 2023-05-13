@@ -7,7 +7,7 @@
   inherit (root) preset;
 in {
   default = [
-    preset.git
+    preset.git.default
     preset.direnv
     preset.spell-check
     preset.tmux
@@ -35,10 +35,11 @@ in {
 
   users.guangtao = [
     preset.navi.guangtao
+    preset.git.guangtao
   ];
 
   minimal = [
-    preset.git
+    preset.git.default
   ];
 
   full = [
