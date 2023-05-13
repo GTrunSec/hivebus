@@ -137,7 +137,7 @@ storage2: {class: storage}
 #+END_SRC
 
 #+RESULTS:
-[[file:hello.png]]
+[[file:kubernetes_on_premise.png]]
 
 
 
