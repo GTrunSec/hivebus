@@ -5,5 +5,6 @@ inputs.flops.lib.configs.haumea.setInit {
     inputs = removeAttrs inputs ["self"];
     pkgs' = inputs.nixpkgs;
     lib = inputs.nixpkgs.lib;
+    nixosModulesPath = inputs.self + "/nixos/nixosModules";
   };
 }

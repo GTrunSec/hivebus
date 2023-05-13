@@ -1,0 +1,12 @@
+diff --git a/sketch.js b/sketch.js
+index 754b74e..a83dad2 100755
+--- a/sketch.js
++++ b/sketch.js
+@@ -193,6 +193,7 @@ function main() {
+                     process.exit(1);
+                 }
+                 console.log("Written as '" + output + "'.");
++                process.exit();
+             });
+         });
+         fs.readFile(input, {}, function (err, data) {

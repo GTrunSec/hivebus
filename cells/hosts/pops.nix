@@ -11,6 +11,7 @@ in ((pops.default.setInitRecipes {
     # host_1 = inputs.cells.nixos .modules.host_1
     # load current hosts's nixos modules
     nixosModules = cell.nixosModules;
+    homeModules = cell.homeModules;
     nixosProfiles = {};
     overlays = cell.overlays;
   })

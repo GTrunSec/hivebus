@@ -17,6 +17,8 @@ in ((pops.default.setInitRecipes {
       exports = {
         overlays = self.recipes.overlays.outputsForTarget "default";
 
+        nixpkgs = inputs.nixpkgs.appendOverlays self.exports.overlays;
+
         darwinProfiles = self.recipes.darwinProfiles.outputsForTarget "default";
         nixosProfiles = self.recipes.nixosProfiles.outputsForTarget "default";
         homeProfiles = self.recipes.homeProfiles.outputsForTarget "default";

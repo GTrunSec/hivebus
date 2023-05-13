@@ -3,7 +3,7 @@
   lib,
 }:
 lib.mapAttrs (name: value: {
-  homebrew.casks = value;
+  homebrew.brews = value;
 }) {
   default = [
     "fontconfig"

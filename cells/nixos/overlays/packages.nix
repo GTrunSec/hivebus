@@ -23,8 +23,19 @@ in
 
     namaka = __inputs__.namaka.packages.default;
 
+    nixUnstable = __inputs__.nix.packages.nix;
     # slurp = prev.slurp.overrideAttrs (_: {
     #   name = "slurp-PR-95";
     #   src = __utils__.slurp;
     # });
+    nrepl = (
+      prev.writeShellScriptBin "nrepl" ''
+        export PATH=${prev.coreutils}/bin:${prev.nixUnstable}/bin:$PATH
+        if [ -z "$1" ]; then
+           nix repl --argstr host "$HOST" --argstr flakePath "$PRJ_ROOT" ${./__repl.nix}
+         else
+           nix repl --argstr host "$HOST" --argstr flakePath $(readlink -f $1 | sed 's|/flake.nix||') ${./__repl.nix}
+         fi
+      ''
+    );
   }

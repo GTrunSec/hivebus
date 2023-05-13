@@ -8,6 +8,17 @@ in {
   nixos = [
     preset.chat
     preset.dropbox
+    self.doomemacs
   ];
-  darwin = [];
+
+  darwin = [
+    self.doomemacs
+  ];
+
+  doomemacs = [
+    preset.emacs.default
+    preset.emacs.doomemacs
+    preset.emacs.tree-sitter
+    preset.emacs.packages
+  ];
 }

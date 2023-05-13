@@ -25,7 +25,7 @@ in {
     HOMEBREW_PREFIX = brewPrefix;
     HOMEBREW_CELLAR = "${brewPrefix}/Cellar";
     HOMEBREW_REPOSITORY = brewPrefix;
-    MANPATH = "${brewPrefix}/share/man:$MANPATH:";
+    MANPATH = "${brewPrefix}/share/man:$MANPATH";
     INFOPATH = "${brewPrefix}/share/info:$INFOPATH";
   };
 }

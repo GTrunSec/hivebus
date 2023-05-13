@@ -6,9 +6,9 @@
 in
   l.mapAttrs (name: value: (
     assert value == "directory";
-      inputs.cells.common.lib.loadNixOS ./nixosModules/${name} {
+      inputs.cells.common.lib.loadNixOS ./homeModules/${name} {
         inherit inputs cell;
         pkgs' = inputs.nixpkgs;
         lib = inputs.nixpkgs.lib;
       }
-  )) (l.readDir ./nixosModules)
+  )) (l.readDir ./homeModules)

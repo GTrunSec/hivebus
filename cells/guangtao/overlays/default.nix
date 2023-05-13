@@ -45,6 +45,8 @@ in
 
     namaka = __inputs__.namaka.packages.default;
 
+    nixUnstable = __inputs__.nix.packages.nix;
+
     mind-wave = final.poetry2nix.mkPoetryEnv {
       projectDir = ../packages/mind-wave;
     };
