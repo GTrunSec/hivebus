@@ -13,6 +13,7 @@ in {
 
   darwin = [
     self.doomemacs
+    preset.diagrams
   ];
 
   doomemacs = [

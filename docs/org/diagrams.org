@@ -8,6 +8,139 @@
 
 * d2
 
+#+BEGIN_SRC d2 :file hello.png :flags --theme 200
+#!/usr/bin/env d2 --theme 200
+#
+#  Author: Hari Sekhon
+#  Date: 2023-05-06 00:27:56 +0100 (Sat, 06 May 2023)
+#
+#  vim:ts=2:sts=2:sw=2:et:filetype=d2
+#
+#  https://github.com/HariSekhon/Diagrams-as-Code
+#
+#  License: see accompanying Hari Sekhon LICENSE file
+#
+#  If you're using my code you're welcome to connect with me on LinkedIn and optionally send me feedback to help steer this or other code I publish
+#
+#  https://www.linkedin.com/in/HariSekhon
+#
+
+# ============================================================================ #
+#                  K u b e r n e t e s   O n - p r e m i s e
+# ============================================================================ #
+
+direction: right
+
+title: {
+  label: Kubernetes On-Premise
+  near: top-center
+  shape: text
+  style.font-size: 40
+  style.underline: true
+}
+
+classes: {
+  network: {
+    #icon: https://icons.terrastruct.com/essentials%2F092-network.svg
+    #icon: https://diagrams.mingrammer.com/img/resources/onprem/network/haproxy.png
+    icon: https://diagrams.mingrammer.com/img/resources/gcp/network/routes.png
+    shape: image
+  }
+  storage: {
+    label: "HA Networked Storage\nfor Kubernetes\nPersistent Volumes"
+    icon: https://icons.terrastruct.com/azure%2FStorage%20Service%20Color%2FGeneral%20Storage.svg
+    shape: image
+  }
+  load_balancer: {
+    label: "HA Load Balancer\n(HAProxy / Nginx / Traefik / Kong)"
+    # there isn't a good generic load balancer icon so using this for now - switch to one of the product specific icons if you know which one
+    icon: https://diagrams.mingrammer.com/img/resources/aws/network/elastic-load-balancing.png
+    # icon: https://diagrams.mingrammer.com/img/resources/onprem/network/haproxy.png
+    # icon: https://diagrams.mingrammer.com/img/resources/onprem/network/kong.png
+    # icon: https://diagrams.mingrammer.com/img/resources/onprem/network/traefik.png
+    # icon: https://landscape.cncf.io/logos/metal-lb.svg
+    shape: image
+  }
+  k8s: {
+    icon: https://icons.terrastruct.com/azure%2F_Companies%2FKubernetes.svg
+    shape: image
+  }
+  k8s_ingress: {
+    icon: https://diagrams.mingrammer.com/img/resources/k8s/network/ing.png
+    shape: image
+  }
+  server: {
+    icon: https://icons.terrastruct.com/essentials%2F112-server.svg
+    shape: image
+  }
+}
+
+users: Users {
+  icon: https://icons.terrastruct.com/essentials%2F359-users.svg
+  shape: image
+}
+
+users -> user_network
+
+user_network: Network {class: network}
+
+user_network -> lb1
+user_network -> lb2
+# lb1 -- lb2: VRRP
+
+lb1: {class: load_balancer}
+lb2: {class: load_balancer}
+
+lb1 -> network
+lb2 -> network
+
+network: Network {
+  class: network
+  # style.opacity: 0
+}
+
+network -> kube1
+network -> kube2
+network -> kube3
+
+kube1: Kubernetes 1 {class: k8s}
+kube2: Kubernetes 2 {class: k8s}
+kube3: Kubernetes 3 {class: k8s}
+
+kube1 -- Server 1
+kube2 -- Server 2
+kube3 -- Server 3
+
+Server 1.class: server
+Server 2.class: server
+Server 3.class: server
+
+# Server 1 -- Server 2 -- Server 3: VRRP {style.stroke-dash: 5}
+# Server 2 -- Server 3: VRRP {style.stroke-dash: 5}
+
+# keepalived1: KeepAlive 1
+# keepalived2: KeepAlive 2
+
+# lb1 -- keepalived1 -- keepalived2 -- lb2
+
+Server 1 -> storage_network
+Server 2 -> storage_network
+Server 3 -> storage_network
+
+storage_network: Network {class: network}
+
+storage_network -> storage1
+storage_network -> storage2
+
+storage1: {class: storage}
+storage2: {class: storage}
+#+END_SRC
+
+#+RESULTS:
+[[file:hello.png]]
+
+
+
 #+BEGIN_SRC d2 :file hello.png
 x -> y: hello world
 #+END_SRC
