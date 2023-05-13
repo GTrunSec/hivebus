@@ -1,0 +1,67 @@
+# nvfetcher.toml
+[StevenBlack-hosts]
+src.git = "https://github.com/StevenBlack/hosts"
+fetch.github = "StevenBlack/hosts"
+
+[brave]
+src.github = "brave/brave-browser"
+fetch.url = "https://github.com/brave/brave-browser/releases/download/v$ver/brave-browser_$ver_amd64.deb"
+src.prefix = "v"
+
+[drawio]
+src.github = "jgraph/drawio-desktop"
+fetch.url = "https://github.com/jgraph/drawio-desktop/releases/download/v$ver/drawio-x86_64-$ver.rpm"
+src.prefix = "v"
+
+[chord]
+src.manual = "0.2.38"
+fetch.url = "https://github.com/PeterDing/chord/releases/download/v$ver/chord-$ver-linux-x86_64.AppImage"
+
+# [wezterm-appimage]
+# src.cmd = "date +%m-%d-%Y"
+# fetch.url = "https://github.com/wez/wezterm/releases/download/nightly/WezTerm-nightly-Ubuntu18.04.AppImage"
+# [wezterm-darwin]
+# src.manual = "date +%m-%d-%Y"
+# fetch.url = "https://github.com/wez/wezterm/releases/download/nightly/WezTerm-macos-nightly.zip"
+[magnetw]
+src.github = "xiandanin/magnetW"
+fetch.url = "https://github.com/xiandanin/magnetW/releases/download/$ver/magnetw-$ver-linux.AppImage"
+
+[motrix]
+src.github = "agalwood/Motrix"
+fetch.url = "https://github.com/agalwood/Motrix/releases/download/v$ver/Motrix-$ver.AppImage"
+src.prefix = "v"
+
+[adguardhome]
+src.github = "AdguardTeam/AdGuardHome"
+fetch.url = "https://github.com/AdguardTeam/AdGuardHome/releases/download/$ver/AdGuardHome_linux_amd64.tar.gz"
+
+[spaceship-prompt]
+src.git = "https://github.com/spaceship-prompt/spaceship-prompt"
+fetch.github = "spaceship-prompt/spaceship-prompt"
+
+[promnesia]
+src.git = "https://github.com/karlicoss/promnesia"
+fetch.github = "karlicoss/promnesia"
+
+[HPI]
+src.pypi = "HPI"
+fetch.pypi = "HPI"
+
+[hug]
+src.pypi = "hug"
+fetch.pypi = "hug"
+
+[orgparse]
+src.pypi = "orgparse"
+fetch.pypi = "orgparse"
+
+[logseq-darwin]
+src.github = "logseq/logseq"
+#src.manual = "0.5.4"
+fetch.url = "https://github.com/logseq/logseq/releases/download/$ver/logseq-darwin-x64-$ver.dmg"
+
+[logseq]
+src.github = "logseq/logseq"
+# src.manual = "0.5.4"
+fetch.url = "https://github.com/logseq/logseq/releases/download/$ver/logseq-linux-x64-$ver.AppImage"

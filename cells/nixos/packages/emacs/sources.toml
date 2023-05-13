@@ -1,0 +1,15 @@
+[acm-terminal]
+src.git = "https://github.com/twlz0ne/acm-terminal"
+fetch.github = "twlz0ne/acm-terminal"
+
+[lsp-bridge]
+src.git = "https://github.com/manateelazycat/lsp-bridge"
+fetch.github = "manateelazycat/lsp-bridge"
+
+[jinx]
+src.git = "https://github.com/minad/jinx"
+fetch.github = "minad/jinx"
+
+[GodTian_Pinyin]
+src.git = "https://github.com/whatbeg/GodTian_Pinyin"
+fetch.github = "whatbeg/GodTian_Pinyin"

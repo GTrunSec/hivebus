@@ -1,0 +1,227 @@
+{
+    "HPI": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "HPI",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-xZbpipGGz7mWjw46+/YJr5mXkMonyOwC5qtU6Nt+Mp4=",
+            "type": "url",
+            "url": "https://pypi.io/packages/source/H/HPI/HPI-0.3.20230221.tar.gz"
+        },
+        "version": "0.3.20230221"
+    },
+    "StevenBlack-hosts": {
+        "cargoLocks": null,
+        "date": "2023-03-21",
+        "extract": null,
+        "name": "StevenBlack-hosts",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "StevenBlack",
+            "repo": "hosts",
+            "rev": "3887abb4598958122a0df03b3f098c523564abba",
+            "sha256": "sha256-HoNX57lCoIr36B/7HMuazWSWeAPPfWY1oZf6dXnxYIE=",
+            "type": "github"
+        },
+        "version": "3887abb4598958122a0df03b3f098c523564abba"
+    },
+    "adguardhome": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "adguardhome",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-Ai6QzmNrALHKxJIX5gx5GQiLlcpKRuT+ALxN0PDJQ9E=",
+            "type": "url",
+            "url": "https://github.com/AdguardTeam/AdGuardHome/releases/download/v0.107.26/AdGuardHome_linux_amd64.tar.gz"
+        },
+        "version": "v0.107.26"
+    },
+    "brave": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "brave",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-KSu6HaNKc7uVY1rSyzU+VZSE2dbIOOrsUx1RYKnz8yU=",
+            "type": "url",
+            "url": "https://github.com/brave/brave-browser/releases/download/v1.49.120/brave-browser_1.49.120_amd64.deb"
+        },
+        "version": "1.49.120"
+    },
+    "chord": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "chord",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-14rkxceyS0OwnOK14rICWnzLLkRB8dmqRkPq829znws=",
+            "type": "url",
+            "url": "https://github.com/PeterDing/chord/releases/download/v0.2.38/chord-0.2.38-linux-x86_64.AppImage"
+        },
+        "version": "0.2.38"
+    },
+    "drawio": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "drawio",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-FBnyogqf5BHLRInjJzC2dENnAwFcWMHDvJ+F0I3ffVg=",
+            "type": "url",
+            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v20.8.16/drawio-x86_64-20.8.16.rpm"
+        },
+        "version": "20.8.16"
+    },
+    "hug": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "hug",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-sO2s4qy2GIc3ecnObs+RZdtU/vlcIiYvVwD83Z/rrsk=",
+            "type": "url",
+            "url": "https://pypi.io/packages/source/h/hug/hug-2.6.1.tar.gz"
+        },
+        "version": "2.6.1"
+    },
+    "logseq": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "logseq",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-tD7uNSgcGMPyiA/HfOOZs3NRbWTrds0AdEXTaHYfUjk=",
+            "type": "url",
+            "url": "https://github.com/logseq/logseq/releases/download/0.8.18/logseq-linux-x64-0.8.18.AppImage"
+        },
+        "version": "0.8.18"
+    },
+    "logseq-darwin": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "logseq-darwin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-NL1/MeYfQhLaS2bFDjC5TUKKIATBE5WDXQiEvcLXWhY=",
+            "type": "url",
+            "url": "https://github.com/logseq/logseq/releases/download/0.8.18/logseq-darwin-x64-0.8.18.dmg"
+        },
+        "version": "0.8.18"
+    },
+    "magnetw": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "magnetw",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-ie6XGdd/HQCxIaLY5gGOgOXCHDJxcnaxgaO7plA5Eh8=",
+            "type": "url",
+            "url": "https://github.com/xiandanin/magnetW/releases/download/3.1.1/magnetw-3.1.1-linux.AppImage"
+        },
+        "version": "3.1.1"
+    },
+    "motrix": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "motrix",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-tE2Q7NM+cQOg+vyqyfRwg05EOMQWhhggTA6S+VT+SkM=",
+            "type": "url",
+            "url": "https://github.com/agalwood/Motrix/releases/download/v1.6.11/Motrix-1.6.11.AppImage"
+        },
+        "version": "1.6.11"
+    },
+    "orgparse": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "orgparse",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-RRBQ55rLelHGXcmbkJXq5NUL1ZhUE1T552PLTL31mlU=",
+            "type": "url",
+            "url": "https://pypi.io/packages/source/o/orgparse/orgparse-0.3.2.tar.gz"
+        },
+        "version": "0.3.2"
+    },
+    "promnesia": {
+        "cargoLocks": null,
+        "date": "2023-03-01",
+        "extract": null,
+        "name": "promnesia",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "karlicoss",
+            "repo": "promnesia",
+            "rev": "c4a7b47e198a3822dd540968c5a8e6b95ab51b53",
+            "sha256": "sha256-QMqvqspuqkyIsz05aA1xObT0tKaJmbts3Cn3O9rlQ1k=",
+            "type": "github"
+        },
+        "version": "c4a7b47e198a3822dd540968c5a8e6b95ab51b53"
+    },
+    "spaceship-prompt": {
+        "cargoLocks": null,
+        "date": "2023-03-08",
+        "extract": null,
+        "name": "spaceship-prompt",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "spaceship-prompt",
+            "repo": "spaceship-prompt",
+            "rev": "aa5887fa2c07f3beaefd52cd6004108f612d1d8d",
+            "sha256": "sha256-uFmGld5paCLNnE9yWgBLtthEBfwwMzlGCJFX6KqGJdw=",
+            "type": "github"
+        },
+        "version": "aa5887fa2c07f3beaefd52cd6004108f612d1d8d"
+    }
+}

@@ -37,11 +37,11 @@ in {
     mkMerge [
       {
         home.file.".config/guangtao-sources/lsp-bridge".source = lsp-bridge;
-        home.file.".config/guangtao-sources/jinx".source = jinx;
         home.file.".config/guangtao-sources/acm-terminal".source = pkgs.guangtao-sources.acm-terminal.src;
         home.file.".config/guangtao-sources/plantuml".source = pkgs.plantuml;
       }
       (mkIf pkgs.stdenv.isLinux {
+        home.file.".config/guangtao-sources/jinx".source = jinx;
         home.packages = with pkgs; [enchant2];
       })
       {

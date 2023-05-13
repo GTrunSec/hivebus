@@ -12,7 +12,7 @@ in {
   imports = [
 
     # nixosModules.flops
-    (cell.lib.mkHome "guangtao" "flops" "zsh")
+    (cell.lib.mkHome "guangtao" "macbook" "zsh")
 
     self.darwinSuites
   ];
@@ -36,8 +36,9 @@ in {
   homeSuites = [
     exports.homeModules.default
     exports.homeProfiles.shell.default
-    # load user's specific profiles
+    # # load user's specific profiles
     exports.homeProfiles.shell.users.guangtao
     exports.homeProfiles.apps.darwin
+    exports.homeProfiles.preset.emacs.doomemacs
   ];
 }

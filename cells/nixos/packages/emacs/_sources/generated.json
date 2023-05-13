@@ -1,0 +1,82 @@
+{
+    "GodTian_Pinyin": {
+        "cargoLocks": null,
+        "date": "2017-07-19",
+        "extract": null,
+        "name": "GodTian_Pinyin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "whatbeg",
+            "repo": "GodTian_Pinyin",
+            "rev": "e21e41510b6d440389966bb0b2a70b38fafc6741",
+            "sha256": "sha256-uSrj+hwai7fSJN7SWL5u80hp8nSzJ4XI5t/8s19uoV8=",
+            "type": "github"
+        },
+        "version": "e21e41510b6d440389966bb0b2a70b38fafc6741"
+    },
+    "acm-terminal": {
+        "cargoLocks": null,
+        "date": "2023-02-15",
+        "extract": null,
+        "name": "acm-terminal",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "twlz0ne",
+            "repo": "acm-terminal",
+            "rev": "321e05fc0398a6159925b858f46608ea07ef269e",
+            "sha256": "sha256-Flw07EwH9z0E3tqXs4mStICJmoHfp60ALrP1GmUmeuU=",
+            "type": "github"
+        },
+        "version": "321e05fc0398a6159925b858f46608ea07ef269e"
+    },
+    "jinx": {
+        "cargoLocks": null,
+        "date": "2023-05-03",
+        "extract": null,
+        "name": "jinx",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "minad",
+            "repo": "jinx",
+            "rev": "c9be25dade6d959dab26dc6e3a2775258cc127ff",
+            "sha256": "sha256-dnYTCEUo0EgO5Vbv/XcMADDinrUKM1ypSwkcjc3QVKo=",
+            "type": "github"
+        },
+        "version": "c9be25dade6d959dab26dc6e3a2775258cc127ff"
+    },
+    "lsp-bridge": {
+        "cargoLocks": null,
+        "date": "2023-05-03",
+        "extract": null,
+        "name": "lsp-bridge",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "manateelazycat",
+            "repo": "lsp-bridge",
+            "rev": "8515437471a2e0d69c00250976f07d66121fc5c6",
+            "sha256": "sha256-5aDfCDfqiWtK4fYH6DQByoTnvefifU/Cfd4aGCSlB2Y=",
+            "type": "github"
+        },
+        "version": "8515437471a2e0d69c00250976f07d66121fc5c6"
+    }
+}

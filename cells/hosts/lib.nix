@@ -13,7 +13,11 @@ in {
         ({pkgs, ...}: {
           home-manager.users.${user} = {
             inherit (cell.homeConfigurations."${host}") imports;
-            home.stateVersion = cell.nixosConfigurations.${host}.bee.pkgs.lib.trivial.release;
+            home.stateVersion =
+              if nixpkgs.stdenv.isDarwin then
+                cell.darwinConfigurations.${host}.bee.pkgs.lib.trivial.release
+              else
+                cell.nixosConfigurations.${host}.bee.pkgs.lib.trivial.release;
           };
           users.users.${user} = {
             shell = pkgs."${shell}";
