@@ -10,8 +10,7 @@
   inherit (inputs.cells.nixos.pops) exports;
 in {
   imports = [
-
-    # nixosModules.flops
+    # darwinModules.macbook
     (cell.lib.mkHome "guangtao" "macbook" "zsh")
 
     self.darwinSuites
@@ -36,8 +35,8 @@ in {
   homeSuites = [
     exports.homeModules.default
     exports.homeProfiles.shell.default
-    # # load user's specific profiles
-    exports.homeProfiles.shell.users.guangtao
+    # load user's specific profiles
+    exports.homeProfiles.preset.users.guangtao
     exports.homeProfiles.apps.darwin
     exports.homeProfiles.preset.emacs.doomemacs
   ];

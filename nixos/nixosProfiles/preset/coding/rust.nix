@@ -12,13 +12,13 @@ _: {
           rust-bin.nightly.latest."rust-analyzer-preview"
           tokio-console
         ];
+        hive.env.PATH = [
+          "\${CARGO_BIN}"
+          "\${CARGO_HOME}"
+        ];
         environment.variables = {
           CARGO_HOME = "\${HOME}/.cargo";
           CARGO_BIN = "\${HOME}/.cargo/bin";
-          # PATH = [
-          #   "\${CARGO_BIN}"
-          #   "\${CARGO_HOME}"
-          # ];
         };
       }
     ];

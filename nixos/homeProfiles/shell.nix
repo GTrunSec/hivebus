@@ -7,7 +7,8 @@
   inherit (root) preset;
 in {
   default = [
-    preset.git.default
+    self.minimal
+    self.utils
     preset.direnv
     preset.spell-check
     preset.tmux
@@ -15,7 +16,6 @@ in {
     preset.fzf
     preset.zoxide
     preset.zsh.default
-    # preset.alacritty
     preset.dircolors.default
     preset.starship.default
     preset.gh
@@ -23,25 +23,22 @@ in {
     preset.atuin
     preset.bat.default
     preset.bat.catppuccin-mocha
-    preset.navi.default
+    preset.navi
+    (lib.optional pkgs'.stdenv.isDarwin preset.wezterm.default)
+    (lib.optional pkgs'.stdenv.isLinux preset.alacritty)
+  ];
+
+  minimal = [
+    preset.git
+  ];
+
+  utils = [
     {
       programs.btop.enable = true;
       programs.bat.enable = true;
       programs.jq.enable = true;
     }
-    (lib.optional pkgs'.stdenv.isDarwin preset.wezterm.default)
-    (lib.optional pkgs'.stdenv.isLinux preset.alacritty)
   ];
-
-  users.guangtao = [
-    preset.navi.guangtao
-    preset.git.guangtao
-  ];
-
-  minimal = [
-    preset.git.default
-  ];
-
   full = [
     self.default
     self.minimal

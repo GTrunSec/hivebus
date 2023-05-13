@@ -2,7 +2,8 @@
   _options = with lib; {
     PATH = lib.mkOption {
       default = [];
-      type = types.list types.unspecified;
+      type = types.listOf types.str;
+      apply = x: lib.concatStringsSep ":" x;
       description = ''
         A list of directories that will be added to the PATH environment
       '';
