@@ -8,7 +8,7 @@
 
 * d2
 
-#+BEGIN_SRC d2 :file hello.png :flags --theme 200
+#+BEGIN_SRC d2 :file kubernetes_on_premise.png :flags --theme 200 :exports both
 #!/usr/bin/env d2 --theme 200
 #
 #  Author: Hari Sekhon
