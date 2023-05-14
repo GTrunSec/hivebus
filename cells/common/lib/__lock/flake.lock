@@ -2490,11 +2490,11 @@
         "std-ext": "std-ext_2"
       },
       "locked": {
-        "lastModified": 1683809456,
-        "narHash": "sha256-/TlE7+n3R+qZsse5k/adKIgT9rcF3E+6UT83yHZQM9I=",
+        "lastModified": 1683938250,
+        "narHash": "sha256-OV9/9Tl4RcsjI5AUhhfiK+e0GoJPcqBXcrDGWtta2gw=",
         "owner": "hardenedlinux",
         "repo": "nixpkgs-hardenedlinux",
-        "rev": "b0d8e8846c1ac42b453c8fb32d8de283956263a6",
+        "rev": "5a8eeaededf4612a578df8c95be0741ac225bd3f",
         "type": "github"
       },
       "original": {

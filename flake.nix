@@ -11,6 +11,7 @@
 
     std-ext.url = "github:gtrunsec/std-ext";
     std-ext.inputs.std.follows = "std";
+    std-ext.inputs.flops.follows = "flops";
     std-data-collection.follows = "std-ext/std-data-collection";
 
     hive.url = "github:divnix/hive";
