@@ -4,9 +4,9 @@
   config,
   ...
 }: {
-  age.secrets.chatgpt-web.file = pkgs.lib.age.file "chatgpt-web.age";
+  age.secrets.chatgpt-web.file = pkgs.lib.age.file "vultr/chatgpt-web.age";
   age.secrets.chatgpt-web.mode = "0444";
-  age.secrets.chatgpt-web-passwd.file = pkgs.lib.age.file "chatgpt-web-passwd.age";
+  age.secrets.chatgpt-web-passwd.file = pkgs.lib.age.file "vultr/chatgpt-web-passwd.age";
   age.secrets.chatgpt-web-passwd.mode = "0444";
 
   networking.firewall.allowedTCPPorts = [80 443];

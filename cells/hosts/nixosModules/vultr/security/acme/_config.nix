@@ -3,7 +3,7 @@
   pkgs,
   ...
 }: {
-  age.secrets.acme-cloudflare.file = pkgs.lib.age.file "acme-cloudflare.age";
+  age.secrets.acme-cloudflare.file = pkgs.lib.age.file "vultr/acme-cloudflare.age";
 
   security.acme.certs."zhangguangtao.org" = {
     dnsProvider = "cloudflare";
