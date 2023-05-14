@@ -1,6 +1,6 @@
 {secretsPath}: final: prev: let
-  in {
+in {
   lib = prev.lib.extend (lself: lsuper: {
-    age.file = file: lsuper.path.append secretsPath file;
+    age.file = file: secretsPath + file;
   });
 }

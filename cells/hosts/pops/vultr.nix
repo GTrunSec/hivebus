@@ -10,6 +10,7 @@ in {
   imports = [
     self'.exports.nixosModules.vultr
     self.nixosSuites
+
     inputs.cells.users.userProfiles.root
   ];
 

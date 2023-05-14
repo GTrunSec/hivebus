@@ -4,6 +4,7 @@
 }: let
   inherit (inputs.flops.lib.configs) pops;
   inherit (inputs.flops.inputs) POP;
+  l = inputs.nixpkgs.lib // builtins;
 in ((pops.default.setInitRecipes {
     overlays = cell.overlays;
     nixosModules = cell.nixosModules;
@@ -17,7 +18,7 @@ in ((pops.default.setInitRecipes {
       exports = {
         overlays = self.recipes.overlays.outputsForTarget "default";
 
-        nixpkgs = inputs.nixpkgs.appendOverlays self.exports.overlays;
+        nixpkgs = inputs.nixpkgs.appendOverlays (l.attrValues self.exports.overlays);
 
         darwinProfiles = self.recipes.darwinProfiles.outputsForTarget "default";
         nixosProfiles = self.recipes.nixosProfiles.outputsForTarget "default";
