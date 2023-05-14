@@ -18,17 +18,85 @@
 
 ** fileSystems
 
-#+begin_src nix :tangle :tangle (concat (org-entry-get nil "PRJ-DIR" t) "/fileSystems/gvfs.nix")
+#+begin_src nix :tangle (concat (org-entry-get nil "PRJ-DIR" t) "/fileSystems/gvfs.nix")
 {
   services.gvfs.enable = true;
 }
 #+end_src
 
 
-#+begin_src chatgpt-shell :exports both :results raw
+#+begin_src chatgpt-shell :exports both
 what's services.gvfs in the nixos?
 #+end_src
 
 #+RESULTS:
 GVFS stands for Gnome Virtual File System, which is a service that provides a virtual file system for the GNOME desktop environment. It allows users to access remote file systems, browse and mount disks, manage files, and perform other file-related operations. In NixOS, services.gvfs enables GVFS in the desktop environment, allowing users to access remote file systems and perform other file-related operations.
 services.gvfs is a component in the NixOS operating system that allows the system to interact with various file systems such as USB drives, CD/DVD drives, and remote file systems using the Gnome Virtual File System (GVFS) technology. GVFS provides a layer between the operating system and the file systems, allowing for automatic mounting and unmounting of devices and enabling users to browse and access files on remote servers over various protocols like FTP, SMB, SSH, etc. The services.gvfs module is responsible for managing this functionality in NixOS.
+
+** backup
+
+*** btrbk :btrfs:
+#+begin_src nix :tangle (concat (org-entry-get nil "PRJ-DIR" t) "/backup/btrbk.nix")
+# credit: https://github.com/LEXUGE/flake/blob/main/cfgs/x1c7/services.nix
+{
+  # Use btrbk to snapshot persistent states and home
+  services.btrbk.instances.snapshot = {
+    # snapshot on the start and the middle of every hour.
+    onCalendar = "*:00,30";
+    settings = {
+      timestamp_format = "long-iso";
+      preserve_day_of_week = "monday";
+      preserve_hour_of_day = "23";
+      # All snapshots are retained for at least 6 hours regardless of other policies.
+      snapshot_preserve_min = "6h";
+      volume."/" = {
+        snapshot_dir = ".snapshots";
+        subvolume."persist".snapshot_preserve = "48h 7d";
+        subvolume."persist/home".snapshot_preserve = "48h 7d 4w";
+      };
+    };
+  };
+}
+#+end_src
+
+
+#+begin_src chatgpt-shell :exports both
+how to setup the services.btrbk.instances.snapshot in the nixos?
+#+end_src
+
+#+RESULTS:
+To set up the services.btrbk.instances.snapshot in NixOS, follow these steps:
+
+1. Edit your NixOS configuration file, usually located at /etc/nixos/configuration.nix, using your preferred text editor.
+
+2. Add the following lines to your configuration:
+
+```
+services.btrbk.instances.snapshot = {
+  interval = "daily"; # or "weekly", "monthly", etc.
+  source = "/mnt/data"; # replace with the path to your BtrFS filesystem
+  destination = "/mnt/backups/snapshots"; # replace with the path to your backup folder
+};
+```
+
+3. Save and close the configuration file.
+
+4. Run the following command to update your NixOS configuration:
+
+```
+sudo nixos-rebuild switch
+```
+
+5. Verify that BtrBK installed properly by running the following command:
+
+```
+which btrbk
+```
+
+6. To back up your BtrFS filesystem using BtrBK, run the following command:
+
+```
+sudo btrbk snap
+```
+
+7. Your BtrFS snapshots will now be stored in the destination folder you specified in your configuration.

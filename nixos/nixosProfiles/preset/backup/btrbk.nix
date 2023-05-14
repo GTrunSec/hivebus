@@ -1,3 +1,4 @@
+# [[file:../../../../docs/org/nixosProfiles.org::*btrbk][btrbk:1]]
 # credit: https://github.com/LEXUGE/flake/blob/main/cfgs/x1c7/services.nix
 {
   # Use btrbk to snapshot persistent states and home
@@ -18,3 +19,4 @@
     };
   };
 }
+# btrbk:1 ends here
