@@ -1,0 +1,32 @@
+:PROPERTIES:
+:ID:       86813293-cfd7-4fcd-90a8-5099642770c4
+:header-args: :noweb tangle :comments noweb
+:END:
+#+TITLE: nixosProfiles
+#+AUTHOR: GuangTao Zhang
+#+EMAIL: gtrunsec@hardenedlinux.org
+#+DATE: 2023-05-14 Sun 11:06
+
+
+
+
+* preset
+:PROPERTIES:
+:PRJ-DIR: ../../nixos/nixosProfiles/preset
+:END:
+
+** fileSystems
+
+#+begin_src nix :tangle :tangle (concat (org-entry-get nil "PRJ-DIR" t) "/fileSystems/gvfs.nix")
+{
+  services.gvfs.enable = true;
+}
+#+end_src
+
+
+#+begin_src chatgpt-shell
+what's services.gvfs in the nixos?
+#+end_src
+
+#+RESULTS:
+Services.gvfs in NixOS refers to the gvfs daemon, which provides an interface to GVFS (GNOME Virtual File System) for non-GNOME desktop environments. GVFS allows the desktop to access and manipulate files and folders on remote or virtual file systems, such as FTP, SFTP, SMB, or MTP. The gvfs daemon runs in the background and manages the mounting and unmounting of remote file systems, as well as file operations such as copying, pasting, and deleting. By enabling the Services.gvfs option in NixOS configuration, users can access the GVFS functionality and integrate it with their preferred file managers or desktop environments.
