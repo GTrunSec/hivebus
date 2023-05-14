@@ -12,7 +12,7 @@
   in {
     "nvfetcher-${x}" = {
       content = ''
-        nix develop github:GTrunSec/std-ext#update --refresh --command nvfetcher-update nix/guangtao/packages/${x'}/sources.toml
+        nix develop github:GTrunSec/std-ext#update --refresh --command nvfetcher-update cells/guangtao/packages/${x'}/sources.toml
       '';
       description = "update ${x} toolchain with nvfetcher";
     };

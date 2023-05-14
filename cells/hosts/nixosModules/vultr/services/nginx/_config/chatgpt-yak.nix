@@ -1,10 +1,14 @@
-{
+{inputs}: {
   pkgs,
   config,
   ...
 }: let
 in {
-  age.secrets.chatgpt-yak.file = pkgs.lib.age.file "chatgpt-yak.age";
+  imports = [
+    inputs.cells.nixos.pops.exports.nixosProfiles.preset.services.chatgpt.web-yak
+  ];
+
+  age.secrets.chatgpt-yak.file = pkgs.lib.age.file "vultr/chatgpt-yak.age";
   age.secrets.chatgpt-yak.mode = "444";
 
   services.nginx = {

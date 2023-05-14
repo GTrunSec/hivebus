@@ -38,11 +38,11 @@ nvfetcher path:
 
 # update default toolchain with nvfetcher
 nvfetcher-default:
-    nix develop github:GTrunSec/std-ext#update --refresh --command nvfetcher-update nix/guangtao/packages/./sources.toml
+    nix develop github:GTrunSec/std-ext#update --refresh --command nvfetcher-update cells/guangtao/packages/./sources.toml
 
 # update emacs toolchain with nvfetcher
 nvfetcher-emacs:
-    nix develop github:GTrunSec/std-ext#update --refresh --command nvfetcher-update nix/guangtao/packages/emacs/sources.toml
+    nix develop github:GTrunSec/std-ext#update --refresh --command nvfetcher-update cells/guangtao/packages/emacs/sources.toml
 
 # update packages via nvfetcher
 nvfetcher-update cell:
