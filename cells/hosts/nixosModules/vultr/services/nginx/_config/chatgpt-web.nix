@@ -9,11 +9,6 @@
   age.secrets.chatgpt-web-passwd.file = pkgs.lib.age.file "vultr/chatgpt-web-passwd.age";
   age.secrets.chatgpt-web-passwd.mode = "0444";
 
-  networking.firewall.allowedTCPPorts = [80 443];
-  networking.firewall.allowedUDPPorts = [443];
-
-  users.users.nginx.extraGroups = [config.users.groups.acme.name];
-
   services.nginx = {
     virtualHosts = {
       "chatgpt.zhangguangtao.org" = {
