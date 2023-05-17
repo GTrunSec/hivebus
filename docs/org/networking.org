@@ -1,0 +1,10 @@
+#+TITLE: networking
+#+AUTHOR: GuangTao Zhang
+#+EMAIL: gtrunsec@hardenedlinux.org
+#+DATE: 2023-05-14 Sun 19:11
+
+
+
+* IPv4 and IPv6
+
+- [prefer-ipv4] https://github.com/pmeiyu/nixos-config/blob/c792b85417a4df748396c743d26fbd2bd1659b37/modules/network.nix#L12

@@ -21,7 +21,5 @@ in {
     ]
     ++ inputs.cells.utils.homeSuites.mathematical;
 
-  libvirtd_1 = homeProfiles.default;
-
   vultr = [];
 }

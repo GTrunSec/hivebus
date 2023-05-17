@@ -24,5 +24,5 @@ in {
     exports.nixosProfiles.preset.cloud.default
   ];
 
-  opensshKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIz+2YjcxpmNnUwaf3pwxot0T4eiG80t34ihyfUkWZiq root@nixos-cloud";
+  opensshPublicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIz+2YjcxpmNnUwaf3pwxot0T4eiG80t34ihyfUkWZiq root@nixos-cloud";
 }

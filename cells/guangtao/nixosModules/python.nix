@@ -37,6 +37,7 @@
             openai
             sexpdata
             six
+            python-lsp-server
           ]
           ++ lib.optional pkgs.stdenv.isLinux [
             pyqt6

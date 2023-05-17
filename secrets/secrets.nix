@@ -1,11 +1,14 @@
 let
   flake = (__getFlake (__toPath ../.)).${__currentSystem};
-  opensshKeys = flake.users.userProfiles.openssh;
+  # opensshKeys = flake.users.userProfiles.openssh;
   exports = flake.hosts.pops.exports;
 
   # Common keys for all hosts
-  common = with opensshKeys; [desktop macbook];
-  cloud = [exports.vultr.opensshKey];
+  common = [
+    exports.desktop.opensshPublicKey
+    exports.macbook.opensshPublicKey
+  ];
+  cloud = [exports.vultr.opensshPublicKey];
 in {
   "vultr/attic-cert.age".publicKeys = common ++ cloud;
   "vultr/acme-cloudflare.age".publicKeys = common ++ cloud;

@@ -2022,11 +2022,11 @@
         "topiary": "topiary"
       },
       "locked": {
-        "lastModified": 1683800431,
-        "narHash": "sha256-scdjS3NVy2/WGuZUYWOWsHSFswbXFabUPOuP2qJCR1c=",
+        "lastModified": 1684327843,
+        "narHash": "sha256-8peoO3B5LHKiTUyDLpe0A2xg82LPI7l2vuGdyNhV478=",
         "owner": "tweag",
         "repo": "nickel",
-        "rev": "ffa3d0c63526a6bc2cd86cc73a51d24205901b0c",
+        "rev": "c4da6975b39e700b4e78b7dc2faf8610bb901ea3",
         "type": "github"
       },
       "original": {

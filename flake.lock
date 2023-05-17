@@ -231,6 +231,8 @@
     },
     "dmerge_2": {
       "inputs": {
+        "haumea": "haumea_2",
+        "namaka": "namaka_2",
         "nixlib": [
           "std",
           "nixpkgs"
@@ -241,16 +243,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1659548052,
-        "narHash": "sha256-fzI2gp1skGA8mQo/FBFrUAtY0GQkAIAaV/V127TJPyY=",
+        "lastModified": 1684178600,
+        "narHash": "sha256-EtSQcCHRQUBBEj4vbYU0vgPUYiKP261ero5k1QfQ3Bc=",
         "owner": "divnix",
-        "repo": "data-merge",
-        "rev": "d160d18ce7b1a45b88344aa3f13ed1163954b497",
+        "repo": "dmerge",
+        "rev": "ac9932f26325afac5baa59cf6478432d17762a4e",
         "type": "github"
       },
       "original": {
         "owner": "divnix",
-        "repo": "data-merge",
+        "ref": "0.2.0",
+        "repo": "dmerge",
         "type": "github"
       }
     },
@@ -527,6 +530,28 @@
         "type": "github"
       }
     },
+    "haumea_2": {
+      "inputs": {
+        "nixpkgs": [
+          "std",
+          "dmerge",
+          "nixlib"
+        ]
+      },
+      "locked": {
+        "lastModified": 1681176209,
+        "narHash": "sha256-bJLDun6esIyWtwRVXcsgzGbh4UKu8wJDrPgykqPyzmg=",
+        "owner": "nix-community",
+        "repo": "haumea",
+        "rev": "b915b66b27da3a595d77b139e945bb0a2fcac926",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "haumea",
+        "type": "github"
+      }
+    },
     "hive": {
       "inputs": {
         "colmena": [
@@ -689,6 +714,34 @@
           "haumea"
         ],
         "nixpkgs": "nixpkgs_2"
+      },
+      "locked": {
+        "lastModified": 1683059428,
+        "narHash": "sha256-ZTMqleCWmuNWhZE375gtF1j1JRkaKEUFN1AM43e7h4Y=",
+        "owner": "nix-community",
+        "repo": "namaka",
+        "rev": "2deba2f416454aec770bc1cc7365e39c73e6b1d7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "ref": "v0.1.1",
+        "repo": "namaka",
+        "type": "github"
+      }
+    },
+    "namaka_2": {
+      "inputs": {
+        "haumea": [
+          "std",
+          "dmerge",
+          "haumea"
+        ],
+        "nixpkgs": [
+          "std",
+          "dmerge",
+          "nixlib"
+        ]
       },
       "locked": {
         "lastModified": 1683059428,
@@ -1404,11 +1457,11 @@
         "yants": "yants_4"
       },
       "locked": {
-        "lastModified": 1683931644,
-        "narHash": "sha256-FLwQnUGionB8Er6MOGgGWTSl0cYPUwtr9jznTQ9m85s=",
+        "lastModified": 1684352580,
+        "narHash": "sha256-ICkTgMc2GdXF76dsD4NQ4WT/IJXl7pqJrExjaj1/Zv8=",
         "owner": "divnix",
         "repo": "std",
-        "rev": "bcabab562f34c7c29a8afdb44221b3dcd07da6ee",
+        "rev": "0b42b042cd6768bf9ecd04e9622092d14c5e93ac",
         "type": "github"
       },
       "original": {
@@ -1456,11 +1509,11 @@
         "std-data-collection": "std-data-collection"
       },
       "locked": {
-        "lastModified": 1684023520,
-        "narHash": "sha256-+99ex4h6UpmzQkdyJkV3mBFGdNPm8wZrsWvley2lHUQ=",
+        "lastModified": 1684352651,
+        "narHash": "sha256-BuGRELuoTawV7DZ4iAlKqMQBlNM8VQr1lPMlbvwWdAk=",
         "owner": "gtrunsec",
         "repo": "std-ext",
-        "rev": "5602be2bc23caa6f59a5d96443a395eaaae1a12d",
+        "rev": "27582206af98f4d43a3d4024c1a234c6d3c701d4",
         "type": "github"
       },
       "original": {

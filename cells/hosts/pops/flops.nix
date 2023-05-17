@@ -8,9 +8,10 @@
   inherit (inputs.cells.nixos.pops) exports;
 in {
   imports = [
-
     self'.exports.nixosModules.flops
     (cell.lib.mkHome "guangtao" "flops" "zsh")
+
+    inputs.cells.users.nixosProfiles.root
 
     self.nixosSuites
   ];

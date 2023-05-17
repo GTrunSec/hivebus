@@ -38,4 +38,6 @@ in {
     exports.homeProfiles.apps.darwin
     exports.homeProfiles.preset.emacs.doomemacs
   ];
+
+  opensshPublicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINK1QW0lG58r6yaI9xMQ+D5XA7RUQF8lfBanNs36Wrlw guangtaos-MBP.attlocal.net-guangtao-21-02-2023";
 }
