@@ -9,9 +9,7 @@ _: {
       (mkIf pkgs.stdenv.isLinux {
         programs.emacs = {
           enable = true;
-          package = pkgs.emacsPgtk.override {
-            inherit treeSitterPlugins;
-          };
+          package = pkgs.emacsPgtk;
           extraPackages = epkgs:
             with epkgs; [
               vterm

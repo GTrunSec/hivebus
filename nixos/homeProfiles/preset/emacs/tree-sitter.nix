@@ -62,5 +62,13 @@ in {
           ln -sfT ${tree-sitter-grammars}/lib $HOME/.emacs.d/.local/cache/tree-sitter
         '';
       }
+      (mkIf pkgs.stdenv.isLinux {
+        programs.emacs = {
+          enable = true;
+          package = mkForce (pkgs.emacsPgtk.override {
+            inherit treeSitterPlugins;
+          });
+        };
+      })
     ];
 }

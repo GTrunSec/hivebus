@@ -5,6 +5,19 @@
   l = inputs.nixpkgs.lib // builtins;
   inherit (cell.pops) exports;
 in {
+  desktop = let
+    system = "x86_64-linux";
+  in {
+    bee.system = system;
+    bee.home = inputs.home;
+    bee.pkgs = import inputs.nixos {
+      inherit system;
+      config.allowUnfree = true;
+      overlays = l.flatten exports.desktop.overlays;
+    };
+    imports = l.flatten exports.desktop.imports;
+  };
+
   flops = let
     system = "x86_64-linux";
   in {

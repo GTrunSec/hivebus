@@ -18,3 +18,4 @@ profiles/*.el
 
 profiles/doom-emacs/modules/private/my-code
 profiles/doom-emacs/modules/private/my-org
+/tf

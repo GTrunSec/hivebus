@@ -1,8 +1,8 @@
-_:  {disks ? ["/dev/sda"], ...}: {
+_: {disk ? "", ...}: {
   disk = {
     sda = {
       type = "disk";
-      device = builtins.elemAt disks 0;
+      device = disk;
       content = {
         type = "table";
         format = "gpt";
@@ -32,7 +32,7 @@ _:  {disks ? ["/dev/sda"], ...}: {
             end = "100%";
             content = {
               type = "btrfs";
-              extraArgs = "-f";
+              extraArgs = ["-f"];
               subvolumes = {
                 "/rootfs" = {
                   mountpoint = "/";

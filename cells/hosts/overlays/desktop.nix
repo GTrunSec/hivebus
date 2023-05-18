@@ -5,7 +5,11 @@
 }: let
   l = inputs.nixpkgs.lib // builtins;
 in [
-  (l.attrValues exports)
+  exports.overlays.packages
+  exports.overlays.default
+  exports.overlays.nodePackages
+  exports.overlays.python
+
   __inputs__.rust-overlay.overlays.default
   __inputs__.nixpkgs-wayland.overlays.default
   __inputs__.poetry2nix.overlay
@@ -13,7 +17,7 @@ in [
   __inputs__.nur.overlay
   __inputs__.julia2nix.overlays.default
 
-  inputs.cells.emacs.overlays.emacs-overlay
-  inputs.cells.utils.overlays.vscode
-  inputs.cells.utils.overlays.vscode-extensions
+  __inputs__.emacs-overlay.overlays.default
+  exports.overlays.vscode.default
+  exports.overlays.vscode.vscode-extensions
 ]

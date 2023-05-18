@@ -12,7 +12,7 @@
   in {
     "nvfetcher-${x}" = {
       content = ''
-        nix develop github:GTrunSec/std-ext#update --refresh --command nvfetcher-update cells/guangtao/packages/${x'}/sources.toml
+        nix develop github:GTrunSec/std-ext#update --refresh --command nvfetcher-update cells/nixos/packages/${x'}/sources.toml
       '';
       description = "update ${x} toolchain with nvfetcher";
     };
@@ -36,13 +36,7 @@ in
       args = ["action"];
       description = "Colmena build Guangtao Home Machine";
       content = ''
-        colmena {{action}} --on guangtao-desktop
-      '';
-    };
-    libvirtd_1 = {
-      description = "Colmena build Guangtao Libvirtd Machine";
-      content = ''
-        colmena build --on guangtao-libvirtd_1
+        colmena {{action}} --on hosts-desktop
       '';
     };
     age = {
@@ -63,7 +57,7 @@ in
       args = ["machine"];
       description = "build darwin machine";
       content = ''
-        darwin-rebuild build --flake .#guangtao-o-{{machine}}
+        darwin-rebuild build --flake .#hosts-{{machine}}
       '';
     };
     nvfetcher-update = {
@@ -76,7 +70,7 @@ in
     node2nix-update = {
       description = "update packages via nvfetcher";
       content = ''
-        cd $PRJ_ROOT/cells/guangtao/packages/my-node-packages && sh ./upgrade.sh
+        cd $PRJ_ROOT/cells/nixos/packages/my-node-packages && sh ./upgrade.sh
       '';
     };
   }

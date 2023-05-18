@@ -1,3 +1,3 @@
-inputs.flops.lib.configs.haumea.setInit {
+inputs.haumea.lib.load {
   src = ./diskoConfigurations;
 }

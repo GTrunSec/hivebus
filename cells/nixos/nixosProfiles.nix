@@ -4,5 +4,6 @@ inputs.flops.lib.configs.haumea.setInit {
     inherit cell;
     inputs = removeAttrs inputs ["self"];
     pkgs' = inputs.nixpkgs;
+    __inputs__ = inputs.cells.common.lib.__inputs__;
   };
 }

@@ -1,7 +1,7 @@
-{inputs}: {pkgs, ...}: let
-  __inputs__ = inputs.cells.common.lib.__inputs__;
+{__inputs__}: {pkgs, ...}: let
 in {
   imports = [
     __inputs__.ragenix.nixosModules.age
   ];
+  age.secretsDir = "/run/keys";
 }

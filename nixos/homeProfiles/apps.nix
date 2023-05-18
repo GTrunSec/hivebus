@@ -5,9 +5,11 @@
 }: let
   inherit (root) preset;
 in {
-  nixos = [
+  linux = [
     preset.chat
     preset.dropbox
+    preset.firefox
+    preset.brave
     self.doomemacs
   ];
 

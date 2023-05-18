@@ -1,9 +1,0 @@
-diff --git a/requirements.txt b/requirements.txt
-index d829b46..022230c 100644
---- a/requirements.txt
-+++ b/requirements.txt
-@@ -1,4 +1,2 @@
- playwright
--readline; platform_system=="Linux"
--pyreadline3; platform_system=="Windows"
- rich

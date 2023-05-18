@@ -1,3 +1,0 @@
-{
-  networking.nat.enable = true;
-}

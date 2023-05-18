@@ -1,0 +1,3 @@
+{
+  nat.enable = true;
+}

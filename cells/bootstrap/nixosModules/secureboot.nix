@@ -1,5 +1,0 @@
-{config, ...}: {
-  lanzaboote = {
-    enable = true;
-  };
-}

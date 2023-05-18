@@ -32,9 +32,10 @@ in {
 
   homeSuites = [
     exports.homeModules.default
+    inputs.cells.users.homeProfiles.guangtao
+
     exports.homeProfiles.shell.default
     # load user's specific profiles
-    exports.homeProfiles.preset.users.guangtao
     exports.homeProfiles.apps.darwin
     exports.homeProfiles.preset.emacs.doomemacs
   ];
