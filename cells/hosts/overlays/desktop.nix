@@ -18,6 +18,6 @@ in [
   __inputs__.julia2nix.overlays.default
 
   __inputs__.emacs-overlay.overlays.default
-  exports.overlays.vscode.default
-  exports.overlays.vscode.vscode-extensions
+  exports.overlays.vscode
+  exports.overlays.vscode-extensions
 ]

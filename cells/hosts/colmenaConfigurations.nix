@@ -4,13 +4,13 @@
 }: let
   l = inputs.nixpkgs.lib // builtins;
 in {
-  # desktop = {
-  #   deployment = {
-  #     allowLocalDeployment = true;
-  #     targetHost = "127.0.0.1";
-  #   };
-  #   inherit (cell.nixosConfigurations.desktop) bee imports;
-  # };
+  desktop = {
+    deployment = {
+      allowLocalDeployment = true;
+      targetHost = "127.0.0.1";
+    };
+    inherit (cell.nixosConfigurations.desktop) bee imports;
+  };
   vultr = {
     deployment = {
       targetHost = "149.28.65.143";

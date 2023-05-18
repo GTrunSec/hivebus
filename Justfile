@@ -14,23 +14,19 @@ age-rekey cell:
 
 # build darwin machine
 darwin-build machine:
-    darwin-rebuild build --flake .#guangtao-o-{{ machine }}
+    darwin-rebuild build --flake .#hosts-{{ machine }}
 
 # Colmena build Guangtao Home Machine
 desktop action:
-    colmena {{ action }} --on guangtao-desktop
+    colmena {{ action }} --on hosts-desktop
 
 # Formats all changed source files
 fmt:
     treefmt $(git diff --name-only --cached)
 
-# Colmena build Guangtao Libvirtd Machine
-libvirtd_1:
-    colmena build --on guangtao-libvirtd_1
-
 # update packages via nvfetcher
 node2nix-update:
-    cd $PRJ_ROOT/cells/guangtao/packages/my-node-packages && sh ./upgrade.sh
+    cd $PRJ_ROOT/cells/nixos/packages/my-node-packages && sh ./upgrade.sh
 
 # update sources with nvfetcher
 nvfetcher path:
@@ -38,11 +34,11 @@ nvfetcher path:
 
 # update default toolchain with nvfetcher
 nvfetcher-default:
-    nix develop github:GTrunSec/std-ext#update --refresh --command nvfetcher-update cells/guangtao/packages/./sources.toml
+    nix develop github:GTrunSec/std-ext#update --refresh --command nvfetcher-update cells/nixos/packages/./sources.toml
 
 # update emacs toolchain with nvfetcher
 nvfetcher-emacs:
-    nix develop github:GTrunSec/std-ext#update --refresh --command nvfetcher-update cells/guangtao/packages/emacs/sources.toml
+    nix develop github:GTrunSec/std-ext#update --refresh --command nvfetcher-update cells/nixos/packages/emacs/sources.toml
 
 # update packages via nvfetcher
 nvfetcher-update cell:

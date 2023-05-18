@@ -4,6 +4,7 @@
 }: let
   l = nixpkgs.lib // builtins;
   inherit (inputs) nixpkgs std;
+  __inputs__ = inputs.cells.common.lib.__inputs__;
   withCategory = category: attrset: attrset // {inherit category;};
 in
   l.mapAttrs (_: std.lib.dev.mkShell) {
@@ -31,7 +32,7 @@ in
           (withCategory "hexagon" {package = inputs.arion.packages.arion;})
           (withCategory "secrets" {
             package =
-              inputs.cells.secrets.packages.ragenix
+              __inputs__.ragenix.packages.ragenix
               // {
                 meta.description = "age-encrypted secrets for NixOS; drop-in replacement for agenix";
               };
