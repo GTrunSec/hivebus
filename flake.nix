@@ -55,10 +55,10 @@
     darwin-unstable.url = "github:nixos/nixpkgs/nixos-unstable-small";
     nixos-unstable.url = "github:nixos/nixpkgs/nixos-unstable-small";
 
-    nixos-22-11.url = "github:nixos/nixpkgs/release-22.11";
+    nixos-23-05.url = "github:nixos/nixpkgs/release-23.05";
 
     home-22-11.url = "github:nix-community/home-manager/release-22.11";
-    home-22-11.inputs.nixpkgs.follows = "nixos-22-11";
+    home-22-11.inputs.nixpkgs.follows = "nixos-23-05";
 
     home.url = "github:nix-community/home-manager";
     home.inputs.nixpkgs.follows = "nixos";
@@ -151,10 +151,9 @@
         // {
           inherit (hive) collect;
         };
-      overlays = {
-        guangtao = (std.harvest inputs.self ["guangtao" "overlays"]).x86_64-linux;
-      };
-      packages = std.harvest inputs.self [["guangtao" "packages"]];
+      overlays = (std.harvest inputs.self ["nixos" "pops"]).x86_64-linux.exports.overlays;
+      packages = std.harvest inputs.self [["nixos" "packages"]];
+      nixosModules = (std.harvest inputs.self ["nixos" "pops"]).x86_64-linux.exports.nixosModules.outputs;
       # apps = std.harvest inputs.self [["emacs" "apps"]];
     }
     # soil - the first (and only) layer implements adapters for tooling

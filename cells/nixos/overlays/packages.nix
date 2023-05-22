@@ -10,6 +10,8 @@ in
 
     material-symbols = prev.callPackage ../packages/material-symbols.nix {};
 
+    swww = prev.callPackage ../packages/swww.nix {};
+
     inherit (__inputs__.nickel.packages) nickel lsp-nls;
 
     inherit (__inputs__.nil.packages) nil;

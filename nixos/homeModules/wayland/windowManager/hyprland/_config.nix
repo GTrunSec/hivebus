@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: let
   cfg = config.wayland.windowManager.hyprland;
@@ -40,8 +41,12 @@ in
       })
       (mkIf cfg'.swww {
         home.packages = [
-          cell.packages.swww
-          cell.entrypoints.swww-random
+          pkgs.swww
+          (pkgs.writeShellApplication {
+            name = "swww-random";
+            runtimeInputs = [pkgs.swww];
+            text = lib.fileContents ./swww_randomize.sh;
+          })
         ];
       })
     ]);

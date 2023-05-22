@@ -10,7 +10,7 @@ in {
   in {
     bee.system = system;
     bee.home = inputs.home;
-    bee.pkgs = import inputs.nixos {
+    bee.pkgs = import inputs.nixos-23-05 {
       inherit system;
       config.allowUnfree = true;
       overlays = l.flatten exports.desktop.overlays;

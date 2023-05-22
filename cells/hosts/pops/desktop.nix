@@ -34,16 +34,22 @@ in {
     exports.nixosProfiles.preset.coding.languageServers
 
     exports.nixosProfiles.graphical.full
+    exports.nixosProfiles.preset.hardware.nvidia
   ];
 
   homeSuites = [
+    self'.exports.homeModules.desktop
+    inputs.cells.users.homeProfiles.guangtao
+
     exports.homeModules.default
     exports.homeProfiles.shell.default
 
-    exports.homeProfiles.graphical.wayland
     exports.homeProfiles.preset.kanshi.desktop
     exports.homeProfiles.preset.hyprland.desktop
     exports.homeProfiles.preset.waybar.desktop
+    exports.homeProfiles.preset.rofi.desktop
+
+    exports.homeProfiles.graphical.wayland
 
     exports.homeProfiles.preset.emacs.doomemacs
     exports.homeProfiles.apps.linux

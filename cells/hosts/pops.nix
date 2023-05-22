@@ -28,6 +28,7 @@ in ((pops.default.setInitRecipes {
         })
         // {
           nixosModules = l.mapAttrs (_: v: v.outputsForTarget "nixosModules") self.recipes.nixosModules;
+          homeModules = l.mapAttrs (_: v: v.outputsForTarget "nixosModules") self.recipes.homeModules;
           overlays = self.recipes.overlays.outputsForTarget "default";
         };
     }))

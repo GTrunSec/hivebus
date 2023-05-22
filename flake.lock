@@ -67,11 +67,11 @@
         "stable": "stable"
       },
       "locked": {
-        "lastModified": 1682737380,
-        "narHash": "sha256-n3rZkHZls9BNr35o3veK00UsM1KSh/oNTJjLkFbEOY8=",
+        "lastModified": 1684127527,
+        "narHash": "sha256-tAzgb2jgmRaX9HETry38h2OvBf9YkHEH1fFvIJQV9A0=",
         "owner": "zhaofengli",
         "repo": "colmena",
-        "rev": "be837ee341b6508c355035973d5f7c7e88d7c64f",
+        "rev": "caf33af7d854c8d9b88a8f3dae7adb1c24c1407b",
         "type": "github"
       },
       "original": {
@@ -608,16 +608,16 @@
     "home-22-11": {
       "inputs": {
         "nixpkgs": [
-          "nixos-22-11"
+          "nixos-23-05"
         ],
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1679738842,
-        "narHash": "sha256-CvqRbsyDW756EskojZptDU590rez29RcHDV3ezoze08=",
+        "lastModified": 1681092193,
+        "narHash": "sha256-JerCqqOqbT2tBnXQW4EqwFl0hHnuZp21rIQ6lu/N4rI=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "83110c259889230b324bb2d35bef78bf5f214a1f",
+        "rev": "f9edbedaf015013eb35f8caacbe0c9666bbc16af",
         "type": "github"
       },
       "original": {
@@ -893,18 +893,18 @@
         "type": "github"
       }
     },
-    "nixos-22-11": {
+    "nixos-23-05": {
       "locked": {
-        "lastModified": 1678500271,
-        "narHash": "sha256-tRBLElf6f02HJGG0ZR7znMNFv/Uf7b2fFInpTHiHaSE=",
+        "lastModified": 1684782344,
+        "narHash": "sha256-SHN8hPYYSX0thDrMLMWPWYulK3YFgASOrCsIL3AJ78g=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "5eb98948b66de29f899c7fe27ae112a47964baf8",
+        "rev": "8966c43feba2c701ed624302b6a935f97bcbdf88",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
-        "ref": "release-22.11",
+        "ref": "release-23.05",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -1353,7 +1353,7 @@
         "nixos": [
           "nixos-unstable"
         ],
-        "nixos-22-11": "nixos-22-11",
+        "nixos-23-05": "nixos-23-05",
         "nixos-generators": "nixos-generators",
         "nixos-hardware": "nixos-hardware",
         "nixos-unstable": "nixos-unstable",

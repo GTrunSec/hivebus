@@ -25,7 +25,7 @@ in ((pops.default.setInitRecipes {
         homeProfiles = self.recipes.homeProfiles.outputsForTarget "default";
 
         nixosModules.default = self.recipes.nixosModules.default.outputsForTarget "nixosModules";
-        nixosModules.exposer = self.recipes.nixosModules.exposer.outputsForTarget "default";
+        nixosModules.outputs = self.recipes.nixosModules.outputs.outputsForTarget "default";
         homeModules.default = self.recipes.homeModules.default.outputsForTarget "nixosModules";
       };
     }))

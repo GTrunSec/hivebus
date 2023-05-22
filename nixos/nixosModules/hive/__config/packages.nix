@@ -25,6 +25,7 @@ in {
           nixpkgs-fmt
           pkg-config
           nrepl
+          ripgrep
         ];
       })
     ];

@@ -1,0 +1,3 @@
+{
+  sudo.wheelNeedsPassword = false;
+}

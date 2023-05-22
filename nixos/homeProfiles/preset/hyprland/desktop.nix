@@ -2,6 +2,7 @@
   src = profiles + "/hyprland";
 in {
   wayland.windowManager.hyprland = {
+    enable = true;
     systemdIntegration = true;
     extraConfig = builtins.readFile "${src}/hyprland.conf";
     xwayland = {
