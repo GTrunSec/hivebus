@@ -5,7 +5,7 @@
   inherit (inputs.cells.common.lib) __inputs__;
 in {
   _imports = [
-    inputs.cells.nixos.pops.exports.nixosModules.exports.atticd.default
+    inputs.cells.nixos.pops.exports.nixosModules.exposer.atticd.default
     # __inputs__.attic.nixosModules.atticd
     ({
       pkgs,

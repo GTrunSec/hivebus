@@ -37,7 +37,7 @@ in
                 meta.description = "age-encrypted secrets for NixOS; drop-in replacement for agenix";
               };
           })
-          (withCategory "hexagon" {package = nixpkgs.sops;})
+          (withCategory "secrets" {package = nixpkgs.sops;})
         ]
         ++ l.optionals nixpkgs.stdenv.isLinux [
           (withCategory "hexagon" {package = inputs.nixos-generators.packages.${nixpkgs.system}.nixos-generate;})

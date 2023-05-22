@@ -1,7 +1,6 @@
-{__inputs__}: {pkgs, ...}: let
-in {
+{__inputs__}: {
   imports = [
     __inputs__.ragenix.nixosModules.age
   ];
-  age.secretsDir = "/run/keys";
+  # age.secretsDir = "/run/keys";
 }

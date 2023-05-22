@@ -39,8 +39,8 @@ in {
       programs.jq.enable = true;
     }
   ];
+
   full = [
     self.default
-    self.minimal
   ];
 }

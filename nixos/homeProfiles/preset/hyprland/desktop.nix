@@ -11,6 +11,7 @@ in {
     hive = {
       nvidia = true;
       autoLogin = true;
+      swww = true;
     };
   };
 }

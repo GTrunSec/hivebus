@@ -4,49 +4,49 @@
   GodTian_Pinyin = {
     pname = "GodTian_Pinyin";
     version = "e21e41510b6d440389966bb0b2a70b38fafc6741";
-    src = fetchFromGitHub ({
+    src = fetchFromGitHub {
       owner = "whatbeg";
       repo = "GodTian_Pinyin";
       rev = "e21e41510b6d440389966bb0b2a70b38fafc6741";
       fetchSubmodules = false;
       sha256 = "sha256-uSrj+hwai7fSJN7SWL5u80hp8nSzJ4XI5t/8s19uoV8=";
-    });
+    };
     date = "2017-07-19";
   };
   acm-terminal = {
     pname = "acm-terminal";
     version = "321e05fc0398a6159925b858f46608ea07ef269e";
-    src = fetchFromGitHub ({
+    src = fetchFromGitHub {
       owner = "twlz0ne";
       repo = "acm-terminal";
       rev = "321e05fc0398a6159925b858f46608ea07ef269e";
       fetchSubmodules = false;
       sha256 = "sha256-Flw07EwH9z0E3tqXs4mStICJmoHfp60ALrP1GmUmeuU=";
-    });
+    };
     date = "2023-02-15";
   };
   jinx = {
     pname = "jinx";
-    version = "c9be25dade6d959dab26dc6e3a2775258cc127ff";
-    src = fetchFromGitHub ({
+    version = "9a7122c894b14f0d625ac183db657075c9438cc7";
+    src = fetchFromGitHub {
       owner = "minad";
       repo = "jinx";
-      rev = "c9be25dade6d959dab26dc6e3a2775258cc127ff";
+      rev = "9a7122c894b14f0d625ac183db657075c9438cc7";
       fetchSubmodules = false;
-      sha256 = "sha256-dnYTCEUo0EgO5Vbv/XcMADDinrUKM1ypSwkcjc3QVKo=";
-    });
-    date = "2023-05-03";
+      sha256 = "sha256-kEpT7qNmGH1Rfus7kt+3J6bBGJM98H1SB52hWLs26Pc=";
+    };
+    date = "2023-05-17";
   };
   lsp-bridge = {
     pname = "lsp-bridge";
-    version = "8515437471a2e0d69c00250976f07d66121fc5c6";
-    src = fetchFromGitHub ({
+    version = "ce463c9fc4137364ff85f89ae44d6762c425f69d";
+    src = fetchFromGitHub {
       owner = "manateelazycat";
       repo = "lsp-bridge";
-      rev = "8515437471a2e0d69c00250976f07d66121fc5c6";
+      rev = "ce463c9fc4137364ff85f89ae44d6762c425f69d";
       fetchSubmodules = false;
-      sha256 = "sha256-5aDfCDfqiWtK4fYH6DQByoTnvefifU/Cfd4aGCSlB2Y=";
-    });
-    date = "2023-05-03";
+      sha256 = "sha256-MOSG5iv3sgOjme6QBVqinOxPXNtMAkmcK5ZYBHzqZxk=";
+    };
+    date = "2023-05-21";
   };
 }

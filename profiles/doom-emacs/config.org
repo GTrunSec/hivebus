@@ -110,7 +110,8 @@
        ;;ansible
        ;;biblio            ; Writes a PhD for you (citation needed)
        ;;debugger          ; FIXME stepping through code, to help you add bugs
-       direnv
+       (direnv
+        +dirvish)
        ;;docker
        ;;editorconfig      ; let someone else argue about tabs vs spaces
        ;;ein               ; tame Jupyter notebooks with emacs
@@ -828,6 +829,8 @@ enchant-lsmod-2
 
 ** [[https://github.com/xenodium/chatgpt-shell][xenodium/chatgpt-shell: ChatGPT and DALL-E Emacs shells + Org babel 🦄 + a shell maker for other providers]]
 
+- [blog] https://xenodium.com/
+
 #+begin_src emacs-lisp :tangle "packages.el"
 (package! chatgpt-shell :recipe (:host github :repo "xenodium/chatgpt-shell"
                                        :files ("*.el")
@@ -866,6 +869,11 @@ enchant-lsmod-2
 ;;(use-package! image-roll)
 #+end_src
 
+** dirvish :dired:
+
+#+Begin_src emacs-lisp :tangle "packages.el"
+(unpin! dirvish)
+#+end_src
 
 
 * Org

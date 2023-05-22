@@ -8,8 +8,8 @@
     pkgs' = inputs.nixpkgs;
     __inputs__ = inputs.cells.common.lib.__inputs__;
   };
-  exports = inputs.flops.lib.configs.haumea.setInit {
-    src = inputs.self + "/nixos/nixosModulesExports";
+  exposer = inputs.flops.lib.configs.haumea.setInit {
+    src = inputs.self + "/nixos/nixosModulesExposer";
     inputs = {
       inherit inputs cell;
       lib = inputs.nixpkgs.lib;
