@@ -13,6 +13,9 @@ in {
     bee.pkgs = import inputs.nixos-23-05 {
       inherit system;
       config.allowUnfree = true;
+      config.permittedInsecurePackages = [
+        "nodejs-16.20.0"
+      ];
       overlays = l.flatten exports.desktop.overlays;
     };
     imports = l.flatten exports.desktop.imports;

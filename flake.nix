@@ -102,15 +102,8 @@
         (functions "homeProfiles")
         (functions "devshellProfiles")
         (functions "userProfiles")
-        (functions "secretProfiles")
         (functions "arionProfiles")
         (functions "microvmProfiles")
-
-        # suites aggregate profiles
-        (functions "nixosSuites")
-        (functions "darwinSuites")
-        (functions "homeSuites")
-
         # configurations can be deployed
         colmenaConfigurations
         homeConfigurations

@@ -24,14 +24,14 @@ in {
     style = l.readFile "${src}/style.css";
     settings = {
       top = l.recursiveUpdate themes.default.top {
-        output = ["DP-1"];
+        output = [config.hive.monitor];
         network.on-click-right = "nm-connection-editor";
         "custom/weather" = {
           exec = "python ~/ghq/github.com/GTrunSec/hive/profiles/waybar/scripts/weather.py";
           "on-click" = "xdg-open https://weather.com/en-IN/weather/today/l/f5418ee48ceba432e37ed772ea73abe27c9f47fa4ff4e4506ba3b8fa96f514f0";
         };
         "backlight" = {
-          device = "DP-1";
+          device = config.hive.monitor;
         };
         "custom/power-menu" = {
           on-click = "bash ${src}/scripts/power-menu/powermenu.sh";

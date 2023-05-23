@@ -51,11 +51,11 @@ in {
           zeromq
           xclip
           # for copilot
-          # (
-          #   pkgs.writeShellScriptBin "node16" ''
-          #     ${lib.getExe pkgs.nodejs-16_x} "$@"
-          #   ''
-          # )
+          (
+            pkgs.writeShellScriptBin "node16" ''
+              ${lib.getExe pkgs.nodejs-16_x} "$@"
+            ''
+          )
           pkgs.graphviz
           (pkgs.symlinkJoin {
             name = "dotsk";
