@@ -37,6 +37,7 @@ _: {
             openai
             sexpdata
             six
+            paramiko
           ]
           ++ lib.optional pkgs.stdenv.isLinux [
             pyqt6
