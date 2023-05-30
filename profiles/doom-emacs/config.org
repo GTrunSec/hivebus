@@ -128,7 +128,7 @@
        ;;taskrunner        ; taskrunner for all your projects
        terraform         ; infrastructure as code
        ;;tmux              ; an API for interacting with tmux
-       ;;tree-sitter       ; syntax and parsing, sitting in a tree...
+       tree-sitter       ; syntax and parsing, sitting in a tree...
        ;;upload            ; map local to remote projects via ssh/ftp
 
        :os
@@ -518,8 +518,15 @@ FACE defaults to inheriting from default and highlight."
 #+begin_src emacs-lisp :tangle "config.el"
 (use-package blink-search
   :config
-  (add-hook 'blink-search-mode-hook (lambda () (meow-insert-mode 1))))
+  ;; (setq blink-search-posframe-standalone t)
+  ;; (setq blink-search-enable-posframe t)
+  ;; (setq blink-search-search-backends '("Buffer List" "Recent File" "IMenu" "Elisp Symbol" "Key Value"))
+  (add-hook 'blink-search-mode-hook (lambda () (meow-insert-mode
+ 1))))
 #+end_src
+
+#+RESULTS:
+: t
 
 
 ** symbol overlay :search:
@@ -914,6 +921,14 @@ enchant-lsmod-2
 ;;                 :filter-args #'tramp-sh-handle-start-file-process@dn-direnv))
 ;;   )
 #+end_src
+
+
+** Disabled Packages
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(disable-packages! tree-sitter-langs)
+#+end_src
+
 
 * Org
 

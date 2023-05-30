@@ -1,0 +1,3 @@
+{
+  getty.autologinUser = "guangtao";
+}

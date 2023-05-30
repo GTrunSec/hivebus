@@ -32,6 +32,7 @@ in {
     exports.nixosProfiles.preset.coding.nickel
     exports.nixosProfiles.preset.coding.vscode.default
     exports.nixosProfiles.preset.coding.languageServers
+    exports.nixosProfiles.preset.secrets.gnome-keyring
 
     exports.nixosProfiles.graphical.full
     exports.nixosProfiles.preset.hardware.nvidia

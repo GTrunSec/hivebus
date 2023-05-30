@@ -10,7 +10,7 @@ _: {
         pass-secret-service
         gcr
       ]
-      ++ lib.optional config.prorgams.dconf.enable [
+      ++ lib.optionals config.programs.dconf.enable [
         dconf
       ];
   };
