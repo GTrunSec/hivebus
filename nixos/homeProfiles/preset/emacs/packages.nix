@@ -57,6 +57,7 @@ in {
             ''
           )
           pkgs.graphviz
+          pkgs.ripgrep-all
           (pkgs.symlinkJoin {
             name = "dotsk";
             pathsToLink = ["/lib" "/bin"];

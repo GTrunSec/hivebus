@@ -66,7 +66,7 @@ in {
         programs.emacs = {
           enable = true;
           package = mkForce (pkgs.emacsPgtk.override {
-            inherit treeSitterPlugins;
+            # inherit treeSitterPlugins;
           });
         };
       })

@@ -21,7 +21,7 @@
     },
     "acm-terminal": {
         "cargoLocks": null,
-        "date": "2023-02-15",
+        "date": "2023-06-01",
         "extract": null,
         "name": "acm-terminal",
         "passthru": null,
@@ -33,11 +33,11 @@
             "name": null,
             "owner": "twlz0ne",
             "repo": "acm-terminal",
-            "rev": "321e05fc0398a6159925b858f46608ea07ef269e",
-            "sha256": "sha256-Flw07EwH9z0E3tqXs4mStICJmoHfp60ALrP1GmUmeuU=",
+            "rev": "0dbbd7f401da1bedd1a9146df6127233d601435b",
+            "sha256": "sha256-Opouy9A6z0YUT1zxZq1yHx+r/hwNE93JDwfa1fMWNgc=",
             "type": "github"
         },
-        "version": "321e05fc0398a6159925b858f46608ea07ef269e"
+        "version": "0dbbd7f401da1bedd1a9146df6127233d601435b"
     },
     "jinx": {
         "cargoLocks": null,

@@ -14,6 +14,9 @@ in {
     bee.pkgs = import inputs.darwin-unstable {
       inherit system;
       config.allowUnfree = true;
+      config.permittedInsecurePackages = [
+        "nodejs-16.20.0"
+      ];
       overlays = l.flatten exports.macbook.overlays;
     };
     imports = l.flatten exports.macbook.imports;

@@ -122,7 +122,7 @@
        magit             ; a git porcelain for Emacs
        ;;make              ; run make tasks from Emacs
        ;;pass              ; password manager for nerds
-       ;;pdf               ; pdf enhancements
+       pdf               ; pdf enhancements
        ;;prodigy           ; FIXME managing external services & code builders
        ;;rgb               ; creating color strings
        ;;taskrunner        ; taskrunner for all your projects
@@ -237,6 +237,19 @@
 (setq display-line-numbers-type t)
 #+end_src
 
+** tab
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! sort-tab :recipe (:host github :repo "manateelazycat/sort-tab"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! sort-tab
+  :config
+  (add-hook '+doom-dashboard-mode-hook
+    (lambda () (sort-tab-mode 1)))
+  )
+#+end_src
+
 ** font :font:
 
 #+begin_src emacs-lisp :tangle "config.el"
@@ -322,10 +335,10 @@
 ** doom-theme :theme:
 
 #+begin_src emacs-lisp :tangle "config.el"
-(unless (display-graphic-p)
-  ;;(setq doom-theme 'doom-city-lights)
-  (setq doom-theme 'doom-one)
-)
+;; (unless (display-graphic-p)
+;;   ;;(setq doom-theme 'doom-city-lights)
+;;   (setq doom-theme 'doom-one)
+;; )
 (when (display-graphic-p)
   (setq doom-theme 'doom-one)
 )
@@ -518,6 +531,7 @@ FACE defaults to inheriting from default and highlight."
 #+begin_src emacs-lisp :tangle "config.el"
 (use-package blink-search
   :config
+  (setq blink-search-python-command "/run/current-system/sw/bin/python3")
   ;; (setq blink-search-posframe-standalone t)
   ;; (setq blink-search-enable-posframe t)
   ;; (setq blink-search-search-backends '("Buffer List" "Recent File" "IMenu" "Elisp Symbol" "Key Value"))
@@ -927,6 +941,7 @@ enchant-lsmod-2
 
 #+begin_src emacs-lisp :tangle "packages.el"
 (disable-packages! tree-sitter-langs)
+(disable-packages! doom-snippets)
 #+end_src
 
 

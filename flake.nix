@@ -57,8 +57,8 @@
 
     nixos-23-05.url = "github:nixos/nixpkgs/release-23.05";
 
-    home-22-11.url = "github:nix-community/home-manager/release-22.11";
-    home-22-11.inputs.nixpkgs.follows = "nixos-23-05";
+    home-23-05.url = "github:nix-community/home-manager/release-23.05";
+    home-23-05.inputs.nixpkgs.follows = "nixos-23-05";
 
     home.url = "github:nix-community/home-manager";
     home.inputs.nixpkgs.follows = "nixos";

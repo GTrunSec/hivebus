@@ -15,15 +15,15 @@
   };
   acm-terminal = {
     pname = "acm-terminal";
-    version = "321e05fc0398a6159925b858f46608ea07ef269e";
+    version = "0dbbd7f401da1bedd1a9146df6127233d601435b";
     src = fetchFromGitHub {
       owner = "twlz0ne";
       repo = "acm-terminal";
-      rev = "321e05fc0398a6159925b858f46608ea07ef269e";
+      rev = "0dbbd7f401da1bedd1a9146df6127233d601435b";
       fetchSubmodules = false;
-      sha256 = "sha256-Flw07EwH9z0E3tqXs4mStICJmoHfp60ALrP1GmUmeuU=";
+      sha256 = "sha256-Opouy9A6z0YUT1zxZq1yHx+r/hwNE93JDwfa1fMWNgc=";
     };
-    date = "2023-02-15";
+    date = "2023-06-01";
   };
   jinx = {
     pname = "jinx";
