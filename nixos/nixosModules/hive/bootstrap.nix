@@ -15,6 +15,11 @@
       default = false;
       description = "Whether to use systemd-boot";
     };
+    contabo = mkOption {
+      type = types.bool;
+      default = false;
+      description = "Whether to use contabo init configuration";
+    };
     systemd-initrd = mkOption {
       type = types.bool;
       default = false;

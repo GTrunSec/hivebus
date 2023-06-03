@@ -7,9 +7,9 @@
   imports = [
     inputs.cells.nixos.pops.exports.nixosProfiles.preset.services.chatgpt.web
   ];
-  age.secrets.chatgpt-web.file = pkgs.lib.age.file "vultr/chatgpt-web.age";
+  age.secrets.chatgpt-web.file = pkgs.lib.age.file "tiangang/chatgpt-web.age";
   age.secrets.chatgpt-web.mode = "0444";
-  age.secrets.chatgpt-web-passwd.file = pkgs.lib.age.file "vultr/chatgpt-web-passwd.age";
+  age.secrets.chatgpt-web-passwd.file = pkgs.lib.age.file "tiangang/chatgpt-web-passwd.age";
   age.secrets.chatgpt-web-passwd.mode = "0444";
 
   services.nginx = {

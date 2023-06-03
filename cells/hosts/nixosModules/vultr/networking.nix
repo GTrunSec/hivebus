@@ -1,3 +1,0 @@
-{
-  hostName = "vultr";
-}

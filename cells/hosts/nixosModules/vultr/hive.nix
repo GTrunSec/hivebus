@@ -1,5 +1,0 @@
-{
-  bootstrap = {
-    minimal = true;
-  };
-}

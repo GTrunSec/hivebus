@@ -8,12 +8,12 @@ let
     exports.desktop.opensshPublicKey
     exports.macbook.opensshPublicKey
   ];
-  cloud = [exports.vultr.opensshPublicKey];
+  cloud = [exports.tiangang.opensshPublicKey];
 in {
-  "vultr/attic-cert.age".publicKeys = common ++ cloud;
-  "vultr/acme-cloudflare.age".publicKeys = common ++ cloud;
-  "vultr/chatgpt-web.age".publicKeys = common ++ cloud;
-  "vultr/chatgpt-web-passwd.age".publicKeys = common ++ cloud;
-  "vultr/chatgpt-yak.age".publicKeys = common ++ cloud;
-  "vultr/v2ray-vmess.age".publicKeys = common ++ cloud;
+  "tiangang/attic-cert.age".publicKeys = common ++ cloud;
+  "tiangang/acme-cloudflare.age".publicKeys = common ++ cloud;
+  "tiangang/chatgpt-web.age".publicKeys = common ++ cloud;
+  "tiangang/chatgpt-web-passwd.age".publicKeys = common ++ cloud;
+  "tiangang/chatgpt-yak.age".publicKeys = common ++ cloud;
+  "tiangang/v2ray-vmess.age".publicKeys = common ++ cloud;
 }

@@ -11,14 +11,14 @@ in {
     };
     inherit (cell.nixosConfigurations.desktop) bee imports;
   };
-  vultr = {
+  tiangang = {
     deployment = {
-      targetHost = "149.28.65.143";
+      targetHost = "207.244.228.125";
       targetPort = 22;
       targetUser = "root";
       # sshOPTS
       # sshOptions = ["-o" "UserKnownHostsFile=/dev/null" "-o" "StrictHostKeyChecking=no"];
     };
-    inherit (cell.nixosConfigurations.vultr) bee imports;
+    inherit (cell.nixosConfigurations.tiangang) bee imports;
   };
 }

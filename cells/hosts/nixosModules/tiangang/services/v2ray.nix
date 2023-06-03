@@ -10,7 +10,7 @@ _: {
         allowedUDPPorts = [8489];
       };
       age.secrets.v2ray-vmess = {
-        file = pkgs.lib.age.file "vultr/v2ray-vmess.age";
+        file = pkgs.lib.age.file "tiangang/v2ray-vmess.age";
         mode = "0755";
       };
       services.v2ray.configFile = config.age.secrets.v2ray-vmess.path;

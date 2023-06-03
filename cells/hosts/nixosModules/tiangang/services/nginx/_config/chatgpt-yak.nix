@@ -8,7 +8,7 @@ in {
     inputs.cells.nixos.pops.exports.nixosProfiles.preset.services.chatgpt.web-yak
   ];
 
-  age.secrets.chatgpt-yak.file = pkgs.lib.age.file "vultr/chatgpt-yak.age";
+  age.secrets.chatgpt-yak.file = pkgs.lib.age.file "tiangang/chatgpt-yak.age";
   age.secrets.chatgpt-yak.mode = "444";
 
   services.nginx = {

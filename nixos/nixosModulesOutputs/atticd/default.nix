@@ -43,13 +43,13 @@ in {
     (lib.mkIf cfg'.psql {
       services.postgresql.enable = true;
       services.postgresql.ensureDatabases = [
-        "atticd"
+        "attic"
       ];
       services.postgresql.ensureUsers = [
         {
-          name = "atticd";
+          name = "attic";
           ensurePermissions = {
-            "DATABASE atticd" = "ALL PRIVILEGES";
+            "DATABASE attic" = "ALL PRIVILEGES";
           };
         }
       ];

@@ -34,19 +34,27 @@ in {
     imports = l.flatten exports.flops.imports;
   };
 
-  vultr = let
+  tiangang = let
     system = "x86_64-linux";
   in {
     bee.system = "x86_64-linux";
     bee.home = inputs.home;
     bee.pkgs = import inputs.nixos {
       inherit (inputs.nixpkgs) system;
-      overlays = l.flatten exports.vultr.overlays;
+      overlays = l.flatten exports.tiangang.overlays;
     };
-    imports =
-      l.flatten exports.vultr.imports
-      ++ [
-        ./nixosConfigurations/vultr/hardware-configuration.nix
-      ];
+    imports = l.flatten exports.tiangang.imports;
+  };
+
+  init = let
+    system = "x86_64-linux";
+  in {
+    bee.system = "x86_64-linux";
+    bee.home = inputs.home;
+    bee.pkgs = import inputs.nixos {
+      inherit (inputs.nixpkgs) system;
+      overlays = l.flatten exports.init.overlays;
+    };
+    imports = l.flatten exports.init.imports;
   };
 }
