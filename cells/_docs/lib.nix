@@ -1,6 +1,0 @@
-{
-  inputs,
-  cell,
-}: let
-in {
-}

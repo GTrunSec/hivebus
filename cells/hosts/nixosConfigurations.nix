@@ -2,59 +2,24 @@
   inputs,
   cell,
 }: let
-  l = inputs.nixpkgs.lib // builtins;
   inherit (cell.pops) exports;
 in {
-  desktop = let
-    system = "x86_64-linux";
-  in {
-    bee.system = system;
-    bee.home = inputs.home;
-    bee.pkgs = import inputs.nixos-23-05 {
-      inherit system;
+  desktop =
+    cell.lib.mkNixOSHost exports.desktop "x86_64-linux" inputs.nixos-23-05 {
       config.allowUnfree = true;
       config.permittedInsecurePackages = [
         "nodejs-16.20.0"
       ];
-      overlays = l.flatten exports.desktop.overlays;
-    };
-    imports = l.flatten exports.desktop.imports;
-  };
+    }
+    inputs.home-23-05;
 
-  flops = let
-    system = "x86_64-linux";
-  in {
-    bee.system = system;
-    bee.home = inputs.home;
-    bee.pkgs = import inputs.nixos {
-      inherit system;
+  flops =
+    cell.lib.mkNixOSHost exports.flops "x86_64-linux" inputs.nixos {
       config.allowUnfree = true;
-      overlays = l.flatten exports.flops.overlays;
-    };
-    imports = l.flatten exports.flops.imports;
-  };
+    }
+    inputs.home;
 
-  tiangang = let
-    system = "x86_64-linux";
-  in {
-    bee.system = "x86_64-linux";
-    bee.home = inputs.home;
-    bee.pkgs = import inputs.nixos {
-      inherit (inputs.nixpkgs) system;
-      overlays = l.flatten exports.tiangang.overlays;
-    };
-    imports = l.flatten exports.tiangang.imports;
-  };
+  tiangang = cell.lib.mkNixOSHost exports.tiangang "x86_64-linux" inputs.nixos {} inputs.home;
 
-  init = let
-    system = "x86_64-linux";
-  in {
-    bee.system = "x86_64-linux";
-    bee.home = inputs.home;
-    bee.pkgs = import inputs.nixos {
-      inherit (inputs.nixpkgs) system;
-      overlays = l.flatten exports.init.overlays;
-    };
-    imports = l.flatten exports.init.imports;
-  };
+  init = cell.lib.mkNixOSHost exports.init "x86_64-linux" inputs.nixos {} inputs.home;
 }

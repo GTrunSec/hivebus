@@ -48,7 +48,7 @@
   inputs = {
     flake-utils.follows = "ragenix/flake-utils";
 
-    nix.url = "github:NixOS/nix/2.14-maintenance";
+    nix.url = "github:NixOS/nix/2.15-maintenance";
     nix.inputs.nixpkgs.follows = "nixpkgs";
 
     sops-nix.url = "github:Mic92/sops-nix?ref=pull/299/head"; # sops-template

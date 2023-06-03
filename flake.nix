@@ -123,7 +123,7 @@
 
         # lib holds shared knowledge made code
         (functions "lib")
-        (functions "config")
+        (functions "configs")
         (installables "packages" {ci.build = true;})
         (functions "overlays")
 

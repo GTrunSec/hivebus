@@ -15,8 +15,7 @@
   services.nginx = {
     virtualHosts = {
       "chatgpt.zhangguangtao.org" = {
-        # enableACME = true;
-        useACMEHost = "zhangguangtao.org";
+        enableACME = true;
         forceSSL = true;
         extraConfig = ''
           auth_basic "ChatGPT-web password";

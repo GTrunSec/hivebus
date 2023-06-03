@@ -14,10 +14,9 @@ in {
           home-manager.users.${user} = {
             inherit (cell.homeConfigurations."${host}") imports;
             home.stateVersion =
-              if nixpkgs.stdenv.isDarwin then
-                cell.darwinConfigurations.${host}.bee.pkgs.lib.trivial.release
-              else
-                cell.nixosConfigurations.${host}.bee.pkgs.lib.trivial.release;
+              if nixpkgs.stdenv.isDarwin
+              then cell.darwinConfigurations.${host}.bee.pkgs.lib.trivial.release
+              else cell.nixosConfigurations.${host}.bee.pkgs.lib.trivial.release;
           };
           users.users.${user} = {
             shell = pkgs."${shell}";
@@ -46,5 +45,16 @@ in {
       username = user;
     };
     imports = l.flatten cell.pops.exports.${host}.homeSuites;
+  };
+
+  mkNixOSHost = export: system: nixos: extra: home: {
+    bee.system = system;
+    bee.home = home;
+    bee.pkgs = import nixos ({
+        inherit system;
+        overlays = l.flatten export.overlays;
+      }
+      // extra);
+    imports = l.flatten export.imports;
   };
 }
