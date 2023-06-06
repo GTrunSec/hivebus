@@ -1,9 +1,7 @@
-{
-  lib,
-}:
+{lib}:
 lib.mapAttrs (name: value: {
   homebrew.taps = value;
-}){
+}) {
   default = [
     "homebrew/cask-fonts"
     "homebrew/cask"

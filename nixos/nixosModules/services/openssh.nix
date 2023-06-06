@@ -5,7 +5,7 @@
     KbdInteractiveAuthentication = false;
     X11Forwarding = false;
     PasswordAuthentication = false;
-    PermitRootLogin= "yes";
+    PermitRootLogin = "yes";
     UseDns = false;
   };
   # unbind gnupg sockets if they exists

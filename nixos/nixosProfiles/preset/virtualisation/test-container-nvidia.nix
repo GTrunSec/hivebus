@@ -1,6 +1,5 @@
 # copyright: https://github.com/cpcloud/nix-config
-_:
-{
+_: {
   config,
   lib,
   pkgs,

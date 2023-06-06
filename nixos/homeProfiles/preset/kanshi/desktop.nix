@@ -1,4 +1,4 @@
-_: {config,...}:{
+_: {config, ...}: {
   services.kanshi.profiles = {
     docked = {
       outputs = [

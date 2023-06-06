@@ -1,4 +1,4 @@
-{__inputs__}:{
+{__inputs__}: {
   imports = [
     __inputs__.sops-nix.nixosModules.sops
   ];

@@ -8,9 +8,11 @@ in
     configs.haumea.setInit
     {
       src = src;
-      inputs = removeAttrs inputs ["inputs"] // {
-        inputs = removeAttrs inputs.inputs ["self"];
-      };
+      inputs =
+        removeAttrs inputs ["inputs"]
+        // {
+          inputs = removeAttrs inputs.inputs ["self"];
+        };
       transformer = with haumea.lib.transformers; [
         liftDefault
         (hoistLists "_imports" "imports")

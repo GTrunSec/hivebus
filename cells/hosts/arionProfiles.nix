@@ -10,8 +10,8 @@
       ...
     }: {
       nixos.useSystemd = true;
-      nixos.configuration.boot.tmpOnTmpfs = true;
-      nixos.configuration.system.stateVersion = "22.05";
+      nixos.configuration.boot.tmp.useTmpfs = true;
+      nixos.configuration.system.stateVersion = "23.05";
       nixos.configuration = {
         services.nginx.enable = true;
       };

@@ -10,6 +10,7 @@ in {
     preset.dropbox
     preset.firefox
     preset.brave
+    preset.office
     self.doomemacs
   ];
 

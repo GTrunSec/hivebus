@@ -29,7 +29,7 @@ in
       commands =
         [
           (withCategory "hexagon" {package = cell.packages.colmena;})
-          (withCategory "hexagon" {package = inputs.arion.packages.arion;})
+          (withCategory "hexagon" {package = __inputs__.arion.packages.arion;})
           (withCategory "secrets" {
             package =
               __inputs__.ragenix.packages.ragenix

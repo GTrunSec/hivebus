@@ -1,5 +1,4 @@
-_:
-{
+_: {
   security.polkit.enable = true;
 
   virtualisation.libvirtd = {

@@ -1,6 +1,4 @@
-{
-  lib,
-}:
+{lib}:
 lib.mapAttrs (name: value: {
   homebrew.casks = value;
 }) {

@@ -1,6 +1,6 @@
 _: {pkgs, ...}: let
   julia-wrapped = pkgs.lib.julia-wrapped {
-    package = pkgs.julia_18-bin;
+    package = pkgs.julia_19-bin;
     meta.mainProgram = "julia";
     enable = {
       GR = true;

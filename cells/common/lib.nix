@@ -3,6 +3,8 @@
   cell,
 }: let
   inherit (inputs) nixpkgs haumea flops;
+  inherit (inputs.flops.lib.flake) pops;
+  inherit (inputs.flops.inputs) POP;
 
   l = nixpkgs.lib // builtins;
 
@@ -29,10 +31,15 @@ in
     inherit callInputs callUtils callMainInputs;
 
     __inputs__ =
-      (callInputs.addInputsOverride {
-        # nixpkgs = callMainInputs.sysInputs.nixos;
-      })
+      (callInputs.addInputsOverride {})
       .outputsForInputsCompat;
 
+    # std = with cell.lib;
+    #   l.recursiveUpdate inputs.std {
+    #     inputs = {
+    #       microvm = __inputs__.microvm;
+    #       arion = __inputs__.arion;
+    #     };
+    #   };
     __utils__ = (callUtils.addInputsOverride {}).outputsForInputsCompat;
   }

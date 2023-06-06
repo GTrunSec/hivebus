@@ -1,4 +1,6 @@
-{inputs,cell}: {
-
+{
+  inputs,
+  cell,
+}: {
   inherit (cell.pops.exports.nixpkgs) swww;
 }

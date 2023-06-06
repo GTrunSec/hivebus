@@ -140,7 +140,7 @@
         ["emacs" "devshells"]
       ];
       lib =
-        (std.harvest inputs.self ["_QUEEN" "lib"]).x86_64-linux
+        (std.harvest inputs.self ["hosts" "lib"]).x86_64-linux
         // {
           inherit (hive) collect;
         };

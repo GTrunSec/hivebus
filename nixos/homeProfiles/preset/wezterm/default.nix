@@ -1,4 +1,7 @@
-{inputs, profiles}: {
+{
+  inputs,
+  profiles,
+}: {
   config,
   lib,
   pkgs,

@@ -8,7 +8,6 @@ _: {}
 #     #   options vfio-pci ids=10de:1b80,10de:10f0
 #     # '';
 #   };
-
 #   networking.interfaces.tap0 = {
 #     virtualOwner = "guangtao";
 #     virtual = true;
@@ -17,3 +16,4 @@ _: {}
 #   };
 #   environment.etc."qemu/bridge.conf".text = "allow br0";
 # }
+
