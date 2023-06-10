@@ -14,6 +14,10 @@ lib.mapAttrs (name: value: {
     "dropbox"
     "grammarly-desktop"
     "secretive"
+    "bartender"
+  ];
+  services = [
+    "docker"
   ];
   book = [
     "koodo-reader"
