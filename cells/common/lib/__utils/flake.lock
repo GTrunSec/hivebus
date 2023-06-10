@@ -35,11 +35,11 @@
     "catppuccin-hyprland": {
       "flake": false,
       "locked": {
-        "lastModified": 1669689131,
-        "narHash": "sha256-P0D/9ANuQjz5oqIH3w5BdzPM8CQAtOtBsLsqDN8Mq5s=",
+        "lastModified": 1683122293,
+        "narHash": "sha256-07B5QmQmsUKYf38oWU3+2C6KO4JvinuTwmW1Pfk8CT8=",
         "owner": "catppuccin",
         "repo": "hyprland",
-        "rev": "15383218340309cd77d1dc501bfa82c30c45067f",
+        "rev": "99a88fd21fac270bd999d4a26cf0f4a4222c58be",
         "type": "github"
       },
       "original": {
@@ -51,11 +51,11 @@
     "catppuccin-waybar": {
       "flake": false,
       "locked": {
-        "lastModified": 1673578738,
-        "narHash": "sha256-sZO0j01LBxhYgI3LiL8dIaETdsWuy9kjecWk3vnTxUU=",
+        "lastModified": 1678438606,
+        "narHash": "sha256-WLJMA2X20E5PCPg0ZPtSop0bfmu+pLImP9t8A8V4QK8=",
         "owner": "catppuccin",
         "repo": "waybar",
-        "rev": "81c0e401d45263596dcdc441878739f95841e129",
+        "rev": "f74ab1eecf2dcaf22569b396eed53b2b2fbe8aff",
         "type": "github"
       },
       "original": {
@@ -67,11 +67,11 @@
     "catppuccin-wezterm": {
       "flake": false,
       "locked": {
-        "lastModified": 1666243499,
-        "narHash": "sha256-pSiJJLiZoa5D3TgmJmN/9fuwm5LY12EoQav8vRTz1TQ=",
+        "lastModified": 1681259790,
+        "narHash": "sha256-McSWoZaJeK+oqdK/0vjiRxZGuLBpEB10Zg4+7p5dIGY=",
         "owner": "catppuccin",
         "repo": "wezterm",
-        "rev": "abf490a413516863b44ed4c6b7e2c1e805630e07",
+        "rev": "b1a81bae74d66eaae16457f2d8f151b5bd4fe5da",
         "type": "github"
       },
       "original": {
@@ -80,14 +80,30 @@
         "type": "github"
       }
     },
+    "navi-tldr-pages": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1686366374,
+        "narHash": "sha256-3Eqjft0Kr1s3acaEiMCpcP9gJO22d62Z5KfOEsVUNlw=",
+        "owner": "GTrunSec",
+        "repo": "navi-tldr-pages",
+        "rev": "a0cbbd6ff0bb8e6bdeeef0200783cab1c7baaa94",
+        "type": "github"
+      },
+      "original": {
+        "owner": "GTrunSec",
+        "repo": "navi-tldr-pages",
+        "type": "github"
+      }
+    },
     "nu-scripts": {
       "flake": false,
       "locked": {
-        "lastModified": 1680898082,
-        "narHash": "sha256-Vh3WU0oNlo6HZWwhlVt5sQJa5214rVClh9gTLR3rFDg=",
+        "lastModified": 1686342406,
+        "narHash": "sha256-HvnwRE5QtZQ3MqDxyqU9ZfvQmtvs5QBNpG1lYVJ2O2k=",
         "owner": "nushell",
         "repo": "nu_scripts",
-        "rev": "ebdab3dea34f7776c937497a67357f913b0c1c54",
+        "rev": "2e46f056c647803fb3fece3e1f00349e1f5cb1f0",
         "type": "github"
       },
       "original": {
@@ -103,6 +119,7 @@
         "catppuccin-hyprland": "catppuccin-hyprland",
         "catppuccin-waybar": "catppuccin-waybar",
         "catppuccin-wezterm": "catppuccin-wezterm",
+        "navi-tldr-pages": "navi-tldr-pages",
         "nu-scripts": "nu-scripts",
         "sketchviz": "sketchviz",
         "slurp": "slurp"

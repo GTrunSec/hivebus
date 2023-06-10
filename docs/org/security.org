@@ -6,3 +6,12 @@
 
 * Trusted_Platform_Module (TPM)
 - https://wiki.archlinux.org/title/Trusted_Platform_Module
+
+
+
+
+* Check
+
+#+begin_src sh :async :exports both :results output
+sudo fwupdmgr security --forc
+#+end_src

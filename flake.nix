@@ -137,7 +137,6 @@
     {
       devShells = std.harvest inputs.self [
         ["automation" "devshells"]
-        ["emacs" "devshells"]
       ];
       lib =
         (std.harvest inputs.self ["hosts" "lib"]).x86_64-linux

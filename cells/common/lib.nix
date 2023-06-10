@@ -30,9 +30,7 @@ in
   // {
     inherit callInputs callUtils callMainInputs;
 
-    __inputs__ =
-      (callInputs.addInputsOverride {})
-      .outputsForInputsCompat;
+    __inputs__ = callInputs.outputsForInputs;
 
     # std = with cell.lib;
     #   l.recursiveUpdate inputs.std {
@@ -41,5 +39,5 @@ in
     #       arion = __inputs__.arion;
     #     };
     #   };
-    __utils__ = (callUtils.addInputsOverride {}).outputsForInputsCompat;
+    __utils__ = callUtils.outputsForInputs;
   }

@@ -1158,6 +1158,33 @@ prepended to the element after the #+HEADER: tag."
 
   #+end_src
 
+** org-navigator :refile:
+
+- https://github.com/thread314/org-navigator
+
+#+begin_src emacs-lisp :tangle  "packages.el"
+(package! org-navigator :recipe (:host github :repo "thread314/org-navigator"))
+#+end_src
+
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! org-navigator
+  :config
+  (setq org-navigator-key-map org-mode-map
+   org-navigator-fold-first t
+        org-navigator-set-view t
+        org-navigator-all-shortcuts '()
+        org-navigator-duplicates '()
+        org-navigator-config-file "~/ghq/github.com/GTrunSec/hive/profiles/doom-emacs/org-navigator/shortcut-definitions.el"
+        org-navigator-file-to-prefix "C-c f"
+        org-navigator-go-to-prefix "C-c g"
+        org-navigator-open-and-narrow-prefix "C-c n"
+        org-navigator-open-in-indirect-prefix "C-c i"
+        org-navigator-clock-in-prefix "C-c c"))
+
+  #+end_src
+
+
 ** chatgpt
 
 #+begin_src emacs-lisp :tangle "packages.el"
@@ -1608,15 +1635,16 @@ prepended to the element after the #+HEADER: tag."
 ** Nushell
 
 - [2022-12-12 Mon 11:14] -> https://github.com/azzamsa/emacs-nushell
+- https://github.com/mrkkrp/nushell-mode
 
 #+begin_src emacs-lisp :tangle "packages.el"
-(package! nu-mode :recipe (:host github :repo "eggcaker/nu-mode"
+(package! nushell-mode :recipe (:host github :repo "mrkkrp/nushell-mode"
                                  :files ("*.el")
         ))
 #+end_src
 
 #+begin_src emacs-lisp :tangle "config.el"
-(use-package! nu-mode)
+(use-package! nushell-mode)
 #+end_src
 
 

@@ -37,6 +37,11 @@
       url = "github:gpotter2/sketchviz";
       flake = false;
     };
+
+    navi-tldr-pages = {
+      url = "github:GTrunSec/navi-tldr-pages";
+      flake = false;
+    };
   };
 
   outputs = {self, ...}: {};
