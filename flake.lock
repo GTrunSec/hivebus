@@ -631,11 +631,11 @@
         "paisano": "paisano"
       },
       "locked": {
-        "lastModified": 1682269418,
-        "narHash": "sha256-0fdUrQMkXMuK1/6D1Y+gbGXIWChiIRnlbYvo4dmNfVE=",
+        "lastModified": 1686502488,
+        "narHash": "sha256-sLSiDkU9oNpcl1QEge0xVviD7N87iVdrwl7l9i+6mxQ=",
         "owner": "divnix",
         "repo": "hive",
-        "rev": "669cdfcf61823d33f11a4fe5ee1f3c34903f4eaa",
+        "rev": "e8b46fa4d2917dfd456f3f040e9761262b4648d2",
         "type": "github"
       },
       "original": {

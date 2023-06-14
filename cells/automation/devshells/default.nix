@@ -18,10 +18,11 @@ in
         enable = true;
       };
       imports = [
-        cell.devshellProfiles.terraform
         std.std.devshellProfiles.default
         # inputs.cells.bootstrap.devshellProfiles.secureboot
         "${extraModulesPath}/git/hooks.nix"
+      ] ++ l.optionals nixpkgs.stdenv.isLinux [
+        cell.devshellProfiles.terraform
       ];
 
       nixago = [] ++ l.attrValues cell.nixago;

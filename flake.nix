@@ -109,7 +109,7 @@
         homeConfigurations
         nixosConfigurations
         diskoConfigurations
-        (data "darwinConfigurations")
+        darwinConfigurations
 
         (arion "arionConfigurations")
         (microvms "microvms")
