@@ -1625,6 +1625,18 @@ prepended to the element after the #+HEADER: tag."
 #+RESULTS:
 : treesit
 
+*** treesit-auto
+
+#+begin_src emacs-lisp :tangle "packages.el"
+;;(package! treesit-auto)
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+;; (use-package! treesit-auto
+;;   :config
+;;   (global-treesit-auto-mode))
+#+end_src
+
 
 ** nickel
 
