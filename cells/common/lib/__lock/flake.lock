@@ -2478,11 +2478,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1685739139,
-        "narHash": "sha256-CLGEW11Fo1v4vj0XSqiyW1EbhRZFO7dkgM43eKwItrk=",
+        "lastModified": 1686790277,
+        "narHash": "sha256-j34ErUFJUKXUiDkElK/v3WqLCjU5TJuJKXZnU0GiTe0=",
         "owner": "nix-community",
         "repo": "namaka",
-        "rev": "d9a2cc83c1d0f68bd613f1fc909d0ef2cfffcf2e",
+        "rev": "3af77d47436a28d23eb5661be2e243b3a23553b7",
         "type": "github"
       },
       "original": {
