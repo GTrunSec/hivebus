@@ -17,13 +17,15 @@ in
       git.hooks = {
         enable = true;
       };
-      imports = [
-        std.std.devshellProfiles.default
-        # inputs.cells.bootstrap.devshellProfiles.secureboot
-        "${extraModulesPath}/git/hooks.nix"
-      ] ++ l.optionals nixpkgs.stdenv.isLinux [
-        cell.devshellProfiles.terraform
-      ];
+      imports =
+        [
+          std.std.devshellProfiles.default
+          # inputs.cells.bootstrap.devshellProfiles.secureboot
+          "${extraModulesPath}/git/hooks.nix"
+        ]
+        ++ l.optionals nixpkgs.stdenv.isLinux [
+          cell.devshellProfiles.terraform
+        ];
 
       nixago = [] ++ l.attrValues cell.nixago;
 
