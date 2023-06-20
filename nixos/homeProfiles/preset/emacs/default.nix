@@ -10,6 +10,7 @@ _: {
         programs.emacs = {
           enable = true;
           package = pkgs.emacsPgtk;
+
           extraPackages = epkgs:
             with epkgs; [
               vterm

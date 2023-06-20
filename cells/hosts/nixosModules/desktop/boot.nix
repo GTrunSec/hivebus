@@ -4,6 +4,7 @@
       boot.kernelPackages = pkgs.linuxPackages_latest;
     })
   ];
+  binfmt.emulatedSystems = ["aarch64-linux"];
   tmp.useTmpfs = true;
   tmp.tmpfsSize = "65%";
   initrd = {
