@@ -25,7 +25,7 @@ in
 
     namaka = __inputs__.namaka.packages.default;
 
-    nixUnstable = __inputs__.nix.packages.nix;
+    nixUnstable = inputs.nixos-unstable.legacyPackages.nixUnstable;
     # slurp = prev.slurp.overrideAttrs (_: {
     #   name = "slurp-PR-95";
     #   src = __utils__.slurp;

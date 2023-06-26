@@ -28,6 +28,7 @@ in {
     exports.nixosProfiles.preset.coding.rust
     exports.nixosProfiles.preset.coding.python
     exports.nixosProfiles.preset.coding.nix
+    exports.nixosProfiles.preset.coding.node
   ];
 
   homeSuites = [

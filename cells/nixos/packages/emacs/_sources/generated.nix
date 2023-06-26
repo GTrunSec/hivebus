@@ -39,14 +39,14 @@
   };
   lsp-bridge = {
     pname = "lsp-bridge";
-    version = "238b5b67ac44cb96e73efa84366b2992744fbb32";
+    version = "af68799b7bc97a0673ead2246a28144aac2db7e0";
     src = fetchFromGitHub {
       owner = "manateelazycat";
       repo = "lsp-bridge";
-      rev = "238b5b67ac44cb96e73efa84366b2992744fbb32";
+      rev = "af68799b7bc97a0673ead2246a28144aac2db7e0";
       fetchSubmodules = false;
-      sha256 = "sha256-TicmXDeucS68QlXHg/hVmMJ0iM8CopE/28N2JCTNte4=";
+      sha256 = "sha256-MPpIb82DCDqVQNPidnwwLeF0DwoHhWhi2OXIMVHLXjc=";
     };
-    date = "2023-06-17";
+    date = "2023-06-23";
   };
 }

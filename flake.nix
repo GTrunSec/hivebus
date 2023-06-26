@@ -3,16 +3,9 @@
 
   inputs = {
     # std.url = "/home/guangtao/ghq/github.com/divnix/std";
-    std.url = "github:divnix/std";
-    std.inputs.nixpkgs.follows = "nixpkgs";
-    std.inputs.arion.follows = "arion";
-    std.inputs.microvm.follows = "microvm";
-    dmerge.follows = "std/dmerge";
-
     std-ext.url = "github:gtrunsec/std-ext";
-    std-ext.inputs.std.follows = "std";
     std-ext.inputs.flops.follows = "flops";
-    std-data-collection.follows = "std-ext/std-data-collection";
+    std.follows = "std-ext/std";
 
     hive.url = "github:divnix/hive";
     hive.inputs.haumea.follows = "flops/haumea";

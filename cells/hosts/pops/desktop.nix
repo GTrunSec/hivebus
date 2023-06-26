@@ -26,10 +26,12 @@ in {
     (l.attrValues exports.nixosProfiles.preset.bootstrap)
     exports.nixosProfiles.preset.fileSystems.impermanence
     exports.nixosProfiles.preset.coding.rust
+    exports.nixosProfiles.preset.coding.nushell
     exports.nixosProfiles.preset.coding.python
     exports.nixosProfiles.preset.coding.nix
     exports.nixosProfiles.preset.coding.julia
     exports.nixosProfiles.preset.coding.nickel
+    exports.nixosProfiles.preset.coding.node
     exports.nixosProfiles.preset.coding.vscode.default
     exports.nixosProfiles.preset.coding.languageServers
     exports.nixosProfiles.preset.secrets.gnome-keyring

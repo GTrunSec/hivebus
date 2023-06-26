@@ -4,6 +4,7 @@
 }: let
   l = nixpkgs.lib // builtins;
   inherit (inputs) nixpkgs std;
+  inherit (std) lib;
   __inputs__ = inputs.cells.common.lib.__inputs__;
   withCategory = category: attrset: attrset // {inherit category;};
 in
@@ -27,7 +28,10 @@ in
           cell.devshellProfiles.terraform
         ];
 
-      nixago = [] ++ l.attrValues cell.nixago;
+      nixago = [
+        (lib.dev.mkNixago std.lib.cfg.just cell.configs.just)
+        (lib.dev.mkNixago inputs.std-ext.automation.configs.treefmt)
+      ];
 
       commands =
         [
