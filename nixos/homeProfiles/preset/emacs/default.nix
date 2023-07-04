@@ -9,7 +9,7 @@ _: {
       (mkIf pkgs.stdenv.isLinux {
         programs.emacs = {
           enable = true;
-          package = pkgs.emacsPgtk;
+          package = pkgs.emacs-pgtk;
 
           extraPackages = epkgs:
             with epkgs; [

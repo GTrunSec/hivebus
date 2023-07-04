@@ -8,7 +8,7 @@ in {
     cell.lib.mkNixOSHost exports.desktop "x86_64-linux" inputs.nixos-23-05 {
       config.allowUnfree = true;
       config.permittedInsecurePackages = [
-        "nodejs-16.20.0"
+        "nodejs-16.20.1"
       ];
     }
     inputs.home-23-05;

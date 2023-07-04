@@ -12,7 +12,9 @@ in
 
     swww = prev.callPackage ../packages/swww.nix {};
 
-    inherit (__inputs__.nickel.packages) nickel lsp-nls;
+    inherit (__inputs__.nickel.packages) lsp-nls;
+
+    nickel = __inputs__.nickel.packages.default;
 
     inherit (__inputs__.nil.packages) nil;
 

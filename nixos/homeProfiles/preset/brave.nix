@@ -10,7 +10,7 @@ _: {pkgs, ...}: {
         ];
       })
       .overrideAttrs (old: {
-        inherit (pkgs.guangtao-sources.brave) src pname version;
+        # inherit (pkgs.guangtao-sources.brave) src pname version;
       }))
     # google-chrome
   ];

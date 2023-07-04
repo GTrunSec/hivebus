@@ -9,7 +9,7 @@ in {
     preset.chat
     preset.dropbox
     preset.firefox
-    preset.brave
+    # preset.brave
     preset.office
     self.doomemacs
   ];

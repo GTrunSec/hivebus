@@ -934,11 +934,11 @@
     },
     "nixos-23-05": {
       "locked": {
-        "lastModified": 1687164712,
-        "narHash": "sha256-qes0BvisSRdfXcTf2kDnz9rA0Y6UN/Q9K6tXqvbz9RI=",
+        "lastModified": 1688341829,
+        "narHash": "sha256-BZMgGpMI1pebFYPkWPNen8/TIAudrbJjm0HwKcJfa+E=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "0141809c203872410d285671cce4f6b051afe273",
+        "rev": "e60fd72cac1c01ff8c01dc86bcadebc570cf4919",
         "type": "github"
       },
       "original": {
@@ -1389,11 +1389,11 @@
         "yants": "yants_4"
       },
       "locked": {
-        "lastModified": 1687750275,
-        "narHash": "sha256-mSbw5BM6gNwExM19CDSEShHbj2205jFyFsH6zvMiZDk=",
+        "lastModified": 1687482460,
+        "narHash": "sha256-KSut2GPMR//LJ62cMpHk+b8AHlDHWaSHTxCABzLY2yM=",
         "owner": "divnix",
         "repo": "std",
-        "rev": "ac6b274c798f66f2c1fdf9e4bf909f22d8ecb606",
+        "rev": "1dfd574de0d2e3011d8df7ade3a3f2748b701a6d",
         "type": "github"
       },
       "original": {

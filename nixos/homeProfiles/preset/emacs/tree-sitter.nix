@@ -65,7 +65,7 @@ in {
       (mkIf pkgs.stdenv.isLinux {
         programs.emacs = {
           enable = true;
-          package = mkForce (pkgs.emacsPgtk.override {
+          package = mkForce (pkgs.emacs-pgtk.override {
             withTreeSitter = true;
           });
         };

@@ -10,5 +10,6 @@ _: {pkgs, ...}: {
     sway-contrib.grimshot # Screenshot utility for Wayland
     kooha # Elegantly record your screen
     sunpaper # Wallpaper manager for Wayland
+    swaynotificationcenter
   ];
 }

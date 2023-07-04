@@ -1108,6 +1108,23 @@ prepended to the element after the #+HEADER: tag."
   (add-hook 'org-mode-hook #'org-modern-indent-mode 90))
 #+end_src
 
+** org-cv
+#+begin_src emacs-lisp :tangle  "packages.el"
+(package! ox-moderncv :recipe (:host gitlab :repo "Titan-C/org-cv"
+                              :files ("*.el")))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(require 'ox-moderncv)
+(use-package! ox-moderncv
+  :init
+  (require 'ox-moderncv)
+  (require 'ox-altacv))
+#+end_src
+
+#+RESULTS:
+: ox-moderncv
+
 ** org-roam :roam:
 
 #+begin_src emacs-lisp :tangle "packages.el"

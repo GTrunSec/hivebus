@@ -41,7 +41,7 @@
     },
     "jinx": {
         "cargoLocks": null,
-        "date": "2023-06-16",
+        "date": "2023-07-02",
         "extract": null,
         "name": "jinx",
         "passthru": null,
@@ -53,15 +53,15 @@
             "name": null,
             "owner": "minad",
             "repo": "jinx",
-            "rev": "2458dcb6039811a174aff8c784abdb552a361c4f",
-            "sha256": "sha256-XZ2Y/LftaQILej9fV6IV5rbIwvcPV45A+V1izPiCVJw=",
+            "rev": "6541afe26fd1ce3f981052c2592d63bdfe54878d",
+            "sha256": "sha256-Y34KM4HT8zNHRGJHjvXE3wtb0XmhmGBcaCID1vz2VeE=",
             "type": "github"
         },
-        "version": "2458dcb6039811a174aff8c784abdb552a361c4f"
+        "version": "6541afe26fd1ce3f981052c2592d63bdfe54878d"
     },
     "lsp-bridge": {
         "cargoLocks": null,
-        "date": "2023-06-23",
+        "date": "2023-07-04",
         "extract": null,
         "name": "lsp-bridge",
         "passthru": null,
@@ -73,10 +73,10 @@
             "name": null,
             "owner": "manateelazycat",
             "repo": "lsp-bridge",
-            "rev": "af68799b7bc97a0673ead2246a28144aac2db7e0",
-            "sha256": "sha256-MPpIb82DCDqVQNPidnwwLeF0DwoHhWhi2OXIMVHLXjc=",
+            "rev": "25be1a28fe6ca7dc91547c47d97c0558702fd41c",
+            "sha256": "sha256-A+trQsF2S8GdopNPaYGyX24mREMLpxAAGGuKOb6lmnw=",
             "type": "github"
         },
-        "version": "af68799b7bc97a0673ead2246a28144aac2db7e0"
+        "version": "25be1a28fe6ca7dc91547c47d97c0558702fd41c"
     }
 }
