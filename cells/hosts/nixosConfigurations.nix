@@ -5,13 +5,13 @@
   inherit (cell.pops) exports;
 in {
   desktop =
-    cell.lib.mkNixOSHost exports.desktop "x86_64-linux" inputs.nixos-23-05 {
+    cell.lib.mkNixOSHost exports.desktop "x86_64-linux" inputs.nixos-unstable {
       config.allowUnfree = true;
       config.permittedInsecurePackages = [
         "nodejs-16.20.1"
       ];
     }
-    inputs.home-23-05;
+    inputs.home;
 
   flops =
     cell.lib.mkNixOSHost exports.flops "x86_64-linux" inputs.nixos {

@@ -1,4 +1,4 @@
-local wezterm = require 'catppuccin'
+-- local wezterm = require 'catppuccin'
 return {
    -- color_scheme = 'Catppuccin Mocha',
    window_background_opacity = 0.8,

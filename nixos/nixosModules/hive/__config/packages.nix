@@ -14,6 +14,7 @@ in {
           openssl
           wget
           curl
+          gnumake
         ];
       })
       (mkIf cfg.full {

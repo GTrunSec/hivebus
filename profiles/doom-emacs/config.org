@@ -1117,7 +1117,7 @@ prepended to the element after the #+HEADER: tag."
 #+begin_src emacs-lisp :tangle "config.el"
 (use-package! ox-moderncv
   :init
-  (require 'ox-moderncv)
+  (require 'ox-awesomecv)
   (require 'ox-altacv))
 #+end_src
 

@@ -23,6 +23,10 @@ _: {pkgs, ...}: {
           latexmk
           # elegantpaper
           
+          fontawesome5
+          roboto
+          lato
+          sourcesanspro
           ;
       }
     )

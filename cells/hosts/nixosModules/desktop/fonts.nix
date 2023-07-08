@@ -31,6 +31,7 @@
           material-icons
           weather-icons
           iosevka
+          roboto
           (nerdfonts.override {fonts = ["JetBrainsMono" "RobotoMono"];})
         ]
         ++ [

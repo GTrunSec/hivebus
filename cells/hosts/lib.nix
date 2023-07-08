@@ -16,7 +16,7 @@ in {
             home.stateVersion =
               if nixpkgs.stdenv.isDarwin
               then cell.darwinConfigurations.${host}.bee.pkgs.lib.trivial.release
-              else cell.nixosConfigurations.${host}.bee.pkgs.lib.trivial.release;
+              else "23.05";
           };
           users.users.${user} = {
             shell = pkgs."${shell}";
@@ -41,7 +41,7 @@ in {
       else cell.nixosConfigurations.${host}.bee;
     home = rec {
       homeDirectory = "/home/${username}";
-      stateVersion = cell.nixosConfigurations.${host}.bee.pkgs.lib.trivial.release;
+      stateVersion = "23.05";
       username = user;
     };
     imports = l.flatten cell.pops.exports.${host}.homeSuites;
