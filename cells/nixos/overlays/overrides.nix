@@ -2,6 +2,7 @@
   inputs,
   cell,
 }: let
+  inherit (inputs.cells.common.lib) __inputs__;
   nixpkgs-master = import inputs.nixpkgs-master {
     inherit (inputs.nixpkgs) system;
     config.allowUnfree = true;
@@ -18,8 +19,9 @@ in
       typst-lsp
       navi
       # darwin packages
-      
       ;
+
+    inherit (__inputs__.nixpkgs-dropbox) dropbox-cli;
 
     yabai = nixpkgs-master.yabai.overrideAttrs (old: rec {
       version = "5.0.3";

@@ -29,6 +29,7 @@
     nixgl.inputs.nixpkgs.follows = "nixpkgs";
 
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
+    nixpkgs-dropbox.url = "github:nixos/nixpkgs/?ref=pull/242730/head";
   };
 
   inputs = {

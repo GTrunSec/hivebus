@@ -2949,6 +2949,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-dropbox": {
+      "locked": {
+        "lastModified": 1689025108,
+        "narHash": "sha256-J9LVvxzU74t7sgNzTVgYiIZaaWkxVHZUFJGy4/3uq/I=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "76e3972a8cbff97ae6eccb1cba4872d681a5e94f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "pull/242730/head",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs-hardenedlinux": {
       "inputs": {
         "flops": [
@@ -4104,6 +4120,7 @@
         "nix-init": "nix-init",
         "nixgl": "nixgl",
         "nixpkgs": "nixpkgs_16",
+        "nixpkgs-dropbox": "nixpkgs-dropbox",
         "nixpkgs-hardenedlinux": "nixpkgs-hardenedlinux",
         "nixpkgs-wayland": "nixpkgs-wayland",
         "nomad-driver": "nomad-driver",
