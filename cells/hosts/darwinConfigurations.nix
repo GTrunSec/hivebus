@@ -15,7 +15,7 @@ in {
       inherit system;
       config.allowUnfree = true;
       config.permittedInsecurePackages = [
-        "nodejs-16.20.0"
+        "nodejs-16.20.1"
       ];
       overlays = l.flatten exports.macbook.overlays;
     };

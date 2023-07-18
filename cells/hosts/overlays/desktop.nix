@@ -9,6 +9,7 @@ in [
   exports.overlays.default
   exports.overlays.nodePackages
   exports.overlays.python
+  exports.overlays.overrides
 
   __inputs__.rust-overlay.overlays.default
   __inputs__.nixpkgs-wayland.overlays.default

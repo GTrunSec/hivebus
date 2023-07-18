@@ -20,6 +20,7 @@ _: {
           clang
           pkg-config
           nrepl
+          pngpaste
         ];
       }
     ];

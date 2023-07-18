@@ -7,6 +7,10 @@
     inherit (inputs.nixpkgs) system;
     config.allowUnfree = true;
   };
+  nixpkgs-dropbox = import __inputs__.nixpkgs-dropbox {
+    inherit (inputs.nixpkgs) system;
+    config.allowUnfree = true;
+  };
 in
   final: prev: {
     inherit
@@ -19,9 +23,10 @@ in
       typst-lsp
       navi
       # darwin packages
+      
       ;
 
-    inherit (__inputs__.nixpkgs-dropbox) dropbox-cli;
+    inherit (nixpkgs-dropbox) dropbox-cli;
 
     yabai = nixpkgs-master.yabai.overrideAttrs (old: rec {
       version = "5.0.3";
