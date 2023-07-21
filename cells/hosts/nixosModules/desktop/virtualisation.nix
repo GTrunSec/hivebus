@@ -1,0 +1,5 @@
+{
+  hive = {
+    user = "guangtao";
+  };
+}

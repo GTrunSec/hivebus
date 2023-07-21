@@ -15,5 +15,6 @@
     self.default
     root.preset.display.fcitx5
     root.preset.display.dbus
+    root.preset.virtualisation.podman
   ];
 }

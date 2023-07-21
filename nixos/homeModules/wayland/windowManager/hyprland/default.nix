@@ -3,7 +3,6 @@
   __inputs__,
 }: {
   _imports = [
-    __inputs__.hyprland.homeManagerModules.default
     ./_config.nix
   ];
   _options.hive = with lib;

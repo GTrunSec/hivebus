@@ -2,3 +2,7 @@
 :ID:       e52cca9d-f7af-4365-aa0b-a92fe498364b
 :END:
 #+title: Shell
+
+* terminal workspace
+** tmux
+** [[https://github.com/zellij-org/zellij][zellij]]
