@@ -20,6 +20,7 @@ in {
           };
           users.users.${user} = {
             shell = pkgs."${shell}";
+            home = if nixpkgs.stdenv.isDarwin then "/Users/${user}" else "/home/${user}";
           };
           programs.${shell}.enable = true;
         })

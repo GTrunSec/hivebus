@@ -15,6 +15,8 @@ in {
       "/bin/"
       "/usr/bin"
       "/usr/bin/sbin"
+      "/usr/sbin"
+      "/sbin"
     ];
     environment.systemPath = [];
     environment.variables.PATH = config.hive.env.PATH;
