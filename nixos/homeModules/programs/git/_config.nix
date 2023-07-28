@@ -23,7 +23,7 @@ in {
       })
       (mkIf cfg.hive.haskell {
         ignores = [
-          # from: https://github.com/chessai/my-chainweb-node/blob/main/home/git/default.nix
+          # from: https://github.com/chessai/my-chainweb-node/blob/main/home/gitdefault.nix
           ".ghc.environment.*"
           "dist"
           "dist-*"

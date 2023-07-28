@@ -4,8 +4,12 @@
   inputs = {
     # std.url = "/home/guangtao/ghq/github.com/divnix/std";
     std-ext.url = "github:gtrunsec/std-ext";
+    std-ext.inputs.std.follows = "std";
     std-ext.inputs.flops.follows = "flops";
-    std.follows = "std-ext/std";
+    std.url = "github:divnix/std";
+    std.inputs.devshell.follows = "std-ext/devshell";
+    std.inputs.nixago.follows = "std-ext/nixago";
+    std.inputs.arion.follows = "arion";
 
     hive.url = "github:divnix/hive";
     hive.inputs.haumea.follows = "flops/haumea";
