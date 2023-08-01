@@ -1,3 +1,1 @@
-{lib}: {
-  earlyoom.enable = lib.mkDefault true;
-}
+{ lib }: { earlyoom.enable = lib.mkDefault true; }

@@ -1,5 +1,1 @@
-_: {pkgs, ...}: {
-  environment.systemPackages = with pkgs; [
-    yarn
-  ];
-}
+_: { pkgs, ... }: { environment.systemPackages = with pkgs; [ yarn ]; }

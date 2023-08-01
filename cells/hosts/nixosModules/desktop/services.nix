@@ -1,3 +1,1 @@
-{
-  getty.autologinUser = "guangtao";
-}
+{ getty.autologinUser = "guangtao"; }

@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   # hardware.opengl.extraPackages = with pkgs; [
   #   vaapiIntel
   #   vaapiVdpau

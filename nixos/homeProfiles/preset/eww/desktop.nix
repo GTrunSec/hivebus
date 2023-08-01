@@ -3,12 +3,14 @@
   cell,
   profiles,
   __inputs__,
-}: let
+}:
+let
   src = profiles + "/eww";
 
   eww = __inputs__.eww.packages.default;
   eww-wayland = __inputs__.eww.packages.eww-wayland;
-in {
+in
+{
   default = {
     imports = [
       cell.homeModules.eww
@@ -16,14 +18,10 @@ in {
     ];
   };
 
-  overlays.default.nixpkgs.overlays = [
-    __inputs__.eww.overlays.default
-  ];
+  overlays.default.nixpkgs.overlays = [ __inputs__.eww.overlays.default ];
 
   guangtao = {
-    imports = [
-      cell.homeProfiles.eww.default
-    ];
+    imports = [ cell.homeProfiles.eww.default ];
     programs.eww.configDir = src;
   };
 }

@@ -1,4 +1,5 @@
-{lib}: {
+{ lib }:
+{
   _options = with lib; {
     minimal = mkOption {
       type = types.bool;

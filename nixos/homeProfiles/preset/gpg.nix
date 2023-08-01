@@ -1,10 +1,13 @@
-_: {
+_:
+{
   config,
   lib,
   pkgs,
   ...
-}: {
-  config = with lib;
+}:
+{
+  config =
+    with lib;
     mkMerge [
       {
         programs.gpg = {
@@ -18,22 +21,20 @@ _: {
           };
         };
       }
-      (
-        mkIf pkgs.stdenv.isLinux {
-          programs.gpg = {
-            # settings = {
-            #   default-key = "0x761C8EBEA940960E";
-            # };
-          };
-          services.gpg-agent = {
-            defaultCacheTtl = 180000;
-            defaultCacheTtlSsh = 180000;
-            enable = true;
-            enableScDaemon = true;
-            enableSshSupport = true;
-            grabKeyboardAndMouse = false;
-          };
-        }
-      )
+      (mkIf pkgs.stdenv.isLinux {
+        programs.gpg = {
+          # settings = {
+          #   default-key = "0x761C8EBEA940960E";
+          # };
+        };
+        services.gpg-agent = {
+          defaultCacheTtl = 180000;
+          defaultCacheTtlSsh = 180000;
+          enable = true;
+          enableScDaemon = true;
+          enableSshSupport = true;
+          grabKeyboardAndMouse = false;
+        };
+      })
     ];
 }

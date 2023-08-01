@@ -1,14 +1,24 @@
-_: {pkgs, ...}: {
+_:
+{ pkgs, ... }:
+{
   nix = {
     package = pkgs.nixUnstable;
     optimise.automatic = true;
     nrBuildUsers = 0;
     settings = {
-      nix-path = ["nixpkgs=${pkgs.path}"];
-      allowed-users = ["@wheel"];
-      trusted-users = ["root" "@wheel"];
+      nix-path = [ "nixpkgs=${pkgs.path}" ];
+      allowed-users = [ "@wheel" ];
+      trusted-users = [
+        "root"
+        "@wheel"
+      ];
       # auto-optimise-store = true;
-      system-features = ["nixos-test" "benchmark" "big-parallel" "kvm"];
+      system-features = [
+        "nixos-test"
+        "benchmark"
+        "big-parallel"
+        "kvm"
+      ];
       builders-use-substitutes = true;
       sandbox = true;
       keep-derivations = true;
@@ -30,7 +40,6 @@ _: {pkgs, ...}: {
       dates = "weekly";
       options = "--delete-older-than 3d";
     };
-    extraOptions = ''
-    '';
+    extraOptions = "";
   };
 }

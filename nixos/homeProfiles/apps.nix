@@ -2,9 +2,11 @@
   root,
   self,
   lib,
-}: let
+}:
+let
   inherit (root) preset;
-in {
+in
+{
   linux = [
     preset.chat
     preset.dropbox

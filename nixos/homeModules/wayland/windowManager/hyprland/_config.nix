@@ -3,12 +3,14 @@
   lib,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.wayland.windowManager.hyprland;
   cfg' = config.wayland.windowManager.hyprland.hive;
 in
-  with lib; {
-    config = mkIf cfg.enable (mkMerge [
+with lib; {
+  config = mkIf cfg.enable (
+    mkMerge [
       {
         home.sessionVariables = {
           QT_QPA_PLATFORM = "wayland";
@@ -44,10 +46,11 @@ in
           pkgs.swww
           (pkgs.writeShellApplication {
             name = "swww-random";
-            runtimeInputs = [pkgs.swww];
+            runtimeInputs = [ pkgs.swww ];
             text = lib.fileContents ./swww_randomize.sh;
           })
         ];
       })
-    ]);
-  }
+    ]
+  );
+}

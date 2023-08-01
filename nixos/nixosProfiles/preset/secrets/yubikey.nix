@@ -1,4 +1,6 @@
-_: {pkgs, ...}: {
+_:
+{ pkgs, ... }:
+{
   services.yubikey-agent.enable = true;
 
   environment.systemPackages = with pkgs; [
@@ -6,7 +8,5 @@ _: {pkgs, ...}: {
     yubico-piv-tool
   ];
 
-  services.udev.packages = [
-    pkgs.yubikey-personalization
-  ];
+  services.udev.packages = [ pkgs.yubikey-personalization ];
 }

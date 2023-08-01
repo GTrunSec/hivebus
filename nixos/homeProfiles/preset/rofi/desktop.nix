@@ -1,6 +1,8 @@
-{profiles}: let
+{ profiles }:
+let
   src = profiles + "/rofi";
-in {
+in
+{
   home.file.".config/rofi/off.sh".source = "${src}/off.sh";
   home.file.".config/rofi/colors.rasi".source = "${src}/colors.rasi";
   home.file.".config/rofi/launcher.sh".source = "${src}/launcher.sh";

@@ -1,9 +1,8 @@
-{
-  inputs,
-  cell,
-}: let
+{ inputs, cell }:
+let
   id = "vm-qemu-1";
-in {
+in
+{
   microvm.forwardPorts = [
     {
       from = "host";
@@ -22,20 +21,16 @@ in {
     mem = 4000;
     vcpu = 4;
 
-    interfaces = [
-      {
-        type = "user";
-        inherit id;
-        mac = "00:02:00:01:01:00";
-      }
-    ];
+    interfaces = [ {
+      type = "user";
+      inherit id;
+      mac = "00:02:00:01:01:00";
+    } ];
 
-    volumes = [
-      {
-        mountPoint = "/var";
-        image = "/tmp/user-${id}.img";
-        size = 2048;
-      }
-    ];
+    volumes = [ {
+      mountPoint = "/var";
+      image = "/tmp/user-${id}.img";
+      size = 2048;
+    } ];
   };
 }

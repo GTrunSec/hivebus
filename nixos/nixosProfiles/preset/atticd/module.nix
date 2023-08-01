@@ -3,7 +3,8 @@
   pkgs,
   config,
   ...
-}: let
+}:
+let
   inherit (lib) types;
 
   cfg = config.services.atticd;
@@ -12,19 +13,18 @@
   flake = import ../flake-compat.nix;
   overlay = flake.defaultNix.overlays.default;
 
-  format = pkgs.formats.toml {};
+  format = pkgs.formats.toml { };
 
   checkedConfigFile =
-    pkgs.runCommand "checked-attic-server.toml" {
-      configFile = cfg.configFile;
-    } ''
-      cat $configFile
+    pkgs.runCommand "checked-attic-server.toml" { configFile = cfg.configFile; }
+      ''
+        cat $configFile
 
-      export ATTIC_SERVER_TOKEN_HS256_SECRET_BASE64="dGVzdCBzZWNyZXQ="
-      export ATTIC_SERVER_DATABASE_URL="sqlite://:memory:"
-      ${cfg.package}/bin/atticd --mode check-config -f $configFile
-      cat <$configFile >$out
-    '';
+        export ATTIC_SERVER_TOKEN_HS256_SECRET_BASE64="dGVzdCBzZWNyZXQ="
+        export ATTIC_SERVER_DATABASE_URL="sqlite://:memory:"
+        ${cfg.package}/bin/atticd --mode check-config -f $configFile
+        cat <$configFile >$out
+      '';
 
   atticadmShim = pkgs.writeShellScript "atticadm" ''
     if [ -n "$ATTICADM_PWD" ]; then
@@ -54,13 +54,22 @@
       ${atticadmShim} "$@"
   '';
 
-  hasLocalPostgresDB = let
-    url = cfg.settings.database.url or "";
-    localStrings = ["localhost" "127.0.0.1" "/run/postgresql"];
-    hasLocalStrings = lib.any (lib.flip lib.hasInfix url) localStrings;
-  in
-    config.services.postgresql.enable && lib.hasPrefix "postgresql://" url && hasLocalStrings;
-in {
+  hasLocalPostgresDB =
+    let
+      url = cfg.settings.database.url or "";
+      localStrings = [
+        "localhost"
+        "127.0.0.1"
+        "/run/postgresql"
+      ];
+      hasLocalStrings = lib.any (lib.flip lib.hasInfix url) localStrings;
+    in
+    config.services.postgresql.enable
+    && lib.hasPrefix "postgresql://" url
+    && hasLocalStrings
+  ;
+in
+{
   options = {
     services.atticd = {
       enable = lib.mkOption {
@@ -107,7 +116,7 @@ in {
           Structured configurations of atticd.
         '';
         type = format.type;
-        default = {}; # setting defaults here does not compose well
+        default = { }; # setting defaults here does not compose well
       };
       configFile = lib.mkOption {
         description = ''
@@ -131,8 +140,8 @@ in {
       };
     };
   };
-  config = lib.mkIf (cfg.enable) (lib.mkMerge [
-    {
+  config = lib.mkIf (cfg.enable) (
+    lib.mkMerge [ {
       assertions = [
         {
           assertion = cfg.credentialsFile != null;
@@ -168,10 +177,13 @@ in {
       };
 
       systemd.services.atticd = {
-        wantedBy = ["multi-user.target"];
+        wantedBy = [ "multi-user.target" ];
         after =
-          ["network.target"]
-          ++ lib.optionals hasLocalPostgresDB ["postgresql.service" "nss-lookup.target"];
+          [ "network.target" ]
+          ++ lib.optionals hasLocalPostgresDB [
+            "postgresql.service"
+            "nss-lookup.target"
+          ];
         serviceConfig = {
           ExecStart = "${cfg.package}/bin/atticd -f ${checkedConfigFile}";
           EnvironmentFile = cfg.credentialsFile;
@@ -186,13 +198,17 @@ in {
           ProtectKernelTunables = true;
           ProtectProc = "invisible";
           ProtectSystem = "strict";
-          RestrictAddressFamilies = ["AF_INET" "AF_INET6" "AF_UNIX"];
+          RestrictAddressFamilies = [
+            "AF_INET"
+            "AF_INET6"
+            "AF_UNIX"
+          ];
           RestrictNamespaces = true;
           RestrictRealtime = true;
           RestrictSUIDSGID = true;
         };
       };
-      environment.systemPackages = [atticadmWrapper];
-    }
-  ]);
+      environment.systemPackages = [ atticadmWrapper ];
+    } ]
+  );
 }

@@ -1,4 +1,6 @@
-_: {pkgs, ...}: {
+_:
+{ pkgs, ... }:
+{
   environment.systemPackages = with pkgs; [
     nodePackages.bash-language-server
     nodePackages.typescript-language-server

@@ -1,17 +1,21 @@
-_: {
+_:
+{
   config,
   pkgs,
   lib,
   ...
-}: {
-  config = with lib;
+}:
+{
+  config =
+    with lib;
     mkMerge [
       (mkIf pkgs.stdenv.isLinux {
         programs.emacs = {
           enable = true;
           package = pkgs.emacs-pgtk;
 
-          extraPackages = epkgs:
+          extraPackages =
+            epkgs:
             with epkgs; [
               vterm
               grab-x-link

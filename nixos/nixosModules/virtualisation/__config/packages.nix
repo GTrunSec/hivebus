@@ -3,8 +3,10 @@
   config,
   lib,
   ...
-}: {
-  config = with lib;
+}:
+{
+  config =
+    with lib;
     mkMerge [
       (mkIf (config.virtualisation.hive.gui && config.virtualisation.libvirtd.enable)
         {
@@ -12,6 +14,7 @@
             pkgs.virt-manager
             spice-gtk
           ];
-        })
+        }
+      )
     ];
 }

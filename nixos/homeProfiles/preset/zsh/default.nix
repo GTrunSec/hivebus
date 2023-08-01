@@ -1,10 +1,13 @@
-_: {
+_:
+{
   config,
   lib,
   pkgs,
   ...
-}: {
-  config = with lib;
+}:
+{
+  config =
+    with lib;
     mkMerge [
       {
         home.packages = with pkgs; [
@@ -31,12 +34,13 @@ _: {
           shellAliases = with pkgs; {
             l = "exa -lah";
             f = "rg --files";
-            E = "env SUDO_EDITOR=\"emacsclient\" sudo -e";
+            E = ''env SUDO_EDITOR="emacsclient" sudo -e'';
             e = "emacsclient";
             em = "emacs";
             cp = "cp -i";
             mv = "mv -i";
-            cdghq = "cd $(ghq root)/$(find $(ghq root) -maxdepth 4 -type d -name .git | xargs -n1 dirname | sed \"s|$(ghq root)/||\" | peco)";
+            cdghq = ''
+              cd $(ghq root)/$(find $(ghq root) -maxdepth 4 -type d -name .git | xargs -n1 dirname | sed "s|$(ghq root)/||" | peco)'';
             ##update Nixpkgs
             fp = "git fetch && git pull";
             sshi = "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null";
@@ -50,33 +54,26 @@ _: {
           initExtra =
             builtins.readFile ./zshrc.zsh
             + builtins.readFile ./init-bindkey.zsh
-            + builtins.readFile ./autoload.zsh;
+            + builtins.readFile ./autoload.zsh
+          ;
 
-          plugins = [
-            {
-              name = "zsh-history-substring-search";
-              src = pkgs.zsh-history-substring-search;
-            }
-          ];
+          plugins = [ {
+            name = "zsh-history-substring-search";
+            src = pkgs.zsh-history-substring-search;
+          } ];
         };
       }
-      (
-        mkIf pkgs.stdenv.isDarwin {
-          programs.zsh.sessionVariables = {
-            TMUX_TMPDIR = "$HOME/.config/.";
-            LANG = "en_US.UTF-8";
-            export = "LC_ALL=en_US.UTF-8";
-            GNUPGHOME = "$HOME/.gnupg";
-            NIX_PATH = "nixpkgs=${pkgs.path}";
-            # FIXME: emacs can not get the path correctly
-            SHELL = "/bin/bash";
-          };
-        }
-      )
-      (
-        mkIf pkgs.stdenv.isLinux {
-          programs.zsh.shellAliases = {};
-        }
-      )
+      (mkIf pkgs.stdenv.isDarwin {
+        programs.zsh.sessionVariables = {
+          TMUX_TMPDIR = "$HOME/.config/.";
+          LANG = "en_US.UTF-8";
+          export = "LC_ALL=en_US.UTF-8";
+          GNUPGHOME = "$HOME/.gnupg";
+          NIX_PATH = "nixpkgs=${pkgs.path}";
+          # FIXME: emacs can not get the path correctly
+          SHELL = "/bin/bash";
+        };
+      })
+      (mkIf pkgs.stdenv.isLinux { programs.zsh.shellAliases = { }; })
     ];
 }

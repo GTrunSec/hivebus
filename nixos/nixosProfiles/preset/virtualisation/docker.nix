@@ -1,14 +1,16 @@
-_: {
+_:
+{
   pkgs,
   config,
   lib,
   ...
-}: let
+}:
+let
   cfg' = config.virtualisation.hive;
-in {
-  environment.systemPackages = with pkgs; (lib.optionals cfg'.dockerCompose [
-    docker-compose
-  ]);
+in
+{
+  environment.systemPackages =
+    with pkgs; (lib.optionals cfg'.dockerCompose [ docker-compose ]);
   virtualisation.docker = {
     enable = true;
     rootless = {

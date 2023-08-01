@@ -1,4 +1,5 @@
-_: {}
+_:
+{ }
 # {...}: {
 #   boot = {
 #     kernelParams = ["intel_iommu=on"];
@@ -16,4 +17,3 @@ _: {}
 #   };
 #   environment.etc."qemu/bridge.conf".text = "allow br0";
 # }
-

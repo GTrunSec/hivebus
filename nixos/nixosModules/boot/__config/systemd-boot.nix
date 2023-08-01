@@ -1,11 +1,10 @@
-{
-  config,
-  lib,
-  ...
-}: let
+{ config, lib, ... }:
+let
   cfg = config.hive.bootstrap;
-in {
-  config = with lib;
+in
+{
+  config =
+    with lib;
     mkMerge [
       (mkIf cfg.systemd-boot {
         boot.loader = {

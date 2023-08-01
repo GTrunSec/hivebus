@@ -1,10 +1,12 @@
 # copyright: https://github.com/cpcloud/nix-config
-_: {
+_:
+{
   config,
   lib,
   pkgs,
   ...
-}: let
+}:
+let
   enableNvidiaDocker = config.virtualisation.docker.enableNvidia;
   enableNvidiaPodman = config.virtualisation.podman.enableNvidia;
   # test scripts for the nvidia docker runtime, for docker and podman if they
@@ -21,10 +23,11 @@ _: {
     print(\"\n\".join(map(repr, devices)))
   '';
 
-  testNVidiaContainerSimple = runtime:
+  testNVidiaContainerSimple =
+    runtime:
     pkgs.writeShellApplication {
       name = "test_nvidia_${runtime}_simple";
-      runtimeInputs = [pkgs.${runtime}];
+      runtimeInputs = [ pkgs.${runtime} ];
       text = ''
         set -x
 
@@ -32,10 +35,11 @@ _: {
       '';
     };
 
-  testNVidiaContainerTensorFlow = runtime:
+  testNVidiaContainerTensorFlow =
+    runtime:
     pkgs.writeShellApplication {
       name = "test_nvidia_${runtime}_tensorflow";
-      runtimeInputs = [pkgs.${runtime}];
+      runtimeInputs = [ pkgs.${runtime} ];
       text = ''
         set -x
 
@@ -54,7 +58,8 @@ _: {
     (testNVidiaContainerSimple runtime)
     (testNVidiaContainerTensorFlow runtime)
   ];
-in {
+in
+{
   environment.systemPackages =
     lib.optionals enableNvidiaDocker (genScripts "docker")
     ++ lib.optionals enableNvidiaPodman (genScripts "podman");

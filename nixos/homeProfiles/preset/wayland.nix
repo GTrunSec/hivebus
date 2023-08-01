@@ -1,4 +1,6 @@
-_: {pkgs, ...}: {
+_:
+{ pkgs, ... }:
+{
   home.packages = with pkgs; [
     qt5.qtwayland
     wayland-utils

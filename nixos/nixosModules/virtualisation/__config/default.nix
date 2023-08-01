@@ -3,25 +3,33 @@
   lib,
   pkgs,
   ...
-}: let
+}:
+let
   cfg' = config.virtualisation.hive;
-in {
-  config = with lib;
+in
+{
+  config =
+    with lib;
     mkMerge [
       (mkIf (cfg'.user != "") {
         users.users."${cfg'.user}" = {
           extraGroups =
-            []
-            ++ lib.optionals config.virtualisation.docker.enable ["docker"]
-            ++ lib.optionals config.virtualisation.podman.enable ["podman"]
-            ++ lib.optionals config.virtualisation.podman.dockerSocket.enable ["docker"]
-            ++ lib.optionals config.virtualisation.libvirtd.enable ["libvirtd"];
+            [ ]
+            ++ lib.optionals config.virtualisation.docker.enable [ "docker" ]
+            ++ lib.optionals config.virtualisation.podman.enable [ "podman" ]
+            ++ lib.optionals config.virtualisation.podman.dockerSocket.enable [ "docker" ]
+            ++ lib.optionals config.virtualisation.libvirtd.enable [ "libvirtd" ]
+          ;
         };
       })
       (mkIf cfg'.nvidia {
         # services.dockerRegistry.storagePath = "/DATABASE-4TB//docker-registry";
-        virtualisation.podman.enableNvidia = mkIf config.virtualisation.podman.enable true;
-        virtualisation.docker.enableNvidia = mkIf config.virtualisation.docker.enable true;
+        virtualisation.podman.enableNvidia =
+          mkIf config.virtualisation.podman.enable
+            true;
+        virtualisation.docker.enableNvidia =
+          mkIf config.virtualisation.docker.enable
+            true;
       })
     ];
   #   home-manager.users."guangtao" = {

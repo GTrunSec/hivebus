@@ -1,46 +1,52 @@
-_: {
+_:
+{
   pkgs,
   config,
   lib,
   ...
-}: let
+}:
+let
   dependencies =
     (lib.optionals config.wayland.windowManager.hyprland.enable [
       config.wayland.windowManager.hyprland.package
     ])
-    ++ (with pkgs; [
-      bash
-      eww-wayland
-      bc
-      blueberry
-      bluez
-      coreutils
-      dbus
-      dunst
-      findutils
-      gawk
-      gnused
-      gojq
-      iwgtk
-      jaq
-      light
-      networkmanager
-      networkmanagerapplet
-      pavucontrol
-      playerctl
-      procps
-      pulseaudio
-      ripgrep
-      socat
-      udev
-      upower
-      util-linux
-      wget
-      wireplumber
-      wlogout
-      wofi
-    ]);
-in {
+    ++ (
+      with pkgs; [
+        bash
+        eww-wayland
+        bc
+        blueberry
+        bluez
+        coreutils
+        dbus
+        dunst
+        findutils
+        gawk
+        gnused
+        gojq
+        iwgtk
+        jaq
+        light
+        networkmanager
+        networkmanagerapplet
+        pavucontrol
+        playerctl
+        procps
+        pulseaudio
+        ripgrep
+        socat
+        udev
+        upower
+        util-linux
+        wget
+        wireplumber
+        wlogout
+        wofi
+      ]
+    )
+  ;
+in
+{
   programs.eww = {
     enable = true;
     package = pkgs.eww-wayland;

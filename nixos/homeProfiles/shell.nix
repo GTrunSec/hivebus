@@ -3,9 +3,11 @@
   self,
   lib,
   pkgs',
-}: let
+}:
+let
   inherit (root) preset;
-in {
+in
+{
   default = [
     self.minimal
     self.utils
@@ -28,19 +30,13 @@ in {
     (lib.optional pkgs'.stdenv.isLinux preset.alacritty)
   ];
 
-  minimal = [
-    preset.git
-  ];
+  minimal = [ preset.git ];
 
-  utils = [
-    {
-      programs.btop.enable = true;
-      programs.bat.enable = true;
-      programs.jq.enable = true;
-    }
-  ];
+  utils = [ {
+    programs.btop.enable = true;
+    programs.bat.enable = true;
+    programs.jq.enable = true;
+  } ];
 
-  full = [
-    self.default
-  ];
+  full = [ self.default ];
 }

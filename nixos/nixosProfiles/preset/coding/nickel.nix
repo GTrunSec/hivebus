@@ -1,4 +1,6 @@
-_: {pkgs, ...}: {
+_:
+{ pkgs, ... }:
+{
   environment.systemPackages = with pkgs; [
     nickel
     lsp-nls

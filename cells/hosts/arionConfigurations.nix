@@ -1,9 +1,8 @@
-{
-  inputs,
-  cell,
-}: let
+{ inputs, cell }:
+let
   inherit (inputs) std;
   l = inputs.nixpkgs.lib // builtins;
-in {
+in
+{
   full-nixos = std.lib.dev.mkArion cell.arionProfiles.webapp;
 }

@@ -232,6 +232,11 @@
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
+
+(pixel-scroll-precision-mode 1)
+(setq pixel-scroll-precision-interpolate-page t)
+(defalias 'scroll-up-command 'pixel-scroll-interpolate-up)
+(defalias 'scroll-down-command 'pixel-scroll-interpolate-down)
 #+end_src
 
 

@@ -1,6 +1,9 @@
-{profiles}: {pkgs, ...}: let
+{ profiles }:
+{ pkgs, ... }:
+let
   src = profiles + "/hyprland";
-in {
+in
+{
   wayland.windowManager.hyprland = {
     enable = true;
     systemdIntegration = true;

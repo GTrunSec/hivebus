@@ -1,9 +1,5 @@
 {
-  _imports = [
-    {
-      services.fwupd.enable = true;
-    }
-  ];
+  _imports = [ { services.fwupd.enable = true; } ];
   # enableAllFirmware = true;
   enableRedistributableFirmware = true;
 }

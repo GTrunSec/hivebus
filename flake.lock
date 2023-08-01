@@ -1425,11 +1425,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1690491898,
-        "narHash": "sha256-3stQeBcszRmJl6OZwlie2Bo7PSYVqCZJFRlIbDiwzRQ=",
+        "lastModified": 1690775894,
+        "narHash": "sha256-Rzqlo5Q7bsAggsBUMciLPwcld39Hr0KucnDHKv+ryJI=",
         "owner": "gtrunsec",
         "repo": "std-ext",
-        "rev": "d7002a4a9d7ea0219bcd10ea0809de7dd973118f",
+        "rev": "1217377627fbeb0f103982ebafb21d4fbd7658dd",
         "type": "github"
       },
       "original": {

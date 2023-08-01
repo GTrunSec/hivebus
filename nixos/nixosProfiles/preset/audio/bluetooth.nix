@@ -1,7 +1,7 @@
-_: {pkgs, ...}: {
-  environment.systemPackages = with pkgs; [
-    lxqt.pavucontrol-qt
-  ];
+_:
+{ pkgs, ... }:
+{
+  environment.systemPackages = with pkgs; [ lxqt.pavucontrol-qt ];
 
   hardware.bluetooth = {
     package = pkgs.bluez5-experimental;

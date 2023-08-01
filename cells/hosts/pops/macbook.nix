@@ -3,10 +3,12 @@
   cell,
   inputs,
   self,
-}: let
+}:
+let
   l = inputs.nixpkgs.lib // builtins;
   inherit (inputs.cells.nixos.pops) exports;
-in {
+in
+{
   imports = [
     # darwinModules.macbook
     (cell.lib.mkHome "guangtao" "macbook" "zsh")

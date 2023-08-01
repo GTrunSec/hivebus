@@ -2,7 +2,8 @@
   inputs,
   exports,
   __inputs__,
-}: [
+}:
+[
   exports.overlays.packages
   exports.overlays.nodePackages
   __inputs__.rust-overlay.overlays.default

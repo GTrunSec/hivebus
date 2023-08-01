@@ -2,9 +2,11 @@
   inputs,
   exports,
   __inputs__,
-}: let
+}:
+let
   l = inputs.nixpkgs.lib // builtins;
-in [
+in
+[
   exports.overlays.packages
   exports.overlays.default
   exports.overlays.nodePackages

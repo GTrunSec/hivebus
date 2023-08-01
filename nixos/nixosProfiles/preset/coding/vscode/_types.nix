@@ -1,8 +1,8 @@
-{lib}:
+{ lib }:
 with lib; {
   programs.vscode = {
     hive = mkOption {
-      default = {};
+      default = { };
       type = types.submodule {
         options = {
           rust = mkEnableOption (lib.mdDoc "Whether to enable rust packages");

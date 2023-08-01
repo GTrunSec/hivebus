@@ -63,98 +63,116 @@
 
   # individual inputs
   # use callInputs instead, for the subflake
-  inputs = {};
+  inputs = { };
 
-  outputs = {
-    self,
-    std,
-    nixpkgs,
-    hive,
-    ...
-  } @ inputs:
-    std.growOn {
-      inherit inputs;
-      systems = [
-        "aarch64-darwin"
-        "aarch64-linux"
-        "x86_64-darwin"
-        "x86_64-linux"
-      ];
-
-      cellsFrom = ./cells;
-
-      cellBlocks = with std.blockTypes;
-      with hive.blockTypes; [
-        # modules implement
-        (functions "nixosModules")
-        (functions "darwinModules")
-        (functions "homeModules")
-        (functions "devshellModules")
-
-        # profiles activate
-        (functions "pops")
-        (functions "nixosProfiles")
-        (functions "darwinProfiles")
-        (functions "hardwareProfiles")
-        (functions "homeProfiles")
-        (functions "devshellProfiles")
-        (functions "userProfiles")
-        (functions "arionProfiles")
-        (functions "microvmProfiles")
-        # configurations can be deployed
-        colmenaConfigurations
-        homeConfigurations
-        nixosConfigurations
-        diskoConfigurations
-        darwinConfigurations
-
-        (arion "arionConfigurations")
-        (microvms "microvms")
-
-        # devshells can be entered
-        (devshells "devshells")
-
-        # jobs can be run
-        (runnables "entrypoints")
-        (functions "apps")
-
-        # lib holds shared knowledge made code
-        (functions "lib")
-        (data "data")
-        (functions "configs")
-        (installables "packages" {ci.build = true;})
-        (functions "overlays")
-
-        # nixago part
-        (nixago "nixago")
-
-        # containers collection
-        (containers "containers" {ci.publish = true;})
-      ];
-    }
+  outputs =
     {
-      devShells = std.harvest inputs.self [
-        ["automation" "devshells"]
-      ];
-      lib =
-        (std.harvest inputs.self ["hosts" "lib"]).x86_64-linux
-        // {
-          inherit (hive) collect;
-        };
-      overlays = (std.harvest inputs.self ["nixos" "pops"]).x86_64-linux.exports.overlays;
-      packages = std.harvest inputs.self [["nixos" "packages"]];
-      nixosModules = (std.harvest inputs.self ["nixos" "pops"]).x86_64-linux.exports.nixosModules.outputs;
-      # apps = std.harvest inputs.self [["emacs" "apps"]];
-    }
-    # soil - the first (and only) layer implements adapters for tooling
-    {
-      # tools
-      colmenaHive = hive.collect self "colmenaConfigurations";
-      nixosConfigurations = hive.collect self "nixosConfigurations";
-      homeConfigurations = hive.collect self "homeConfigurations";
-      darwinConfigurations = hive.collect self "darwinConfigurations";
-      diskoConfigurations = hive.collect self "diskoConfigurations";
-    };
+      self,
+      std,
+      nixpkgs,
+      hive,
+      ...
+    }@inputs:
+    std.growOn
+      {
+        inherit inputs;
+        systems = [
+          "aarch64-darwin"
+          "aarch64-linux"
+          "x86_64-darwin"
+          "x86_64-linux"
+        ];
+
+        cellsFrom = ./cells;
+
+        cellBlocks =
+          with std.blockTypes;
+          with hive.blockTypes; [
+            # modules implement
+            (functions "nixosModules")
+            (functions "darwinModules")
+            (functions "homeModules")
+            (functions "devshellModules")
+
+            # profiles activate
+            (functions "pops")
+            (functions "nixosProfiles")
+            (functions "darwinProfiles")
+            (functions "hardwareProfiles")
+            (functions "homeProfiles")
+            (functions "devshellProfiles")
+            (functions "userProfiles")
+            (functions "arionProfiles")
+            (functions "microvmProfiles")
+            # configurations can be deployed
+            colmenaConfigurations
+            homeConfigurations
+            nixosConfigurations
+            diskoConfigurations
+            darwinConfigurations
+
+            (arion "arionConfigurations")
+            (microvms "microvms")
+
+            # devshells can be entered
+            (devshells "devshells")
+
+            # jobs can be run
+            (runnables "entrypoints")
+            (functions "apps")
+
+            # lib holds shared knowledge made code
+            (functions "lib")
+            (data "data")
+            (functions "configs")
+            (installables "packages" { ci.build = true; })
+            (functions "overlays")
+
+            # nixago part
+            (nixago "nixago")
+
+            # containers collection
+            (containers "containers" { ci.publish = true; })
+          ];
+      }
+      {
+        devShells = std.harvest inputs.self [ [
+          "automation"
+          "devshells"
+        ] ];
+        lib =
+          (std.harvest inputs.self [
+            "hosts"
+            "lib"
+          ]).x86_64-linux
+          // {
+            inherit (hive) collect;
+          };
+        overlays =
+          (std.harvest inputs.self [
+            "nixos"
+            "pops"
+          ]).x86_64-linux.exports.overlays;
+        packages = std.harvest inputs.self [ [
+          "nixos"
+          "packages"
+        ] ];
+        nixosModules =
+          (std.harvest inputs.self [
+            "nixos"
+            "pops"
+          ]).x86_64-linux.exports.nixosModules.outputs;
+        # apps = std.harvest inputs.self [["emacs" "apps"]];
+      }
+      # soil - the first (and only) layer implements adapters for tooling
+      {
+        # tools
+        colmenaHive = hive.collect self "colmenaConfigurations";
+        nixosConfigurations = hive.collect self "nixosConfigurations";
+        homeConfigurations = hive.collect self "homeConfigurations";
+        darwinConfigurations = hive.collect self "darwinConfigurations";
+        diskoConfigurations = hive.collect self "diskoConfigurations";
+      };
   # --- Flake Local Nix Configuration ----------------------------
   nixConfig = {
     extra-substituters = [

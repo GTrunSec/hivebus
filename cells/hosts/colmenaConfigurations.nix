@@ -1,9 +1,8 @@
-{
-  inputs,
-  cell,
-}: let
+{ inputs, cell }:
+let
   l = inputs.nixpkgs.lib // builtins;
-in {
+in
+{
   desktop = {
     deployment = {
       allowLocalDeployment = true;

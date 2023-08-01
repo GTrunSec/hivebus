@@ -1,21 +1,31 @@
-_: {
+_:
+{
   config,
   lib,
   pkgs,
   ...
-}: let
+}:
+let
   l = lib // builtins;
   inherit (pkgs.stdenv.hostPlatform) isAarch64;
-in {
+in
+{
   nix = {
     package = pkgs.nixUnstable;
     configureBuildUsers = true;
     settings = {
       # Administrative users on Darwin systems are part of the admin group.
-      trusted-users = ["@admin"];
-      extra-platforms = l.mkIf isAarch64 ["x86_64-darwin" "aarch64-darwin"];
+      trusted-users = [ "@admin" ];
+      extra-platforms = l.mkIf isAarch64 [
+        "x86_64-darwin"
+        "aarch64-darwin"
+      ];
       auto-optimise-store = false;
-      experimental-features = ["nix-command" "flakes" "recursive-nix"];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+        "recursive-nix"
+      ];
       sandbox = false;
       # https://github.com/NixOS/nix/issues/7273
     };

@@ -1,8 +1,6 @@
-_: {
-  config,
-  lib,
-  ...
-}: {
+_:
+{ config, lib, ... }:
+{
   programs.zoxide = {
     enable = true;
     enableBashIntegration = true;

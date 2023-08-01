@@ -19,9 +19,9 @@ rustPlatform.buildRustPackage rec {
 
   cargoHash = "sha256-hL5rOf0G+UBO8kyRXA1TqMCta00jGSZtF7n8ibjGi9k=";
 
-  nativeBuildInputs = [pkg-config];
+  nativeBuildInputs = [ pkg-config ];
 
-  buildInputs = [libxkbcommon];
+  buildInputs = [ libxkbcommon ];
 
   doCheck = false;
 
@@ -29,6 +29,6 @@ rustPlatform.buildRustPackage rec {
     description = "A Solution to your Wayland Wallpaper Woes. ";
     homepage = "https://github.com/Horus645/${pname}";
     license = licenses.gpl3Only;
-    platforms = ["x86_64-linux"];
+    platforms = [ "x86_64-linux" ];
   };
 }

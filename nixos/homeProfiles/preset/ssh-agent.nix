@@ -1,10 +1,13 @@
-_: {
+_:
+{
   config,
   lib,
   pkgs,
   ...
-}: {
-  config = with lib;
+}:
+{
+  config =
+    with lib;
     mkMerge [
       (mkIf pkgs.stdenv.isLinux {
         systemd.user.services."ssh-agent" = {
@@ -23,7 +26,7 @@ _: {
           };
 
           Install = {
-            WantedBy = ["default.target"];
+            WantedBy = [ "default.target" ];
           };
         };
       })

@@ -1,7 +1,6 @@
+{ inputs, cell }:
+{ pkgs, ... }:
 {
-  inputs,
-  cell,
-}: {pkgs, ...}: {
   services.yabai.enable = true;
   services.yabai.extraConfig = ''
     yabai -m config  \

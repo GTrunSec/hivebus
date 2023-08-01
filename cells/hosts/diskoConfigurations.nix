@@ -1,3 +1,1 @@
-inputs.haumea.lib.load {
-  src = ./diskoConfigurations;
-}
+inputs.haumea.lib.load { src = ./diskoConfigurations; }

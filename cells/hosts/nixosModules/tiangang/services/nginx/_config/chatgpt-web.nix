@@ -1,9 +1,11 @@
-{inputs}: {
+{ inputs }:
+{
   lib,
   pkgs,
   config,
   ...
-}: {
+}:
+{
   # imports = [
   #   inputs.cells.nixos.pops.exports.nixosProfiles.preset.services.chatgpt.web
   # ];

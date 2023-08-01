@@ -1,11 +1,14 @@
-_: {
+_:
+{
   config,
   pkgs,
   lib,
   ...
-}: let
+}:
+let
   cfg = config.services.chatgpt-next-web;
-in {
+in
+{
   options.services.chatgpt-next-web = with lib; {
     enable = mkEnableOption "chatgpt-next-web";
     port = mkOption {
@@ -23,21 +26,22 @@ in {
   config = lib.mkIf cfg.enable {
     systemd.services.chatgpt-next-web = {
       description = "chatgpt-next-web";
-      wantedBy = ["network.target"];
+      wantedBy = [ "network.target" ];
       preStart = ''
         cp -rf --no-preserve=mode,ownership ${pkgs.chatgpt-next-web}/* /var/lib/chatgpt-next-web/
         cp -rf --no-preserve=mode,ownership ${pkgs.chatgpt-next-web}/.next /var/lib/chatgpt-next-web/.next
-        ${lib.optionalString (cfg.envFile != null)
-          ''
-            cp -rf ${cfg.envFile} /var/lib/chatgpt-next-web/.env
-          ''}
+        ${lib.optionalString (cfg.envFile != null) ''
+          cp -rf ${cfg.envFile} /var/lib/chatgpt-next-web/.env
+        ''}
       '';
       script = ''
-        export PATH=${pkgs.lib.makeBinPath [
-          pkgs.nodejs
-          pkgs.yarn
-          pkgs.bash
-        ]}:$PATH
+        export PATH=${
+          pkgs.lib.makeBinPath [
+            pkgs.nodejs
+            pkgs.yarn
+            pkgs.bash
+          ]
+        }:$PATH
         PORT=${toString cfg.port} node server.js
       '';
       serviceConfig = {

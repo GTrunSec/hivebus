@@ -1,7 +1,6 @@
+{ inputs, cell }:
+let
+in
 {
-  inputs,
-  cell,
-}: let
-in {
   inherit (inputs.colmena.packages) colmena;
 }

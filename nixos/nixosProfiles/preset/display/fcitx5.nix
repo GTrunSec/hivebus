@@ -1,8 +1,6 @@
-_: {
-  pkgs,
-  lib,
-  ...
-}: {
+_:
+{ pkgs, lib, ... }:
+{
   i18n = {
     inputMethod = {
       enabled = "fcitx5";
@@ -15,9 +13,5 @@ _: {
       ];
     };
   };
-  environment = lib.mkMerge [
-    {
-      variables = {};
-    }
-  ];
+  environment = lib.mkMerge [ { variables = { }; } ];
 }

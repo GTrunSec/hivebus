@@ -1,15 +1,10 @@
-_: {
-  config,
-  lib,
-  ...
-}:
+_:
+{ config, lib, ... }:
 with lib; {
   programs.navi = mkIf config.programs.navi.enable {
     settings = {
       cheats = {
-        paths = [
-          "~/ghq/github.com/GTrunSec/hive/profiles/navi"
-        ];
+        paths = [ "~/ghq/github.com/GTrunSec/hive/profiles/navi" ];
       };
     };
   };

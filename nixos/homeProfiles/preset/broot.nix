@@ -1,8 +1,6 @@
-_: {
-  config,
-  lib,
-  ...
-}: {
+_:
+{ config, lib, ... }:
+{
   # https://github.com/Canop/broot
   programs.broot = {
     enable = true;

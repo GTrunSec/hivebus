@@ -1,10 +1,9 @@
+{ self, root }:
 {
-  self,
-  root,
-}: {
   default = [
     root.preset.qt
     root.preset.gtk
+    root.preset.ssh-agent
   ];
 
   full = [

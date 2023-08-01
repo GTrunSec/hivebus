@@ -1,9 +1,7 @@
+{ config, lib, ... }:
 {
-  config,
-  lib,
-  ...
-}: {
-  config = with lib;
+  config =
+    with lib;
     mkMerge [
       {
         services.xserver.enable = true;

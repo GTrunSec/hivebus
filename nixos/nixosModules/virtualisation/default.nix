@@ -1,13 +1,14 @@
-{
-  lib,
-  inputs,
-}: let
+{ lib, inputs }:
+let
   inherit (inputs) haumea;
-in {
-  _imports = lib.attrValues (haumea.lib.load {
-    src = ./__config;
-    loader = haumea.lib.loaders.path;
-  });
+in
+{
+  _imports = lib.attrValues (
+    haumea.lib.load {
+      src = ./__config;
+      loader = haumea.lib.loaders.path;
+    }
+  );
   _options.hive = with lib; {
     gui = mkOption {
       type = types.bool;

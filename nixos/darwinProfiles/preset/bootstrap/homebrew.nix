@@ -1,16 +1,16 @@
-_: {
+_:
+{
   pkgs,
   config,
   lib,
   ...
-}: let
+}:
+let
   l = lib // builtins;
   inherit (pkgs.stdenv.hostPlatform) isAarch64;
-  brewPrefix =
-    if isAarch64
-    then "/opt/homebrew"
-    else "/usr/local";
-in {
+  brewPrefix = if isAarch64 then "/opt/homebrew" else "/usr/local";
+in
+{
   # credit: https://github.com/montchr/dotfield/blob/dd5e577d91b1af7f13909f5dc4343717a718ff02/darwin/profiles/core/default.nix
   homebrew = {
     enable = true;
@@ -20,7 +20,10 @@ in {
     global.brewfile = true;
     global.lockfiles = false;
   };
-  environment.systemPath = l.mkBefore ["${brewPrefix}/bin" "${brewPrefix}/sbin"];
+  environment.systemPath = l.mkBefore [
+    "${brewPrefix}/bin"
+    "${brewPrefix}/sbin"
+  ];
   environment.variables = {
     HOMEBREW_PREFIX = brewPrefix;
     HOMEBREW_CELLAR = "${brewPrefix}/Cellar";

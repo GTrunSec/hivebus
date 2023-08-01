@@ -1,21 +1,21 @@
-_: {
+_:
+{
   config,
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   services.xserver = {
-    videoDrivers = ["nvidia"];
+    videoDrivers = [ "nvidia" ];
   };
 
   systemd.services.nvidia-control-devices = {
-    wantedBy = [
-      "multi-user.target"
-    ];
+    wantedBy = [ "multi-user.target" ];
   };
   boot = {
-    kernelParams = ["nvidia-drm.modeset=1"];
-    kernelModules = ["nvidia"];
+    kernelParams = [ "nvidia-drm.modeset=1" ];
+    kernelModules = [ "nvidia" ];
     # blacklistedKernelModules = ["nouveau"];
   };
   hardware = {

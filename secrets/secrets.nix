@@ -8,8 +8,9 @@ let
     exports.desktop.opensshPublicKey
     exports.macbook.opensshPublicKey
   ];
-  cloud = [exports.tiangang.opensshPublicKey];
-in {
+  cloud = [ exports.tiangang.opensshPublicKey ];
+in
+{
   "tiangang/attic-cert.age".publicKeys = common ++ cloud;
   "tiangang/acme-cloudflare.age".publicKeys = common ++ cloud;
   "tiangang/chatgpt-web.age".publicKeys = common ++ cloud;

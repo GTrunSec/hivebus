@@ -1,4 +1,9 @@
-_: {disk ? "", ...}: {
+_:
+{
+  disk ? "",
+  ...
+}:
+{
   disk = {
     sda = {
       type = "disk";
@@ -12,7 +17,7 @@ _: {disk ? "", ...}: {
             start = "0";
             end = "1M";
             part-type = "primary";
-            flags = ["bios_grub"];
+            flags = [ "bios_grub" ];
           }
           {
             name = "ESP";
@@ -32,20 +37,26 @@ _: {disk ? "", ...}: {
             end = "100%";
             content = {
               type = "btrfs";
-              extraArgs = ["-f"];
+              extraArgs = [ "-f" ];
               subvolumes = {
                 "/rootfs" = {
                   mountpoint = "/";
                 };
                 # Mountpoints inferred from subvolume name
                 "/home" = {
-                  mountOptions = ["compress=zstd"];
+                  mountOptions = [ "compress=zstd" ];
                 };
                 "/nix" = {
-                  mountOptions = ["compress=zstd" "noatime"];
+                  mountOptions = [
+                    "compress=zstd"
+                    "noatime"
+                  ];
                 };
                 "/persist" = {
-                  mountOptions = ["compress=zstd" "noatime"];
+                  mountOptions = [
+                    "compress=zstd"
+                    "noatime"
+                  ];
                 };
               };
             };

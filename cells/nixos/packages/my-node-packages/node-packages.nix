@@ -6,8 +6,9 @@
   nix-gitignore,
   stdenv,
   lib,
-  globalBuildInputs ? [],
-}: let
+  globalBuildInputs ? [ ],
+}:
+let
   sources = {
     "@tootallnate/once-2.0.0" = {
       name = "_at_tootallnate_slash_once";
@@ -559,7 +560,8 @@
       };
     };
   };
-in {
+in
+{
   roughjs = nodeEnv.buildNodePackage {
     name = "roughjs";
     packageName = "roughjs";

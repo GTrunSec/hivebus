@@ -1,7 +1,7 @@
-_: {pkgs, ...}: {
+_:
+{ pkgs, ... }:
+{
   services.gnome.gnome-keyring.enable = true;
   programs.seahorse.enable = true;
-  environment.systemPackages = with pkgs; [
-    libsecret
-  ];
+  environment.systemPackages = with pkgs; [ libsecret ];
 }

@@ -1,6 +1,9 @@
-{inputs}: {pkgs, ...}: let
+{ inputs }:
+{ pkgs, ... }:
+let
   inherit (inputs.cells.common.lib) __utils__;
-in {
+in
+{
   programs.bat = {
     config = {
       theme = "Catppuccin-mocha";
@@ -8,11 +11,11 @@ in {
     };
     # bat cache --build
     themes = {
-      Catppuccin-mocha = builtins.readFile (__utils__.catppuccin-bat + "/Catppuccin-mocha.tmTheme");
+      Catppuccin-mocha = builtins.readFile (
+        __utils__.catppuccin-bat + "/Catppuccin-mocha.tmTheme"
+      );
     };
 
-    extraPackages = with pkgs.bat-extras; [
-      batman
-    ];
+    extraPackages = with pkgs.bat-extras; [ batman ];
   };
 }

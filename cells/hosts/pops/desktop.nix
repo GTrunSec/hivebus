@@ -3,10 +3,12 @@
   cell,
   inputs,
   self,
-}: let
+}:
+let
   l = inputs.nixpkgs.lib // builtins;
   inherit (inputs.cells.nixos.pops) exports;
-in {
+in
+{
   imports = [
     self'.exports.nixosModules.desktop
     (cell.lib.mkHome "guangtao" "desktop" "zsh")
@@ -55,6 +57,7 @@ in {
     exports.homeProfiles.graphical.wayland
 
     exports.homeProfiles.preset.emacs.doomemacs
+
     exports.homeProfiles.apps.linux
   ];
 

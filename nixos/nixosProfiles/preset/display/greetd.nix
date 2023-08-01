@@ -1,14 +1,10 @@
+{ config, lib, ... }:
 {
-  config,
-  lib,
-  ...
-}: {
-  config = with lib;
-    mkMerge [
-      {
-        services.greetd = {
-          enable = true;
-        };
-      }
-    ];
+  config =
+    with lib;
+    mkMerge [ {
+      services.greetd = {
+        enable = true;
+      };
+    } ];
 }

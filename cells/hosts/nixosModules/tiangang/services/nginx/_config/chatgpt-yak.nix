@@ -1,9 +1,8 @@
-{inputs}: {
-  pkgs,
-  config,
-  ...
-}: let
-in {
+{ inputs }:
+{ pkgs, config, ... }:
+let
+in
+{
   imports = [
     inputs.cells.nixos.pops.exports.nixosProfiles.preset.services.chatgpt.web-yak
   ];

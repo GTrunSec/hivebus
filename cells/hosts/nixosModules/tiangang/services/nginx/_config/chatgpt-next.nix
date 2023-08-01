@@ -1,11 +1,14 @@
-{inputs}: {
+{ inputs }:
+{
   pkgs,
   config,
   lib,
   ...
-}: let
+}:
+let
   cfg = config.services.chatgpt-next-web;
-in {
+in
+{
   imports = [
     inputs.cells.nixos.pops.exports.nixosModules.outputs.chatgpt-next-web
     {
@@ -17,7 +20,9 @@ in {
     }
   ];
 
-  age.secrets.chatgpt-next-web.file = pkgs.lib.age.file "tiangang/chatgpt-web-env.age";
+  age.secrets.chatgpt-next-web.file =
+    pkgs.lib.age.file
+      "tiangang/chatgpt-web-env.age";
   age.secrets.chatgpt-next-web.mode = "444";
 
   services.nginx = {

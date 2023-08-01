@@ -3,10 +3,13 @@
   lib,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.hive.bootstrap;
-in {
-  config = with lib;
+in
+{
+  config =
+    with lib;
     mkMerge [
       (mkIf (cfg.minimal || cfg.full) {
         environment.systemPackages = with pkgs; [

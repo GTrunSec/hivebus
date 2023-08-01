@@ -1,13 +1,10 @@
+{ lib, __inputs__ }:
 {
-  lib,
-  __inputs__,
-}: {
-  _imports = [
-    ./_config.nix
-  ];
-  _options.hive = with lib;
+  _imports = [ ./_config.nix ];
+  _options.hive =
+    with lib;
     mkOption {
-      default = {};
+      default = { };
       type = types.submodule {
         options = {
           swww = mkEnableOption (lib.mdDoc "Whether to enable swww wallpaper profile");

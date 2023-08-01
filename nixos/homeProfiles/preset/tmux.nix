@@ -1,21 +1,17 @@
-_: {
+_:
+{
   config,
   pkgs,
   lib,
   ...
-}: {
+}:
+{
   programs.tmux = {
     enable = true;
     clock24 = true;
     keyMode = "vi";
     extraConfig =
-      (
-        if pkgs.stdenv.isLinux
-        then ''
-        ''
-        else ''
-        ''
-      )
+      (if pkgs.stdenv.isLinux then "" else "")
       + ''
         set -g prefix C-b
         bind C-b send-prefix
@@ -32,7 +28,8 @@ _: {
         bind-key -T copy-mode-vi v send-keys -X begin-selection
         bind-key -T copy-mode-vi y send-keys -X copy-selection
         bind-key -T copy-mode-vi r send-keys -X rectangle-toggle
-      '';
+      ''
+    ;
 
     plugins = with pkgs.tmuxPlugins; [
       sidebar

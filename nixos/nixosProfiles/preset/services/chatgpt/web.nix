@@ -1,13 +1,12 @@
-_: {
-  pkgs,
-  config,
-  ...
-}: let
+_:
+{ pkgs, config, ... }:
+let
   src = pkgs.nixpkgs-hardenedlinux-sources.go-chatgpt-web.src.outPath;
-in {
+in
+{
   systemd.services.chatgpt-web = {
     description = "chatgpt-web";
-    wantedBy = ["network.target"];
+    wantedBy = [ "network.target" ];
     preStart = ''
       ln -sfT ${src}/resources /var/lib/chatgpt-web/resources
       ln -sfT ${src}/static /var/lib/chatgpt-web/static

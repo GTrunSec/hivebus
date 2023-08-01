@@ -1,10 +1,14 @@
-_: {
+_:
+{
   pkgs,
   config,
   lib,
   ...
-}: {
-  virtualisation.docker.enable = lib.mkIf config.virtualisation.podman.dockerSocket.enable (lib.mkForce false);
+}:
+{
+  virtualisation.docker.enable =
+    lib.mkIf config.virtualisation.podman.dockerSocket.enable
+      (lib.mkForce false);
   virtualisation.podman = {
     enable = true;
     # dockerCompat = true;

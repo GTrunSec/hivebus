@@ -1,7 +1,8 @@
-{lib}: {
+{ lib }:
+{
   _options = with lib; {
     PATH = lib.mkOption {
-      default = [];
+      default = [ ];
       type = types.listOf types.str;
       apply = x: lib.concatStringsSep ":" x;
       description = ''

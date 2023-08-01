@@ -44,5 +44,5 @@
     };
   };
 
-  outputs = {self, ...}: {};
+  outputs = { self, ... }: { };
 }

@@ -1,14 +1,13 @@
-{
-  inputs,
-  cell,
-}: let
+{ inputs, cell }:
+let
   inherit (inputs) std;
 
   l = inputs.nixpkgs.lib // builtins;
-in {
+in
+{
   just = {
     data = {
-      tasks = import ./justfile.nix {inherit inputs cell;};
+      tasks = import ./justfile.nix { inherit inputs cell; };
     };
   };
 }
