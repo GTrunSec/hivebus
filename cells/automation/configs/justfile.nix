@@ -59,7 +59,7 @@ in
     args = [ "cell" ];
     description = "re-age key with ragenix";
     content = ''
-      ragenix --rules ./cells/{{cell}}/secretProfiles/secrets.nix --rekey
+      ragenix --rules $PRJ_ROOT/secrets.nix --rekey
     '';
   };
   darwin-build = {

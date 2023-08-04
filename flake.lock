@@ -1339,8 +1339,29 @@
         "nixos-unstable": "nixos-unstable",
         "nixpkgs": "nixpkgs_5",
         "nixpkgs-master": "nixpkgs-master",
+        "srvos": "srvos",
         "std": "std",
         "std-ext": "std-ext"
+      }
+    },
+    "srvos": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1690557184,
+        "narHash": "sha256-KMGPz3pP7OoUZaUhgcuYG84CtVaJOQw6RK8J0fAtKt0=",
+        "owner": "numtide",
+        "repo": "srvos",
+        "rev": "ceed433086a85e5540bd73cff46497af5a09e36f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "srvos",
+        "type": "github"
       }
     },
     "stable": {

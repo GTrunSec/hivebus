@@ -38,6 +38,9 @@
 
     arion.url = "github:hercules-ci/arion";
     arion.inputs.nixpkgs.follows = "nixpkgs";
+
+    srvos.url = "github:numtide/srvos";
+    srvos.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   # nixpkgs & home-manager

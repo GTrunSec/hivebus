@@ -12,11 +12,11 @@ _:
     style.name = "adwaita-dark";
   };
   home.packages = [
-    pkgs.qt5.qtwayland
-    pkgs.qt6.qtwayland
+    pkgs.libsForQt5.qtwayland
   ];
+
   home.sessionVariables = {
-    QT_PLUGIN_PATH = "${pkgs.qt5.qtbase.bin}/${pkgs.qt5.qtbase.qtPluginPrefix}";
-    QT_QPA_PLATFORM_PLUGIN_PATH = "${pkgs.qt5.qtwayland.bin}/${pkgs.qt5.qtbase.qtPluginPrefix}";
+    # QML2_IMPORT_PATH = "/run/current-system/sw/" + pkgs.qt5.qtbase.qtQmlPrefix;
+    QT_PLUGIN_PATH = "${pkgs.qt5.qtwayland}/${pkgs.qt5.qtbase.qtPluginPrefix}";
   };
 }

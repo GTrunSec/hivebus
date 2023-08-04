@@ -1,4 +1,6 @@
+{ inputs }:
 {
+  _imports = [ (inputs.srvos.modules.nixos.common + "/openssh.nix") ];
   enable = true;
   # copyright: https://github.com/numtide/srvos/blob/main/nixos/common/openssh.nix
   settings = {
