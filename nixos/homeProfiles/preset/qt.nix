@@ -11,9 +11,7 @@ _:
     platformTheme = "gtk";
     style.name = "adwaita-dark";
   };
-  home.packages = [
-    pkgs.libsForQt5.qtwayland
-  ];
+  home.packages = [ pkgs.libsForQt5.qtwayland ];
 
   home.sessionVariables = {
     # QML2_IMPORT_PATH = "/run/current-system/sw/" + pkgs.qt5.qtbase.qtQmlPrefix;
