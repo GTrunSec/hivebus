@@ -11,7 +11,7 @@ _:
     mkMerge [
       (mkIf pkgs.stdenv.isLinux {
         home.sessionVariables = {
-          SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket";
+          SSH_AUTH_SOCK = "$XDG_RUNTIME_DIR/ssh-agent.socket";
         };
         systemd.user.services."ssh-agent" = {
           Unit = {

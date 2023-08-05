@@ -13,6 +13,7 @@ lib.mapAttrs (name: value: { homebrew.casks = value; }) {
     "grammarly-desktop"
     "secretive"
     "bartender"
+    "telegram-desktop"
   ];
   services = [ "docker" ];
   book = [

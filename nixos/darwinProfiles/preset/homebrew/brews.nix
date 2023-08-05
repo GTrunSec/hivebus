@@ -7,7 +7,7 @@ lib.mapAttrs (name: value: { homebrew.brews = value; }) {
     "libtool"
   ];
   apps = [
-    "emacs-plus@30"
+    "emacs-plus@29"
     # spell check
     "enchant"
   ];

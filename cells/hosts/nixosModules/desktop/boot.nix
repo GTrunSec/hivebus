@@ -1,6 +1,12 @@
 {
   _imports = [
-    ({ pkgs, ... }: { boot.kernelPackages = pkgs.linuxPackages_latest; })
+    (
+      { pkgs, ... }:
+      {
+        boot.kernelPackages = pkgs.linuxPackages_latest;
+        time.timeZone = "America/Los_Angeles";
+      }
+    )
   ];
   binfmt.emulatedSystems = [ "aarch64-linux" ];
   tmp.useTmpfs = true;
@@ -17,7 +23,6 @@
       "ec_sys"
       "uhid"
       "kvm-intel"
-
       # "dhack"
     ];
   };
