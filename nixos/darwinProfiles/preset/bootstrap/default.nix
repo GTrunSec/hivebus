@@ -19,6 +19,7 @@ in
       "/bin/"
       "/usr/bin"
       "/usr/bin/sbin"
+      "/usr/local/bin"
       "/usr/sbin"
       "/sbin"
     ];
