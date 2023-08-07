@@ -12,8 +12,7 @@ in
 flops.lib.configs.haumea.setInit {
   src = inputs.self + "/nixos/homeProfiles";
   inputs = {
-    inherit cell profiles;
-    inputs = removeAttrs inputs [ "self" ];
+    inherit cell profiles inputs;
     pkgs' = inputs.nixpkgs;
     lib = inputs.nixpkgs.lib;
   };

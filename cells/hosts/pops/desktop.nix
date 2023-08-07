@@ -34,6 +34,7 @@ in
     exports.nixosProfiles.preset.coding.julia
     exports.nixosProfiles.preset.coding.nickel
     exports.nixosProfiles.preset.coding.node
+    exports.nixosProfiles.preset.coding.d2
     exports.nixosProfiles.preset.coding.vscode.default
     exports.nixosProfiles.preset.coding.languageServers
     exports.nixosProfiles.preset.secrets.gnome-keyring
