@@ -1,0 +1,7 @@
+keys:
+  - &guangtao 6A43333DBD6C7C70B7A1DB59761C8EBEA940960E
+creation_rules:
+  - path_regex: (secrets|secrets/keys/rootIdentityFile)/[^/]+\.(yaml|keytab)$
+    key_groups:
+      - pgp:
+        - *guangtao

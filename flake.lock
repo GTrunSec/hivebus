@@ -5,8 +5,7 @@
         "flake-compat": "flake-compat_2",
         "nixlib": "nixlib",
         "nixpkgs": [
-          "flops",
-          "blank"
+          "flops"
         ]
       },
       "locked": {
@@ -46,21 +45,6 @@
       }
     },
     "blank": {
-      "locked": {
-        "lastModified": 1625557891,
-        "narHash": "sha256-O8/MWsPBGhhyPoPLHZAuoZiiHo9q6FLlEeIDEXuj6T4=",
-        "owner": "divnix",
-        "repo": "blank",
-        "rev": "5a5d2684073d9f563072ed07c871d577a6c614a8",
-        "type": "github"
-      },
-      "original": {
-        "owner": "divnix",
-        "repo": "blank",
-        "type": "github"
-      }
-    },
-    "blank_2": {
       "locked": {
         "lastModified": 1625557891,
         "narHash": "sha256-O8/MWsPBGhhyPoPLHZAuoZiiHo9q6FLlEeIDEXuj6T4=",
@@ -225,8 +209,14 @@
           "flops",
           "haumea"
         ],
-        "nixlib": "nixlib_2",
-        "yants": "yants"
+        "nixlib": [
+          "flops",
+          "nixlib"
+        ],
+        "yants": [
+          "flops",
+          "yants"
+        ]
       },
       "locked": {
         "lastModified": 1686862774,
@@ -493,23 +483,18 @@
     "flops": {
       "inputs": {
         "POP": "POP",
-        "blank": "blank",
         "call-flake": "call-flake",
         "dmerge": "dmerge",
         "haumea": "haumea",
-        "namaka": [
-          "flops",
-          "blank"
-        ],
-        "nixlib": "nixlib_3",
-        "yants": "yants_2"
+        "nixlib": "nixlib_2",
+        "yants": "yants"
       },
       "locked": {
-        "lastModified": 1690061433,
-        "narHash": "sha256-FEIHjdwZWSn0dNXYoK5vKMdbAaRIpfNjmfPWgft1pMI=",
+        "lastModified": 1691319618,
+        "narHash": "sha256-2bzDIZNahyiwUnHCnmLhbyTTMX4hgZ1HlRQNqff2jCk=",
         "owner": "gtrunsec",
         "repo": "flops",
-        "rev": "7f4029a9b436bd1fedbf16057364aa6d113e1155",
+        "rev": "4cd9339adb5f4bf6ded2f8cb32c0cb9bc299fc99",
         "type": "github"
       },
       "original": {
@@ -876,21 +861,6 @@
     },
     "nixlib_2": {
       "locked": {
-        "lastModified": 1681001314,
-        "narHash": "sha256-5sDnCLdrKZqxLPK4KA8+f4A3YKO/u6ElpMILvX0g72c=",
-        "owner": "nix-community",
-        "repo": "nixpkgs.lib",
-        "rev": "367c0e1086a4eb4502b24d872cea2c7acdd557f4",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "nixpkgs.lib",
-        "type": "github"
-      }
-    },
-    "nixlib_3": {
-      "locked": {
         "lastModified": 1689469483,
         "narHash": "sha256-2SBhY7rZQ/iNCxe04Eqxlz9YK9KgbaTMBssq3/BgdWY=",
         "owner": "nix-community",
@@ -904,7 +874,7 @@
         "type": "github"
       }
     },
-    "nixlib_4": {
+    "nixlib_3": {
       "locked": {
         "lastModified": 1679187309,
         "narHash": "sha256-H8udmkg5wppL11d/05MMzOMryiYvc403axjDNZy1/TQ=",
@@ -937,7 +907,7 @@
     },
     "nixos-generators": {
       "inputs": {
-        "nixlib": "nixlib_4",
+        "nixlib": "nixlib_3",
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
@@ -1097,11 +1067,11 @@
     },
     "nixpkgs_5": {
       "locked": {
-        "lastModified": 1683717387,
-        "narHash": "sha256-b4GSeKtDH+7wzw9VptHqIWOyIq28j7++rvRqhCEWFQ8=",
+        "lastModified": 1691188534,
+        "narHash": "sha256-oXjS9GrZar+sB8j2KYzWw3dW62jYFhnjOsnO5+D+B3s=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "1e8ab5db89c84b1bb29d8d10ea60766bb5cee1f2",
+        "rev": "5767e7b931f2e6ee7f582d564b8665095c059f3b",
         "type": "github"
       },
       "original": {
@@ -1253,7 +1223,7 @@
           "nixpkgs"
         ],
         "nosys": "nosys",
-        "yants": "yants_3"
+        "yants": "yants_2"
       },
       "locked": {
         "lastModified": 1678562978,
@@ -1385,7 +1355,7 @@
         "arion": [
           "arion"
         ],
-        "blank": "blank_2",
+        "blank": "blank",
         "devshell": [
           "std-ext",
           "devshell"
@@ -1416,7 +1386,7 @@
           "std",
           "blank"
         ],
-        "yants": "yants_4"
+        "yants": "yants_3"
       },
       "locked": {
         "lastModified": 1689337213,
@@ -1446,11 +1416,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1690775894,
-        "narHash": "sha256-Rzqlo5Q7bsAggsBUMciLPwcld39Hr0KucnDHKv+ryJI=",
+        "lastModified": 1691319692,
+        "narHash": "sha256-n2c/ULAPojGkQz5itVB9g7D1gaLxAJJ2tGaIpJGBfEE=",
         "owner": "gtrunsec",
         "repo": "std-ext",
-        "rev": "1217377627fbeb0f103982ebafb21d4fbd7658dd",
+        "rev": "db6280ad2105c94813ddeedc9a9fe5b12937079e",
         "type": "github"
       },
       "original": {
@@ -1521,28 +1491,6 @@
     },
     "yants": {
       "inputs": {
-        "nixpkgs": [
-          "flops",
-          "dmerge",
-          "nixlib"
-        ]
-      },
-      "locked": {
-        "lastModified": 1677285314,
-        "narHash": "sha256-hlAcg2514zKrPu8jn24BUsIjjvXvCLdw1jvKgBTpqko=",
-        "owner": "divnix",
-        "repo": "yants",
-        "rev": "9eab24b273ce021406c852166c216b86e2bb4ec4",
-        "type": "github"
-      },
-      "original": {
-        "owner": "divnix",
-        "repo": "yants",
-        "type": "github"
-      }
-    },
-    "yants_2": {
-      "inputs": {
         "nixpkgs": "nixpkgs"
       },
       "locked": {
@@ -1559,7 +1507,7 @@
         "type": "github"
       }
     },
-    "yants_3": {
+    "yants_2": {
       "inputs": {
         "nixpkgs": [
           "hive",
@@ -1581,7 +1529,7 @@
         "type": "github"
       }
     },
-    "yants_4": {
+    "yants_3": {
       "inputs": {
         "nixpkgs": [
           "std",
