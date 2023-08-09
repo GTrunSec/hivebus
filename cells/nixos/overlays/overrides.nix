@@ -16,12 +16,15 @@ final: prev: {
     zoom-us
     brave
     firefox
-    onlyoffice-bin
+    # onlyoffice-bin
     typst-lsp
     navi
   # darwin packages
-
   ;
+
+  # inherit (inputs.nixpkgs-246661.legacyPackages)
+  #   onlyoffice-bin
+  # ;
 
   inherit (nixpkgs-dropbox) dropbox-cli;
 
