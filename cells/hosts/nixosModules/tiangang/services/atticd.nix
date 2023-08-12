@@ -15,12 +15,12 @@ in
       }:
       {
         environment.systemPackages = [
-          (pkgs.extend __inputs__.attic.overlays.default).attic
+          __inputs__.attic.packages.attic
         ];
         age.secrets.attic-cert.file = pkgs.lib.age.file "tiangang/attic-cert.age";
         services.atticd = {
           credentialsFile = config.age.secrets."attic-cert".path;
-          package = (pkgs.extend __inputs__.attic.overlays.default).attic-server;
+          package = __inputs__.attic.packages.attic-server;
         };
       }
     )

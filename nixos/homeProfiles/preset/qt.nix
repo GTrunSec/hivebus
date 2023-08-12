@@ -15,6 +15,6 @@ _:
 
   home.sessionVariables = {
     # QML2_IMPORT_PATH = "/run/current-system/sw/" + pkgs.qt5.qtbase.qtQmlPrefix;
-    QT_PLUGIN_PATH = "${pkgs.qt5.qtwayland}/${pkgs.qt5.qtbase.qtPluginPrefix}";
+    QT_PLUGIN_PATH = "${pkgs.qt5.qtbase}/${pkgs.qt5.qtbase.qtPluginPrefix}";
   };
 }

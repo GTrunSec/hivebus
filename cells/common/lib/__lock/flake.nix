@@ -1,6 +1,6 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/1e8ab5db89c84b1bb29d8d10ea60766bb5cee1f2";
+    nixpkgs.url = "github:NixOS/nixpkgs/5767e7b931f2e6ee7f582d564b8665095c059f3b";
 
     flake-compat.url = "github:edolstra/flake-compat";
     flake-compat.flake = false;
@@ -116,7 +116,6 @@
     poetry2nix.inputs.nixpkgs.follows = "nixpkgs";
 
     attic.url = "github:zhaofengli/attic";
-    attic.inputs.nixpkgs.follows = "nixpkgs";
 
     nixpkgs-hardenedlinux.url = "github:hardenedlinux/nixpkgs-hardenedlinux";
     nixpkgs-hardenedlinux.inputs.nixpkgs.follows = "nixpkgs";
