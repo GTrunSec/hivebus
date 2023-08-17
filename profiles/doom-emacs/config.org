@@ -171,7 +171,7 @@
        lua               ; one-based indices? one-based indices
        markdown          ; writing docs for people to ignore
        ;;nim               ; python + lisp at the speed of c
-       ;;nix               ; I hereby declare "nix geht mehr!"
+       nix               ; I hereby declare "nix geht mehr!"
        ;;ocaml             ; an objective camel
        (org               ; organize your plain life in plain text
         +jupyter
@@ -952,6 +952,46 @@ enchant-lsmod-2
 #+end_src
 
 
+** eaf
+#+begin_src emacs-lisp :tangle "packages.el"
+(when IS-LINUX
+  (package! epc :recipe (:build (:not compile)))
+  (package! eaf :recipe (:host github
+                         :repo "emacs-eaf/emacs-application-framework"
+                         :files ("*")
+                         :build (:not compile)
+                         ))
+  (package! eaf-file-manager :recipe (:host github
+                         :repo "emacs-eaf/eaf-file-manager"
+                         :files ("*"))
+  ))
+#+end_src
+
+
+#+begin_src emacs-lisp :tangle "config.el"
+(when IS-LINUX
+  (when (display-graphic-p)
+    (use-package! eaf
+      :if (eq system-type 'gnu/linux)
+      :init
+         :custom
+      ;; See https://github.com/emacs-eaf/emacs-application-framework/wiki/Customization
+      (eaf-browser-continue-where-left-off t)
+      (eaf-browser-enable-adblocker t)
+      (browse-url-browser-function 'eaf-open-browser)
+      :config
+      (require' eaf-file-manager)
+      (setq eaf-webengine-default-zoom 2.0)
+      (setq eaf-python-command "/run/current-system/sw/bin/python")
+      ;;(eaf-bind-key scroll_up "C-n" eaf-pdf-viewer-keybinding)
+      ;;(eaf-bind-key scroll_down "C-p" eaf-pdf-viewer-keybinding)
+      )
+    (use-package! epc)
+    )
+  )
+#+end_src
+
+
 ** Disabled Packages
 
 #+begin_src emacs-lisp :tangle "packages.el"
@@ -1567,7 +1607,6 @@ prepended to the element after the #+HEADER: tag."
 #+begin_src emacs-lisp :tangle "config.el"
 (use-package lsp-bridge
   :init
-  (require 'lsp-bridge-jdtls)
   (setq lsp-bridge-flash-line-delay 1
         lsp-bridge-ref-flash-line-delay 1
         lsp-bridge-use-ds-pinyin-in-org-mode t
@@ -1586,7 +1625,16 @@ prepended to the element after the #+HEADER: tag."
   (push '((nix-mode nix-ts-mode) . "rnix-lsp") lsp-bridge-single-lang-server-mode-list)
   (setq acm-candidate-match-function 'orderless-flex)
   )
+
+;; (after! lsp-bridge
+;;      (set-face-background 'acm-frame-default-face (face-attribute 'default :background))
+;;       (set-face-background 'acm-frame-select-face (face-attribute 'highlight :background))
+;;       (set-face-foreground 'acm-frame-select-face (face-attribute 'highlight :foreground))
+;;         )
 #+end_src
+
+#+RESULTS:
+| global-lsp-bridge-mode |
 
 
 ** lsp-acm :terminal:
@@ -1612,11 +1660,11 @@ prepended to the element after the #+HEADER: tag."
 
 
 #+begin_src emacs-lisp :tangle "config.el"
-(use-package! nix-ts-mode
-  :config
-  (add-hook 'nix-ts-mode-hook #'lsp-bridge-mode)
-  (add-hook 'nix-ts-mode-hook #'fingertip-mode)
-  (add-to-list 'auto-mode-alist (cons "\\.nix\\'" 'nix-ts-mode)))
+;; (use-package! nix-ts-mode
+;;   :config
+;;   (add-hook 'nix-ts-mode-hook #'lsp-bridge-mode)
+;;   (add-hook 'nix-ts-mode-hook #'fingertip-mode)
+;;   (add-to-list 'auto-mode-alist (cons "\\.nix\\'" 'nix-ts-mode)))
 #+end_src
 
 

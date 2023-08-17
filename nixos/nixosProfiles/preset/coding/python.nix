@@ -37,7 +37,7 @@ let
         six
         paramiko
       ]
-      ++ lib.optional pkgs.stdenv.isLinux [
+      ++ lib.optionals pkgs.stdenv.isLinux [
         pyqt6
         pyqt6-webengine
         pyinotify

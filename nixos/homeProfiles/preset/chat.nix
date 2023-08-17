@@ -13,10 +13,12 @@ _:
     (mkWaylandApp element-desktop "element-desktop" [
       "--ozone-platform=wayland"
       "--enable-wayland-ime"
+      "--enable-features=UseOzonePlatform"
     ])
     (mkWaylandApp signal-desktop "signal-desktop" [
       "--ozone-platform=wayland"
       "--enable-wayland-ime"
+      "--enable-features=UseOzonePlatform"
     ])
   ];
 }

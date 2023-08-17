@@ -14,9 +14,7 @@ in
         ...
       }:
       {
-        environment.systemPackages = [
-          __inputs__.attic.packages.attic
-        ];
+        environment.systemPackages = [ __inputs__.attic.packages.attic ];
         age.secrets.attic-cert.file = pkgs.lib.age.file "tiangang/attic-cert.age";
         services.atticd = {
           credentialsFile = config.age.secrets."attic-cert".path;
