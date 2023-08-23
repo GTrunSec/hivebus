@@ -27,6 +27,8 @@ in
 
     (l.attrValues exports.nixosProfiles.preset.bootstrap)
     exports.nixosProfiles.preset.fileSystems.impermanence
+    # ----------------------------------
+    exports.nixosProfiles.preset.coding.default
     exports.nixosProfiles.preset.coding.rust
     exports.nixosProfiles.preset.coding.nushell
     exports.nixosProfiles.preset.coding.python

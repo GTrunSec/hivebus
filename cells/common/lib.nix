@@ -25,7 +25,7 @@ haumea.lib.load {
 // {
   inherit callInputs callUtils callMainInputs;
 
-  __inputs__ = callInputs.outputsForInputs;
+  __inputs__ = callInputs.outputs;
 
   # std = with cell.lib;
   #   l.recursiveUpdate inputs.std {
@@ -34,5 +34,5 @@ haumea.lib.load {
   #       arion = __inputs__.arion;
   #     };
   #   };
-  __utils__ = callUtils.outputsForInputs;
+  __utils__ = callUtils.outputs;
 }

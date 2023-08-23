@@ -28,12 +28,12 @@ in
           })
           // {
             nixosModules =
-              l.mapAttrs (_: v: v.outputsForTarget "nixosModules")
+              l.mapAttrs (_: v: v.outputsForTarget)
                 self.recipes.nixosModules;
             homeModules =
-              l.mapAttrs (_: v: v.outputsForTarget "nixosModules")
+              l.mapAttrs (_: v: v.outputsForTarget)
                 self.recipes.homeModules;
-            overlays = self.recipes.overlays.outputsForTarget "default";
+            overlays = self.recipes.overlays.outputsForTarget;
           };
       }
     ))

@@ -16,23 +16,17 @@ in
     (POP.lib.extendPop pops.exporter (
       self: super: {
         exports = {
-          overlays = self.recipes.overlays.outputsForTarget "default";
+          overlays = self.recipes.overlays.outputsForTarget;
 
           nixpkgs = inputs.nixpkgs.appendOverlays (l.attrValues self.exports.overlays);
 
-          darwinProfiles = self.recipes.darwinProfiles.outputsForTarget "default";
-          nixosProfiles = self.recipes.nixosProfiles.outputsForTarget "default";
-          homeProfiles = self.recipes.homeProfiles.outputsForTarget "default";
+          darwinProfiles = self.recipes.darwinProfiles.outputsForTarget;
+          nixosProfiles = self.recipes.nixosProfiles.outputsForTarget;
+          homeProfiles = self.recipes.homeProfiles.outputsForTarget;
 
-          nixosModules.default =
-            self.recipes.nixosModules.default.outputsForTarget
-              "nixosModules";
-          nixosModules.outputs =
-            self.recipes.nixosModules.outputs.outputsForTarget
-              "default";
-          homeModules.default =
-            self.recipes.homeModules.default.outputsForTarget
-              "nixosModules";
+          nixosModules.default = self.recipes.nixosModules.default.outputsForTarget;
+          nixosModules.outputs = self.recipes.nixosModules.outputs.outputsForTarget;
+          homeModules.default = self.recipes.homeModules.default.outputsForTarget;
         };
       }
     ))
