@@ -1687,7 +1687,7 @@ prepended to the element after the #+HEADER: tag."
           (sh-mode         . bash-ts-mode)
           (typescript-mode . typescript-ts-mode)
           (rust-mode       . rust-ts-mode)
-          (nix-mode       .  nix-ts-mode)
+          ;;(nix-mode       .  nix-ts-mode)
           ))
   (add-hook 'markdown-mode-hook #'(lambda () (treesit-parser-create 'markdown)))
 

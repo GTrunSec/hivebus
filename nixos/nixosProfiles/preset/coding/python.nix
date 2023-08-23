@@ -42,6 +42,8 @@ let
         pyqt6-webengine
         pyinotify
         pymupdf
+        # eaf depencencies
+        lxml
       ]
     ));
 in

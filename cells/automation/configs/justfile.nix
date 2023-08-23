@@ -56,10 +56,9 @@ in
     '';
   };
   age-rekey = {
-    args = [ "cell" ];
     description = "re-age key with ragenix";
     content = ''
-      ragenix --rules $PRJ_ROOT/{{cell}}/secrets.nix --rekey
+      ragenix --rules $PRJ_ROOT/secrets/secrets.nix --rekey
     '';
   };
   darwin-build = {

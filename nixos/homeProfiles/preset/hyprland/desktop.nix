@@ -10,7 +10,6 @@ in
     extraConfig = builtins.readFile "${src}/hyprland.conf";
     xwayland = {
       enable = true;
-      hidpi = true;
     };
     hive = {
       nvidia = true;

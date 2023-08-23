@@ -25,25 +25,27 @@ in
   ];
   k3s.enable = true;
   k3s.role = "server";
-  k3s.extraFlags = toString [
-    # "--kubelet-arg=v=4" # Optionally add additional args to k3s
-  ];
-#   kubernetes = {
-#     roles = [
-#       "master"
-#       "node"
-#     ];
-#     masterAddress = kubeMasterHostname;
-#     apiserverAddress = "http://${kubeMasterHostname}:${
-#         toString kubeMasterAPIServerPort
-#       }";
-#     # easyCerts = true;
-#     apiserver = {
-#       securePort = kubeMasterAPIServerPort;
-#       advertiseAddress = kubeMasterIP;
-#     };
-#     # use coredns
-#     addons.dns.enable = true;
-#     # addonManager.enable = true;
-#   };
- }
+  k3s.extraFlags =
+    toString
+      [
+        # "--kubelet-arg=v=4" # Optionally add additional args to k3s
+      ];
+  #   kubernetes = {
+  #     roles = [
+  #       "master"
+  #       "node"
+  #     ];
+  #     masterAddress = kubeMasterHostname;
+  #     apiserverAddress = "http://${kubeMasterHostname}:${
+  #         toString kubeMasterAPIServerPort
+  #       }";
+  #     # easyCerts = true;
+  #     apiserver = {
+  #       securePort = kubeMasterAPIServerPort;
+  #       advertiseAddress = kubeMasterIP;
+  #     };
+  #     # use coredns
+  #     addons.dns.enable = true;
+  #     # addonManager.enable = true;
+  #   };
+}

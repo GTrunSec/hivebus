@@ -11,6 +11,7 @@ in
   default = [
     self.minimal
     self.utils
+    # ------------------------------
     preset.direnv
     preset.spell-check
     preset.tmux
@@ -32,11 +33,14 @@ in
 
   minimal = [ preset.git ];
 
-  utils = [ {
-    programs.btop.enable = true;
-    programs.bat.enable = true;
-    programs.jq.enable = true;
-  } ];
+  utils = [
+    {
+      programs.btop.enable = true;
+      programs.bat.enable = true;
+      programs.jq.enable = true;
+    }
+    preset.utils
+  ];
 
   full = [ self.default ];
 }

@@ -9,8 +9,8 @@ age cell file:
     ragenix --edit ./cells/{{ cell }}/secretProfiles/{{ file }} --rules ./cells/{{ cell }}/secretProfiles/secrets.nix
 
 # re-age key with ragenix
-age-rekey cell:
-    ragenix --rules $PRJ_ROOT/{{ cell }}/secrets.nix --rekey
+age-rekey:
+    ragenix --rules $PRJ_ROOT/secrets/secrets.nix --rekey
 
 # build darwin machine
 darwin-build machine:
