@@ -27,26 +27,26 @@
   };
   jinx = {
     pname = "jinx";
-    version = "416b76abd9c3155797329c2204cf50e535ad566c";
+    version = "417d95002fbf6737d6463e56d2633badff25522c";
     src = fetchFromGitHub {
       owner = "minad";
       repo = "jinx";
-      rev = "416b76abd9c3155797329c2204cf50e535ad566c";
+      rev = "417d95002fbf6737d6463e56d2633badff25522c";
       fetchSubmodules = false;
-      sha256 = "sha256-bKiCvznvuH4a4FxORPgGjmH6X6COmHjLSqfCnjysiUg=";
+      sha256 = "sha256-yV8geUhbPw3blYehe63k7z6pkIzfJh88Ywnw4gGwtno=";
     };
-    date = "2023-07-30";
+    date = "2023-08-16";
   };
   lsp-bridge = {
     pname = "lsp-bridge";
-    version = "ba344368b4c669584a5adf63557754070b161e56";
+    version = "6807fd49bf3800dc3db8622e0cfbb20ef2d813bd";
     src = fetchFromGitHub {
       owner = "manateelazycat";
       repo = "lsp-bridge";
-      rev = "ba344368b4c669584a5adf63557754070b161e56";
+      rev = "6807fd49bf3800dc3db8622e0cfbb20ef2d813bd";
       fetchSubmodules = false;
-      sha256 = "sha256-QQesYxw3x8bEevF1S7voYqGf8U/4eQFdEnR2V8gw6e8=";
+      sha256 = "sha256-zN9+Lu7eBITwn2K9Rmtia79PrhhO1bM8DVSEwZp23zE=";
     };
-    date = "2023-08-04";
+    date = "2023-08-23";
   };
 }

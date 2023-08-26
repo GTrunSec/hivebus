@@ -1,9 +1,9 @@
 { flops, haumea }:
 let
-  inherit (flops.lib) configs;
+  inherit (flops.lib.haumea) pops;
 in
 src: inputs:
-configs.haumea.setInit {
+pops.default.setInit {
   src = src;
   inputs = inputs;
   transformer = with haumea.lib.transformers; [
@@ -11,5 +11,5 @@ configs.haumea.setInit {
     (hoistLists "_imports" "imports")
     (hoistAttrs "_options" "options")
   ];
-  layout = "nixosModules";
+  target = "nixosModules";
 }

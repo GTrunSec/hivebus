@@ -10,7 +10,7 @@ let
 in
 {
   imports = [
-    self'.exports.nixosModules.desktop
+    self'.exports.nixosModules.desktop.default
     (cell.lib.mkHome "guangtao" "desktop" "zsh")
 
     inputs.cells.users.nixosProfiles.root
@@ -46,7 +46,7 @@ in
   ];
 
   homeSuites = [
-    self'.exports.homeModules.desktop
+    self'.exports.homeModules.desktop.default
     inputs.cells.users.homeProfiles.guangtao
 
     exports.homeModules.default

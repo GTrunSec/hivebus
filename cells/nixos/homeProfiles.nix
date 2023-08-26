@@ -1,15 +1,8 @@
-{ inputs, cell }:
 let
-  inherit (inputs)
-    haumea
-    flops
-    std
-    self
-  ;
-
+  inherit (inputs) std self;
   profiles = "${(std.incl self [ "profiles" ])}/profiles";
 in
-flops.lib.configs.haumea.setInit {
+inputs.flops.lib.haumea.pops.default.setInit {
   src = inputs.self + "/nixos/homeProfiles";
   inputs = {
     inherit cell profiles inputs;

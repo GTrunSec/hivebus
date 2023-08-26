@@ -1,4 +1,4 @@
-inputs.flops.lib.configs.haumea.setInit {
+inputs.flops.lib.haumea.pops.default.setInit {
   src = inputs.self + "/nixos/darwinProfiles";
   inputs = {
     inherit cell;

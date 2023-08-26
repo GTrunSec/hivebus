@@ -1,5 +1,6 @@
 :PROPERTIES:
 :ID:       e8d4f8d3-dc0d-488a-b390-ffbe2f282230
+:header-args:mkdirp: yes :comments no
 :END:
 #+title: Hyprland
 
@@ -149,10 +150,10 @@ decoration {
         inactive_opacity = 1.0
         fullscreen_opacity = 1.0
         rounding = 0
-        blur = no
-        blur_size = 3
-        blur_passes = 1
-        blur_new_optimizations = true
+        # blur = no
+        # blur_size = 3
+        # blur_passes = 1
+        # blur_new_optimizations = true
 
         drop_shadow = false
         shadow_range = 4
@@ -163,7 +164,7 @@ decoration {
       # shadow_offset
         dim_inactive = false
       # dim_strength = #0.0 ~ 1.0
-        blur_ignore_opacity = false
+      # blur_ignore_opacity = false
         col.shadow = rgba(1a1a1aee)
       }
 #+end_src

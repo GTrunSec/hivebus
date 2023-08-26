@@ -1,4 +1,4 @@
-(inputs.flops.lib.configs.haumea.setInit {
+(inputs.flops.lib.haumea.pops.default.setInit {
   src = ./overlays;
   inputs = {
     inherit cell;

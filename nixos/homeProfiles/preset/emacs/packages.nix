@@ -64,7 +64,7 @@ in
             ${lib.getExe pkgs.nodejs-16_x} "$@"
           '')
           pkgs.graphviz
-          pkgs.ripgrep-all
+          # pkgs.ripgrep-all
           (pkgs.symlinkJoin {
             name = "dotsk";
             pathsToLink = [
