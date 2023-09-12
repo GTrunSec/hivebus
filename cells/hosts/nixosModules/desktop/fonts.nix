@@ -1,5 +1,5 @@
 {
-  enableDefaultFonts = true;
+  enableDefaultPackages = true;
   fontconfig = {
     defaultFonts = {
       serif = [
@@ -17,7 +17,7 @@
     (
       { pkgs, ... }:
       {
-        fonts.fonts =
+        fonts.packages =
           with pkgs;
           [
             fantasque-sans-mono

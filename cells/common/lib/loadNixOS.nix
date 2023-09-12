@@ -11,5 +11,5 @@ pops.default.setInit {
     (hoistLists "_imports" "imports")
     (hoistAttrs "_options" "options")
   ];
-  target = "nixosModules";
+  type = "nixosModules";
 }

@@ -21,7 +21,7 @@ _:
           dotDir = ".config/zsh";
           enableAutosuggestions = true;
           enableCompletion = true;
-          enableSyntaxHighlighting = true;
+          syntaxHighlighting.enable = true;
           history = {
             path = "$HOME/" + config.programs.zsh.dotDir + "/.zsh_history";
             share = true;

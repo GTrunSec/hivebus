@@ -38,8 +38,8 @@ let
         paramiko
       ]
       ++ lib.optionals pkgs.stdenv.isLinux [
-        pyqt6
-        pyqt6-webengine
+        # pyqt6
+        # pyqt6-webengine
         pyinotify
         pymupdf
         # eaf depencencies
@@ -54,7 +54,7 @@ in
     [
       my-python-packages
       nodePackages.pyright
-      poetry
+      # poetry
     ]
     ++
       lib.optionals pkgs.stdenv.isLinux

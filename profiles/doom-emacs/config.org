@@ -969,26 +969,26 @@ enchant-lsmod-2
 
 
 #+begin_src emacs-lisp :tangle "config.el"
-(when IS-LINUX
-  (when (display-graphic-p)
-    (use-package! eaf
-      :if (eq system-type 'gnu/linux)
-      :init
-         :custom
-      ;; See https://github.com/emacs-eaf/emacs-application-framework/wiki/Customization
-      (eaf-browser-continue-where-left-off t)
-      (eaf-browser-enable-adblocker t)
-      (browse-url-browser-function 'eaf-open-browser)
-      :config
-      (require' eaf-file-manager)
-      (setq eaf-webengine-default-zoom 2.0)
-      (setq eaf-python-command "/run/current-system/sw/bin/python")
-      ;;(eaf-bind-key scroll_up "C-n" eaf-pdf-viewer-keybinding)
-      ;;(eaf-bind-key scroll_down "C-p" eaf-pdf-viewer-keybinding)
-      )
-    (use-package! epc)
-    )
-  )
+;; (when IS-LINUX
+;;   (when (display-graphic-p)
+;;     (use-package! eaf
+;;       :if (eq system-type 'gnu/linux)
+;;       :init
+;;          :custom
+;;       ;; See https://github.com/emacs-eaf/emacs-application-framework/wiki/Customization
+;;       (eaf-browser-continue-where-left-off t)
+;;       (eaf-browser-enable-adblocker t)
+;;       (browse-url-browser-function 'eaf-open-browser)
+;;       :config
+;;       (require' eaf-file-manager)
+;;       (setq eaf-webengine-default-zoom 2.0)
+;;       (setq eaf-python-command "/run/current-system/sw/bin/python")
+;;       ;;(eaf-bind-key scroll_up "C-n" eaf-pdf-viewer-keybinding)
+;;       ;;(eaf-bind-key scroll_down "C-p" eaf-pdf-viewer-keybinding)
+;;       )
+;;     (use-package! epc)
+;;     )
+;;   )
 #+end_src
 
 
@@ -1600,6 +1600,7 @@ prepended to the element after the #+HEADER: tag."
 (package! lsp-bridge :recipe (:local-repo
                               "~/.config/guangtao-sources/lsp-bridge"
                               :files ("*.el" "*.py" "core" "langserver" "acm")
+                              :build (:not compile)
                               ))
 #+end_src
 
@@ -1625,7 +1626,6 @@ prepended to the element after the #+HEADER: tag."
   (push '((nix-mode nix-ts-mode) . "rnix-lsp") lsp-bridge-single-lang-server-mode-list)
   (setq acm-candidate-match-function 'orderless-flex)
   )
-
 ;; (after! lsp-bridge
 ;;      (set-face-background 'acm-frame-default-face (face-attribute 'default :background))
 ;;       (set-face-background 'acm-frame-select-face (face-attribute 'highlight :background))

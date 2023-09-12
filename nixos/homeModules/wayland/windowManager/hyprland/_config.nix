@@ -24,7 +24,7 @@ with lib; {
         };
       }
       (mkIf cfg'.nvidia {
-        wayland.windowManager.hyprland.nvidiaPatches = true;
+        wayland.windowManager.hyprland.enableNvidiaPatches = true;
         home.sessionVariables = {
           LIBVA_DRIVER_NAME = "nvidia";
           GBM_BACKEND = "nvidia-drm";
