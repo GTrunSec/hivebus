@@ -17,6 +17,7 @@
     # flops.url = "/home/guangtao/ghq/github.com/GTrunSec/flops";
     flops.url = "github:gtrunsec/flops";
     haumea.follows = "flops/haumea";
+    omnibus.url = "github:gtrunsec/omnibus";
   };
   inputs.hive.inputs = {
     nixos-generators.follows = "nixos-generators";

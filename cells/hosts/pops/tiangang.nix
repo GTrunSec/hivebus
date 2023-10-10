@@ -10,7 +10,7 @@ let
 in
 {
   imports = [
-    self'.exports.nixosModules.tiangang
+    self'.exports.nixosModules.tiangang.default
     {
       hive.bootstrap = {
         contabo = true;

@@ -41,7 +41,6 @@
     #   inputs.nixpkgs.follows = "nixpkgs";
     #   inputs.flake-utils.follows = "flake-utils";
     # };
-
     lanzaboote.url = "github:nix-community/lanzaboote";
     lanzaboote.inputs.nixpkgs.follows = "nixpkgs";
   };

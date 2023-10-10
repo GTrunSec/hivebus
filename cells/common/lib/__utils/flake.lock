@@ -83,15 +83,15 @@
     "navi-tldr-pages": {
       "flake": false,
       "locked": {
-        "lastModified": 1689466679,
-        "narHash": "sha256-zpRubQAVMa36zSG/lrEVI/ecwOIGLKe/36Xgsp93gYQ=",
-        "owner": "GTrunSec",
+        "lastModified": 1696121180,
+        "narHash": "sha256-F34Fv3/HJQ0Rfu/QK3gnuhSjECjOcPzQg8URpke4Z20=",
+        "owner": "denisidoro",
         "repo": "navi-tldr-pages",
-        "rev": "532bfc049f4645342549a61c6f6c63a31ca9d6e7",
+        "rev": "15ce4927f2f2b01f9524602377f8ec49d7450448",
         "type": "github"
       },
       "original": {
-        "owner": "GTrunSec",
+        "owner": "denisidoro",
         "repo": "navi-tldr-pages",
         "type": "github"
       }

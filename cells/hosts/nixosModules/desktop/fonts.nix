@@ -41,6 +41,7 @@
             weather-icons
             iosevka
             roboto
+            font-awesome
             (nerdfonts.override {
               fonts = [
                 "JetBrainsMono"

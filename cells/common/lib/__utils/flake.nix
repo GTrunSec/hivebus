@@ -39,7 +39,7 @@
     };
 
     navi-tldr-pages = {
-      url = "github:GTrunSec/navi-tldr-pages";
+      url = "github:denisidoro/navi-tldr-pages";
       flake = false;
     };
   };

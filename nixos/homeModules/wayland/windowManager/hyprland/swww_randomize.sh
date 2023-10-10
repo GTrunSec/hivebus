@@ -19,6 +19,7 @@ export SWWW_TRANSITION_STEP=2
 # This controls (in seconds) when to switch to the next image
 INTERVAL=3000
 
+
 if swww query; then
   swww kill
 else
