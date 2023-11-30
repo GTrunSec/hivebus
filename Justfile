@@ -12,13 +12,13 @@ age cell file:
 age-rekey:
     ragenix --rules $PRJ_ROOT/secrets/secrets.nix --rekey
 
+# Colmena build Guangtao Home Machine
+colmena action host:
+    colmena -f $PRJ_ROOT/nix/hive/flake.nix {{ action }} --on hosts-{{ host }}
+
 # build darwin machine
 darwin-build machine:
     darwin-rebuild build --flake .#hosts-{{ machine }}
-
-# Colmena build Guangtao Home Machine
-desktop action:
-    colmena {{ action }} --on hosts-desktop
 
 # Formats all changed source files
 fmt:
@@ -43,3 +43,7 @@ nvfetcher-emacs:
 # update packages via nvfetcher
 nvfetcher-update cell:
     nix develop github:GTrunSec/std-ext#devShells.x86_64-linux.update --refresh --command nvfetcher-update ./cells/{{ cell }}/packages/sources.toml
+
+# rsync to remote
+rsync:
+    rsync -avzh 192.168.1.92:/home/guangtao/ghq/github.com/GTrunSec/hivebus ~/ghq/github.com/GTrunSec --exclude flake.nix --exclude flake.lock; nix flake lock --update-input omnibus

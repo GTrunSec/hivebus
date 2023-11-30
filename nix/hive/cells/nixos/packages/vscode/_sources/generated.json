@@ -1,0 +1,326 @@
+{
+  "copilot": {
+    "cargoLocks": null,
+    "date": null,
+    "extract": null,
+    "name": "copilot",
+    "passthru": {
+      "name": "copilot",
+      "publisher": "Github"
+    },
+    "pinned": false,
+    "src": {
+      "name": "copilot-1.92.177.zip",
+      "sha256": "sha256-zvnHjz9xC8Cut9T21Mm9xr/Lcg5BqW9c83IwcWpdg0U=",
+      "type": "url",
+      "url": "https://GitHub.gallery.vsassets.io/_apis/public/gallery/publisher/GitHub/extension/copilot/1.92.177/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
+    },
+    "version": "1.92.177"
+  },
+  "direnv": {
+    "cargoLocks": null,
+    "date": null,
+    "extract": null,
+    "name": "direnv",
+    "passthru": {
+      "name": "direnv",
+      "publisher": "mkhl"
+    },
+    "pinned": false,
+    "src": {
+      "name": "direnv-0.14.0.zip",
+      "sha256": "sha256-T+bt6ku+zkqzP1gXNLcpjtFAevDRiSKnZaE7sM4pUOs=",
+      "type": "url",
+      "url": "https://mkhl.gallery.vsassets.io/_apis/public/gallery/publisher/mkhl/extension/direnv/0.14.0/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
+    },
+    "version": "0.14.0"
+  },
+  "indent-rainbow": {
+    "cargoLocks": null,
+    "date": null,
+    "extract": null,
+    "name": "indent-rainbow",
+    "passthru": {
+      "name": "indent-rainbow",
+      "publisher": "oderwat"
+    },
+    "pinned": false,
+    "src": {
+      "name": "indent-rainbow-8.3.1.zip",
+      "sha256": "sha256-dOicya0B2sriTcDSdCyhtp0Mcx5b6TUaFKVb0YU3jUc=",
+      "type": "url",
+      "url": "https://oderwat.gallery.vsassets.io/_apis/public/gallery/publisher/oderwat/extension/indent-rainbow/8.3.1/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
+    },
+    "version": "8.3.1"
+  },
+  "julia": {
+    "cargoLocks": null,
+    "date": null,
+    "extract": null,
+    "name": "julia",
+    "passthru": {
+      "name": "language-julia",
+      "publisher": "julialang"
+    },
+    "pinned": false,
+    "src": {
+      "name": "language-julia-1.47.2.zip",
+      "sha256": "sha256-e8HneuSGO+QVdQgC6TxJkb+igf5te7M7opMGUE8fq5M=",
+      "type": "url",
+      "url": "https://julialang.gallery.vsassets.io/_apis/public/gallery/publisher/julialang/extension/language-julia/1.47.2/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
+    },
+    "version": "1.47.2"
+  },
+  "julia-color-themes": {
+    "cargoLocks": null,
+    "date": null,
+    "extract": null,
+    "name": "julia-color-themes",
+    "passthru": {
+      "name": "julia-color-themes",
+      "publisher": "cameronbieganek"
+    },
+    "pinned": false,
+    "src": {
+      "name": "julia-color-themes-0.1.1.zip",
+      "sha256": "sha256-22TA7RpC0W3G8uA4EIqeuB4gqDF9cr1gNS+u7qQ3IaA=",
+      "type": "url",
+      "url": "https://cameronbieganek.gallery.vsassets.io/_apis/public/gallery/publisher/cameronbieganek/extension/julia-color-themes/0.1.1/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
+    },
+    "version": "0.1.1"
+  },
+  "markdown-preview-enhanced": {
+    "cargoLocks": null,
+    "date": null,
+    "extract": null,
+    "name": "markdown-preview-enhanced",
+    "passthru": {
+      "name": "markdown-preview-enhanced",
+      "publisher": "shd101wyy"
+    },
+    "pinned": false,
+    "src": {
+      "name": "markdown-preview-enhanced-0.6.8.zip",
+      "sha256": "sha256-9NRaHgtyiZJ0ic6h1B01MWzYhDABAl3Jm2IUPogYWr0=",
+      "type": "url",
+      "url": "https://shd101wyy.gallery.vsassets.io/_apis/public/gallery/publisher/shd101wyy/extension/markdown-preview-enhanced/0.6.8/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
+    },
+    "version": "0.6.8"
+  },
+  "multi-cursor-case-preserve": {
+    "cargoLocks": null,
+    "date": null,
+    "extract": null,
+    "name": "multi-cursor-case-preserve",
+    "passthru": {
+      "name": "multi-cursor-case-preserve",
+      "publisher": "Cardinal90"
+    },
+    "pinned": false,
+    "src": {
+      "name": "multi-cursor-case-preserve-1.0.5.zip",
+      "sha256": "sha256-eJafjYDydD8DW83VLH9MPFeDENXBx3el7XvjZqu88Jw=",
+      "type": "url",
+      "url": "https://Cardinal90.gallery.vsassets.io/_apis/public/gallery/publisher/Cardinal90/extension/multi-cursor-case-preserve/1.0.5/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
+    },
+    "version": "1.0.5"
+  },
+  "nickel-syntax": {
+    "cargoLocks": null,
+    "date": null,
+    "extract": null,
+    "name": "nickel-syntax",
+    "passthru": {
+      "name": "kubukoz",
+      "publisher": "nickel-syntax"
+    },
+    "pinned": false,
+    "src": {
+      "name": "nickel-syntax-0.0.2.zip",
+      "sha256": "sha256-ffPZd717Y2OF4d9MWE6zKwcsGWS90ZJvhWkqP831tVM=",
+      "type": "url",
+      "url": "https://kubukoz.gallery.vsassets.io/_apis/public/gallery/publisher/kubukoz/extension/nickel-syntax/0.0.2/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
+    },
+    "version": "0.0.2"
+  },
+  "pdf": {
+    "cargoLocks": null,
+    "date": null,
+    "extract": null,
+    "name": "pdf",
+    "passthru": {
+      "name": "pdf",
+      "publisher": "tomoki1207"
+    },
+    "pinned": false,
+    "src": {
+      "name": "pdf-1.2.2.zip",
+      "sha256": "sha256-i3Rlizbw4RtPkiEsodRJEB3AUzoqI95ohyqZ0ksROps=",
+      "type": "url",
+      "url": "https://tomoki1207.gallery.vsassets.io/_apis/public/gallery/publisher/tomoki1207/extension/pdf/1.2.2/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
+    },
+    "version": "1.2.2"
+  },
+  "readable-indent": {
+    "cargoLocks": null,
+    "date": null,
+    "extract": null,
+    "name": "readable-indent",
+    "passthru": {
+      "name": "readable-indent",
+      "publisher": "cnojima"
+    },
+    "pinned": false,
+    "src": {
+      "name": "readable-indent-1.2.2.zip",
+      "sha256": "sha256-iTgbxasaNTIBlLLUPs00Y9x099zfXc6ES6drTc8CE78=",
+      "type": "url",
+      "url": "https://cnojima.gallery.vsassets.io/_apis/public/gallery/publisher/cnojima/extension/readable-indent/1.2.2/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
+    },
+    "version": "1.2.2"
+  },
+  "rust": {
+    "cargoLocks": null,
+    "date": null,
+    "extract": null,
+    "name": "rust",
+    "passthru": {
+      "name": "rust",
+      "publisher": "rust-lang"
+    },
+    "pinned": false,
+    "src": {
+      "name": "rust-0.7.9.zip",
+      "sha256": "sha256-2uV+s//4fAEuibNHjSJop4pdf9KpDHsICDNWmdjJVSs=",
+      "type": "url",
+      "url": "https://rust-lang.gallery.vsassets.io/_apis/public/gallery/publisher/rust-lang/extension/rust/0.7.9/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
+    },
+    "version": "0.7.9"
+  },
+  "rust-analyzer": {
+    "cargoLocks": null,
+    "date": null,
+    "extract": null,
+    "name": "rust-analyzer",
+    "passthru": {
+      "name": "rust-analyzer",
+      "publisher": "rust-lang"
+    },
+    "pinned": false,
+    "src": {
+      "name": "rust-analyzer-0.4.1565.zip",
+      "sha256": "sha256-UN3e/0qxs8xeYpNxNSTs/EGZ4Dq+fEOKknHilGWFXIA=",
+      "type": "url",
+      "url": "https://rust-lang.gallery.vsassets.io/_apis/public/gallery/publisher/rust-lang/extension/rust-analyzer/0.4.1565/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
+    },
+    "version": "0.4.1565"
+  },
+  "tokyo-night": {
+    "cargoLocks": null,
+    "date": null,
+    "extract": null,
+    "name": "tokyo-night",
+    "passthru": {
+      "name": "tokyo-night",
+      "publisher": "enkia"
+    },
+    "pinned": false,
+    "src": {
+      "name": "tokyo-night-0.9.9.zip",
+      "sha256": "sha256-Vcb8w3eQrEs5X+Kbb9XmKF5yJAwgTUhaucfjCDhJnss=",
+      "type": "url",
+      "url": "https://enkia.gallery.vsassets.io/_apis/public/gallery/publisher/enkia/extension/tokyo-night/0.9.9/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
+    },
+    "version": "0.9.9"
+  },
+  "vscode-emacs-friendly": {
+    "cargoLocks": null,
+    "date": null,
+    "extract": null,
+    "name": "vscode-emacs-friendly",
+    "passthru": {
+      "name": "vscode-emacs-friendly",
+      "publisher": "lfs"
+    },
+    "pinned": false,
+    "src": {
+      "name": "vscode-emacs-friendly-0.9.0.zip",
+      "sha256": "sha256-YWu2a5hz0qGZvgR95DbzUw6PUvz17i1o4+eAUM/xjMg=",
+      "type": "url",
+      "url": "https://lfs.gallery.vsassets.io/_apis/public/gallery/publisher/lfs/extension/vscode-emacs-friendly/0.9.0/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
+    },
+    "version": "0.9.0"
+  },
+  "vscode-extension-bpmn-editor": {
+    "cargoLocks": null,
+    "date": null,
+    "extract": null,
+    "name": "vscode-extension-bpmn-editor",
+    "passthru": {
+      "name": "vscode-extension-bpmn-editor",
+      "publisher": "redhat"
+    },
+    "pinned": false,
+    "src": {
+      "name": "vscode-extension-bpmn-editor-0.26.1.zip",
+      "sha256": "sha256-SXjER8urfcMi1HIVii4CrfAA5ELRoEv9O0rslxUMrBM=",
+      "type": "url",
+      "url": "https://redhat.gallery.vsassets.io/_apis/public/gallery/publisher/redhat/extension/vscode-extension-bpmn-editor/0.26.1/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
+    },
+    "version": "0.26.1"
+  },
+  "vscode-extension-dmn-editor": {
+    "cargoLocks": null,
+    "date": null,
+    "extract": null,
+    "name": "vscode-extension-dmn-editor",
+    "passthru": {
+      "name": "vscode-extension-dmn-editor",
+      "publisher": "redhat"
+    },
+    "pinned": false,
+    "src": {
+      "name": "vscode-extension-dmn-editor-0.26.0.zip",
+      "sha256": "sha256-OY5+z2lQPctpovLyJR7fd+uD5ll7TlXsNAOGMe0l+bs=",
+      "type": "url",
+      "url": "https://redhat.gallery.vsassets.io/_apis/public/gallery/publisher/redhat/extension/vscode-extension-dmn-editor/0.26.0/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
+    },
+    "version": "0.26.0"
+  },
+  "vscode-markdownlint": {
+    "cargoLocks": null,
+    "date": null,
+    "extract": null,
+    "name": "vscode-markdownlint",
+    "passthru": {
+      "name": "vscode-markdownlint",
+      "publisher": "DavidAnson"
+    },
+    "pinned": false,
+    "src": {
+      "name": "vscode-markdownlint-0.51.0.zip",
+      "sha256": "sha256-Xtr8cqcPrcrKpJBxQcY1j9Gl4CC6U3ZazS4bdBtdzUk=",
+      "type": "url",
+      "url": "https://DavidAnson.gallery.vsassets.io/_apis/public/gallery/publisher/DavidAnson/extension/vscode-markdownlint/0.51.0/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
+    },
+    "version": "0.51.0"
+  },
+  "zeek": {
+    "cargoLocks": null,
+    "date": null,
+    "extract": null,
+    "name": "zeek",
+    "passthru": {
+      "name": "bro",
+      "publisher": "aeppert"
+    },
+    "pinned": false,
+    "src": {
+      "name": "bro-0.6.0.zip",
+      "sha256": "sha256-+wISGCtGq/l058dOaAKlD3pGknP2ksekS1Rgmax5QgU=",
+      "type": "url",
+      "url": "https://aeppert.gallery.vsassets.io/_apis/public/gallery/publisher/aeppert/extension/bro/0.6.0/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
+    },
+    "version": "0.6.0"
+  }
+}
