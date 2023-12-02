@@ -1,4 +1,4 @@
-{ nixosModulesPath }:
+{nixosModulesPath}:
 {
   pkgs,
   config,
@@ -10,7 +10,7 @@ let
 in
 {
   options.hive.env =
-    (import (nixosModulesPath + "/hive/env.nix") { inherit lib; })._options;
+    (import (nixosModulesPath + "/hive/env.nix") {inherit lib;})._options;
   config = {
     hive.env.PATH = lib.mkBefore [
       "/run/current-system/sw/bin"
@@ -23,7 +23,7 @@ in
       "/usr/sbin"
       "/sbin"
     ];
-    environment.systemPath = [ ];
+    environment.systemPath = [];
     environment.variables.PATH = config.hive.env.PATH;
   };
 }

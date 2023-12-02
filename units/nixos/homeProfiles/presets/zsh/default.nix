@@ -39,8 +39,7 @@ _:
             em = "emacs";
             cp = "cp -i";
             mv = "mv -i";
-            cdghq = ''
-              cd $(ghq root)/$(find $(ghq root) -maxdepth 4 -type d -name .git | xargs -n1 dirname | sed "s|$(ghq root)/||" | peco)'';
+            cdghq = ''cd $(ghq root)/$(find $(ghq root) -maxdepth 4 -type d -name .git | xargs -n1 dirname | sed "s|$(ghq root)/||" | peco)'';
             ##update Nixpkgs
             fp = "git fetch && git pull";
             sshi = "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null";
@@ -75,6 +74,6 @@ _:
           SHELL = "/bin/bash";
         };
       })
-      (mkIf pkgs.stdenv.isLinux { programs.zsh.shellAliases = { }; })
+      (mkIf pkgs.stdenv.isLinux {programs.zsh.shellAliases = {};})
     ];
 }

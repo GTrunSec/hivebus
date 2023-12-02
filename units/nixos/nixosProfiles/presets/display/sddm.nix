@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{config, lib, ...}:
 {
   config =
     with lib;
@@ -10,6 +10,6 @@
         services.xserver.displayManager.sddm.enable = true;
       }
       # (mkIf config.hardware.video.hidpi.enable
-      { services.xserver.displayManager.sddm.enableHidpi = true; }
+      {services.xserver.displayManager.sddm.enableHidpi = true;}
     ];
 }

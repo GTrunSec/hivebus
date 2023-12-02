@@ -4,7 +4,7 @@
   omnibus,
   eachSystem,
   flops,
-  projectDir
+  projectDir,
 }:
 let
   filterConfigs =
@@ -26,12 +26,12 @@ in
     let
       inputs' = (super.pops.flake.setSystem system).inputs;
       dataAll =
-        (super.pops.omnibus.addLoadExtender { load.inputs.inputs = inputs'; })
+        (super.pops.omnibus.addLoadExtender {load.inputs.inputs = inputs';})
         .exports.default.pops.dataAll;
     in
     {
       data =
-        (dataAll.addLoadExtender { load.src = projectDir + "/local/data"; })
+        (dataAll.addLoadExtender {load.src = projectDir + "/local/data";})
         .exports.default;
     }
   );
@@ -44,8 +44,8 @@ in
     (
       (flops.haumea.pops.default.setInit {
         src = ../packages;
-        loader = _: path: inputs.nixpkgs.callPackage path { };
-        transformer = [ (_cursor: dir: if dir ? default then dir.default else dir) ];
+        loader = _: path: inputs.nixpkgs.callPackage path {};
+        transformer = [(_cursor: dir: if dir ? default then dir.default else dir)];
       })
     ).exports.default
   );

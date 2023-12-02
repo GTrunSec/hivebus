@@ -1,7 +1,7 @@
-{ self, root }:
+{self, root}:
 {
   default = [
-    { programs.dconf.enable = true; }
+    {programs.dconf.enable = true;}
     root.preset.audio.pipewire
     root.preset.audio.bluetooth
     root.preset.display.xdg

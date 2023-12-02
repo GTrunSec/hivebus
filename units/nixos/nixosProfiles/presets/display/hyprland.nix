@@ -1,4 +1,4 @@
-{ inputs, cell }:
+{inputs, cell}:
 let
   inherit (inputs) nixpkgs;
   inherit (inputs.cells.common.lib) __inputs__;
@@ -10,7 +10,7 @@ rec {
       __inputs__.hyprland.nixosModules.default
       cell.nixosModules.hyprland
       (
-        { config, ... }:
+        {config, ...}:
         let
           cfg = config.programs.hyprland.hiveProfiles;
         in
@@ -29,7 +29,7 @@ rec {
   };
 
   displayManager = name: {
-    imports = [ cell.nixosModules.${name} ];
+    imports = [cell.nixosModules.${name}];
     programs.hyprland.hiveProfiles = {
       displayManager = true;
     };

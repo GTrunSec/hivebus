@@ -1,9 +1,9 @@
-{ inputs, cell }:
+{inputs, cell}:
 {
   "/persist".neededForBoot = true;
   "/DATABASE-4TB" = {
     device = "/dev/disk/by-uuid/749df476-c355-469a-9d00-4565a07901bf";
-    options = [ "x-systemd.automount" ];
+    options = ["x-systemd.automount"];
     fsType = "xfs";
   };
   _imports = [

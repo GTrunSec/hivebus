@@ -17,7 +17,7 @@ let
   python = if nodejs ? python then nodejs.python else python2;
 
   # Create a tar wrapper that filters all the 'Ignoring unknown extended header keyword' noise
-  tarWrapper = runCommand "tarWrapper" { } ''
+  tarWrapper = runCommand "tarWrapper" {} ''
     mkdir -p $out/bin
 
     cat > $out/bin/tar <<EOF
@@ -39,7 +39,7 @@ let
     stdenv.mkDerivation {
       name = "node-tarball-${name}-${version}";
       inherit src;
-      buildInputs = [ nodejs ];
+      buildInputs = [nodejs];
       buildPhase = ''
         export HOME=$TMPDIR
         tgzFile=$(npm pack | tail -n 1) # Hooks to the pack command will add output (https://docs.npmjs.com/misc/scripts)
@@ -103,8 +103,8 @@ let
   #
   # Only include dependencies if they don't exist. They may also be bundled in the package.
   includeDependencies =
-    { dependencies }:
-    lib.optionalString (dependencies != [ ]) (
+    {dependencies}:
+    lib.optionalString (dependencies != []) (
       ''
         mkdir -p node_modules
         cd node_modules
@@ -128,18 +128,18 @@ let
       name,
       packageName,
       src,
-      dependencies ? [ ],
+      dependencies ? [],
       ...
     }@args:
     builtins.addErrorContext "while evaluating node package '${packageName}'" ''
       installPackage "${packageName}" "${src}"
-      ${includeDependencies { inherit dependencies; }}
+      ${includeDependencies {inherit dependencies;}}
       cd ..
       ${lib.optionalString (builtins.substring 0 1 packageName == "@") "cd .."}
     '';
 
   pinpointDependencies =
-    { dependencies, production }:
+    {dependencies, production}:
     let
       pinpointDependenciesFromPackageJSON = writeTextFile {
         name = "pinpointDependencies.js";
@@ -203,7 +203,7 @@ let
         if production then "production" else "development"
       }
 
-      ${lib.optionalString (dependencies != [ ]) ''
+      ${lib.optionalString (dependencies != []) ''
         if [ -d node_modules ]
         then
             cd node_modules
@@ -223,7 +223,7 @@ let
   pinpointDependenciesOfPackage =
     {
       packageName,
-      dependencies ? [ ],
+      dependencies ? [],
       production ? true,
       ...
     }@args:
@@ -231,7 +231,7 @@ let
       if [ -d "${packageName}" ]
       then
           cd "${packageName}"
-          ${pinpointDependencies { inherit dependencies production; }}
+          ${pinpointDependencies {inherit dependencies production;}}
           cd ..
           ${lib.optionalString (builtins.substring 0 1 packageName == "@") "cd .."}
       fi
@@ -239,7 +239,7 @@ let
 
   # Extract the Node.js source code which is used to compile packages with
   # native bindings
-  nodeSources = runCommand "node-sources" { } ''
+  nodeSources = runCommand "node-sources" {} ''
     tar --no-same-owner --no-same-permissions -xf ${nodejs.src}
     mv node-* $out
   '';
@@ -498,9 +498,7 @@ let
         node ${addIntegrityFieldsScript}
       ''}
 
-      npm ${forceOfflineFlag} --nodedir=${nodeSources} ${npmFlags} ${
-        lib.optionalString production "--production"
-      } rebuild
+      npm ${forceOfflineFlag} --nodedir=${nodeSources} ${npmFlags} ${lib.optionalString production "--production"} rebuild
 
       runHook postRebuild
 
@@ -509,9 +507,7 @@ let
           # NPM tries to download packages even when they already exist if npm-shrinkwrap is used.
           rm -f npm-shrinkwrap.json
 
-          npm ${forceOfflineFlag} --nodedir=${nodeSources} --no-bin-links --ignore-scripts ${npmFlags} ${
-            lib.optionalString production "--production"
-          } install
+          npm ${forceOfflineFlag} --nodedir=${nodeSources} --no-bin-links --ignore-scripts ${npmFlags} ${lib.optionalString production "--production"} install
       fi
 
       # Link executables defined in package.json
@@ -524,8 +520,8 @@ let
       name,
       packageName,
       version ? null,
-      dependencies ? [ ],
-      buildInputs ? [ ],
+      dependencies ? [],
+      buildInputs ? [],
       production ? true,
       npmFlags ? "",
       dontNpmInstall ? false,
@@ -535,7 +531,7 @@ let
       dontStrip ? true,
       unpackPhase ? "true",
       buildPhase ? "true",
-      meta ? { },
+      meta ? {},
       ...
     }@args:
     let
@@ -572,7 +568,7 @@ let
           preRebuild
           unpackPhase
           buildPhase
-        ;
+          ;
 
         compositionScript = composePackage args;
         pinpointDependenciesScript = pinpointDependenciesOfPackage args;
@@ -599,7 +595,7 @@ let
               reconstructLock
               npmFlags
               production
-            ;
+              ;
           }}
 
           # Create symlink to the deployed executable folder, if applicable
@@ -652,8 +648,8 @@ let
       packageName,
       version ? null,
       src,
-      dependencies ? [ ],
-      buildInputs ? [ ],
+      dependencies ? [],
+      buildInputs ? [],
       production ? true,
       npmFlags ? "",
       dontNpmInstall ? false,
@@ -674,8 +670,8 @@ let
     stdenv.mkDerivation (
       {
         name = "node-dependencies-${name}${
-            if version == null then "" else "-${version}"
-          }";
+          if version == null then "" else "-${version}"
+        }";
 
         buildInputs =
           [
@@ -690,7 +686,7 @@ let
         inherit dontStrip; # Stripping may fail a build for some package deployments
         inherit dontNpmInstall unpackPhase buildPhase;
 
-        includeScript = includeDependencies { inherit dependencies; };
+        includeScript = includeDependencies {inherit dependencies;};
         pinpointDependenciesScript = pinpointDependenciesOfPackage args;
 
         passAsFile = [
@@ -728,7 +724,7 @@ let
               reconstructLock
               npmFlags
               production
-            ;
+              ;
           }}
 
           # Expose the executables that were installed
@@ -749,8 +745,8 @@ let
       packageName,
       version ? null,
       src,
-      dependencies ? [ ],
-      buildInputs ? [ ],
+      dependencies ? [],
+      buildInputs ? [],
       production ? true,
       npmFlags ? "",
       dontNpmInstall ? false,
@@ -793,7 +789,7 @@ let
 
         # Provide the dependencies in a development shell through the NODE_PATH environment variable
         inherit nodeDependencies;
-        shellHook = lib.optionalString (dependencies != [ ]) ''
+        shellHook = lib.optionalString (dependencies != []) ''
           export NODE_PATH=${nodeDependencies}/lib/node_modules
           export PATH="${nodeDependencies}/bin:$PATH"
         '';

@@ -14,7 +14,7 @@ python3Packages.buildPythonPackage rec {
     rich
   ];
 
-  patches = [ ./linux.patch ];
+  patches = [./linux.patch];
 
   doCheck = false;
 }

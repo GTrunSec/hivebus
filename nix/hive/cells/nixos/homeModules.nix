@@ -1,4 +1,4 @@
-{ inputs, cell }:
+{inputs, cell}:
 {
   default =
     (inputs.cells.common.lib.loadNixOS (inputs.self + "/nixos/homeModules") {

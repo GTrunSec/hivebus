@@ -1,13 +1,11 @@
 _:
-{ pkgs, config, ... }:
+{pkgs, config, ...}:
 let
 in
 {
   age.secrets.chatgpt-web.file = pkgs.lib.age.file "chatgpt-web.age";
   age.secrets.chatgpt-web.mode = "444";
-  age.secrets.chatgpt-web-passwd.file =
-    pkgs.lib.age.file
-      "chatgpt-web-passwd.age";
+  age.secrets.chatgpt-web-passwd.file = pkgs.lib.age.file "chatgpt-web-passwd.age";
   age.secrets.chatgpt-web-passwd.mode = "444";
 
   services.nginx = {
@@ -37,7 +35,7 @@ in
   };
   systemd.services.chatgpt-web = {
     description = "chatgpt-web";
-    wantedBy = [ "network.target" ];
+    wantedBy = ["network.target"];
     preStart = ''
       cp -rf --no-preserve=mode,ownership ${pkgs.chatgpt-web}/* /var/lib/chatgpt-web/
       cp -rf ${config.age.secrets."chatgpt-web".path} /var/lib/chatgpt-web/.env

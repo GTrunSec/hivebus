@@ -1,5 +1,5 @@
 _:
-{ config, ... }:
+{config, ...}:
 {
   services.kanshi.profiles = {
     docked = {

@@ -1,7 +1,7 @@
 _:
-{ config, pkgs, ... }:
+{config, pkgs, ...}:
 {
-  home.packages = with pkgs; [ kanshi ];
+  home.packages = with pkgs; [kanshi];
   services.kanshi = {
     enable = true;
     # systemdTarget = "graphical-session.target";

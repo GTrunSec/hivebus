@@ -1,4 +1,4 @@
-{ inputs, cell }:
+{inputs, cell}:
 with inputs.std.inputs.dmerge;
 let
   cfg = {
@@ -19,7 +19,7 @@ in
 
   just = {
     data = {
-      tasks = import ./configs/justfile.nix { inherit inputs cell; };
+      tasks = import ./configs/justfile.nix {inherit inputs cell;};
     };
   };
 }

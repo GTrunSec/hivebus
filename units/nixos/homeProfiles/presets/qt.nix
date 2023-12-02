@@ -12,7 +12,7 @@ _:
     style.name = "adwaita";
     style.package = pkgs.adwaita-qt;
   };
-  home.packages = [ ];
+  home.packages = [];
 
   home.sessionVariables = {
     # QML2_IMPORT_PATH = "/run/current-system/sw/" + pkgs.qt5.qtbase.qtQmlPrefix;

@@ -1,4 +1,8 @@
-{inputs,root,super}:
+{
+  inputs,
+  root,
+  super,
+}:
 let
   inputs' = inputs // super.pops.subflake.inputs;
 in

@@ -1,5 +1,5 @@
 _:
-{ config, lib, ... }:
+{config, lib, ...}:
 {
   # https://github.com/Canop/broot
   programs.broot = {

@@ -1,4 +1,4 @@
-{ inputs }:
+{inputs}:
 {
   pkgs,
   config,
@@ -20,9 +20,7 @@ in
     }
   ];
 
-  age.secrets.chatgpt-next-web.file =
-    pkgs.lib.age.file
-      "tiangang/chatgpt-web-env.age";
+  age.secrets.chatgpt-next-web.file = pkgs.lib.age.file "tiangang/chatgpt-web-env.age";
   age.secrets.chatgpt-next-web.mode = "444";
 
   services.nginx = {

@@ -46,4 +46,4 @@ nvfetcher-update cell:
 
 # rsync to remote
 rsync:
-    rsync -avzh 192.168.1.92:/home/guangtao/ghq/github.com/GTrunSec/hivebus ~/ghq/github.com/GTrunSec --exclude flake.nix --exclude flake.lock; nix flake lock --update-input omnibus
+    rsync -avzh --exclude='/hivebus/flake.lock' --exclude='/hivebus/flake.nix' 192.168.1.92:/home/guangtao/ghq/github.com/GTrunSec/hivebus ~/ghq/github.com/GTrunSec; nix flake lock --update-input omnibus

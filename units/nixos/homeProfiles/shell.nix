@@ -22,5 +22,5 @@ with presets; {
     (lib.optional nixpkgs.stdenv.isDarwin presets.wezterm.default)
   ];
 
-  full = [ self.default ];
+  full = [self.default];
 }

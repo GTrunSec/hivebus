@@ -1,4 +1,4 @@
-{ root, inputs }:
+{root, inputs}:
 (root.pops.homeProfiles.addLoadExtender {
   load = {
     inputs = {

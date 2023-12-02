@@ -1,5 +1,5 @@
 _:
-{ pkgs, ... }:
+{pkgs, ...}:
 {
   home.packages = with pkgs; [
     (texlive.combine {
@@ -26,7 +26,7 @@ _:
         roboto
         lato
         sourcesanspro
-      ;
+        ;
     })
   ];
 }

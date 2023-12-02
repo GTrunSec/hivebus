@@ -30,7 +30,7 @@ _:
           };
 
           Install = {
-            WantedBy = [ "default.target" ];
+            WantedBy = ["default.target"];
           };
         };
       })

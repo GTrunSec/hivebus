@@ -1,7 +1,7 @@
-{ inputs, cell }:
+{inputs, cell}:
 final: prev:
 let
-  packages = prev.callPackage ../packages/my-node-packages/plugins.nix { };
+  packages = prev.callPackage ../packages/my-node-packages/plugins.nix {};
 in
 {
   nodePackages =

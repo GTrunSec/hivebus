@@ -1,4 +1,4 @@
-{ inputs, cell }:
+{inputs, cell}:
 let
   inherit (inputs.cells.common.lib) __inputs__;
   nixpkgs-master = import inputs.nixpkgs-master {
@@ -19,8 +19,8 @@ final: prev: {
     # onlyoffice-bin
     typst-lsp
     navi
-  # darwin packages
-  ;
+    # darwin packages
+    ;
 
   # inherit (inputs.nixpkgs-246661.legacyPackages)
   #   onlyoffice-bin

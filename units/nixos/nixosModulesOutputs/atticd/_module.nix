@@ -13,10 +13,10 @@ let
   flake = import ../flake-compat.nix;
   overlay = flake.defaultNix.overlays.default;
 
-  format = pkgs.formats.toml { };
+  format = pkgs.formats.toml {};
 
   checkedConfigFile =
-    pkgs.runCommand "checked-attic-server.toml" { configFile = cfg.configFile; }
+    pkgs.runCommand "checked-attic-server.toml" {configFile = cfg.configFile;}
       ''
         cat $configFile
 
@@ -115,7 +115,7 @@ in
           Structured configurations of atticd.
         '';
         type = format.type;
-        default = { }; # setting defaults here does not compose well
+        default = {}; # setting defaults here does not compose well
       };
       configFile = lib.mkOption {
         description = ''
@@ -177,9 +177,9 @@ in
         };
 
         systemd.services.atticd = {
-          wantedBy = [ "multi-user.target" ];
+          wantedBy = ["multi-user.target"];
           after =
-            [ "network.target" ]
+            ["network.target"]
             ++ lib.optionals hasLocalPostgresDB [
               "postgresql.service"
               "nss-lookup.target"
@@ -208,7 +208,7 @@ in
             RestrictSUIDSGID = true;
           };
         };
-        environment.systemPackages = [ atticadmWrapper ];
+        environment.systemPackages = [atticadmWrapper];
       }
     ]
   );

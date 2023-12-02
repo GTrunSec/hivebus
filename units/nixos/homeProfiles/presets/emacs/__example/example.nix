@@ -10,7 +10,7 @@
     package = pkgs.emacsWithPackagesFromUsePackage {
       package = pkgs.emacs-pgtk;
       alwaysEnsure = true;
-      extraEmacsPackages = p: with p; [ use-package ];
+      extraEmacsPackages = p: with p; [use-package];
       config = ./init.el;
       override =
         epkgs:

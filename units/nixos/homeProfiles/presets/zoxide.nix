@@ -1,5 +1,5 @@
 _:
-{ config, lib, ... }:
+{config, lib, ...}:
 {
   programs.zoxide = {
     enable = true;

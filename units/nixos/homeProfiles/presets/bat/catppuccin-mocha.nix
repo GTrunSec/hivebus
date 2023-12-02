@@ -1,5 +1,5 @@
-{ inputs }:
-{ pkgs, ... }:
+{inputs}:
+{pkgs, ...}:
 let
   inherit (inputs.cells.common.lib) __utils__;
 in
@@ -16,6 +16,6 @@ in
       );
     };
 
-    extraPackages = with pkgs.bat-extras; [ batman ];
+    extraPackages = with pkgs.bat-extras; [batman];
   };
 }

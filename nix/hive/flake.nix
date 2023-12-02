@@ -117,14 +117,14 @@
             (functions "lib")
             (data "data")
             (functions "configs")
-            (installables "packages" { ci.build = true; })
+            (installables "packages" {ci.build = true;})
             (functions "overlays")
 
             # nixago part
             (nixago "nixago")
 
             # containers collection
-            (containers "containers" { ci.publish = true; })
+            (containers "containers" {ci.publish = true;})
           ];
       }
       {

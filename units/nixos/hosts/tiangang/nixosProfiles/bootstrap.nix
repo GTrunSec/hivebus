@@ -1,4 +1,4 @@
-{ super, omnibus }:
+{super, omnibus}:
 {
   imports = [
     omnibus.nixosProfiles.presets.boot

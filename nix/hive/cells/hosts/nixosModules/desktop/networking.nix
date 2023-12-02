@@ -1,4 +1,4 @@
 {
   nat.enable = true;
-  firewall.allowedTCPPorts = [ 8888 ];
+  firewall.allowedTCPPorts = [8888];
 }

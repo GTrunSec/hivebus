@@ -1,8 +1,10 @@
 {
-  home.packages = with pkgs; [
-    # peco
-    ghq
-  ];
+  home.packages =
+    with pkgs;
+    [
+      # peco
+      ghq
+    ];
   programs.git = {
     userEmail = "gtrunsec@hardenedlinux.org";
     userName = "guangtao";

@@ -1,20 +1,20 @@
-{ inputs, cell }:
+{inputs, cell}:
 let
   inherit (inputs) nixpkgs std self;
   inherit (inputs.cells.common.lib) __inputs__;
-  src = "${(std.incl self [ "profiles/hyprland" ])}/profiles/hyprland";
+  src = "${(std.incl self ["profiles/hyprland"])}/profiles/hyprland";
   inherit (cell) homeProfiles;
 in
 {
   default = {
-    imports = [ homeProfiles.hyprpaper.packages ];
+    imports = [homeProfiles.hyprpaper.packages];
   };
 
   packages.home.packages =
-    with nixpkgs; [ __inputs__.hyprpaper.packages.hyprpaper ];
+    with nixpkgs; [__inputs__.hyprpaper.packages.hyprpaper];
 
   guangtao = {
-    imports = [ homeProfiles.hyprpaper.default ];
+    imports = [homeProfiles.hyprpaper.default];
     home.file.".config/hypr/hyprpaper.conf".source = "${src}/hyprpaper.conf";
   };
 }

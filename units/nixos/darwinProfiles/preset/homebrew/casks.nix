@@ -1,5 +1,5 @@
-{ lib }:
-lib.mapAttrs (name: value: { homebrew.casks = value; }) {
+{lib}:
+lib.mapAttrs (name: value: {homebrew.casks = value;}) {
   default = [
     "font-fantasque-sans-mono"
     # Chinese inputs
@@ -16,7 +16,7 @@ lib.mapAttrs (name: value: { homebrew.casks = value; }) {
     "telegram-desktop"
   ];
 
-  services = [ "docker" ];
+  services = ["docker"];
 
   book = [
     "koodo-reader"

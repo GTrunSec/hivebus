@@ -14,7 +14,7 @@ in
 
   hive = {
     bee.system = self.system;
-    bee.pkgs = import inputs.nixpkgs { inherit (self) system; };
+    bee.pkgs = import inputs.nixpkgs {inherit (self) system;};
     imports = lib.flatten self.nixosSuites;
   };
 

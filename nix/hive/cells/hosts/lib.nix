@@ -1,4 +1,4 @@
-{ inputs, cell }:
+{inputs, cell}:
 let
   l = inputs.nixpkgs.lib // builtins;
   inherit (inputs) nixpkgs;
@@ -10,7 +10,7 @@ in
     imports =
       [
         (
-          { pkgs, ... }:
+          {pkgs, ...}:
           {
             home-manager.users.${user} = {
               inherit (cell.homeConfigurations."${host}") imports;
@@ -28,9 +28,7 @@ in
           }
         )
       ]
-      ++ l.optionals (shell == "zsh") [
-        { environment.pathsToLink = [ "/share/zsh" ]; }
-      ]
+      ++ l.optionals (shell == "zsh") [{environment.pathsToLink = ["/share/zsh"];}]
       ++
         l.optionals nixpkgs.stdenv.isLinux
           [
@@ -40,7 +38,7 @@ in
   };
 
   # nixConfig = inputs.cells.bootstrap.lib.nixConfig.guangtao;
-  nixConfig = { };
+  nixConfig = {};
 
   mkHomeConfig = host: user: {
     bee =

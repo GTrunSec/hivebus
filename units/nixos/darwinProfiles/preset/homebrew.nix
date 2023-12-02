@@ -1,9 +1,6 @@
+{lib, omnibus}:
 {
-  lib,
-  omnibus,
-}:
-{
-  imports = [ omnibus.darwinProfiles.presets.homebrew ];
+  imports = [omnibus.darwinProfiles.presets.homebrew];
   homebrew = {
     __profiles__ = {
       readers = lib.mkDefault true;
@@ -14,8 +11,8 @@
       chinese = lib.mkDefault true;
       security = lib.mkDefault true;
       chat = lib.mkDefault true;
-      casks.removePackagesFromProfiles = [ ];
-      brews.removePackagesFromProfiles = [ ];
+      casks.removePackagesFromProfiles = [];
+      brews.removePackagesFromProfiles = [];
     };
   };
 }

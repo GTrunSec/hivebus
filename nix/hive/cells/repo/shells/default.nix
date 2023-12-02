@@ -1,13 +1,13 @@
-{ inputs, cell }:
+{inputs, cell}:
 let
   l = nixpkgs.lib // builtins;
   inherit (inputs) nixpkgs std;
   inherit (std) lib;
-  withCategory = category: attrset: attrset // { inherit category; };
+  withCategory = category: attrset: attrset // {inherit category;};
 in
 l.mapAttrs (_: std.lib.dev.mkShell) {
   default =
-    { extraModulesPath, pkgs, ... }:
+    {extraModulesPath, pkgs, ...}:
     {
       name = "Apis Mellifera";
       git.hooks = {
@@ -17,7 +17,7 @@ l.mapAttrs (_: std.lib.dev.mkShell) {
         std.std.devshellProfiles.default
         # inputs.cells.bootstrap.devshellProfiles.secureboot
         "${extraModulesPath}/git/hooks.nix"
-      ] ++ l.optionals nixpkgs.stdenv.isLinux [ cell.devshellProfiles.terraform ];
+      ] ++ l.optionals nixpkgs.stdenv.isLinux [cell.devshellProfiles.terraform];
 
       nixago = [
         (lib.dev.mkNixago std.lib.cfg.just cell.configs.just)
@@ -26,20 +26,20 @@ l.mapAttrs (_: std.lib.dev.mkShell) {
 
       commands =
         [
-          (withCategory "hexagon" { package = cell.packages.colmena; })
+          (withCategory "hexagon" {package = cell.packages.colmena;})
           # (withCategory "hexagon" { package = __inputs__.arion.packages.arion; })
           # (withCategory "secrets" {
           #   # package = __inputs__.ragenix.packages.ragenix // {
           #   #   meta.description = "age-encrypted secrets for NixOS; drop-in replacement for agenix";
           #   # };
           # })
-          (withCategory "secrets" { package = nixpkgs.sops; })
+          (withCategory "secrets" {package = nixpkgs.sops;})
         ]
         ++ l.optionals nixpkgs.stdenv.isLinux [
           (withCategory "hexagon" {
             package = inputs.nixos-generators.packages.${nixpkgs.system}.nixos-generate;
           })
         ];
-      packages = [ ];
+      packages = [];
     };
 }

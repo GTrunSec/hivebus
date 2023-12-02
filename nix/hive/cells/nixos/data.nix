@@ -1,4 +1,4 @@
-{ inputs, cell }:
+{inputs, cell}:
 let
   inherit (inputs.cells.common.lib.__utils__) navi-tldr-pages;
   inherit (inputs.nixpkgs.stdenv) isLinux isDarwin;

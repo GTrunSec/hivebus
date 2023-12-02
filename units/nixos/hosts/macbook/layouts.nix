@@ -30,24 +30,30 @@ in
     bee.pkgs = import inputs.darwin-nixos-unstable {
       inherit (self) system;
       config = {
-        permittedInsecurePackages = [ "nodejs-16.20.2" ];
+        permittedInsecurePackages = [];
       };
+      overlays = [
+        (_: _: {
+          playwright-driver =
+            inputs.nixos-23-05.legacyPackages.${self.system}.playwright-driver;
+        })
+      ];
     };
     imports = lib.flatten self.darwinSuites;
   };
 
   darwinSuites = lib.flatten [
-    (outputs.omnibus.darwinProfiles.default.init { }).default
+    outputs.omnibus.darwinProfiles.omnibus.init.default
     outputs.darwinProfiles.default.presets.homebrew
 
-    (outputs.omnibus.nixosProfiles.default.dev { }).coding
+    outputs.omnibus.nixosProfiles.omnibus.dev.coding
     outputs.nixosProfiles.default.presets.coding.python
 
     outputs.omnibus.darwinProfiles.default.presets.sketchybar
     # --custom profiles
     # outputs.pops.nixosProfiles.layouts.customProfiles.presets.nix
     (
-      { config, ... }:
+      {config, ...}:
       {
         programs.zsh = {
           enable = true;

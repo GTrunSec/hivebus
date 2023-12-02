@@ -46,7 +46,7 @@ with lib; {
           pkgs.swww
           (pkgs.writeShellApplication {
             name = "swww-random";
-            runtimeInputs = [ pkgs.swww ];
+            runtimeInputs = [pkgs.swww];
             text = lib.fileContents ./swww_randomize.sh;
           })
         ];

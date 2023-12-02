@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{pkgs, ...}:
 {
   services.yabai.enable = true;
   services.yabai.extraConfig = ''

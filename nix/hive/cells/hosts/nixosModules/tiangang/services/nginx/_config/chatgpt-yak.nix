@@ -1,5 +1,5 @@
-{ inputs }:
-{ pkgs, config, ... }:
+{inputs}:
+{pkgs, config, ...}:
 let
 in
 {

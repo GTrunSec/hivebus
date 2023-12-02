@@ -1,5 +1,5 @@
-{ inputs }:
-{ config, lib, ... }:
+{inputs}:
+{config, lib, ...}:
 let
   l = lib // builtins;
 in

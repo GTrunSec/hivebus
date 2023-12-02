@@ -12,7 +12,7 @@ in
 {
   options.services.atticd = with lib; {
     hive = mkOption {
-      default = { };
+      default = {};
       type = types.submodule {
         options = {
           psql = mkEnableOption (lib.mdDoc "Whether to enable psql");
@@ -21,7 +21,7 @@ in
     };
   };
 
-  imports = [ ./_module.nix ];
+  imports = [./_module.nix];
 
   config = lib.mkMerge [
     (lib.mkIf cfg.enable {
@@ -43,7 +43,7 @@ in
     })
     (lib.mkIf cfg'.psql {
       services.postgresql.enable = true;
-      services.postgresql.ensureDatabases = [ "attic" ];
+      services.postgresql.ensureDatabases = ["attic"];
       services.postgresql.ensureUsers = [
         {
           name = "attic";

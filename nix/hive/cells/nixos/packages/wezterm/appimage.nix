@@ -16,7 +16,7 @@ appimageTools.wrapType2 rec {
   inherit pname;
   inherit (guangtao-sources.wezterm-appimage) version src;
 
-  extraPkgs = pkgs: with pkgs; [ ];
+  extraPkgs = pkgs: with pkgs; [];
 
   extraInstallCommands = ''
     mv $out/bin/${pname}-${version} $out/bin/${pname}

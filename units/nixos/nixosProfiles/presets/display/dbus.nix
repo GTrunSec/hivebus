@@ -1,5 +1,5 @@
 _:
-{ config, pkgs, ... }:
+{config, pkgs, ...}:
 {
   services.dbus = {
     enable = true;
@@ -9,10 +9,10 @@ _:
         pass-secret-service
         gcr
       ]
-      ++ lib.optionals config.programs.dconf.enable [ dconf ];
+      ++ lib.optionals config.programs.dconf.enable [dconf];
   };
   services.passSecretService = {
     enable = true;
   };
-  services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
+  services.udev.packages = with pkgs; [gnome.gnome-settings-daemon];
 }

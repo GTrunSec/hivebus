@@ -18,10 +18,10 @@ in
     ];
   };
 
-  overlays.default.nixpkgs.overlays = [ __inputs__.eww.overlays.default ];
+  overlays.default.nixpkgs.overlays = [__inputs__.eww.overlays.default];
 
   guangtao = {
-    imports = [ cell.homeProfiles.eww.default ];
+    imports = [cell.homeProfiles.eww.default];
     programs.eww.configDir = src;
   };
 }

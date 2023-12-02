@@ -1,5 +1,5 @@
 _:
-{ pkgs, ... }:
+{pkgs, ...}:
 {
   environment.systemPackages = with pkgs; [
     nickel

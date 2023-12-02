@@ -16,11 +16,9 @@ in
 {
   config = lib.mkMerge [
     {
-      home.activation.initDoomEmacs = config.lib.dag.entryAfter [ "writeBoundary" ] ''
+      home.activation.initDoomEmacs = config.lib.dag.entryAfter ["writeBoundary"] ''
          if [ ! -d "$HOME/.emacs.d/bin" ];then
-            ${
-              lib.getExe pkgs.git
-            } clone https://github.com/doomemacs/doomemacs ~/.emacs.d
+            ${lib.getExe pkgs.git} clone https://github.com/doomemacs/doomemacs ~/.emacs.d
          fi
         if [ ! -d "$HOME/.doom.d" ];then
            mkdir -p $HOME/.doom.d/

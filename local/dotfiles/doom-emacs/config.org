@@ -1410,7 +1410,7 @@ prepended to the element after the #+HEADER: tag."
 #+begin_src emacs-lisp :tangle "config.el"
 (use-package! copilot
   :config
-  (setq copilot-node-executable "node16")
+  ;;(setq copilot-node-executable "node16")
   :hook (prog-mode . copilot-mode)
   :bind ((:map copilot-completion-map
                ("C-e" . 'copilot-accept-completion)

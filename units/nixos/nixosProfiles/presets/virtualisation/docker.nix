@@ -10,7 +10,7 @@ let
 in
 {
   environment.systemPackages =
-    with pkgs; (lib.optionals cfg'.dockerCompose [ docker-compose ]);
+    with pkgs; (lib.optionals cfg'.dockerCompose [docker-compose]);
   virtualisation.docker = {
     enable = true;
     rootless = {

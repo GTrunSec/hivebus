@@ -1,6 +1,6 @@
 let
   inherit (inputs) std self;
-  profiles = "${(std.incl self [ "profiles" ])}/profiles";
+  profiles = "${(std.incl self ["profiles"])}/profiles";
 in
 inputs.flops.lib.haumea.pops.default.setInit {
   src = inputs.self + "/nixos/homeProfiles";

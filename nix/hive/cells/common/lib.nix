@@ -1,4 +1,4 @@
-{ inputs, cell }:
+{inputs, cell}:
 let
 in
 # inherit (inputs) nixpkgs haumea flops;

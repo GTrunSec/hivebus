@@ -17,14 +17,14 @@ in
         minimal = true;
       };
       fileSystems."/persist".neededForBoot = true;
-      disko.devices = cell.diskoConfigurations.btrfs-legacy { disk = "/dev/sda"; };
+      disko.devices = cell.diskoConfigurations.btrfs-legacy {disk = "/dev/sda";};
     }
 
     inputs.cells.users.nixosProfiles.root
     exports.nixosProfiles.cloud.contabo
   ];
 
-  overlays = [ ];
+  overlays = [];
 
   nixosSuites = [
     exports.nixosModules.default

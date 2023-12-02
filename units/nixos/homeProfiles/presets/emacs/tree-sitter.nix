@@ -52,9 +52,9 @@ let
     else
       "ln -s ${drv}/parser $out/lib/${lib' drv}";
 
-  tree-sitter-grammars = pkgs.runCommandCC "tree-sitter-grammars" { } (
+  tree-sitter-grammars = pkgs.runCommandCC "tree-sitter-grammars" {} (
     lib.concatStringsSep "\n" (
-      [ "mkdir -p $out/lib" ] ++ (map linkCmd treeSitterPlugins)
+      ["mkdir -p $out/lib"] ++ (map linkCmd treeSitterPlugins)
     )
   );
 in
@@ -64,7 +64,7 @@ in
     mkMerge [
       {
         home.activation.linkEmacsTreeSitter =
-          config.lib.dag.entryAfter [ "writeBoundary" ]
+          config.lib.dag.entryAfter ["writeBoundary"]
             ''
               ln -sfT ${tree-sitter-grammars}/lib $HOME/.emacs.d/.local/cache/tree-sitter
             '';
@@ -72,7 +72,7 @@ in
       (mkIf pkgs.stdenv.isLinux {
         programs.emacs = {
           enable = true;
-          package = mkForce (pkgs.emacs29-pgtk.override { withTreeSitter = true; });
+          package = mkForce (pkgs.emacs29-pgtk.override {withTreeSitter = true;});
         };
       })
     ];

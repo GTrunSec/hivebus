@@ -5,8 +5,8 @@
    -----------------------------------------------------------------------------
 */
 {
-  pkgs ? import <nixpkgs> { },
-  extraConf ? { },
+  pkgs ? import <nixpkgs> {},
+  extraConf ? {},
 }:
 rec {
   /* -----------------------------------------------------------------------------
@@ -50,7 +50,7 @@ rec {
     templates
     env
     lib
-  ;
+    ;
 
   /* -----------------------------------------------------------------------------
         Data
@@ -59,7 +59,7 @@ rec {
      -----------------------------------------------------------------------------
   */
 
-  data = { };
+  data = {};
 
   /* -----------------------------------------------------------------------------
         Pages
@@ -86,8 +86,8 @@ rec {
   */
 
   # Converting the pages attribute set to a list
-  pageList = lib.pagesToList { inherit pages; };
+  pageList = lib.pagesToList {inherit pages;};
 
   # Generating the site
-  site = lib.mkSite { inherit files pageList; };
+  site = lib.mkSite {inherit files pageList;};
 }

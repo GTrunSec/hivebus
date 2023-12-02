@@ -5,8 +5,8 @@ omnibus.pops.nixosProfiles.addExporters [
         {
           value = {
             enable = false;
-            customList = with inputs.dmerge; append [ "1" ];
-            imports = with inputs.dmerge; append [ ];
+            customList = with inputs.dmerge; append ["1"];
+            imports = with inputs.dmerge; append [];
           };
           path = [
             "services"

@@ -3,7 +3,7 @@ _: {
 
   virtualisation.libvirtd = {
     enable = true;
-    allowedBridges = [ "all" ];
+    allowedBridges = ["all"];
     qemu = {
       runAsRoot = false;
     };

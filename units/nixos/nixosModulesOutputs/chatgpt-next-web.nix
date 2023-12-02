@@ -26,7 +26,7 @@ in
   config = lib.mkIf cfg.enable {
     systemd.services.chatgpt-next-web = {
       description = "chatgpt-next-web";
-      wantedBy = [ "network.target" ];
+      wantedBy = ["network.target"];
       preStart = ''
         cp -rf --no-preserve=mode,ownership ${pkgs.chatgpt-next-web}/* /var/lib/chatgpt-next-web/
         cp -rf --no-preserve=mode,ownership ${pkgs.chatgpt-next-web}/.next /var/lib/chatgpt-next-web/.next

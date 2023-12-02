@@ -8,7 +8,7 @@ let
     exports.desktop.opensshPublicKey
     exports.macbook.opensshPublicKey
   ];
-  cloud = [ exports.tiangang.opensshPublicKey ];
+  cloud = [exports.tiangang.opensshPublicKey];
 in
 {
   "tiangang/attic-cert.age".publicKeys = common ++ cloud;

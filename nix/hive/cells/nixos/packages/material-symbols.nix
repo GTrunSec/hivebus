@@ -13,10 +13,10 @@ stdenvNoCC.mkDerivation {
     repo = "material-design-icons";
     rev = "c764ca99a5f24cfca7f97d98a92b259b92f903da";
     sha256 = "sha256-J45TND4CowFCaEcybFNSI3AgyqdgvzMuTKCozh+gDe0=";
-    sparseCheckout = [ "variablefont" ];
+    sparseCheckout = ["variablefont"];
   };
 
-  nativeBuildInputs = [ util-linux ];
+  nativeBuildInputs = [util-linux];
 
   installPhase = ''
     runHook preInstall
@@ -32,7 +32,7 @@ stdenvNoCC.mkDerivation {
     description = "Material Symbols icons by Google";
     homepage = "https://fonts.google.com/icons";
     license = lib.licenses.asl20;
-    maintainers = with maintainers; [ fufexan ];
+    maintainers = with maintainers; [fufexan];
     platforms = platforms.all;
   };
 }

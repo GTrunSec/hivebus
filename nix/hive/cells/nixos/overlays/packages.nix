@@ -1,13 +1,13 @@
-{ inputs }:
+{inputs}:
 let
   inherit (inputs.cells.common.lib) __inputs__ __utils__;
 in
 final: prev: {
   guangtao-sources =
-    (prev.callPackage ../packages/_sources/generated.nix { })
-    // (prev.callPackage ../packages/emacs/_sources/generated.nix { });
+    (prev.callPackage ../packages/_sources/generated.nix {})
+    // (prev.callPackage ../packages/emacs/_sources/generated.nix {});
 
-  material-symbols = prev.callPackage ../packages/material-symbols.nix { };
+  material-symbols = prev.callPackage ../packages/material-symbols.nix {};
 
   inherit (__inputs__.nickel.packages) lsp-nls;
 
@@ -32,9 +32,7 @@ final: prev: {
       if [ -z "$1" ]; then
          nix repl --argstr host "$HOST" --argstr flakePath "$PRJ_ROOT" ${./__repl.nix}
        else
-         nix repl --argstr host "$HOST" --argstr flakePath $(readlink -f $1 | sed 's|/flake.nix||') ${
-           ./__repl.nix
-         }
+         nix repl --argstr host "$HOST" --argstr flakePath $(readlink -f $1 | sed 's|/flake.nix||') ${./__repl.nix}
        fi
     '');
 }

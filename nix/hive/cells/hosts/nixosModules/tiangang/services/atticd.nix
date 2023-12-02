@@ -1,4 +1,4 @@
-{ inputs, cell }:
+{inputs, cell}:
 let
   inherit (inputs.cells.common.lib) __inputs__;
 in
@@ -14,7 +14,7 @@ in
         ...
       }:
       {
-        environment.systemPackages = [ __inputs__.attic.packages.attic ];
+        environment.systemPackages = [__inputs__.attic.packages.attic];
         age.secrets.attic-cert.file = pkgs.lib.age.file "tiangang/attic-cert.age";
         services.atticd = {
           credentialsFile = config.age.secrets."attic-cert".path;
@@ -27,7 +27,7 @@ in
   settings = {
     listen = "[::1]:57448";
     database.url = "postgresql:///attic?host=/run/postgresql";
-    allowed-hosts = [ "attic.zhangguangtao.org" ];
+    allowed-hosts = ["attic.zhangguangtao.org"];
     api-endpoint = "https://attic.zhangguangtao.org/";
     storage = {
       type = "s3";

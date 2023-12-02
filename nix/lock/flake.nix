@@ -21,10 +21,11 @@
     darwin-nixos-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    nixos-23-11.url = "github:nixos/nixpkgs/release-23.11";
     nixos-23-05.url = "github:nixos/nixpkgs/release-23.05";
 
-    home-23-05.url = "github:nix-community/home-manager/release-23.05";
-    home-23-05.inputs.nixpkgs.follows = "nixos-23-05";
+    home-23-11.url = "github:nix-community/home-manager/release-23.11";
+    home-23-11.inputs.nixpkgs.follows = "nixos-23-11";
 
     home.url = "github:nix-community/home-manager";
     home.inputs.nixpkgs.follows = "nixos";
@@ -41,5 +42,5 @@
       flake = false;
     };
   };
-  outputs = _: { };
+  outputs = _: {};
 }

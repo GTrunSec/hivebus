@@ -1,11 +1,11 @@
-{ __inputs__ }:
+{__inputs__}:
 {
-  imports = [ __inputs__.impermanence.nixosModules.impermanence ];
+  imports = [__inputs__.impermanence.nixosModules.impermanence];
   environment.persistence."/persist" = {
     directories = [
       "/var"
       "/root"
     ];
-    files = [ "/etc/machine-id" ];
+    files = ["/etc/machine-id"];
   };
 }

@@ -1,5 +1,5 @@
 _:
-{ pkgs, lib, ... }:
+{pkgs, lib, ...}:
 {
   i18n = {
     inputMethod = {
@@ -13,5 +13,5 @@ _:
       ];
     };
   };
-  environment = lib.mkMerge [ { variables = { }; } ];
+  environment = lib.mkMerge [{variables = {};}];
 }
