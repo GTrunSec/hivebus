@@ -25,13 +25,10 @@ in
     system:
     let
       inputs' = (super.pops.flake.setSystem system).inputs;
-      dataAll =
-        (super.pops.omnibus.addLoadExtender {load.inputs.inputs = inputs';})
-        .exports.default.pops.dataAll;
     in
     {
       data =
-        (dataAll.addLoadExtender {load.src = projectDir + "/local/data";})
+        (omnibus.pops.allData.addLoadExtender {load.src = projectDir + "/local/data";})
         .exports.default;
     }
   );

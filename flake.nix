@@ -1,6 +1,7 @@
 {
   inputs = {
-    omnibus.url = "github:gtrunsec/omnibus";
+    # omnibus.url = "github:gtrunsec/omnibus";
+    omnibus.url = "/home/guangtao/Dropbox/omnibus";
   };
 
   outputs =

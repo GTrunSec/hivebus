@@ -21,7 +21,7 @@ in
 
   system = "aarch64-darwin";
 
-  # data = outputs.local.${self.system}.data;
+  data = inputs.self.local.${self.system}.data;
 
   hive = {
     bee.system = self.system;

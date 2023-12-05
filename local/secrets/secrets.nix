@@ -1,14 +1,14 @@
 let
-  flake = (__getFlake (__toPath ../.)).${__currentSystem};
+  flake = (__getFlake (__toPath ../..));
   # opensshKeys = flake.users.userProfiles.openssh;
-  exports = flake.hosts.pops.exports;
+  data = flake.local.${__currentSystem}.data;
 
   # Common keys for all hosts
   common = [
-    exports.desktop.opensshPublicKey
-    exports.macbook.opensshPublicKey
+    data.guangtao.openssh.public.desktop
+    data.guangtao.openssh.public.macbook
   ];
-  cloud = [exports.tiangang.opensshPublicKey];
+  cloud = [data.guangtao.openssh.public.tiangang];
 in
 {
   "tiangang/attic-cert.age".publicKeys = common ++ cloud;

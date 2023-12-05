@@ -28,11 +28,13 @@ l.mapAttrs (_: std.lib.dev.mkShell) {
         [
           (withCategory "hexagon" {package = cell.packages.colmena;})
           # (withCategory "hexagon" { package = __inputs__.arion.packages.arion; })
-          # (withCategory "secrets" {
-          #   # package = __inputs__.ragenix.packages.ragenix // {
-          #   #   meta.description = "age-encrypted secrets for NixOS; drop-in replacement for agenix";
-          #   # };
-          # })
+          (withCategory "secrets" {
+            package =
+              inputs.hivebus.subflake.inputs.ragenix.packages.${nixpkgs.system}.ragenix
+              // {
+                meta.description = "age-encrypted secrets for NixOS; drop-in replacement for agenix";
+              };
+          })
           (withCategory "secrets" {package = nixpkgs.sops;})
         ]
         ++ l.optionals nixpkgs.stdenv.isLinux [

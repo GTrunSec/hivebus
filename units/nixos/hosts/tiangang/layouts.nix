@@ -3,23 +3,42 @@
   outputs,
   lib,
   self,
+  omnibus,
 }:
 let
-  outputs = inputs.self;
+  inherit (omnibus.lib) mapLoadToPops mapPopsExports';
+  outputs = mapPopsExports' (
+    mapLoadToPops inputs.self.pops (
+      n: v: {
+        load.inputs = {
+          inputs =
+            ((inputs.self.pops.subflake.setSystem self.system).addInputsExtender {
+              inputs.local.data = inputs.self.local.${self.system}.data;
+            }).inputs;
+        };
+      }
+    )
+  );
 in
 {
   system = "x86_64-linux";
 
-  data = outputs.local.${self.system}.data;
+  data = inputs.self.local.${self.system}.data;
 
   hive = {
     bee.system = self.system;
-    bee.pkgs = import inputs.nixpkgs {inherit (self) system;};
+    bee.pkgs = import inputs.nixos-unstable {inherit (self) system;};
     imports = lib.flatten self.nixosSuites;
   };
 
   nixosSuites = lib.flatten [
-    outputs.hosts.tiangang.nixosProfiles.bootstrap
+    # outputs.hosts.tiangang.nixosProfiles.default.bootstrap
+    outputs.hosts.tiangang.nixosProfiles.exportModulesRecursive
+    outputs.nixosProfiles.default.presets.users.root
+
+    outputs.omnibus.nixosProfiles.default.presets.fileSystems.impermanence
+    outputs.omnibus.nixosProfiles.omnibus.cloud.contabo
+    outputs.omnibus.nixosProfiles.default.presets.secrets.ragenix
     # outputs.nixosProfiles.presets.bootstrap
     # outputs.nixosModules.default.programs.git
 

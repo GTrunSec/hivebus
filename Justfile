@@ -24,6 +24,10 @@ darwin-build machine:
 fmt:
     treefmt $(git diff --name-only --cached)
 
+# nixos-rebuild
+nixos-build host:
+    nix build $PRJ_ROOT#nixosConfigurations.{{ host }}.config.system.build.toplevel --no-link
+
 # update packages via nvfetcher
 node2nix-update:
     cd $PRJ_ROOT/cells/nixos/packages/my-node-packages && sh ./upgrade.sh

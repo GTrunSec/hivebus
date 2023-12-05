@@ -5,8 +5,14 @@
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
 
+    disko-legcy.url = "github:nix-community/disko/29d632d7e8fa86f937153ecdfd7d768411001d2d";
+    disko-legcy.inputs.nixpkgs.follows = "nixpkgs";
+
     srvos.url = "github:numtide/srvos";
     srvos.inputs.nixpkgs.follows = "nixpkgs";
+
+    nixpkgs-hardenedlinux.url = "github:hardenedlinux/nixpkgs-hardenedlinux";
+    nixpkgs-hardenedlinux.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   inputs = {
@@ -29,6 +35,15 @@
 
     home.url = "github:nix-community/home-manager";
     home.inputs.nixpkgs.follows = "nixos";
+
+    ragenix.url = "github:yaxitech/ragenix";
+
+    ragenix.inputs.nixpkgs.follows = "nixpkgs";
+    ragenix.inputs.agenix.follows = "agenix";
+    agenix.url = "github:ryantm/agenix";
+
+    impermanence.url = "github:nix-community/impermanence";
+    attic.url = "github:zhaofengli/attic";
   };
 
   inputs = {

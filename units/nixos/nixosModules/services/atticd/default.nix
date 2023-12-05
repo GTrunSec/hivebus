@@ -1,17 +1,16 @@
-_:
 {
   config,
   pkgs,
   lib,
+  mkModulePath,
   ...
 }:
 let
-  cfg' = config.services.atticd.hive;
   cfg = config.services.atticd;
 in
 {
-  options.services.atticd = with lib; {
-    hive = mkOption {
+  options = with lib; {
+    __profiles__ = mkOption {
       default = {};
       type = types.submodule {
         options = {
@@ -21,11 +20,11 @@ in
     };
   };
 
-  imports = [./_module.nix];
+  imports = [./module.nix];
 
   config = lib.mkMerge [
-    (lib.mkIf cfg.enable {
-      services.atticd = {
+    (lib.mkIf cfg.enable (
+      mkModulePath {
         settings = {
           compression = {
             type = "zstd";
@@ -39,17 +38,16 @@ in
           };
           garbage-collection.default-retention-period = "3 months";
         };
-      };
-    })
-    (lib.mkIf cfg'.psql {
+      }
+    ))
+    (lib.mkIf cfg.__profiles__.psql {
       services.postgresql.enable = true;
-      services.postgresql.ensureDatabases = ["attic"];
+      services.postgresql.ensureDatabases = ["atticd"];
       services.postgresql.ensureUsers = [
         {
-          name = "attic";
-          ensurePermissions = {
-            "DATABASE attic" = "ALL PRIVILEGES";
-          };
+          name = "atticd";
+          ensureDBOwnership = true;
+          # ensurePermissions."DATABASE atticd" = "ALL PRIVILEGES";
         }
       ];
     })

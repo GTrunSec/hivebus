@@ -104,7 +104,7 @@ windowrulev2 = pin, floating:1
 # exec-once = eww open bar
 exec-once = waybar
 # exec-once = kanshi
-exec-once = dropbox start -i
+# exec-once = dropbox start -i
 exec-once = swaync
 exec-once = fcitx5 -d
 #+end_src

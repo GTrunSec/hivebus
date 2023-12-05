@@ -1,6 +1,6 @@
 {inputs}:
 {
-  imports = [inputs.self.subflake.inputs.disko.nixosModules.disko];
+  imports = [inputs.self.subflake.inputs.disko-legcy.nixosModules.disko];
   disko.devices = {
     disk = {
       sda = {
@@ -68,7 +68,7 @@
         fsType = "tmpfs";
         mountOptions = [
           "defaults"
-          "size=4G"
+          "size=2G"
           "mode=755"
         ];
       };

@@ -17,7 +17,7 @@ in
       };
     }
     self.nixosSuites
-    inputs.cells.users.nixosProfiles.root
+    inputs.cells.users.nixosProfiLes.root
 
     exports.nixosProfiles.cloud.contabo
   ];

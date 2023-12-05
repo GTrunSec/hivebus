@@ -84,6 +84,13 @@ in
       nix develop github:GTrunSec/std-ext#devShells.x86_64-linux.update --refresh --command nvfetcher-update ./cells/{{cell}}/packages/sources.toml
     '';
   };
+  nixos-build = {
+    args = ["host"];
+    description = "nixos-rebuild";
+    content = ''
+      nix build $PRJ_ROOT#nixosConfigurations.{{host}}.config.system.build.toplevel --no-link
+    '';
+  };
   node2nix-update = {
     description = "update packages via nvfetcher";
     content = ''
