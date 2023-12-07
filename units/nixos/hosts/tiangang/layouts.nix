@@ -35,11 +35,9 @@ in
     # outputs.hosts.tiangang.nixosProfiles.default.bootstrap
     outputs.hosts.tiangang.nixosProfiles.exportModulesRecursive
     outputs.nixosProfiles.default.presets.users.root
+    outputs.omnibus.nixosProfiles.default.cloud.contabo
 
-    outputs.omnibus.nixosProfiles.default.presets.fileSystems.impermanence
-    outputs.omnibus.nixosProfiles.omnibus.cloud.contabo
     outputs.omnibus.nixosProfiles.default.presets.secrets.ragenix
-    # outputs.nixosProfiles.presets.bootstrap
     # outputs.nixosModules.default.programs.git
 
     # # # --custom profiles

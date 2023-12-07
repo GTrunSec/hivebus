@@ -1,4 +1,4 @@
-{inputs}:
+{inputs, config}:
 {
   age.secrets.acme-cloudflare.file = inputs.local.age.file "tiangang/acme-cloudflare.age";
   security.acme = {

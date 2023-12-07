@@ -43,10 +43,10 @@ in
   };
 
   darwinSuites = lib.flatten [
-    outputs.omnibus.darwinProfiles.omnibus.init.default
+    outputs.omnibus.darwinProfiles.default.init.default
     outputs.darwinProfiles.default.presets.homebrew
 
-    outputs.omnibus.nixosProfiles.omnibus.dev.coding
+    outputs.omnibus.nixosProfiles.default.dev.coding
     outputs.nixosProfiles.default.presets.coding.python
 
     outputs.omnibus.darwinProfiles.default.presets.sketchybar
@@ -81,8 +81,8 @@ in
     outputs.homeProfiles.default.presets.emacs.packages
     outputs.omnibus.homeProfiles.default.presets.latex
 
-    outputs.omnibus.homeProfiles.omnibus.shell.full
-    outputs.homeProfiles.omnibus.shell.wezterm
+    outputs.omnibus.homeProfiles.default.shell.full
+    outputs.homeProfiles.default.shell.wezterm
 
     # outputs.homeProfiles.presets.bat
     # # # The parent directory of "presets" is categorized as a list type of "suites"

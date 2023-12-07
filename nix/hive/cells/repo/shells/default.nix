@@ -42,6 +42,6 @@ l.mapAttrs (_: std.lib.dev.mkShell) {
             package = inputs.nixos-generators.packages.${nixpkgs.system}.nixos-generate;
           })
         ];
-      packages = [];
+      packages = [nixpkgs.fd];
     };
 }

@@ -16,6 +16,8 @@
     };
     extraConfig = ''
       $env.config = {keybindings:[]}
+
+      alias cdghq = cd (fd -t d -d 4 '.git$' -H ~/ghq -x dirname | sed "s|$(ghq root)/||" | peco)
     '';
   };
 }

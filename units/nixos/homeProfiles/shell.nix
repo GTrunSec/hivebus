@@ -19,6 +19,7 @@ with presets; {
   wezterm = [
     self.default
     nushell
+    # inputs.self.omnibus.homeProfiles.shell.modernTools
     (lib.optional nixpkgs.stdenv.isDarwin presets.wezterm.default)
   ];
 
