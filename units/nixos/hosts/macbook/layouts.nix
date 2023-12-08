@@ -48,8 +48,10 @@ in
 
     outputs.omnibus.nixosProfiles.default.dev.coding
     outputs.nixosProfiles.default.presets.coding.python
+    outputs.darwinProfiles.default.presets.fonts
 
     outputs.omnibus.darwinProfiles.default.presets.sketchybar
+
     # --custom profiles
     # outputs.pops.nixosProfiles.layouts.customProfiles.presets.nix
     (
@@ -76,12 +78,13 @@ in
   ];
 
   homeSuites = [
+    outputs.hosts.macbook.homeProfiles.exportModulesRecursive
     outputs.homeProfiles.default.presets.git
     outputs.homeProfiles.default.presets.emacs.doom
     outputs.homeProfiles.default.presets.emacs.packages
     outputs.omnibus.homeProfiles.default.presets.latex
 
-    outputs.omnibus.homeProfiles.default.shell.full
+    outputs.omnibus.homeProfiles.macbook.shell.full
     outputs.homeProfiles.default.shell.wezterm
 
     # outputs.homeProfiles.presets.bat

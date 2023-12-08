@@ -1,5 +1,6 @@
 {config, pkgs}:
 {
+  home.packages = [pkgs.peco];
   programs.nushell = {
     enable = true;
     environmentVariables = {
