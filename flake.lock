@@ -83,11 +83,11 @@
         "yants": "yants"
       },
       "locked": {
-        "lastModified": 1701943511,
-        "narHash": "sha256-4XD1aHjujME6v3Lg+p1gIv0V01Jg5hBtB8en8QRG+Nc=",
+        "lastModified": 1702018591,
+        "narHash": "sha256-kqMZt9LzXBWvvN8JyXQ4wxDLyLLKlutLxmDTGCiHKPM=",
         "owner": "gtrunsec",
         "repo": "flops",
-        "rev": "1cc46c38f2821105352b4bc74d01366c097c0597",
+        "rev": "abba4b52c890774d8c82cc565e4739d16abf8947",
         "type": "github"
       },
       "original": {
@@ -168,16 +168,17 @@
         "flops": "flops"
       },
       "locked": {
-        "dirtyRev": "4e30069303777b0b327bd9ddefe1517174e5f6ec-dirty",
-        "dirtyShortRev": "4e30069-dirty",
-        "lastModified": 1701943565,
-        "narHash": "sha256-9CXWE64ZS5K29zjfJuwWlC8RKncwKUrpUKzkmu9JE50=",
-        "type": "git",
-        "url": "file:///home/guangtao/Dropbox/omnibus"
+        "lastModified": 1702018809,
+        "narHash": "sha256-9MQUEzkbC6hSEX5CPZ8G+DzN71O50vbw//5lab5yrSI=",
+        "owner": "gtrunsec",
+        "repo": "omnibus",
+        "rev": "32ca4d08fe779b7c4984c4753d9612b10a5f4351",
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "file:///home/guangtao/Dropbox/omnibus"
+        "owner": "gtrunsec",
+        "repo": "omnibus",
+        "type": "github"
       }
     },
     "root": {
