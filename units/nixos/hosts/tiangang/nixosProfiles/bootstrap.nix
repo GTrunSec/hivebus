@@ -9,7 +9,6 @@
 
   system.stateVersion = "23.11";
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
   time.timeZone = "America/Los_Angeles";
 
   omnibus.bootstrap = {

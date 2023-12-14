@@ -7,11 +7,16 @@
   omnibus,
 }:
 let
-  hostsDir = (projectDir + "/units/nixos/hosts");
-  inherit (omnibus.lib) addLoadToPopsFilterBySrc;
+  inherit (omnibus.lib.omnibus) mkHosts;
 in
-addLoadToPopsFilterBySrc hostsDir super.hostsPops {
-  inputs = {
-    inputs = inputs;
+mkHosts {
+  hostsDir = projectDir + "/units/nixos/hosts";
+  pops = super.hostsInterface;
+  addLoadExtender = {
+    load = {
+      inputs = {
+        inherit inputs;
+      };
+    };
   };
 }

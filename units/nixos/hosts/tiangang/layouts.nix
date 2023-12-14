@@ -27,11 +27,21 @@ in
 
   hive = {
     bee.system = self.system;
-    bee.pkgs = import inputs.nixos-unstable {inherit (self) system;};
+    bee.pkgs = import inputs.nixos-unstable {
+      inherit (self) system;
+      overlays = [
+        (_: prev: {dhcpcd = prev.dhcpcd.override {enablePrivSep = false;};})
+      ];
+    };
     imports = lib.flatten self.nixosSuites;
   };
 
   nixosSuites = lib.flatten [
+    {
+      environment.memoryAllocator.provider = "mimalloc";
+      # nixpkgs.overlays = [];
+    }
+
     # outputs.hosts.tiangang.nixosProfiles.default.bootstrap
     outputs.hosts.tiangang.nixosProfiles.exportModulesRecursive
     outputs.nixosProfiles.default.presets.users.root

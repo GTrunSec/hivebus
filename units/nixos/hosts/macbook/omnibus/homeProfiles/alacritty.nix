@@ -7,7 +7,7 @@
     selfModule' (
       m:
       dmerge m {
-        programs.alacritty = {
+        config.programs.alacritty = {
           settings = {
             font = {
               size = 21.0;
