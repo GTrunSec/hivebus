@@ -1,8 +1,8 @@
-{config, inputs}:
+{ config, inputs }:
 {
-  imports = [inputs.self.nixosModules.services.atticd];
+  imports = [ inputs.self.nixosModules.services.atticd ];
   age.secrets.attic-cert.file = inputs.local.age.file "tiangang/attic-cert.age";
-  environment.systemPackages = [inputs.attic.packages.attic];
+  environment.systemPackages = [ inputs.attic.packages.attic ];
   services.atticd = {
     enable = true;
     credentialsFile = config.age.secrets."attic-cert".path;
@@ -13,7 +13,7 @@
     settings = {
       listen = "[::1]:57448";
       database.url = "postgresql:///atticd?host=/run/postgresql";
-      allowed-hosts = ["attic.zhangguangtao.org"];
+      allowed-hosts = [ "attic.zhangguangtao.org" ];
       api-endpoint = "https://attic.zhangguangtao.org/";
       storage = {
         type = "s3";

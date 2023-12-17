@@ -5,7 +5,7 @@
   pkgs,
 }:
 {
-  imports = [omnibus.nixosModules.omnibus.bootstrap];
+  imports = [ omnibus.nixosModules.omnibus.bootstrap ];
 
   system.stateVersion = "23.11";
 

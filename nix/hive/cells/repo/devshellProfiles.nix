@@ -1,4 +1,4 @@
-{inputs, cell}:
+{ inputs, cell }:
 let
   inherit (inputs) nixpkgs;
   inherit (inputs.std-ext.common.lib) __inputs__;

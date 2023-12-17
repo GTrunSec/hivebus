@@ -1,4 +1,4 @@
-{inputs, cell}:
+{ inputs, cell }:
 let
   inherit (inputs.cells.common.lib) __inputs__;
   nixpkgs-master = import inputs.nixpkgs-master {

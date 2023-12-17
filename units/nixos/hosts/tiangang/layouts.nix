@@ -6,7 +6,7 @@
   omnibus,
 }:
 let
-  inherit (omnibus.lib) mapLoadToPops mapPopsExports';
+  inherit (omnibus.lib.omnibus) mapLoadToPops mapPopsExports';
   outputs = mapPopsExports' (
     mapLoadToPops inputs.self.pops (
       n: v: {
@@ -21,6 +21,8 @@ let
   );
 in
 {
+  inherit outputs;
+
   system = "x86_64-linux";
 
   data = inputs.self.local.${self.system}.data;
@@ -30,7 +32,7 @@ in
     bee.pkgs = import inputs.nixos-unstable {
       inherit (self) system;
       overlays = [
-        (_: prev: {dhcpcd = prev.dhcpcd.override {enablePrivSep = false;};})
+        (_: prev: { dhcpcd = prev.dhcpcd.override { enablePrivSep = false; }; })
       ];
     };
     imports = lib.flatten self.nixosSuites;

@@ -1,4 +1,4 @@
-{inputs, cell}:
+{ inputs, cell }:
 let
   l = inputs.nixpkgs.lib // builtins;
 in
@@ -31,7 +31,7 @@ in
       (
         _cursor: dir:
         if dir ? default then
-          assert (l.attrNames dir == ["default"]); dir.default
+          assert (l.attrNames dir == [ "default" ]); dir.default
         else
           dir
       )

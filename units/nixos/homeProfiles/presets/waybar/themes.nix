@@ -1,4 +1,4 @@
-{lib, profiles}:
+{ lib, profiles }:
 let
   l = lib // builtins;
   src = profiles + "/waybar";

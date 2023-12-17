@@ -1,4 +1,4 @@
-{inputs, cell}:
+{ inputs, cell }:
 let
   inherit (inputs.std-ext.writers.lib) writeShellApplication;
 
@@ -8,12 +8,12 @@ in
 {
   swww-random = writeShellApplication {
     name = "swww-random";
-    runtimeInputs = with inputs.nixpkgs; [cell.packages.swww];
+    runtimeInputs = with inputs.nixpkgs; [ cell.packages.swww ];
     text = l.fileContents ./swww_randomize.sh;
   };
   hyprland-window = writeShellApplication {
     name = "hyprland-window";
-    runtimeInputs = with inputs.nixpkgs; [nixpkgs.jq];
+    runtimeInputs = with inputs.nixpkgs; [ nixpkgs.jq ];
     text = l.fileContents ./hyprland_window.sh;
   };
 }

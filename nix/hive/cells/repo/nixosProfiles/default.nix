@@ -1,1 +1,1 @@
-{auto-upgrade = ./auto-upgrade.nix;}
+{ auto-upgrade = ./auto-upgrade.nix; }

@@ -1,6 +1,6 @@
-{lib}:
+{ lib }:
 {
-  _imports = [./_config.nix];
+  _imports = [ ./_config.nix ];
   _options = {
     hive = with lib; {
       default = mkOption {

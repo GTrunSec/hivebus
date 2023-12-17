@@ -1,1 +1,1 @@
-{monitor = "DP-2";}
+{ monitor = "DP-2"; }

@@ -1,5 +1,5 @@
-{profiles}:
-{pkgs, ...}:
+{ profiles }:
+{ pkgs, ... }:
 let
   src = profiles + "/hyprland";
 in

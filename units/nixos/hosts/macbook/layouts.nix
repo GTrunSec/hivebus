@@ -5,7 +5,7 @@
   omnibus,
 }:
 let
-  inherit (omnibus.lib) mapLoadToPops mapPopsExports';
+  inherit (omnibus.lib.omnibus) mapLoadToPops mapPopsExports';
   outputs = mapPopsExports' (
     mapLoadToPops inputs.self.pops (
       n: v: {
@@ -30,12 +30,11 @@ in
     bee.pkgs = import inputs.darwin-nixos-unstable {
       inherit (self) system;
       config = {
-        permittedInsecurePackages = [];
+        permittedInsecurePackages = [ ];
       };
       overlays = [
-        (_: _: {
-          playwright-driver =
-            inputs.nixos-23-05.legacyPackages.${self.system}.playwright-driver;
+        (_: prev: {
+          typst-lsp = inputs.nixos-23-11.legacyPackages.${self.system}.typst-lsp;
         })
       ];
     };
@@ -53,9 +52,9 @@ in
     outputs.omnibus.darwinProfiles.default.presets.sketchybar
 
     # --custom profiles
-    # outputs.pops.nixosProfiles.layouts.customProfiles.presets.nix
+    # outputs.nixosProfiles.layouts.customProfiles.presets.nix
     (
-      {config, ...}:
+      { config, ... }:
       {
         programs.zsh = {
           enable = true;
@@ -80,8 +79,7 @@ in
   homeSuites = [
     outputs.hosts.macbook.homeProfiles.exportModulesRecursive
     outputs.homeProfiles.default.presets.git
-    outputs.homeProfiles.default.presets.emacs.doom
-    outputs.homeProfiles.default.presets.emacs.packages
+    outputs.homeProfiles.default.apps.doomemacs-macbook
     outputs.omnibus.homeProfiles.default.presets.latex
 
     outputs.omnibus.homeProfiles.macbook.shell.full

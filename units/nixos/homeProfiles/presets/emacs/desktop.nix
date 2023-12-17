@@ -2,17 +2,18 @@
   config,
   pkgs,
   lib,
-  ...
+  inputs,
 }:
 {
+  imports = [
+    inputs.self.omnibus.homeProfiles.presets.emacs.default
+    inputs.self.omnibus.homeProfiles.presets.emacs.tree-sitter
+  ];
   config =
     with lib;
     mkMerge [
       (mkIf pkgs.stdenv.isLinux {
         programs.emacs = {
-          enable = true;
-          package = pkgs.emacs-pgtk;
-
           extraPackages =
             epkgs:
             with epkgs; [

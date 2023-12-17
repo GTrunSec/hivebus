@@ -1,17 +1,18 @@
-{inputs, cell}:
+{ inputs, cell }:
 let
   inherit (inputs.flops.lib.configs) pops;
   inherit (inputs.flops.inputs) POP;
   l = inputs.nixpkgs.lib // builtins;
 in
-((pops.default.setInitRecipes {
-  overlays = cell.overlays;
-  nixosModules = cell.nixosModules;
-  nixosProfiles = cell.nixosProfiles;
-  darwinProfiles = cell.darwinProfiles;
-  homeProfiles = cell.homeProfiles;
-  homeModules = cell.homeModules;
-}).addExporters
+(
+  (pops.default.setInitRecipes {
+    overlays = cell.overlays;
+    nixosModules = cell.nixosModules;
+    nixosProfiles = cell.nixosProfiles;
+    darwinProfiles = cell.darwinProfiles;
+    homeProfiles = cell.homeProfiles;
+    homeModules = cell.homeModules;
+  }).addExporters
   [
     (POP.lib.extendPop pops.exporter (
       self: super: {

@@ -30,14 +30,14 @@ _:
             end = "100%";
             content = {
               type = "btrfs";
-              extraArgs = ["-f"];
+              extraArgs = [ "-f" ];
               subvolumes = {
                 "/rootfs" = {
                   mountpoint = "/";
                 };
                 # Mountpoints inferred from subvolume name
                 "/home" = {
-                  mountOptions = ["compress=zstd"];
+                  mountOptions = [ "compress=zstd" ];
                 };
                 "/nix" = {
                   mountOptions = [

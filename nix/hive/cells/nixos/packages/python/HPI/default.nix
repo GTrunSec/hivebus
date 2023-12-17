@@ -18,7 +18,7 @@ python3Packages.buildPythonPackage rec {
     click
   ];
 
-  makeWrapperArgs = ["--prefix PYTHONPATH : $PYTHONPATH"];
+  makeWrapperArgs = [ "--prefix PYTHONPATH : $PYTHONPATH" ];
 
   doCheck = false;
 
@@ -26,6 +26,6 @@ python3Packages.buildPythonPackage rec {
     description = "Human Programming Interface 🧑👽🤖";
     homepage = "https://github.com/karlicoss/HPI";
     license = licenses.asl20;
-    maintainers = with maintainers; [gtrunsec];
+    maintainers = with maintainers; [ gtrunsec ];
   };
 }

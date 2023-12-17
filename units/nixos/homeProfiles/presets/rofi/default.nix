@@ -13,6 +13,6 @@ _:
         config.wayland.windowManager.hyprland.enable
         || config.wayland.windowManager.sway.enable
       )
-      [rofi-wayland]
+      [ rofi-wayland ]
     );
 }

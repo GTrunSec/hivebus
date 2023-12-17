@@ -3,4 +3,6 @@
   inputs,
   haumea,
 }:
-(omnibus.pops.load {loader = with haumea; [((matchers.nix loaders.default))];})
+(omnibus.pops.load {
+  loader = with haumea; [ ((matchers.nix loaders.default)) ];
+})

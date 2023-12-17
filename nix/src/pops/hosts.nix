@@ -3,20 +3,22 @@
   inputs,
   super,
   root,
-  projectDir,
+  projectRoot,
   omnibus,
 }:
 let
   inherit (omnibus.lib.omnibus) mkHosts;
 in
-mkHosts {
-  hostsDir = projectDir + "/units/nixos/hosts";
-  pops = super.hostsInterface;
-  addLoadExtender = {
-    load = {
-      inputs = {
-        inherit inputs;
+lib.recursiveUpdate root.hosts (
+  mkHosts {
+    hostsDir = projectRoot + "/units/nixos/hosts";
+    pops = super.hostsInterface;
+    addLoadExtender = {
+      load = {
+        inputs = {
+          inherit inputs;
+        };
       };
     };
-  };
-}
+  }
+)

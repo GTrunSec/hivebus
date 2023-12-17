@@ -4,14 +4,14 @@
   cell,
   lib,
 }:
-{config, pkgs, ...}:
+{ config, pkgs, ... }:
 let
   l = lib // builtins;
   src = profiles + "/waybar";
   inherit (root.preset.waybar) themes;
 in
 {
-  home.activation.waybarConfig = config.lib.dag.entryAfter ["writeBoundary"] ''
+  home.activation.waybarConfig = config.lib.dag.entryAfter [ "writeBoundary" ] ''
     ln -sfT ${src}/scripts ~/.config/waybar/scripts
   '';
   home.packages = with pkgs; [
@@ -23,7 +23,7 @@ in
     style = l.readFile "${src}/style.css";
     settings = {
       top = l.recursiveUpdate themes.default.top {
-        output = [config.hive.monitor];
+        output = [ config.hive.monitor ];
         network.on-click-right = "nm-connection-editor";
         "custom/weather" = {
           exec = "python ~/ghq/github.com/GTrunSec/hive/profiles/waybar/scripts/weather.py";

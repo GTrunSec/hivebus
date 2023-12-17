@@ -1,4 +1,4 @@
-{self}:
+{ self }:
 {
   default = [
     {
@@ -11,9 +11,9 @@
   contabo = [
     self.default
     (
-      {modulesPath, ...}:
+      { modulesPath, ... }:
       {
-        imports = [(modulesPath + "/profiles/qemu-guest.nix")];
+        imports = [ (modulesPath + "/profiles/qemu-guest.nix") ];
         hive.bootstrap.contabo = true;
       }
     )

@@ -2,11 +2,9 @@
   config,
   pkgs,
   lib,
-  ...
+  inputs,
 }:
 let
-  inherit (inputs.cells.common.lib) __utils__;
-
   src = inputs.dotfiles + "/doom-emacs";
   onChange = ''
     export PATH=/run/current-system/etc/profiles/per-user/$USER/bin:/opt/homebrew/bin:$PATH
@@ -16,7 +14,7 @@ in
 {
   config = lib.mkMerge [
     {
-      home.activation.initDoomEmacs = config.lib.dag.entryAfter ["writeBoundary"] ''
+      home.activation.initDoomEmacs = config.lib.dag.entryAfter [ "writeBoundary" ] ''
          if [ ! -d "$HOME/.emacs.d/bin" ];then
             ${lib.getExe pkgs.git} clone https://github.com/doomemacs/doomemacs ~/.emacs.d
          fi
@@ -32,7 +30,6 @@ in
         source = src + "/config.org";
         inherit onChange;
       };
-
       # home.file.".doom.d/static/sketchviz".source =
       #   let
       #     env = pkgs.applyPatches {

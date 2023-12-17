@@ -1,11 +1,11 @@
 _: {
   _imports = [
     (
-      {pkgs, config, ...}:
+      { pkgs, config, ... }:
       {
         networking.firewall = {
-          allowedTCPPorts = [8489];
-          allowedUDPPorts = [8489];
+          allowedTCPPorts = [ 8489 ];
+          allowedUDPPorts = [ 8489 ];
         };
         age.secrets.v2ray-vmess = {
           file = pkgs.lib.age.file "tiangang/v2ray-vmess.age";

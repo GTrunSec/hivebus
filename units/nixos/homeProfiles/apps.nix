@@ -4,27 +4,30 @@
   lib,
 }:
 let
-  inherit (root) preset;
+  inherit (root) presets;
 in
 {
   linux = [
-    preset.chat
-    preset.dropbox
-    preset.firefox
-    preset.brave
-    preset.office
+    presets.chat
+    presets.dropbox
+    presets.firefox
+    presets.brave
+    presets.office
     self.doomemacs
   ];
 
-  darwin = [
+  doomemacs-macbook = [
     self.doomemacs
-    preset.diagrams
+    presets.emacs.macbook
   ];
 
   doomemacs = [
-    preset.emacs.default
-    preset.emacs.doomemacs
-    preset.emacs.tree-sitter
-    preset.emacs.packages
+    presets.emacs.doom
+    presets.emacs.packages
+  ];
+
+  doomemacs-desktop = [
+    presets.emacs.desktop
+    self.doomemacs
   ];
 }

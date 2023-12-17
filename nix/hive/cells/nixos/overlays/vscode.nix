@@ -1,4 +1,4 @@
-{inputs, cell}:
+{ inputs, cell }:
 let
   l = inputs.nixpkgs.lib // builtins;
   inherit (inputs.cells.common.lib) __inputs__;
@@ -13,6 +13,6 @@ in
       ;
   };
   vscode-extensions = prev.lib.recursiveUpdate prev.vscode-extensions (
-    final.lib.vscode-utils.builders.with-namespace {srcs = final.vscode-sources;}
+    final.lib.vscode-utils.builders.with-namespace { srcs = final.vscode-sources; }
   );
 })

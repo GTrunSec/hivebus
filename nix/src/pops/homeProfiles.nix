@@ -3,9 +3,9 @@
     type = "nixosProfilesOmnibus";
     src = inputs.self.outPath + "/units/nixos/homeProfiles";
     inputs = {
-      inputs = {
+      inputs = super.subflake.inputs // {
         self = inputs.self;
-        dotfiles = projectDir + "/local/dotfiles";
+        dotfiles = projectRoot + "/local/dotfiles";
       };
     };
   };

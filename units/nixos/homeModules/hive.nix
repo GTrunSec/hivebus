@@ -1,4 +1,4 @@
-{lib}:
+{ lib }:
 {
   _options = with lib; {
     monitor = mkOption {

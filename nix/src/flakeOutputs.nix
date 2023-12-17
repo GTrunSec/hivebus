@@ -4,7 +4,7 @@
   omnibus,
   eachSystem,
   flops,
-  projectDir,
+  projectRoot,
 }:
 let
   filterConfigs =
@@ -13,7 +13,7 @@ let
       (lib.filterAttrs (_: v: v ? "${config}"))
       (lib.mapAttrs (_: v: v.${config}))
     ];
-  inherit (omnibus.lib) mapPopsExports;
+  inherit (omnibus.lib.omnibus) mapPopsExports;
 in
 (mapPopsExports super.pops)
 // {
@@ -28,8 +28,9 @@ in
     in
     {
       data =
-        (omnibus.pops.allData.addLoadExtender {load.src = projectDir + "/local/data";})
-        .exports.default;
+        (omnibus.pops.allData.addLoadExtender {
+          load.src = projectRoot + "/local/data";
+        }).exports.default;
     }
   );
 
@@ -40,9 +41,9 @@ in
     in
     (
       (flops.haumea.pops.default.setInit {
-        src = ../packages;
-        loader = _: path: inputs.nixpkgs.callPackage path {};
-        transformer = [(_cursor: dir: if dir ? default then dir.default else dir)];
+        src = projectRoot + /nix/packages;
+        loader = _: path: inputs.nixpkgs.callPackage path { };
+        transformer = [ (_cursor: dir: if dir ? default then dir.default else dir) ];
       })
     ).exports.default
   );

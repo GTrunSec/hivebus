@@ -1,10 +1,11 @@
 {
   inputs = {
     omnibus.url = "github:gtrunsec/omnibus";
+    # omnibus.url = "/home/guangtao/Dropbox/omnibus";
   };
 
   outputs =
-    {self, ...}@inputs:
+    { self, ... }@inputs:
     let
       inherit (inputs.omnibus.inputs.flops.inputs.nixlib) lib;
       eachSystem = lib.genAttrs [
@@ -12,12 +13,14 @@
         "aarch64-linux"
         "aarch64-darwin"
       ];
-      srcPops = import ./nix/src/__init.nix {inherit inputs eachSystem;};
-      src = srcPops.exports.default;
+      srcPop = import ./nix/src { inherit inputs eachSystem; };
+      src = srcPop.exports.default;
     in
     src.flakeOutputs
     // {
       inherit src;
-      pops = src.pops;
+      pops = src.pops // {
+        self = srcPop;
+      };
     };
 }

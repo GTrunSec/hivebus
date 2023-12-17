@@ -1,4 +1,4 @@
-{inputs}:
+{ inputs }:
 let
   openssh.authorizedKeys.keys = [
     inputs.cells.hosts.pops.exports.desktop.opensshPublicKey

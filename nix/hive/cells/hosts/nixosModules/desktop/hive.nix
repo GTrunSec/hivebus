@@ -1,6 +1,6 @@
-{lib}:
+{ lib }:
 {
-  _imports = [{powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";}];
+  _imports = [ { powerManagement.cpuFreqGovernor = lib.mkDefault "powersave"; } ];
   bootstrap = {
     full = true;
     systemd-initrd = true;

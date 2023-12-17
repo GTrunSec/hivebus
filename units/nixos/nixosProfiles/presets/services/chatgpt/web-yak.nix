@@ -1,11 +1,11 @@
 _:
-{pkgs, config, ...}:
+{ pkgs, config, ... }:
 let
 in
 {
   systemd.services.chatgpt-yak = {
     description = "chatgpt-yak";
-    wantedBy = ["network.target"];
+    wantedBy = [ "network.target" ];
     preStart = ''
       cp -rf --no-preserve=mode,ownership ${pkgs.yakgpt.outPath}/* /var/lib/chatgpt-yak/
       cp -rf --no-preserve=mode,ownership ${pkgs.yakgpt.outPath}/.next /var/lib/chatgpt-yak/.next

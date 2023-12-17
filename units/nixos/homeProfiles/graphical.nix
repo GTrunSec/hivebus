@@ -1,4 +1,4 @@
-{self, root}:
+{ self, root }:
 {
   default = [
     root.preset.qt

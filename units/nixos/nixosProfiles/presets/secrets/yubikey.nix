@@ -1,5 +1,5 @@
 _:
-{pkgs, ...}:
+{ pkgs, ... }:
 {
   services.yubikey-agent.enable = true;
 
@@ -8,5 +8,5 @@ _:
     yubico-piv-tool
   ];
 
-  services.udev.packages = [pkgs.yubikey-personalization];
+  services.udev.packages = [ pkgs.yubikey-personalization ];
 }

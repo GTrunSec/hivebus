@@ -1,4 +1,4 @@
-{inputs, cell}:
+{ inputs, cell }:
 let
   inherit (cell.lib) __inputs__;
 in

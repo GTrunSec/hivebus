@@ -8,7 +8,7 @@ let
     data.guangtao.openssh.public.desktop
     data.guangtao.openssh.public.macbook
   ];
-  cloud = [data.guangtao.openssh.public.tiangang];
+  cloud = [ data.guangtao.openssh.public.tiangang ];
 in
 {
   "tiangang/attic-cert.age".publicKeys = common ++ cloud;

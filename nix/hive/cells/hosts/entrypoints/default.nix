@@ -1,4 +1,4 @@
-{inputs, cell}:
+{ inputs, cell }:
 let
   inherit (inputs.std-ext.writers.lib) writeShellApplication;
 
@@ -7,7 +7,7 @@ in
 {
   show-sshKey = writeShellApplication {
     name = "show-sshKey";
-    runtimeInputs = with inputs.nixpkgs; [coreutils];
+    runtimeInputs = with inputs.nixpkgs; [ coreutils ];
     text = l.fileContents ./show-sshKey.sh;
   };
 }

@@ -1,1 +1,1 @@
-{services.restic.server = {};}
+{ services.restic.server = { }; }

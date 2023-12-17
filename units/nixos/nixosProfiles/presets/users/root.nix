@@ -1,4 +1,4 @@
-{inputs}:
+{ inputs }:
 let
   inherit (inputs.local) data;
   openssh.authorizedKeys.keys = [

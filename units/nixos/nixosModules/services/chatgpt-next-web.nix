@@ -6,7 +6,7 @@
 }:
 let
   cfg = config.services.chatgpt-next-web;
-  nixpkgs = pkgs.appendOverlays [inputs.nixpkgs-hardenedlinux.overlays.default];
+  nixpkgs = pkgs.appendOverlays [ inputs.nixpkgs-hardenedlinux.overlays.default ];
 in
 {
   options = with lib; {
@@ -26,7 +26,7 @@ in
   config = lib.mkIf cfg.enable {
     systemd.services.chatgpt-next-web = {
       description = "chatgpt-next-web";
-      wantedBy = ["network.target"];
+      wantedBy = [ "network.target" ];
       preStart = ''
         cp -rf --no-preserve=mode,ownership ${nixpkgs.chatgpt-next-web}/* /var/lib/chatgpt-next-web/
         cp -rf --no-preserve=mode,ownership ${nixpkgs.chatgpt-next-web}/.next /var/lib/chatgpt-next-web/.next

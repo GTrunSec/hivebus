@@ -7,10 +7,10 @@ in
   getty.autologinUser = "guangtao";
   _imports = [
     (
-      {pkgs, ...}:
+      { pkgs, ... }:
       {
         # networking.extraHosts = "${kubeMasterIP} ${kubeMasterHostname}";
-        networking.firewall.allowedTCPPorts = [6443];
+        networking.firewall.allowedTCPPorts = [ 6443 ];
         environment.systemPackages = with pkgs; [
           pkgs.k3s
           # kompose

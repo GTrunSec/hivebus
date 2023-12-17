@@ -74,6 +74,6 @@ _:
           SHELL = "/bin/bash";
         };
       })
-      (mkIf pkgs.stdenv.isLinux {programs.zsh.shellAliases = {};})
+      (mkIf pkgs.stdenv.isLinux { programs.zsh.shellAliases = { }; })
     ];
 }

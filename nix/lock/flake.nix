@@ -28,7 +28,6 @@
     nixos-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     nixos-23-11.url = "github:nixos/nixpkgs/release-23.11";
-    nixos-23-05.url = "github:nixos/nixpkgs/release-23.05";
 
     home-23-11.url = "github:nix-community/home-manager/release-23.11";
     home-23-11.inputs.nixpkgs.follows = "nixos-23-11";
@@ -47,6 +46,9 @@
   };
 
   inputs = {
+    emacs-overlay.url = "github:nix-community/emacs-overlay";
+    emacs-overlay.inputs.nixpkgs.follows = "nixpkgs";
+
     nil.url = "github:oxalica/nil";
 
     nix-filter = {
@@ -57,5 +59,5 @@
       flake = false;
     };
   };
-  outputs = _: {};
+  outputs = _: { };
 }

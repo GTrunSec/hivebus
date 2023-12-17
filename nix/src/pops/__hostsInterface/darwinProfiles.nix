@@ -1,1 +1,1 @@
-{root, inputs}: (root.pops.nixosModules.addLoadExtender {load = {};})
+{ root, inputs }: (root.pops.nixosModules.addLoadExtender { load = { }; })

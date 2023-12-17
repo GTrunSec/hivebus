@@ -1,4 +1,4 @@
-{config, lib}:
+{ config, lib }:
 {
   programs.git = lib.mkIf config.programs.git.enable {
     userEmail = "gtrunsec@hardenedlinux.org";

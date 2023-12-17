@@ -1,4 +1,4 @@
-{inputs, cell}:
+{ inputs, cell }:
 let
   id = "vm-qemu-1";
 in

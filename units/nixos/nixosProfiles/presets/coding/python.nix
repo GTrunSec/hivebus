@@ -4,7 +4,7 @@
   omnibus,
 }:
 {
-  imports = [omnibus.nixosProfiles.presets.coding.python];
+  imports = [ omnibus.nixosProfiles.presets.coding.python ];
   omnibus.coding.python = {
     enableLspBridge = true;
     enableEmacsEaf = true;

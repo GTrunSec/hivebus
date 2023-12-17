@@ -9,5 +9,5 @@ in
 import (super.layouts.hive.bee.pkgs.path + "/nixos/lib/eval-config.nix") {
   system = super.layouts.system;
   pkgs = super.layouts.hive.bee.pkgs;
-  modules = lib.flatten [super.layouts.nixosSuites];
+  modules = lib.flatten [ super.layouts.nixosSuites ];
 }

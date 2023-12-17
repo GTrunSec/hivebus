@@ -1,14 +1,14 @@
 {
   _imports = [
     (
-      {pkgs, ...}:
+      { pkgs, ... }:
       {
         boot.kernelPackages = pkgs.linuxPackages_latest;
         time.timeZone = "America/Los_Angeles";
       }
     )
   ];
-  binfmt.emulatedSystems = ["aarch64-linux"];
+  binfmt.emulatedSystems = [ "aarch64-linux" ];
   tmp.useTmpfs = true;
   tmp.tmpfsSize = "65%";
   initrd = {

@@ -1,5 +1,4 @@
 # copyright: https://github.com/cpcloud/nix-config
-_:
 {
   config,
   lib,
@@ -27,7 +26,7 @@ let
     runtime:
     pkgs.writeShellApplication {
       name = "test_nvidia_${runtime}_simple";
-      runtimeInputs = [pkgs.${runtime}];
+      runtimeInputs = [ pkgs.${runtime} ];
       text = ''
         set -x
 
@@ -39,7 +38,7 @@ let
     runtime:
     pkgs.writeShellApplication {
       name = "test_nvidia_${runtime}_tensorflow";
-      runtimeInputs = [pkgs.${runtime}];
+      runtimeInputs = [ pkgs.${runtime} ];
       text = ''
         set -x
 

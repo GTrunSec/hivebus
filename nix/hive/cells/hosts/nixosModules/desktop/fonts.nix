@@ -10,12 +10,12 @@
         "FantasqueSansMono Nerd Font Mono"
         "Weibei SC"
       ];
-      monospace = ["FantasqueSansMono Nerd Font Mono"];
+      monospace = [ "FantasqueSansMono Nerd Font Mono" ];
     };
   };
   _imports = [
     (
-      {pkgs, ...}:
+      { pkgs, ... }:
       {
         fonts.packages =
           with pkgs;
@@ -49,7 +49,7 @@
               ];
             })
           ]
-          ++ [material-symbols];
+          ++ [ material-symbols ];
       }
     )
   ];

@@ -1,6 +1,6 @@
 {
   value =
-    {selfModule', inputs}:
+    { selfModule', inputs }:
     let
       inherit (inputs) dmerge;
     in

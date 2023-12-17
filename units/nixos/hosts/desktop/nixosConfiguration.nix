@@ -8,6 +8,6 @@ let
 in
 nixpkgs.lib.nixosSystem rec {
   system = super.layouts.system;
-  pkgs = import nixpkgs {inherit system;};
-  modules = lib.flatten [super.layouts.nixosSuites];
+  pkgs = super.layouts.hive.bee.pkgs;
+  modules = lib.flatten [ super.layouts.nixosSuites ];
 }

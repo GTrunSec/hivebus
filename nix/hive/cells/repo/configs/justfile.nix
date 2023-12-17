@@ -1,8 +1,8 @@
-{inputs, cell}:
+{ inputs, cell }:
 let
   l = inputs.nixpkgs.lib // builtins;
 
-  nvfetcher-sources = l.foldr (a: b: a // b) {} (
+  nvfetcher-sources = l.foldr (a: b: a // b) { } (
     map
       (
         x:
@@ -33,7 +33,7 @@ in
   };
   nvfetcher = {
     description = "update sources with nvfetcher";
-    args = ["path"];
+    args = [ "path" ];
     content = ''
       nix develop github:GTrunSec/std-ext#update --refresh --command nvfetcher-update {{path}}/sources.toml
     '';
@@ -71,21 +71,21 @@ in
     '';
   };
   darwin-build = {
-    args = ["machine"];
+    args = [ "machine" ];
     description = "build darwin machine";
     content = ''
       darwin-rebuild build --flake .#hosts-{{machine}}
     '';
   };
   nvfetcher-update = {
-    args = ["cell"];
+    args = [ "cell" ];
     description = "update packages via nvfetcher";
     content = ''
       nix develop github:GTrunSec/std-ext#devShells.x86_64-linux.update --refresh --command nvfetcher-update ./cells/{{cell}}/packages/sources.toml
     '';
   };
   nixos-build = {
-    args = ["host"];
+    args = [ "host" ];
     description = "nixos-rebuild";
     content = ''
       nix build $PRJ_ROOT#nixosConfigurations.{{host}}.config.system.build.toplevel --no-link

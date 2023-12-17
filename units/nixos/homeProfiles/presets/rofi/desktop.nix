@@ -1,4 +1,4 @@
-{profiles}:
+{ profiles }:
 let
   src = profiles + "/rofi";
 in

@@ -11,7 +11,7 @@ in
 {
   options = with lib; {
     __profiles__ = mkOption {
-      default = {};
+      default = { };
       type = types.submodule {
         options = {
           psql = mkEnableOption (lib.mdDoc "Whether to enable psql");
@@ -20,7 +20,7 @@ in
     };
   };
 
-  imports = [./module.nix];
+  imports = [ ./module.nix ];
 
   config = lib.mkMerge [
     (lib.mkIf cfg.enable (
@@ -42,7 +42,7 @@ in
     ))
     (lib.mkIf cfg.__profiles__.psql {
       services.postgresql.enable = true;
-      services.postgresql.ensureDatabases = ["atticd"];
+      services.postgresql.ensureDatabases = [ "atticd" ];
       services.postgresql.ensureUsers = [
         {
           name = "atticd";

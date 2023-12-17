@@ -1,4 +1,4 @@
-{inputs, cell}:
+{ inputs, cell }:
 let
   inherit (inputs) std;
 
@@ -7,7 +7,7 @@ in
 {
   just = {
     data = {
-      tasks = import ./justfile.nix {inherit inputs cell;};
+      tasks = import ./justfile.nix { inherit inputs cell; };
     };
   };
 }

@@ -1,9 +1,10 @@
-{inputs, cell}:
+{ inputs, cell }:
 let
   inherit (inputs.hivebus.src) hosts;
 in
 {
   tiangang = hosts.tiangang.layouts.hive;
+  desktop = hosts.desktop.layouts.hive;
   # desktop =
   #   cell.lib.mkNixOSHost exports.desktop "x86_64-linux" inputs.nixos-unstable
   #     {

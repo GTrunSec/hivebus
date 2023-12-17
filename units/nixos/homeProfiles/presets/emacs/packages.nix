@@ -32,18 +32,18 @@ in
   config =
     with lib;
     mkMerge [
-      {home.file.".config/guangtao-sources/plantuml".source = pkgs.plantuml;}
+      { home.file.".config/guangtao-sources/plantuml".source = pkgs.plantuml; }
       (mkIf pkgs.stdenv.isLinux {
         # home.file.".config/guangtao-sources/jinx".source = jinx;
-        home.packages = with pkgs; [enchant2];
+        home.packages = with pkgs; [ enchant2 ];
       })
+      (mkIf pkgs.stdenv.isDarwin { home.packages = with pkgs; [ pngpaste ]; })
       {
         home.packages = with pkgs; [
           nodejs_latest
           sqlite
           zeromq
           xclip
-          pngpaste
           # for copilot
           # (pkgs.writeShellScriptBin "node16" ''
           #   ${lib.getExe pkgs.nodejs-16_x} "$@"
@@ -62,7 +62,7 @@ in
                 # roughjs
                 # jsdom
               ];
-            buildInputs = [pkgs.makeWrapper];
+            buildInputs = [ pkgs.makeWrapper ];
             postBuild = ''
               makeWrapper ${pkgs.nodejs_latest}/bin/node $out/bin/dotsk \
                --set NODE_PATH $out/lib/node_modules
