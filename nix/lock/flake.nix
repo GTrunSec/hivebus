@@ -41,6 +41,12 @@
     ragenix.inputs.agenix.follows = "agenix";
     agenix.url = "github:ryantm/agenix";
 
+    agenix-rekey.url = "github:oddlama/agenix-rekey";
+    agenix-rekey.inputs.nixpkgs.follows = "nixpkgs";
+
+    resign.url = "github:NickCao/resign";
+    resign.inputs.nixpkgs.follows = "nixpkgs";
+
     impermanence.url = "github:nix-community/impermanence";
     attic.url = "github:zhaofengli/attic";
   };
@@ -48,6 +54,17 @@
   inputs = {
     emacs-overlay.url = "github:nix-community/emacs-overlay";
     emacs-overlay.inputs.nixpkgs.follows = "nixpkgs";
+
+    hyprland.url = "github:hyprwm/Hyprland";
+    hyprwm-contrib.url = "github:hyprwm/contrib";
+
+    nixgl.url = "github:guibou/nixGL";
+    nixgl.inputs.nixpkgs.follows = "nixpkgs";
+
+    nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
+
+    lanzaboote.url = "github:nix-community/lanzaboote";
+    lanzaboote.inputs.nixpkgs.follows = "nixpkgs";
 
     nil.url = "github:oxalica/nil";
 

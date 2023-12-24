@@ -1,6 +1,10 @@
 omnibus.pops.nixosProfiles.addExporters [
   (POP.extendPop flops.haumea.pops.exporter (
     self: super: {
+      exports.tiangang = self.outputs [
+        inputs.self.hosts.tiangang.omnibus.nixosProfiles.disko
+      ];
+
       exports.customModules = self.outputs [
         {
           value = {

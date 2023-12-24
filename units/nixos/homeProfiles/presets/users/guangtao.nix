@@ -1,4 +1,3 @@
-_:
 { config, lib, ... }:
 with lib; {
   programs.navi = mkIf config.programs.navi.enable {

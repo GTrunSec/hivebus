@@ -15,6 +15,7 @@
     contabo = true;
     minimal = true;
   };
+
   # boot.loader = {
   #   timeout = 0;
   #   systemd-boot.enable = true;
