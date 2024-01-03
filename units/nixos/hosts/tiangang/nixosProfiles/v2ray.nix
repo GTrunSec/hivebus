@@ -12,8 +12,8 @@
     file = inputs.local.age.file "tiangang/v2ray-vmess.age";
     mode = "0755";
   };
-  services.v2ray = {
-    enable = true;
-    configFile = config.age.secrets.v2ray-vmess.path;
-  };
+  # services.v2ray = {
+  #   enable = true;
+  #   configFile = config.age.secrets.v2ray-vmess.path;
+  # };
 }
