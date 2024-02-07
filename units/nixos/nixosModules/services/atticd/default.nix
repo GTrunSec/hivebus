@@ -2,6 +2,7 @@
   config,
   pkgs,
   lib,
+  inputs,
   mkModulePath,
   ...
 }:
@@ -9,6 +10,7 @@ let
   cfg = config.services.atticd;
 in
 {
+  imports = [ inputs.attic.nixosModules.atticd ];
   options = with lib; {
     __profiles__ = mkOption {
       default = { };
@@ -19,8 +21,6 @@ in
       };
     };
   };
-
-  imports = [ ./module.nix ];
 
   config = lib.mkMerge [
     (lib.mkIf cfg.enable (
@@ -47,7 +47,7 @@ in
         {
           name = "atticd";
           ensureDBOwnership = true;
-          # ensurePermissions."DATABASE atticd" = "ALL PRIVILEGES";
+          ensurePermissions."DATABASE atticd" = "ALL PRIVILEGES";
         }
       ];
     })

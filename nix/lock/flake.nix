@@ -24,13 +24,15 @@
 
     nixos.follows = "nixos-unstable";
 
-    darwin-nixos-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    darwin-nixos-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixos-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     nixos-23-11.url = "github:nixos/nixpkgs/release-23.11";
 
     home-23-11.url = "github:nix-community/home-manager/release-23.11";
     home-23-11.inputs.nixpkgs.follows = "nixos-23-11";
+
+    nushell-nixpkgs.url = "github:nixos/nixpkgs/c70ba88ba86ceb9eda165ed1a6c1e40a37f3dfba";
 
     home.url = "github:nix-community/home-manager";
     home.inputs.nixpkgs.follows = "nixos";
@@ -52,6 +54,9 @@
   };
 
   inputs = {
+    mobile-nixos.url = "github:NixOS/mobile-nixos/development";
+    mobile-nixos.flake = false;
+
     emacs-overlay.url = "github:nix-community/emacs-overlay";
     emacs-overlay.inputs.nixpkgs.follows = "nixpkgs";
 

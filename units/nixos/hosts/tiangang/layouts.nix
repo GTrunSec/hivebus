@@ -55,18 +55,22 @@ in
     # # # --custom profiles
 
     # outputs.srvos.default.common.nix
-    # (outputs.omnibus.self.mkHome inputs.home.nixosModule
-    #   {
-    #     admin = {
-    #       uid = 1000;
-    #       description = "default manager";
-    #       isNormalUser = true;
-    #       extraGroups = [ "wheel" ];
-    #     };
-    #   }
-    #   "zsh"
-    #   self.homeSuites
-    # )
+    (outputs.omnibus.self.default.mkHome inputs.home.nixosModule
+      {
+        admin = {
+          uid = 1000;
+          description = "default manager";
+          isNormalUser = true;
+          extraGroups = [ "wheel" ];
+          openssh.authorizedKeys.keys = [
+            self.data.guangtao.openssh.public.desktop
+            self.data.guangtao.openssh.public.macbook
+          ];
+        };
+      }
+      "zsh"
+      self.homeSuites
+    )
   ];
 
   homeSuites =

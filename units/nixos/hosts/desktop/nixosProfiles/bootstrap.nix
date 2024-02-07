@@ -1,1 +1,1 @@
-{ imports = [ omnibus.nixosProfiles.presets.boot ]; }
+{ imports = [ ]; }

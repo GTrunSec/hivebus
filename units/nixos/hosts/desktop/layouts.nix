@@ -27,20 +27,27 @@ in
     bee.system = self.system;
     # use the mkHome function to create a home-manager profile
     # bee.home = inputs.home-manager;
-    bee.pkgs = import inputs.nixos-unstable { inherit (self) system; };
+    bee.pkgs = import inputs.nixos-unstable {
+      inherit (self) system;
+      config.allowUnfree = true;
+    };
     imports = lib.flatten self.nixosSuites;
   };
 
   nixosSuites = lib.flatten [
-    outputs.hosts.nixos.nixosProfiles.default.bootstrap
+    { system.stateVersion = "24.05"; }
+
+    outputs.omnibus.nixosProfiles.default.presets.boot
     outputs.omnibus.nixosProfiles.default.presets.virtualisation.libvirtd
     outputs.omnibus.nixosProfiles.default.presets.virtualisation.podman
 
+    outputs.omnibus.nixosProfiles.default.graphical.nvidia
+
+    outputs.omnibus.nixosProfiles.default.cloud.btrfs
     # # # --custom profiles
     # outputs.pops.nixosProfiles.layouts.customProfiles.presets.nix
     # outputs.pops.nixosProfiles.layouts.customProfiles.presets.boot
     # outputs.pops.nixosModules.layouts.customModules.boot
-
     # outputs.srvos.default.common.nix
     (outputs.omnibus.self.default.mkHome inputs.home.nixosModule
       {
@@ -57,6 +64,7 @@ in
   ];
 
   homeSuites = [
+    { home.enableNixpkgsReleaseCheck = false; }
     outputs.homeProfiles.default.apps.doomemacs-desktop
     outputs.omnibus.homeProfiles.default.shell.full
     # outputs.homeProfiles.presets.bat

@@ -39,6 +39,9 @@
 
     arion.url = "github:hercules-ci/arion";
     arion.inputs.nixpkgs.follows = "nixpkgs";
+
+    terraform-providers.url = "github:nix-community/nixpkgs-terraform-providers-bin";
+    terraform-providers.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   # nixpkgs & home-manager

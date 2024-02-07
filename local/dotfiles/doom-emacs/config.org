@@ -39,7 +39,7 @@
        ;;(emoji +unicode)  ; 🙂
        hl-todo           ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
        ;;hydra
-       indent-guides     ; highlighted indent columns
+       ;;indent-guides     ; highlighted indent columns
        ;;ligatures         ; ligatures and symbols to make your code pretty again
        ;;minimap           ; show a map of the code on the side
        modeline          ; snazzy, Atom-inspired modeline, plus API
@@ -228,14 +228,28 @@
 ** highlight
 
 *** indent
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! indent-bars :recipe (:host github :repo "jdtsmith/indent-bars"))
+#+end_src
+
 #+begin_src emacs-lisp :tangle "config.el"
-(use-package! highlight-indent-guides
-  :config
-  (setq highlight-indent-guides-method 'character)
-  (setq highlight-indent-guides-auto-enabled nil)
-  (set-face-background 'highlight-indent-guides-even-face "dimgray")
-  (set-face-foreground 'highlight-indent-guides-character-face "dimgray")
-  )
+;; (use-package! highlight-indent-guides
+;;   :config
+;;   (setq highlight-indent-guides-method 'character)
+;;   (setq highlight-indent-guides-auto-enabled nil)
+;;   (set-face-background 'highlight-indent-guides-even-face "dimgray")
+;;   (set-face-foreground 'highlight-indent-guides-character-face "dimgray")
+;;   )
+(use-package indent-bars
+  :custom
+  (indent-bars-treesit-support t)
+  (indent-bars-no-descend-string t)
+  (indent-bars-treesit-ignore-blank-lines-types '("module"))
+  (indent-bars-treesit-wrap '((python argument_list parameters ; for python, as an example
+				      list list_comprehension
+				      dictionary dictionary_comprehension
+				      parenthesized_expression subscript)))
+   :hook ((python-base-mode fingertip-mode nickel-mode) . indent-bars-mode))
 #+end_src
 
 ** tab
@@ -260,8 +274,9 @@
 ;; (setq doom-big-font (font-spec :family "Fantasque Sans Mono"
 ;;                            :size 17))
 ;; (setq doom-unicode-font doom-font)
+
 (when (display-graphic-p)
-  (set-face-attribute
+(set-face-attribute
    'default nil
    :font (font-spec
           :weight 'normal
@@ -272,64 +287,22 @@
      (frame-parameter nil 'font)
      charset
      (font-spec :name (cond (IS-LINUX "Weibei SC")
-                            (IS-MAC "-*-STFangsong-normal-normal-normal-*-*-*-*-*-p-0-iso10646-1"))
+                            (IS-MAC "Weibei TC"))
                 :weight 'normal
                 :slant 'normal
                 :size 24.5))))
 
-;; (defun font-installed-p (font-name)
-;;   "Check if font with FONT-NAME is available."
-;;   (find-font (font-spec :name font-name)))
 
-;; (defun centaur-setup-fonts ()
-;;   "Setup fonts."
-;;   (when (display-graphic-p)
-;;     ;; Set default font
-;;     (cl-loop for font in '("Hack" "Fantasque Sans Mono")
-;;              when (font-installed-p font)
-;;              return (set-face-attribute 'default nil
-;;                                         :family font
-;;                                         :height (cond (IS-MAC 150)
-;;                                                       (IS-LINUX 150))))
-
-;;     ;; Set mode-line font
-;;     ;; (cl-loop for font in '("Menlo" "SF Pro Display" "Helvetica")
-;;     ;;          when (font-installed-p font)
-;;     ;;          return (progn
-;;     ;;                   (set-face-attribute 'mode-line nil :family font :height 120)
-;;     ;;                   (when (facep 'mode-line-active)
-;;     ;;                     (set-face-attribute 'mode-line-active nil :family font :height 120))
-;;     ;;                   (set-face-attribute 'mode-line-inactive nil :family font :height 120)))
-
-;;     ;; Specify font for all unicode characters
-;;     (cl-loop for font in '("Segoe UI Symbol" "Symbola" "Symbol")
-;;              when (font-installed-p font)
-;;              return (if (< emacs-major-version 27)
-;;                         (set-fontset-font "fontset-default" 'unicode font nil 'prepend)
-;;                       (set-fontset-font t 'symbol (font-spec :family font) nil 'prepend)))
-
-;;     ;; Emoji
-;;     (cl-loop for font in '("Noto Color Emoji" "Apple Color Emoji" "Segoe UI Emoji")
-;;              when (font-installed-p font)
-;;              return (cond
-;;                      ((< emacs-major-version 27)
-;;                       (set-fontset-font "fontset-default" 'unicode font nil 'prepend))
-;;                      ((< emacs-major-version 28)
-;;                       (set-fontset-font t 'symbol (font-spec :family font) nil 'prepend))
-;;                      (t
-;;                       (set-fontset-font t 'emoji (font-spec :family font) nil 'prepend))))
-
-;;     ;; Specify font for Chinese characters
-;;     (cl-loop for font in '("WenQuanYi Micro Hei" "PingFang SC" "Microsoft Yahei" "STFangsong")
-;;              when (font-installed-p font)
-;;              return (progn
-;;                       (setq face-font-rescale-alist `((,font . 1.3)))
-;;                       (set-fontset-font t '(#x4e00 . #x9fff) (font-spec :family font))))))
-
-;; (centaur-setup-fonts)
-;; (add-hook 'window-setup-hook #'centaur-setup-fonts)
-;; (add-hook 'server-after-make-frame-hook #'centaur-setup-fonts)
+(when IS-MAC
+(defun init-cjk-fonts()
+  (dolist (charset '(kana han cjk-misc bopomofo))
+    (set-fontset-font (frame-parameter nil 'font)
+      charset (font-spec :family "Weibei SC" :size 24.5))))
+(add-hook 'doom-init-ui-hook 'init-cjk-fonts))
 #+end_src
+
+#+RESULTS:
+| init-cjk-fonts | persp-mode | window-divider-mode | +doom-dashboard-init-h | +popup-mode |
 
 ** doom-theme :theme:
 
@@ -774,16 +747,8 @@ FACE defaults to inheriting from default and highlight."
 ** jinx :spellCheck:
 
 #+begin_src emacs-lisp :tangle "packages.el"
-(when IS-LINUX
-(package! jinx :recipe (:local-repo
-                              "~/.config/guangtao-sources/jinx"
-                              ;;:host github :repo "minad/jinx"
-                              :files ("*")))
-)
-(when IS-MAC
 (package! jinx :recipe (:host github :repo "minad/jinx"
                         :files ("*")))
-)
 #+end_src
 
 - to show the list of available dictionaries
@@ -795,14 +760,14 @@ enchant-lsmod-2
 #+RESULTS:
 
 #+begin_src emacs-lisp :tangle "config.el"
-(when IS-LINUX
-(use-package! jinx
-  :config
-  (add-to-list 'jinx-exclude-regexps '(t "\\cc")) ;; chinese
-  (dolist (hook '(text-mode-hook prog-mode-hook conf-mode-hook
-                  org-mode-hook ))
-    (add-hook hook #'jinx-mode)))
-)
+  (use-package! jinx
+    :defer t
+    :config
+    (jinx--load-module)
+    (add-to-list 'jinx-exclude-regexps '(t "\\cc")) ;; chinese
+    (dolist (hook '(text-mode-hook prog-mode-hook conf-mode-hook
+                    org-mode-hook ))
+      (add-hook hook #'jinx-mode)))
 #+end_src
 
 
@@ -1396,9 +1361,9 @@ prepended to the element after the #+HEADER: tag."
 #+begin_src emacs-lisp :tangle "config.el"
 (after! rustic
   (setq rustic-indent-offset 4)
+  (add-hook 'flycheck-mode-hook #'rustic-flycheck-setup)
   )
 #+end_src
-
 
 ** copilot :completion:
 
@@ -1471,6 +1436,7 @@ prepended to the element after the #+HEADER: tag."
   (add-hook 'yaml-mode-hook #'yaml-ts-mode)
   (add-hook 'rust-mode-hook #'rust-ts-mode)
   (add-hook 'sh-mode-hook #'bash-ts-mode)
+  (add-hook 'java-mode-hook #'java-ts-mode)
 
   (dolist (hook (list
                  'c-mode-common-hook
@@ -1558,16 +1524,21 @@ prepended to the element after the #+HEADER: tag."
 
 - https://github.com/manateelazycat/fingertip
 #+begin_src emacs-lisp :tangle "packages.el"
-(package! typst-mode :recipe (:host github :repo "Ziqi-Yang/typst-mode.el"
+(package! typst-ts-mode :recipe (:host sourcehut :repo "meow_king/typst-ts-mode"
                              ;;:build (:not compile)
-                             :files ("*.el")))
+                             ))
 #+end_src
 
 
 #+begin_src emacs-lisp :tangle "config.el"
-(use-package! typst-mode
-  :config
-  )
+(use-package typst-ts-mode
+  :custom
+  ;; don't add "--open" if you'd like `watch` to be an error detector
+  (typst-ts-mode-watch-options "--open")
+
+  ;; experimental settings (I'm the main dev, so I enable these)
+  (typst-ts-mode-enable-raw-blocks-highlight t)
+  (typst-ts-mode-highlight-raw-blocks-at-startup t))
   #+end_src
 
 
@@ -1578,8 +1549,8 @@ prepended to the element after the #+HEADER: tag."
 (package! posframe)
 (package! popon)
 (package! lsp-bridge :recipe (:host github :repo "manateelazycat/lsp-bridge"
-                              :files ("*.el" "*.py" "core" "langserver" "acm")
-                              :build (:not compile)
+                              :files ("*")
+                              ;;:build (:not compile)
                               )
                               ;; :pin "828a9b589d1887f2186c38cf69067f74a7b08d57"
 
@@ -1700,6 +1671,7 @@ prepended to the element after the #+HEADER: tag."
           (sh-mode         . bash-ts-mode)
           (typescript-mode . typescript-ts-mode)
           (rust-mode       . rust-ts-mode)
+          (java-mode       . java-ts-mode)
           ;;(nix-mode       .  nix-ts-mode)
           ))
   (add-hook 'markdown-mode-hook #'(lambda () (treesit-parser-create 'markdown)))

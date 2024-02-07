@@ -6,7 +6,7 @@
 let
   inherit (inputs) nixpkgs;
 in
-nixpkgs.lib.nixosSystem rec {
+import (super.layouts.hive.bee.pkgs.path + "/nixos/lib/eval-config.nix") rec {
   system = super.layouts.system;
   pkgs = super.layouts.hive.bee.pkgs;
   modules = lib.flatten [ super.layouts.nixosSuites ];

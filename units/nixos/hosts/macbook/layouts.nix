@@ -23,6 +23,15 @@ in
 
   data = inputs.self.local.${self.system}.data;
 
+  colmena = {
+    nixpkgs = self.hive.bee.pkgs;
+    deployment = {
+      allowLocalDeployment = true;
+      targetHost = "127.0.0.1";
+    };
+    imports = lib.flatten self.darwinSuites;
+  };
+
   hive = {
     bee.system = self.system;
     # bee.home = inputs.home-manager;
@@ -34,7 +43,22 @@ in
       };
       overlays = [
         (_: prev: {
-          typst-lsp = inputs.nixos-23-11.legacyPackages.${self.system}.typst-lsp;
+          nushell = prev.nushell.overrideAttrs (
+            old: rec {
+              version = "nightly-2024-2-8";
+              src = prev.fetchFromGitHub {
+                owner = "nushell";
+                repo = "nushell";
+                rev = "366348dea0951760b5b4cff879393358ab2b2d14";
+                hash = "sha256-/Gvptp+GqtDqg7XkWZ4S6Yd01+qTC62BltDDO1xpd+I=";
+              };
+
+              cargoDeps = prev.rustPlatform.importCargoLock {
+                outputHashes = { };
+                lockFile = "${src}/Cargo.lock";
+              };
+            }
+          );
         })
       ];
     };
@@ -42,11 +66,13 @@ in
   };
 
   darwinSuites = lib.flatten [
+    # self.hive.bee.darwin.darwinModules
     outputs.omnibus.darwinProfiles.default.init.default
     outputs.darwinProfiles.default.presets.homebrew
 
     outputs.omnibus.nixosProfiles.default.dev.coding
     outputs.nixosProfiles.default.presets.coding.python
+    outputs.nixosProfiles.default.presets.coding.julia
     outputs.darwinProfiles.default.presets.fonts
 
     outputs.omnibus.darwinProfiles.default.presets.sketchybar

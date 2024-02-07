@@ -1,9 +1,15 @@
+{
+  inputs,
+  lib,
+  self,
+  omnibus,
+}:
 let
   outputs = inputs.self;
 in
 # self' = inputs.self.hosts.nixos;
 {
-  system = "x86_64-linux";
+  system = "aarch64-linux";
 
   data = outputs.local.${self.system}.data;
 
@@ -16,9 +22,11 @@ in
   };
 
   nixosSuites = lib.flatten [
-    outputs.hosts.nixos.nixosProfiles.bootstrap
-
-    outputs.nixosProfiles.presets.boot
+    (import "${inputs.self.subflake.inputs.mobile-nixos}/lib/configuration.nix" {
+      device = "pine64-pinephone";
+    })
+    # outputs.hosts.nixos.nixosProfiles.bootstrap
+    # outputs.nixosProfiles.presets.boot
     # outputs.nixosModules.default.programs.git
 
     # # # --custom profiles
@@ -27,18 +35,18 @@ in
     # outputs.pops.nixosModules.layouts.customModules.boot
 
     # outputs.srvos.default.common.nix
-    (outputs.omnibus.mkHome inputs.home.nixosModule
-      {
-        admin = {
-          uid = 1000;
-          description = "default manager";
-          isNormalUser = true;
-          extraGroups = [ "wheel" ];
-        };
-      }
-      "zsh"
-      self.homeSuites
-    )
+    # (outputs.omnibus.mkHome inputs.home.nixosModule
+    #   {
+    #     admin = {
+    #       uid = 1000;
+    #       description = "default manager";
+    #       isNormalUser = true;
+    #       extraGroups = [ "wheel" ];
+    #     };
+    #   }
+    #   "zsh"
+    #   self.homeSuites
+    # )
   ];
 
   homeSuites = [
