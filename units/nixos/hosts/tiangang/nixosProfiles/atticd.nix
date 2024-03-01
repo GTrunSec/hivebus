@@ -1,6 +1,6 @@
 { config, inputs }:
 {
-  imports = [ inputs.self.nixosModules.services.atticd ];
+  # imports = [ inputs.self.nixosModules.services.atticd ];
   age.secrets.attic-cert.file = inputs.local.age.file "tiangang/attic-cert.age";
   environment.systemPackages = [ inputs.attic.packages.attic ];
   services.atticd = {

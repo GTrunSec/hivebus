@@ -47,7 +47,7 @@ in
     # outputs.hosts.tiangang.nixosProfiles.default.bootstrap
     outputs.hosts.tiangang.nixosProfiles.exportModulesRecursive
     outputs.nixosProfiles.default.presets.users.root
-    outputs.omnibus.nixosProfiles.tiangang.cloud.contabo
+    # outputs.omnibus.nixosProfiles.tiangang.cloud.contabo
 
     outputs.omnibus.nixosProfiles.default.presets.secrets.ragenix
     # outputs.nixosModules.default.programs.git

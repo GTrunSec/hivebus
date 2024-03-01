@@ -43,7 +43,7 @@ in
 
     outputs.omnibus.nixosProfiles.default.graphical.nvidia
 
-    outputs.omnibus.nixosProfiles.default.cloud.btrfs
+    # outputs.omnibus.nixosProfiles.default.cloud.btrfs
     # # # --custom profiles
     # outputs.pops.nixosProfiles.layouts.customProfiles.presets.nix
     # outputs.pops.nixosProfiles.layouts.customProfiles.presets.boot

@@ -49,12 +49,14 @@ in
               src = prev.fetchFromGitHub {
                 owner = "nushell";
                 repo = "nushell";
-                rev = "366348dea0951760b5b4cff879393358ab2b2d14";
-                hash = "sha256-/Gvptp+GqtDqg7XkWZ4S6Yd01+qTC62BltDDO1xpd+I=";
+                rev = "65e5abaa3e48126ff730c9a59e5f6f55777a85bd";
+                hash = "sha256-WaXrc211YKBKoGyTj9v3xL3QcfJjusVG+d+CS4P2YCs=";
               };
 
               cargoDeps = prev.rustPlatform.importCargoLock {
-                outputHashes = { };
+                outputHashes = {
+                  "reedline-0.29.0" = "sha256-59w3CFg+z7gM2Im2xJouJCWpkKAMT/dwlcyNDClKInw=";
+                };
                 lockFile = "${src}/Cargo.lock";
               };
             }
@@ -106,7 +108,9 @@ in
     outputs.hosts.macbook.homeProfiles.exportModulesRecursive
     outputs.homeProfiles.default.presets.git
     outputs.homeProfiles.default.apps.doomemacs-macbook
+
     outputs.omnibus.homeProfiles.default.presets.latex
+    # outputs.omnibus.homeProfiles.macbook.presets.alacritty
 
     outputs.omnibus.homeProfiles.macbook.shell.full
     outputs.homeProfiles.default.shell.wezterm

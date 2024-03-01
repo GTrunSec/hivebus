@@ -298,7 +298,8 @@
   (dolist (charset '(kana han cjk-misc bopomofo))
     (set-fontset-font (frame-parameter nil 'font)
       charset (font-spec :family "Weibei SC" :size 24.5))))
-(add-hook 'doom-init-ui-hook 'init-cjk-fonts))
+(when (display-graphic-p)
+(add-hook 'doom-init-ui-hook 'init-cjk-fonts)))
 #+end_src
 
 #+RESULTS:
@@ -315,6 +316,9 @@
   (setq doom-theme 'doom-one)
 )
 #+end_src
+
+#+RESULTS:
+: doom-city-lights
 
 ** popup rules :window:
 
@@ -1550,10 +1554,8 @@ prepended to the element after the #+HEADER: tag."
 (package! popon)
 (package! lsp-bridge :recipe (:host github :repo "manateelazycat/lsp-bridge"
                               :files ("*")
-                              ;;:build (:not compile)
+                              :build (:not compile)
                               )
-                              ;; :pin "828a9b589d1887f2186c38cf69067f74a7b08d57"
-
   )
 #+end_src
 
@@ -1561,24 +1563,26 @@ prepended to the element after the #+HEADER: tag."
 (use-package lsp-bridge
   :init
   (setq lsp-bridge-flash-line-delay 1
-        lsp-bridge-ref-flash-line-delay 1
         lsp-bridge-use-ds-pinyin-in-org-mode t
         acm-enable-tabnine-helper t
         lsp-bridge-nix-lsp-server "nil"
         lsp-bridge-python-lsp-server "pylsp"
         lsp-bridge-python-command
-        "/run/current-system/sw/bin/python")
+         "/run/current-system/sw/bin/python")
   (setq lsp-bridge-org-babel-lang-list '("go" "python" "ipython"
                                          "ruby" "js" "css" "sass"
                                          "jupyter" "c" "rust" "java" "cpp" "jupyter-python"
                                          "c++" "sh"))
   :hook (doom-first-input . global-lsp-bridge-mode)
   :config
-  ;; (add-hook 'lsp-bridge-mode-hook '(lambda () (company-mode -1)
-  ;;                                   ))
   (push '((nickel-mode nickel-ts-mode) . "nls") lsp-bridge-single-lang-server-mode-list)
-  (push '((nix-mode nix-ts-mode) . "rnix-lsp") lsp-bridge-single-lang-server-mode-list)
-  (setq acm-candidate-match-function 'orderless-flex)
+  ;; (push '((nix-mode nix-ts-mode) . "rnix-lsp"
+  ;;         )
+  ;;       lsp-bridge-single-lang-server-mode-list)
+  (push '((nix-mode nix-ts-mode) . "rnix-lsp")
+      lsp-bridge-single-lang-server-mode-list)
+
+  ;; (setq acm-candidate-match-function 'orderless-flex)
   )
 ;; (after! lsp-bridge
 ;;      (set-face-background 'acm-frame-default-face (face-attribute 'default :background))
