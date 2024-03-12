@@ -142,16 +142,17 @@
         "flops": "flops"
       },
       "locked": {
-        "dirtyRev": "c1597d8d7321229596e777064e21a35515986ceb-dirty",
-        "dirtyShortRev": "c1597d8-dirty",
-        "lastModified": 1709194343,
-        "narHash": "sha256-gSI6k2GW08kHmpoWfwA8VaKBBUAMMjVs8h4iQ5yKxgo=",
-        "type": "git",
-        "url": "file:///Users/guangtao/Dropbox/omnibus"
+        "lastModified": 1709886818,
+        "narHash": "sha256-VfdsRrqjhHFNpEWttztouZiO9wS7R266JR0z0jGbIps=",
+        "owner": "gtrunsec",
+        "repo": "omnibus",
+        "rev": "03ad7b524c89e281529e472d7ecaec614b7e1135",
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "file:///Users/guangtao/Dropbox/omnibus"
+        "owner": "gtrunsec",
+        "repo": "omnibus",
+        "type": "github"
       }
     },
     "root": {
