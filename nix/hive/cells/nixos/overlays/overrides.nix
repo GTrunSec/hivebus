@@ -28,15 +28,13 @@ final: prev: {
 
   inherit (nixpkgs-dropbox) dropbox-cli;
 
-  yabai = nixpkgs-master.yabai.overrideAttrs (
-    old: rec {
-      version = "5.0.3";
-      src = prev.fetchzip {
-        url = "https://github.com/koekeishiya/yabai/releases/download/v${version}/yabai-v${version}.tar.gz";
-        sha256 = "sha256-dnUrdCbEN/M4RAr/GH3x10bfr2TUjuomxIUStFK7X9M=";
-      };
-    }
-  );
+  yabai = nixpkgs-master.yabai.overrideAttrs (old: rec {
+    version = "5.0.3";
+    src = prev.fetchzip {
+      url = "https://github.com/koekeishiya/yabai/releases/download/v${version}/yabai-v${version}.tar.gz";
+      sha256 = "sha256-dnUrdCbEN/M4RAr/GH3x10bfr2TUjuomxIUStFK7X9M=";
+    };
+  });
 
   python3Override = nixpkgs-master.python3;
 }

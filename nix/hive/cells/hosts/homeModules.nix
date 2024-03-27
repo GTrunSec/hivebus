@@ -2,16 +2,14 @@
 let
   l = inputs.nixpkgs.lib // builtins;
 in
-l.mapAttrs
+l.mapAttrs (
+  name: value:
   (
-    name: value:
-    (
-      assert value == "directory";
-      inputs.cells.common.lib.loadNixOS ./homeModules/${name} {
-        inherit inputs cell;
-        pkgs' = inputs.nixpkgs;
-        lib = inputs.nixpkgs.lib;
-      }
-    )
+    assert value == "directory";
+    inputs.cells.common.lib.loadNixOS ./homeModules/${name} {
+      inherit inputs cell;
+      pkgs' = inputs.nixpkgs;
+      lib = inputs.nixpkgs.lib;
+    }
   )
-  (l.readDir ./homeModules)
+) (l.readDir ./homeModules)

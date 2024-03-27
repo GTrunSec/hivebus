@@ -1,1 +1,4 @@
-{ inputs, cell }: { inherit (cell.pops.exports.nixpkgs) swww; }
+{ inputs, cell }:
+{
+  inherit (cell.pops.exports.nixpkgs) swww;
+}

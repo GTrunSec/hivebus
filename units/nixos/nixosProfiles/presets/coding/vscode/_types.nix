@@ -1,5 +1,6 @@
 { lib }:
-with lib; {
+with lib;
+{
   programs.vscode = {
     hive = mkOption {
       default = { };

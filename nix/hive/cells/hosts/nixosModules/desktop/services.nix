@@ -25,11 +25,9 @@ in
   ];
   k3s.enable = true;
   k3s.role = "server";
-  k3s.extraFlags =
-    toString
-      [
-        # "--kubelet-arg=v=4" # Optionally add additional args to k3s
-      ];
+  k3s.extraFlags = toString [
+    # "--kubelet-arg=v=4" # Optionally add additional args to k3s
+  ];
   #   kubernetes = {
   #     roles = [
   #       "master"

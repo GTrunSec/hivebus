@@ -49,18 +49,14 @@ in
     # outputs.pops.nixosProfiles.layouts.customProfiles.presets.boot
     # outputs.pops.nixosModules.layouts.customModules.boot
     # outputs.srvos.default.common.nix
-    (outputs.omnibus.self.default.mkHome inputs.home.nixosModule
-      {
-        guangtao = {
-          uid = 1000;
-          description = "default manager";
-          isNormalUser = true;
-          extraGroups = [ "wheel" ];
-        };
-      }
-      "zsh"
-      self.homeSuites
-    )
+    (outputs.omnibus.self.default.mkHome inputs.home.nixosModule {
+      guangtao = {
+        uid = 1000;
+        description = "default manager";
+        isNormalUser = true;
+        extraGroups = [ "wheel" ];
+      };
+    } "zsh" self.homeSuites)
   ];
 
   homeSuites = [

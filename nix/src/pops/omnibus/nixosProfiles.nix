@@ -1,4 +1,4 @@
-omnibus.pops.nixosProfiles.addExporters [
+omnibus.src.pops.nixosProfiles.addExporters [
   (POP.extendPop flops.haumea.pops.exporter (
     self: super: {
       exports.tiangang = self.outputs [

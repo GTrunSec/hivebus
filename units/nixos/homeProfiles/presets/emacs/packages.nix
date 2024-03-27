@@ -56,12 +56,10 @@ in
               "/lib"
               "/bin"
             ];
-            paths =
-              with pkgs.nodePackages;
-              [
-                # roughjs
-                # jsdom
-              ];
+            paths = with pkgs.nodePackages; [
+              # roughjs
+              # jsdom
+            ];
             buildInputs = [ pkgs.makeWrapper ];
             postBuild = ''
               makeWrapper ${pkgs.nodejs_latest}/bin/node $out/bin/dotsk \

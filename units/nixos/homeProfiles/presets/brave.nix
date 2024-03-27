@@ -11,11 +11,9 @@
           # "--use-gl=egl"
         ];
       }).overrideAttrs
-      (
-        old: {
-          # inherit (pkgs.guangtao-sources.brave) src pname version;
-        }
-      )
+      (old: {
+        # inherit (pkgs.guangtao-sources.brave) src pname version;
+      })
     )
     # google-chrome
   ];

@@ -10,8 +10,9 @@ in
     imports = [ homeProfiles.hyprpaper.packages ];
   };
 
-  packages.home.packages =
-    with nixpkgs; [ __inputs__.hyprpaper.packages.hyprpaper ];
+  packages.home.packages = with nixpkgs; [
+    __inputs__.hyprpaper.packages.hyprpaper
+  ];
 
   guangtao = {
     imports = [ homeProfiles.hyprpaper.default ];

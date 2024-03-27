@@ -2,8 +2,7 @@
 let
   inherit (inputs) nixpkgs;
 
-  terraform-providers-bin =
-    inputs.terraform-providers.legacyPackages.providers;
+  terraform-providers-bin = inputs.terraform-providers.legacyPackages.providers;
 
   terraform-with-plugins = nixpkgs.terraform.withPlugins (
     p: nixpkgs.lib.attrValues (providers p)
@@ -18,10 +17,12 @@ let
 in
 {
   terraform = {
-    commands = [ {
-      package = terraform-with-plugins // {
-        meta.name = "terraform";
-      };
-    } ];
+    commands = [
+      {
+        package = terraform-with-plugins // {
+          meta.name = "terraform";
+        };
+      }
+    ];
   };
 }

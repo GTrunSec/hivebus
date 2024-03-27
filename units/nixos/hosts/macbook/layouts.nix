@@ -43,24 +43,23 @@ in
       };
       overlays = [
         (_: prev: {
-          nushell = prev.nushell.overrideAttrs (
-            old: rec {
-              version = "nightly-2024-2-8";
-              src = prev.fetchFromGitHub {
-                owner = "nushell";
-                repo = "nushell";
-                rev = "65e5abaa3e48126ff730c9a59e5f6f55777a85bd";
-                hash = "sha256-WaXrc211YKBKoGyTj9v3xL3QcfJjusVG+d+CS4P2YCs=";
-              };
+          d2 = prev.emptyDirectory;
+          nushell = prev.nushell.overrideAttrs (old: rec {
+            version = "nightly-2024-03-27";
+            src = prev.fetchFromGitHub {
+              owner = "nushell";
+              repo = "nushell";
+              rev = "87c5f6e45533af47ab0f83ce10ab78812f817c1d";
+              hash = "sha256-ogzLZ+K169EtkdRs3wjiqZ6muZr1s645D02MSylA+TI=";
+            };
 
-              cargoDeps = prev.rustPlatform.importCargoLock {
-                outputHashes = {
-                  "reedline-0.29.0" = "sha256-59w3CFg+z7gM2Im2xJouJCWpkKAMT/dwlcyNDClKInw=";
-                };
-                lockFile = "${src}/Cargo.lock";
+            cargoDeps = prev.rustPlatform.importCargoLock {
+              outputHashes = {
+                "reedline-0.30.0" = "sha256-x46GNPf7cMFSxesvnh3scAZIVirYDQhQcOH9mE3X6cY=";
               };
-            }
-          );
+              lockFile = "${src}/Cargo.lock";
+            };
+          });
         })
       ];
     };
@@ -92,16 +91,12 @@ in
         };
       }
     )
-    (outputs.omnibus.self.default.mkHome inputs.home.darwinModule
-      {
-        guangtao = {
-          uid = 1000;
-          description = "Guangtao's home";
-        };
-      }
-      "nushell"
-      self.homeSuites
-    )
+    (outputs.omnibus.self.default.mkHome inputs.home.darwinModule {
+      guangtao = {
+        uid = 1000;
+        description = "Guangtao's home";
+      };
+    } "nushell" self.homeSuites)
   ];
 
   homeSuites = [

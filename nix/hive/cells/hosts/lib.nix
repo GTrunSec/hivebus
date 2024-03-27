@@ -31,12 +31,10 @@ in
       ++ l.optionals (shell == "zsh") [
         { environment.pathsToLink = [ "/share/zsh" ]; }
       ]
-      ++
-        l.optionals nixpkgs.stdenv.isLinux
-          [
-            # inputs.cells.users.userProfiles.${user}
-            inputs.cells.users.nixosProfiles.${user}
-          ];
+      ++ l.optionals nixpkgs.stdenv.isLinux [
+        # inputs.cells.users.userProfiles.${user}
+        inputs.cells.users.nixosProfiles.${user}
+      ];
   };
 
   # nixConfig = inputs.cells.bootstrap.lib.nixConfig.guangtao;

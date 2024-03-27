@@ -8,7 +8,8 @@ let
   inherit (root) presets;
   inherit (inputs) nixpkgs;
 in
-with presets; {
+with presets;
+{
   default = [
     git
     # # ------------------------------

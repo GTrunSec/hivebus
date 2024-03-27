@@ -1,7 +1,7 @@
 let
   inherit (inputs) dmerge;
 in
-(omnibus.pops.homeProfiles.addLoadExtender {
+(omnibus.src.pops.homeProfiles.addLoadExtender {
   load = {
     inputs = {
       inputs = root.pops.subflake.inputs;

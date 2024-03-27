@@ -81,7 +81,8 @@
 
         cellBlocks =
           with std.blockTypes;
-          with hive.blockTypes; [
+          with hive.blockTypes;
+          [
             # modules implement
             (functions "nixosModules")
             (functions "darwinModules")

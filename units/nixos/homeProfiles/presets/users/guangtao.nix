@@ -1,5 +1,6 @@
 { config, lib, ... }:
-with lib; {
+with lib;
+{
   programs.navi = mkIf config.programs.navi.enable {
     settings = {
       cheats = {

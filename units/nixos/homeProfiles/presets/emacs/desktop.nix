@@ -15,8 +15,7 @@
       (mkIf pkgs.stdenv.isLinux {
         programs.emacs = {
           extraPackages =
-            epkgs:
-            with epkgs; [
+            epkgs: with epkgs; [
               vterm
               grab-x-link
             ];
