@@ -32,8 +32,6 @@
     home-23-11.url = "github:nix-community/home-manager/release-23.11";
     home-23-11.inputs.nixpkgs.follows = "nixos-23-11";
 
-    nushell-nixpkgs.url = "github:nixos/nixpkgs/c70ba88ba86ceb9eda165ed1a6c1e40a37f3dfba";
-
     home.url = "github:nix-community/home-manager";
     home.inputs.nixpkgs.follows = "nixos";
 
@@ -54,6 +52,9 @@
   };
 
   inputs = {
+    nuScripts.url = "github:nushell/nu_scripts";
+    nuScripts.flake = false;
+
     mobile-nixos.url = "github:NixOS/mobile-nixos/development";
     mobile-nixos.flake = false;
 

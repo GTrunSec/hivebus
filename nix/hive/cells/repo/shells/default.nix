@@ -20,7 +20,7 @@ l.mapAttrs (_: std.lib.dev.mkShell) {
       ] ++ l.optionals nixpkgs.stdenv.isLinux [ cell.devshellProfiles.terraform ];
 
       nixago = [
-        (lib.dev.mkNixago std.lib.cfg.just cell.configs.just)
+        # (lib.dev.mkNixago std.lib.cfg.just cell.configs.just)
         cell.configs.treefmt.default
       ];
 

@@ -1282,19 +1282,19 @@
         "type": "github"
       }
     },
-    "nushell-nixpkgs": {
+    "nuScripts": {
+      "flake": false,
       "locked": {
-        "lastModified": 1702675591,
-        "narHash": "sha256-65tpKaB1Yx+lI/NbbyLFvkDrhp/ILnUcZTozTiiW/ic=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "c70ba88ba86ceb9eda165ed1a6c1e40a37f3dfba",
+        "lastModified": 1711582611,
+        "narHash": "sha256-1/ohUWDZId/c2n5dTuIpsFhnoMVE612F0mnwcYO5VOc=",
+        "owner": "nushell",
+        "repo": "nu_scripts",
+        "rev": "0713693906e24aeffe2e6d404c90bf1cce2397ea",
         "type": "github"
       },
       "original": {
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "c70ba88ba86ceb9eda165ed1a6c1e40a37f3dfba",
+        "owner": "nushell",
+        "repo": "nu_scripts",
         "type": "github"
       }
     },
@@ -1452,7 +1452,7 @@
         "nixpkgs-hardenedlinux": "nixpkgs-hardenedlinux",
         "nixpkgs-master": "nixpkgs-master",
         "nixpkgs-wayland": "nixpkgs-wayland",
-        "nushell-nixpkgs": "nushell-nixpkgs",
+        "nuScripts": "nuScripts",
         "ragenix": "ragenix",
         "resign": "resign",
         "srvos": "srvos"
