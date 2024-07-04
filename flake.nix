@@ -1,44 +1,26 @@
+# SPDX-FileCopyrightText: 2023 The omnibus Authors
+# SPDX-FileCopyrightText: 2024 The omnibus Authors
+#
+# SPDX-License-Identifier: MIT
+
 {
   inputs = {
     omnibus.url = "github:gtrunsec/omnibus";
+    # omnibus.url = "git+file:/Users/guangtao/Dropbox/omnibus";
   };
 
   outputs =
-    { self, ... }@inputs:
+    inputs:
     let
       inherit (inputs.omnibus.inputs.flops.inputs.nixlib) lib;
       eachSystem = lib.genAttrs [
         "x86_64-linux"
+        "x86_64-darwin"
         "aarch64-linux"
         "aarch64-darwin"
       ];
-      srcPop = (import ./nix/src { inherit inputs eachSystem; });
-      src = srcPop.exports.default;
+      pops.hivebus = import ./units/self { inherit inputs eachSystem; };
+      hivebus = pops.hivebus.exports.default;
     in
-    src.flakeOutputs
-    // {
-      inherit src;
-      pops = src.pops // {
-        self = srcPop;
-      };
-
-      colmena = {
-        meta = {
-          nixpkgs = import inputs.omnibus.flake.inputs.nixpkgs { system = "x86_64-linux"; };
-          nodeNixpkgs.host-a = self.hosts.desktop.layouts.hive.bee.pkgs;
-          nodeNixpkgs.host-b = self.hosts.tiangang.layouts.hive.bee.pkgs;
-          nodeNixpkgs.host-c = self.hosts.macbook.layouts.hive.bee.pkgs;
-        };
-        # Also see the non-Flakes hive.nix example above.
-        host-a = {
-          inherit (self.hosts.desktop.layouts.hive) imports;
-        };
-        host-b = {
-          inherit (self.hosts.tiangang.layouts.hive) imports;
-        };
-        host-c = {
-          inherit (self.hosts.macbook.layouts.hive) imports;
-        };
-      };
-    };
+    lib.recursiveUpdate { inherit pops; } hivebus.flakeOutputs;
 }

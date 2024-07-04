@@ -224,6 +224,62 @@
 (defalias 'scroll-down-command 'pixel-scroll-interpolate-down)
 #+end_src
 
+** misc
+
+#+begin_src emacs-lisp :tangle "~/.doom.d/autoload/+misc.el"
+;;; ~/.doom.d/autoload/misc.el -*- lexical-binding: t; -*-
+(defvar current-date-time-format "%a %b %d %H:%M:%S %Z %Y"
+
+  "Format of date to insert with `insert-current-date-time' func
+See help of `format-time-string' for possible replacements")
+
+;;;###autoload
+(defun insert-current-date-time ()
+  "insert the current date and time into current buffer.
+Uses `current-date-time-format' for the formatting the date/time."
+  (interactive)
+  ;;(insert "==========\n")
+                                        ;       (insert (let () (comment-start)))
+  (insert (format-time-string current-date-time-format (current-time)))
+  )
+
+(defvar current-date-time-format-inactive "[%Y-%m-%d %a %H:%M]"
+
+  "Format of date to insert with `insert-current-date-time' func
+See help of `format-time-string' for possible replacements")
+
+;;;###autoload
+(defun insert-current-date-time-inactive
+    ()
+  "insert the current date and time into current buffer.
+Uses `current-date-time-format' for the formatting the date/time."
+  (interactive)
+  ;;(insert "==========\n")
+                                        ;       (insert (let () (comment-start)))
+  (insert (format-time-string current-date-time-format-inactive (current-time)))
+  ;;(insert "\n")
+  )
+
+(defvar current-date-time-format-active "<%Y-%m-%d %a %H:%M>"
+
+  "Format of date to insert with `insert-current-date-time' func
+See help of `format-time-string' for possible replacements")
+
+;;;###autoload
+(defun insert-current-date-time-active
+    ()
+  "insert the current date and time into current buffer.
+Uses `current-date-time-format' for the formatting the date/time."
+  (interactive)
+  ;;(insert "==========\n")
+                                        ;       (insert (let () (comment-start)))
+  (insert (format-time-string current-date-time-format-active (current-time)))
+  ;;(insert "\n")
+  )
+#+end_src
+
+#+RESULTS:
+: insert-current-date-time-active
 
 ** highlight
 
@@ -1379,6 +1435,13 @@ prepended to the element after the #+HEADER: tag."
 #+begin_src emacs-lisp :tangle "config.el"
 (use-package! copilot
   :config
+(add-to-list 'copilot-indentation-alist `(prog-mode 4))
+(add-to-list 'copilot-indentation-alist `(emacs-lisp-mode 4))
+  ;; (add-to-list 'copilot-indentation-alist
+  ;;                      '(nix-mode 2)
+  ;;                      '(nickel-mode 2)
+  ;;                      '(emacs-lisp-mode 4))
+  :config
   ;;(setq copilot-node-executable "node16")
   :hook (prog-mode . copilot-mode)
   :bind ((:map copilot-completion-map
@@ -1389,6 +1452,31 @@ prepended to the element after the #+HEADER: tag."
                )))
 #+end_src
 
+#+RESULTS:
+: copilot-accept-completion-by-word
+
+
+** codeium
+
+#+begin_src emacs-lisp :tangle "packages.el"
+;; (package! codeium :recipe (:host github :repo "Exafunction/codeium.el"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+;; (use-package! codeium
+;;   :init
+;;   ;; use globally
+;;   (add-to-list 'completion-at-point-functions #'codeium-completion-at-point)
+;;   :config
+;;   (setq use-dialog-box nil) ;; do not use popup boxes
+;;   (setq codeium-api-enabled
+;;         (lambda (api)
+;;           (memq api '(GetCompletions Heartbeat CancelRequest GetAuthToken RegisterUser auth-redirect AcceptCompletion))))
+;;   )
+#+end_src
+
+#+RESULTS:
+: t
 
 ** quarto mode
 #+begin_src emacs-lisp :tangle "packages.el"
@@ -1564,7 +1652,10 @@ prepended to the element after the #+HEADER: tag."
   :init
   (setq lsp-bridge-flash-line-delay 1
         lsp-bridge-use-ds-pinyin-in-org-mode t
-        acm-enable-tabnine-helper t
+        acm-enable-tabnine-helper nil
+        acm-enable-tabnine t
+        acm-enable-copilot t
+        acm-backend-copilot-node-path (concat doom-cache-dir "/.cache/copilot/bin/copilot-node-server")
         lsp-bridge-nix-lsp-server "nil"
         lsp-bridge-python-lsp-server "pylsp"
         lsp-bridge-python-command

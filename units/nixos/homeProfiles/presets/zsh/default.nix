@@ -1,4 +1,3 @@
-_:
 {
   config,
   lib,
@@ -19,7 +18,7 @@ _:
           enable = true;
           autocd = true;
           dotDir = ".config/zsh";
-          enableAutosuggestions = true;
+          autosuggestion.enable = true;
           enableCompletion = true;
           syntaxHighlighting.enable = true;
           history = {
@@ -48,12 +47,12 @@ _:
             # si = "pactl set-default-sink (pacmd list-sinks | awk \\\'/name:.*pci/{if (a != \"\") print a;} {a=$NF}\\\')";
           };
 
-          initExtraBeforeCompInit = builtins.readFile ./compinit-setopt.zsh;
+          # initExtraBeforeCompInit = builtins.readFile ./compinit-setopt.zsh;
 
-          initExtra =
-            builtins.readFile ./zshrc.zsh
-            + builtins.readFile ./init-bindkey.zsh
-            + builtins.readFile ./autoload.zsh;
+          # initExtra =
+          #   builtins.readFile ./zshrc.zsh
+          #   + builtins.readFile ./init-bindkey.zsh
+          #   + builtins.readFile ./autoload.zsh;
 
           plugins = [
             {
@@ -70,8 +69,8 @@ _:
           export = "LC_ALL=en_US.UTF-8";
           GNUPGHOME = "$HOME/.gnupg";
           NIX_PATH = "nixpkgs=${pkgs.path}";
-          # FIXME: emacs can not get the path correctly
-          SHELL = "/bin/bash";
+          # # FIXME: emacs can not get the path correctly
+          # SHELL = "/bin/bash";
         };
       })
       (mkIf pkgs.stdenv.isLinux { programs.zsh.shellAliases = { }; })

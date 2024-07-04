@@ -3,11 +3,12 @@
   pkgs,
   lib,
   inputs,
+  omnibus,
 }:
 {
   imports = [
-    inputs.self.omnibus.homeProfiles.presets.emacs.default
-    inputs.self.omnibus.homeProfiles.presets.emacs.tree-sitter
+    omnibus.homeProfiles.presets.emacs.default
+    omnibus.homeProfiles.presets.emacs.tree-sitter
   ];
   config =
     with lib;

@@ -2,7 +2,7 @@
   config,
   lib,
   pkgs,
-  ...
+  inputs,
 }:
 let
   src = inputs.dotfiles + "/wezterm";

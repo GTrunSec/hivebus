@@ -1,6 +1,6 @@
 -- local wezterm = require 'catppuccin'
 config = {
-   default_prog = { '/run/current-system/etc/profiles/per-user/' .. os.getenv("USER") .. '/bin/nu', '-l' },
+   default_prog = { '/run/current-system/etc/profiles/per-user/' .. os.getenv("USER") .. '/bin/zsh'},
    window_background_opacity = 0.8,
    font_size = 20.0,
 }
