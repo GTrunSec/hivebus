@@ -19,8 +19,6 @@ final: prev: {
 
   nix-init = __inputs__.nix-init.packages.default;
 
-  namaka = __inputs__.namaka.packages.default;
-
   nixUnstable = inputs.nixos-unstable.legacyPackages.nixUnstable;
   # slurp = prev.slurp.overrideAttrs (_: {
   #   name = "slurp-PR-95";

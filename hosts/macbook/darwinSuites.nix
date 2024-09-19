@@ -19,6 +19,10 @@
       shell = "zsh";
       suites = [ super.homeSuites.default ];
     })
-    { nix.gc.user = "root"; }
+    {
+      nix.gc.user = "root";
+      system.stateVersion = 3;
+      ids.uids.nixbld = 300;
+    }
   ];
 }

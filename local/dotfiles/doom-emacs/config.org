@@ -527,6 +527,12 @@ FACE defaults to inheriting from default and highlight."
 
 
 * Packages
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! with-editor
+          :recipe (:host github :repo "magit/with-editor"
+                         :branch "main"))
+#+end_src
 ** writing room :writing:
 
 #+begin_src emacs-lisp :tangle "config.el"
@@ -590,21 +596,28 @@ FACE defaults to inheriting from default and highlight."
               ("M-R" . symbol-overlay-rename)))
 #+end_src
 
-** iscroll :image:
+** org-sliced-images :image:
 
 #+begin_src emacs-lisp :tangle "packages.el"
-(package! iscroll :recipe (:host github :repo "casouri/iscroll"))
+(package! org-sliced-images :recipe (:host github :repo "jcfk/org-sliced-images"))
 #+end_src
 
 #+begin_src emacs-lisp :tangle "config.el"
-(use-package! iscroll
-  :diminish
-  :hook (org-mode . iscroll-mode)
-  :config
-  (global-set-key [remap scroll-up-command] #'iscroll-up)
-  (global-set-key [remap scroll-down-command] #'iscroll-down)
-  )
+(use-package! org-sliced-images
+  :hook (org-mode . org-sliced-images-mode))
 #+end_src
+
+
+* crux :misc:
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! crux :recipe (:host github :repo "bbatsov/crux"))
+#+end_src
+
+#+begin_src emacs-lisp :tangle "config.el"
+(use-package! crux)
+#+end_src
+
+
 
 ** orderless :completion:
 
@@ -813,6 +826,7 @@ FACE defaults to inheriting from default and highlight."
 
 - to show the list of available dictionaries
 
+in jinx-mode.c I replaced the line #include <enchant.h> with #include "/opt/homebrew/include/enchant-2/enchant.h"
 #+begin_src sh :tangle no
 enchant-lsmod-2
 #+end_src
@@ -1134,7 +1148,9 @@ prepended to the element after the #+HEADER: tag."
 
 #+begin_src emacs-lisp :tangle  "packages.el"
 (package! org-modern :recipe (:host github :repo "minad/org-modern"
-                              :files ("*.el")))
+                              :files ("*.el")
+                              )
+  :pin "5b6b53ecfba6c8da2407b2cfbeeaecab8cf83e26")
 #+end_src
 
 #+begin_src emacs-lisp :tangle "config.el"
